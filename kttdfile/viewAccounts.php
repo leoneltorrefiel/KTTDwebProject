@@ -66,6 +66,10 @@
             </center>
         </div>
         <a href="adminpage.php">Go back</a>
+
+        <form action="adminpage.php" method="post">
+          <input type="submit" name="btnLogout" value="Logout">
+    </form>
 </body>
 
 </html>

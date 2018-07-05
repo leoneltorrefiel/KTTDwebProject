@@ -49,12 +49,12 @@
 			<input type="hidden" name="id" value="<?php echo $result[0]; ?>">
 		
 		
-			Username: <?php echo $result['username'];?><br>
+			Username: <input type="text" name="" value="<?php echo $result['username'];?>" disabled><br>
 		
 			
 			Password: <input type="text" name="new_password" value="<?php echo $result[2];?>" required><br>
 			
-			Email: <?php echo $result['email'];?><br>
+			Email: <input type="text" name="" value="<?php echo $result['email'];?>" disabled><br>
 		
 			
 			Firstname: <input type="text" name="new_firstname" value="<?php echo $result[5];?>" required><br>
