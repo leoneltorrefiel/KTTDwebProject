@@ -43,7 +43,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 40%;
+    width: 30%;
 }
 
 /* The Close Button */
@@ -138,11 +138,11 @@ span.onclick = function() {
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+/*window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-}
+}*/
 </script>
 
 </body>

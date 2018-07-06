@@ -45,7 +45,8 @@
 				            echo "<td>"."<a href='download.php?download={$pending['pending_tech_id']}'>".$pending['p_tech_filename']."</a>"."</td>";
                    //         echo "<td width=1%>".$pending['p_tech_filename']."</td>";
                             echo "<td>".$pending['datetime']."</td>";
-                             echo "<td width=1%>"."<submit><a href='approve2.php?approve={$pending['pending_tech_id']}'>Approve</a></submit>"." &nbsp "."<submit><a href='decline2.php?decline={$pending['pending_tech_id']}'>Decline</a></submit>"."</td>";
+                             echo "<td width=1%>"."<submit><a href='approve2.php?approve={$pending['pending_tech_id']}'>Approve</a></submit>"." &nbsp "
+                             ."<submit><a href='decline2.php?decline={$pending['pending_tech_id']}'>Decline</a></submit>"."</td>";
 				            echo "<tr>";
 				            
                             }
