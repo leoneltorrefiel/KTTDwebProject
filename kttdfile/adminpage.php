@@ -78,6 +78,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	<br>
 		<button><a href="approvedTech.php">View Approved Technologies</a></button>
 	<br>
+    <a href="changePassword.php">Change Password</a>
 	<br>
 		<button id="myBtn">Adde New Tech</button>
 		<div id="myModal" class="modal">

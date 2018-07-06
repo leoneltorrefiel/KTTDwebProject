@@ -83,7 +83,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	<br>
 	<h3>APPROVED ACCOUNTS</h3>
 	<br>
-
+    <a href="changePassword.php">Change Password</a>
+    <br>
 	<button id="myBtn">Adde New Tech</button>
 
 <!-- The Modal -->
