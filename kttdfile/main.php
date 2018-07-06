@@ -2,6 +2,10 @@
 
 	include('server.php');
 
+    if(!empty($_SESSION['username'])){
+        header('location: home.php');
+    }
+
 ?>
 
 
@@ -11,7 +15,8 @@
 	<title>Home Page</title>
 </head>
 <body>
-	<center >
+	<center>
+        <?php echo $_SESSION['username']?>
 	<form action="main.php" method="post">
 		<div class="imgcontainer">
   </div>
