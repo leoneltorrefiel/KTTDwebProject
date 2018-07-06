@@ -77,13 +77,16 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <body>
 	<h1>HOME PAGE</h1>
 	<br>
-	<h3><a href="client_info.php">MY INFO</a></h3>
-	<br>
-	<h3><a href="client_tech.php">MY TECHNOLOGIES</a></h3>
-	<br>
-    <a href="changePassword.php">Change Password</a>
     <br>
-	
+	<button><a href="client_info.php">MY INFO</a></button>
+	<br>
+    <br>
+	<button><a href="client_tech.php">MY TECHNOLOGIES</a></button>
+	<br>
+    <br>
+    <button><a href="changePassword.php">Change Password</a></button>
+    <br>
+	<br>
 	<button id="myBtn">Adde New Tech</button>
 
 <!-- The Modal -->
@@ -121,6 +124,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	<br>
 	<?php echo $_SESSION['username']; ?>
 	<br>
+    <br>
 	<form action="home.php" method="post">
             <input type="submit" name="btnLogout" value="Logout">
 

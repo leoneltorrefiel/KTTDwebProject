@@ -66,7 +66,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </head>
 <body>
 	<h1>ADMIN PAGE</h1>
-	<br>
+
+    <button><a href="admin_info.php">My Info</a></button>
+    <br>
+    <br>
+    <button><a href="staff_tech.php">My Technologies</a></button>
+    <br>
+    <br>
 		<button><a href="pending_accounts.php">Pending Accounts</a></button>
 	<br>
 	<br>
@@ -78,8 +84,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	<br>
 		<button><a href="approvedTech.php">View Approved Technologies</a></button>
 	<br>
-    <a href="changePassword.php">Change Password</a>
+    <br>
+    <button><a href="changePassword.php">Change Password</a></button>
 	<br>
+    <br>
 		<button id="myBtn">Adde New Tech</button>
 		<div id="myModal" class="modal">
 

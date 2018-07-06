@@ -76,17 +76,21 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <body>
 	<h1>STAFF ACCOUNT</h1>
+    <br>
 
-	<h3><a href="staff_info.php">My Info</a></h3>
+	<button><a href="staff_info.php">My Info</a></button>
 	<br>
-	<h3><a href="staff_tech.php">My Technologies</a></h3>
+    <br>
+	<button><a href="staff_tech.php">My Technologies</a></button>
 	<br>
-	<h3><a href="viewAccounts.php">View Accounts</a></h3>
+    <br>
+	<button><a href="viewAccounts.php">View Accounts</a></button>
 	<br>
-    <h3><a href="approvedTech.php">Approved technologies</a></h3>
+    <br>
+    <button><a href="approvedTech.php">Approved technologies</a></button>
     <br>
     <br>
-    <a href="changePassword.php">Change Password</a>
+    <button><a href="changePassword.php">Change Password</a></button>
     <br>
     <br>
 	<button id="myBtn">Adde New Tech</button>

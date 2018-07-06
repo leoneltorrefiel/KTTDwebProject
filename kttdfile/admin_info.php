@@ -1,12 +1,9 @@
 <?php
+
 	include('server.php');
 
 	if(empty($_SESSION['username'])){
 		header('location: main.php');
-	}
-
-	if($_SESSION['username'] == 'admin'){
-		header('location: adminpage.php');
 	}
 
 	else{
@@ -26,14 +23,15 @@
 	$res2 = mysqli_query($db,$sql1);
 
 	$result = mysqli_fetch_assoc($res2);
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Info</title>
+	<title>Admin Info</title>
 </head>
 <body>
-	<h1>MY ACCOUNT</h1>
+	<h1>My Info</h1>
 
 	<p><?php echo "<img  height='30' width='30' src='".$result['file_path']."'>"; ?></p>
 	<p>Username: <?php echo $result['username']; ?> </p>
@@ -46,7 +44,7 @@
 	<p>Profession: <?php echo $result['profession']; ?> </p>
 	<p>Account type: <?php echo $result['account_type']; ?> </p>
 	<br>
-
+	<br>
 	<button><a href="staffAccount.php">Back</a></button>
 	<br>
 	<br>
@@ -54,11 +52,5 @@
             <input type="submit" name="btnLogout" value="Logout">
 
     </form>
-
-    
-
-
- 
-
 </body>
 </html>
