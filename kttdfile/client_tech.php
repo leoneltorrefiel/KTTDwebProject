@@ -47,6 +47,7 @@
                     <table>
                         <tr>
                             <th>Tech Name</th>
+                          
                         </tr>
                     </table>
                 </div>
@@ -68,6 +69,7 @@
                     <table>
                         <tr>
                             <th>Tech Name</th>
+                            <th>Status</th>
                         </tr>
                     </table>
                 </div>
@@ -76,7 +78,8 @@
                     <table>
                         <?php
                             while($pending1=mysqli_fetch_assoc($res1)){
-                            echo "<td>".$pending1['tech_name']."</td>";
+                            echo "<td width=1%>".$pending1['tech_name']."</td>";
+                            echo "<td>"."<p> View </p>"."</td>";
 				            echo "<tr>"; 
                             }
               			?>

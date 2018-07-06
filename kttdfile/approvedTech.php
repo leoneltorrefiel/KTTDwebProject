@@ -6,6 +6,17 @@
 		header('location: main.php');
 	}
 
+    $var = $_SESSION['username'];
+
+    $sql = "SELECT account_type from account where username='$var' ";
+    $res = mysqli_query($db,$sql);
+
+    $checkType = mysqli_fetch_assoc($res);
+
+    if($checkType['account_type'] == 'Client'){
+        header('location: home.php');
+    }
+
 	$sql1 = "SELECT * FROM technologies order by date_approved DESC";
 	$view1 = mysqli_query($db,$sql1);
 
@@ -58,7 +69,8 @@
         <br>
         <br>
         <a href="adminpage.php">Go back</a>
-
+        <br>
+        <br>
         <form action="adminpage.php" method="post">
           <input type="submit" name="btnLogout" value="Logout">
     </form>

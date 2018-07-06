@@ -77,13 +77,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <body>
 	<h1>STAFF ACCOUNT</h1>
 
-	<h3>VIEW INPUTTED DATA</h3>
+	<h3><a href="staff_info.php">My Info</a></h3>
 	<br>
-	<h3>VIEW UPLOADED FILES</h3>
+	<h3><a href="staff_tech.php">My Technologies</a></h3>
 	<br>
-	<h3>APPROVED ACCOUNTS</h3>
+	<h3><a href="viewAccounts.php">View Accounts</a></h3>
 	<br>
+    <h3><a href="approvedTech.php">Approved technologies</a></h3>
+    <br>
+    <br>
     <a href="changePassword.php">Change Password</a>
+    <br>
     <br>
 	<button id="myBtn">Adde New Tech</button>
 
@@ -119,10 +123,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 </div>
 	<br>
-	<h3>UPLOAD FILE</h3>
-	<br>
+    <br>
 	<?php echo $_SESSION['username']?>
 	<br>
+    <br>
 	<form action="staffAccount.php" method="post">
             <input type="submit" name="btnLogout" value="Logout">
     </form>
