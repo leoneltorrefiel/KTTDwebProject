@@ -10,7 +10,7 @@
 
 		if($message == true){
 			$sql = "DELETE from pending_account where pending_account_id='$id' ";
-			mysqli_query($db,$Sql);
+			mysqli_query($db,$sql);
 
 			echo "<meta http-equiv='refresh' content='0;url=pending_accounts.php'>";
 		}
