@@ -60,6 +60,11 @@
 	}*/
 
 	if(isset($_POST['techSubmit'])){
+
+		if(!empty($_POST['radio'])){
+			$f_file = $_POST['radio'];
+		}
+
 		$filetmp = $_FILES['file']['tmp_name'];
 		$filename = $_FILES['file']['name'];
 		$filetype = $_FILES['file']['type'];
@@ -84,12 +89,27 @@
 		$name = $res1['firstname']." ".$res2['lastname'];
 		$type = $res4['account_type'];
 
-		$insert = "INSERT into 	pending_tech (pending_tech_name,pending_tech_description,pending_tech_owner,pending_tech_username,pending_tech_acct,p_tech_filename,p_tech_filetype,p_tech_filepath,datetime) values ('$tech_name','$tech_description','$name','$s_username','$type','$filename','$filetype','$filepath',NOW() ) ";
+		$sqlCheckName = "SELECT pending_tech_name from pending_tech where pending_tech_name='$tech_name' ";
+		$resCheck = mysqli_query($db,$sqlCheckName);
+
+		$sqlCheckName2 = "SELECT tech_name from technologies where tech_name='$tech_name' ";
+		$resCheck2 = mysqli_query($db,$sqlCheckName2);
+
+		if(mysqli_num_rows($resCheck) > 0 || mysqli_num_rows($resCheck2) > 0 ){
+			$message = "Technology name already exist!.";
+			echo "<script type='text/javascript'>alert('$message');</script>";
+			header('location: home.php');
+		}
+		else{
+			$insert = "INSERT into 	pending_tech (pending_tech_name,pending_tech_description,pending_tech_owner,pending_tech_username,pending_tech_acct,pen_file_type,p_tech_filename,p_tech_filetype,p_tech_filepath,datetime) values ('$tech_name','$tech_description','$name','$s_username','$type','$f_file','$filename','$filetype','$filepath',NOW() ) ";
 			mysqli_query($db,$insert);
 			$message = "Techonology Added, waiting for aprroval.";
 			echo "<script type='text/javascript'>alert('$message');</script>";
 			
 			header('location: home.php');
+		}
+
+		
 	}
 
 
@@ -171,6 +191,50 @@
 			header('location: main.php');
 		}
 	}
+
+	if(isset($_POST['patentStep'])){
+			
+			$var1 = $_SESSION['patentStatus'];
+			$var2 = $_SESSION['patentName'];
+			$var1 = $var1 + 1;
+
+
+			if($var1 > 12){
+				echo "<script type='text/javascript'>alert('Done all steps!');</script>";
+			}
+			else{
+				$sql = "UPDATE technologies SET status='$var1' where tech_name='$var2' ";
+				mysqli_query($db,$sql);
+
+				$message = "Status Updated!.";
+				echo "<script type='text/javascript'>alert('$message');</script>";
+				header('location: approvedTech.php');
+			}
+			
+
+	}
+
+	if(isset($_POST['copyrightStep'])){
+			
+			$var1 = $_SESSION['copyStatus'];
+			$var2 = $_SESSION['copyName'];
+			$var1 = $var1 + 1;
+
+			if($var1 > 6){
+				echo "<script type='text/javascript'>alert('Done all steps!');</script>";
+			}
+			else{
+				$sql = "UPDATE technologies SET status='$var1' where tech_name='$var2' ";
+				mysqli_query($db,$sql);
+
+				$message = "Status Updated!.";
+				echo "<script type='text/javascript'>alert('$message');</script>";
+				header('location: approvedTech.php');
+			}
+			
+
+	}
+
 
 
 	if(isset($_POST['btnLogout'])){

@@ -112,6 +112,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <br>
         Attach some file here: <input type="file" name="file" value="" required>
         <br>
+        <input type="radio" name="copyright" value="Copyright"> Copyright
+        <input type="radio" name="patent" value="Patent"> Patent
+        <br>
         <input type="submit" name="techSubmit" value="Submit">
  
 	</form>

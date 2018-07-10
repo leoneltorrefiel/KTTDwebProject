@@ -70,19 +70,19 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <button><a href="admin_info.php">My Info</a></button>
     <br>
     <br>
-    <button><a href="staff_tech.php">My Technologies</a></button>
+    <button><a href="admin_tech.php">My Technologies</a></button>
     <br>
     <br>
 		<button><a href="pending_accounts.php">Pending Accounts</a></button>
 	<br>
 	<br>
-		<button><a href="viewAccounts.php">View Approved Accounts</a></button>
+		<button><a href="viewAccounts.php">Approved Accounts</a></button>
 	<br>
 	<br>
 		<button><a href="pending_tech.php">Pending Technologies</a></button>
 	<br>
 	<br>
-		<button><a href="approvedTech.php">View Approved Technologies</a></button>
+		<button><a href="approvedTech.php">Approved Technologies</a></button>
 	<br>
     <br>
     <button><a href="changePassword.php">Change Password</a></button>
@@ -96,7 +96,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <span class="close">&times;</span>
     <center>
 	<div class"container">
-	  <form action="addtech.php" method="post" enctype="multipart/form-data">
+	  <form action="adminpage.php" method="post" enctype="multipart/form-data">
 	  	<h1>Add New Technology</h1>
     <p>Please fill in this form to add new tech.</p>
     <hr>
@@ -110,6 +110,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <textarea name="tech_description" rows="10" cols="60"></textarea>
         <br>
         Attach some file here: <input type="file" name="file" value="" required>
+        <br>
+        <input type="radio" name="radio" value="Copyright">Copyright
+        <input type="radio" name="radio" value="Patent">Patent
         <br>
         <input type="submit" name="techSubmit" value="Submit">
  

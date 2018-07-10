@@ -26,6 +26,8 @@
 <html>
 <head>
 	<title>View Account</title>
+
+
 </head>
 <body>
 	<h1>Approved Technologies</h1>
@@ -41,6 +43,8 @@
                             <th width=1% align=center>Tech Username</th>
                             <th width=1% align=center>Account Type</th>
                             <th width=1% align=center>Attached File</th>
+                            <th width=1% align=center>Steps Status</th>
+                            <th width=1% align=center>File Type</th>
                             <th width=1% align=center>Date Approved</th>
                             <th width=1% align=center>Date Request</th>
                         </tr>
@@ -51,12 +55,14 @@
                     <table>
                         <?php
                             while($pending=mysqli_fetch_assoc($view1)){
-                            echo "<td width=2%>".$pending['tech_name']."</td>";
+                            echo "<td width=1%>"."<submit><a href='checkFiling.php?check={$pending['tech_id']}'>".$pending['tech_name']."</a></submit>"."</td>";
 				            echo "<td width=1.5%>".$pending['tech_description']."</td>";
                             echo "<td width=2%>".$pending['tech_owner']."</td>";
                             echo "<td width=2%>".$pending['tech_username']."</td>";
 				            echo "<td width=2%>".$pending['tech_acct']."</td>";
                             echo "<td width=1%>".$pending['tech_filename']."</td>";
+                            echo "<td width=1.5%>".$pending['status']."</td>";
+                            echo "<td width=1%>".$pending['file_type']."</td>";
                             echo "<td width=1%>".$pending['date_approved']."</td>";
                             echo "<td width=1%>".$pending['date_request']."</td>";
 				            echo "<tr>"; 

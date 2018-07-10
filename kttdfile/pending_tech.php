@@ -25,6 +25,7 @@
                             <th width=1% align=center>Owner</th>
                             <th width=1% align=center>Username</th>
                             <th width=1% align=center>Account Type</th>
+                            <th width=1% align=center>Filing Type</th>
                             <th width=1% align=center>Attached File</th>
                             <th width=1% align=center>Date Submitted</th>
                             <th width=1% align=center>Action</th>
@@ -37,15 +38,16 @@
                         <?php
 
                             while($pending=mysqli_fetch_assoc($view1)){
-                            echo "<td>".$pending['pending_tech_name']."</td>";
-				            echo "<td>".$pending['pending_tech_description']."</td>";
-                            echo "<td>".$pending['pending_tech_owner']."</td>";
-                            echo "<td>".$pending['pending_tech_username']."</td>";
-				            echo "<td>".$pending['pending_tech_acct']."</td>";
-				            echo "<td>"."<a href='download.php?download={$pending['pending_tech_id']}'>".$pending['p_tech_filename']."</a>"."</td>";
-                   //         echo "<td width=1%>".$pending['p_tech_filename']."</td>";
-                            echo "<td>".$pending['datetime']."</td>";
-                             echo "<td width=1%>"."<submit><a href='approve2.php?approve={$pending['pending_tech_id']}'>Approve</a></submit>"." &nbsp "
+                            echo "<td>".$pending['pending_tech_name']."||"."</td>";
+				            echo "<td>".$pending['pending_tech_description']."||"."</td>";
+                            echo "<td>".$pending['pending_tech_owner']."||"."</td>";
+                            echo "<td>".$pending['pending_tech_username']."||"."</td>";
+				            echo "<td>".$pending['pending_tech_acct']."||"."</td>";
+				            echo "<td>"."<a href='download.php?download={$pending['pending_tech_id']}'>".$pending['p_tech_filename']."</a>"."||"."</td>";
+                            echo "<td>".$pending['pen_file_type']."||"."</td>";
+                            echo "<td>".$pending['p_tech_filename']."||"."</td>";
+                            echo "<td>".$pending['datetime']."||"."</td>";
+                             echo "<td>"."<submit><a href='approve2.php?approve={$pending['pending_tech_id']}'>Approve</a></submit>"." &nbsp "
                              ."<submit><a href='decline2.php?decline={$pending['pending_tech_id']}'>Decline</a></submit>"."</td>";
 				            echo "<tr>";
 				            
