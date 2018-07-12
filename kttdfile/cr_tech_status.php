@@ -26,7 +26,7 @@
 	<form action="cr_tech_status.php" method="post">
 	<button name="copyrightStep" id="step1">Step 1</button>
 	<button name="copyrightStep" id="step2">Step 2</button>
-	<button name="copyrightStep" id="step3">Step 3</button>
+	<button name="copyrightStep" id="step3">Step 3</button>	
 	<button name="copyrightStep" id="step4">Step 4</button>
 	<button name="copyrightStep" id="step5">Step 5</button>
 	<button name="copyrightStep" id="step6">Step 6</button>
@@ -35,11 +35,14 @@
 	<br>
 	
 	<a href="approvedTech.php">Go Back</a>
+	<br>
 
 <script type="text/javascript">
 	var temp = <?php echo $var1; ?>
+	
+ 
 
-	if(temp == 0){
+	if(temp == 0){	
 		document.getElementById("step1").disabled = false;
 		document.getElementById("step2").disabled = true;
 		document.getElementById("step3").disabled = true;
@@ -49,7 +52,7 @@
 	}	
 
 	if(temp == 1){
-		document.getElementById("step1").disabled = false;
+		document.getElementById("step1").innerHTML = '<img src="image/check.png" width="15" height="10" />';
 		document.getElementById("step2").disabled = false;
 		document.getElementById("step3").disabled = true;
 		document.getElementById("step4").disabled = true;
@@ -59,8 +62,8 @@
 	}
 
 	if(temp == 2){
-		document.getElementById("step1").disabled = false;
-		document.getElementById("step2").disabled = false;
+		document.getElementById("step1").innerHTML = '<img src="image/check.png" width="15" height="10" />';
+		document.getElementById("step2").innerHTML = '<img src="image/check.png" width="15" height="10" />';
 		document.getElementById("step3").disabled = false;
 		document.getElementById("step4").disabled = true;
 		document.getElementById("step5").disabled = true;
@@ -69,33 +72,45 @@
 	}
 
 	if(temp == 3){
-		document.getElementById("step1").disabled = false;
-		document.getElementById("step2").disabled = false;
-		document.getElementById("step3").disabled = false;
+		document.getElementById("step1").innerHTML = '<img src="image/check.png" width="15" height="10" />';
+		document.getElementById("step2").innerHTML = '<img src="image/check.png" width="15" height="10" />';
+		document.getElementById("step3").innerHTML = '<img src="image/check.png" width="15" height="10" />';
 		document.getElementById("step4").disabled = false;
 		document.getElementById("step5").disabled = true;
 		document.getElementById("step6").disabled = true;
 		
 	}
 	if(temp == 4){
-		document.getElementById("step1").disabled = false;
-		document.getElementById("step2").disabled = false;
-		document.getElementById("step3").disabled = false;
-		document.getElementById("step4").disabled = false;
+		document.getElementById("step1").innerHTML = '<img src="image/check.png" width="15" height="10" />';
+		document.getElementById("step2").innerHTML = '<img src="image/check.png" width="15" height="10" />';
+		document.getElementById("step3").innerHTML = '<img src="image/check.png" width="15" height="10" />';
+		document.getElementById("step4").innerHTML = '<img src="image/check.png" width="15" height="10" />';
 		document.getElementById("step5").disabled = false;
 		document.getElementById("step6").disabled = true;
 		
 	}
 
 	if(temp == 5){
-		document.getElementById("step1").disabled = false;
-		document.getElementById("step2").disabled = false;
-		document.getElementById("step3").disabled = false;
-		document.getElementById("step4").disabled = false;
-		document.getElementById("step5").disabled = false;
+		document.getElementById("step1").innerHTML = '<img src="image/check.png" width="15" height="10" />';
+		document.getElementById("step2").innerHTML = '<img src="image/check.png" width="15" height="10" />';
+		document.getElementById("step3").innerHTML = '<img src="image/check.png" width="15" height="10" />';
+		document.getElementById("step4").innerHTML = '<img src="image/check.png" width="15" height="10" />';
+		document.getElementById("step5").innerHTML = '<img src="image/check.png" width="15" height="10" />';
 		document.getElementById("step6").disabled = false;
 		
 	}
+
+	if(temp == 6){
+		document.getElementById("step1").innerHTML = '<img src="image/check.png" width="15" height="10" />';
+		document.getElementById("step2").innerHTML = '<img src="image/check.png" width="15" height="10" />';
+		document.getElementById("step3").innerHTML = '<img src="image/check.png" width="15" height="10" />';
+		document.getElementById("step4").innerHTML = '<img src="image/check.png" width="15" height="10" />';
+		document.getElementById("step5").innerHTML = '<img src="image/check.png" width="15" height="10" />';
+		document.getElementById("step6").innerHTML = '<img src="image/check.png" width="15" height="10" />';
+		
+	}
+
+
 
 
 

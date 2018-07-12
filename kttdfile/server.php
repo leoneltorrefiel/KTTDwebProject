@@ -204,10 +204,11 @@
 			}
 			else{
 				$sql = "UPDATE technologies SET status='$var1' where tech_name='$var2' ";
-				mysqli_query($db,$sql);
+				$q =mysqli_query($db,$sql);
 
-				$message = "Status Updated!.";
-				echo "<script type='text/javascript'>alert('$message');</script>";
+		
+				echo "<script type='text/javascript'>alert('Status Updated!');</script>";
+
 				header('location: approvedTech.php');
 			}
 			
@@ -227,11 +228,11 @@
 				$sql = "UPDATE technologies SET status='$var1' where tech_name='$var2' ";
 				mysqli_query($db,$sql);
 
-				$message = "Status Updated!.";
-				echo "<script type='text/javascript'>alert('$message');</script>";
+				echo "<script type='text/javascript'>alert('Status Updated!');</script>";
+				
 				header('location: approvedTech.php');
+
 			}
-			
 
 	}
 

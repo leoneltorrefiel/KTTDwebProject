@@ -55,12 +55,12 @@
                     <table>
                         <?php
                             while($pending=mysqli_fetch_assoc($view1)){
-                            echo "<td width=1%>"."<submit><a href='checkFiling.php?check={$pending['tech_id']}'>".$pending['tech_name']."</a></submit>"."</td>";
+                            echo "<td width=1%>"."<a href='checkFiling.php?check={$pending['tech_id']}'>".$pending['tech_name']."</a>"."</td>";
 				            echo "<td width=1.5%>".$pending['tech_description']."</td>";
                             echo "<td width=2%>".$pending['tech_owner']."</td>";
                             echo "<td width=2%>".$pending['tech_username']."</td>";
 				            echo "<td width=2%>".$pending['tech_acct']."</td>";
-                            echo "<td width=1%>".$pending['tech_filename']."</td>";
+                            echo "<td width=1%>"."<a href='download.php?dl={$pending['tech_id']}'>".$pending['tech_filename']."</a>"."</td>";
                             echo "<td width=1.5%>".$pending['status']."</td>";
                             echo "<td width=1%>".$pending['file_type']."</td>";
                             echo "<td width=1%>".$pending['date_approved']."</td>";
