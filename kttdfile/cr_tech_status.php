@@ -26,7 +26,7 @@
 	<form action="cr_tech_status.php" method="post">
 	<button name="copyrightStep" id="step1">Step 1</button>
 	<button name="copyrightStep" id="step2">Step 2</button>
-	<button name="copyrightStep" id="step3">Step 3</button>	
+	<button name="copyrightStep" id="step3">Step 3</button>
 	<button name="copyrightStep" id="step4">Step 4</button>
 	<button name="copyrightStep" id="step5">Step 5</button>
 	<button name="copyrightStep" id="step6">Step 6</button>
@@ -52,6 +52,7 @@
 	}	
 
 	if(temp == 1){
+	
 		document.getElementById("step1").innerHTML = '<img src="image/check.png" width="15" height="10" />';
 		document.getElementById("step2").disabled = false;
 		document.getElementById("step3").disabled = true;
