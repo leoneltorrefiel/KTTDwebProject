@@ -25,5 +25,7 @@
 </head>
 <body>
 	<h1><?php echo $temp['tech_name'];  ?></h1>
+
+	
 </body>
 </html>

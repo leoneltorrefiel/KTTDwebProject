@@ -33,6 +33,10 @@
 
 	<div>
             <center>
+                <div>
+                    <b>Search: </b> 
+                    <input type="text" name="searchNAme" id="searchName" placeholder="Search Username" onKeyUp="search();" autocomplete="off">
+                </div>
             	<div class="contentHeader">
                     <table id="pos">
                         <tr>
@@ -52,26 +56,31 @@
                     </table>
                 </div>
 
-                <div class="">
+                <div id="result">
                     <table>
                         <?php
+                        if(empty($nm)){
+                            $sql1 = "SELECT * FROM account order by dateApproved ASC";
+                            $view1 = mysqli_query($db,$sql1);
 
-                            while($pending=mysqli_fetch_assoc($view1)){
+                             while($pending=mysqli_fetch_assoc($view1)){
                             echo "<td width=2%>"."<img  height='30' width='30' src='".$pending['file_path']."'>"."</td>";
                             echo "<td width=2%>".$pending['username']."</td>";
-				            echo "<td width=1.5%>".$pending['password']."</td>";
+                            echo "<td width=1.5%>".$pending['password']."</td>";
                             echo "<td width=2%>".$pending['firstname']."</td>";
                             echo "<td width=1%>".$pending['lastname']."</td>";
-				            echo "<td width=1%>".$pending['email']."</td>";
+                            echo "<td width=1%>".$pending['email']."</td>";
                             echo "<td width=1%>".$pending['address']."</td>";
                             echo "<td width=1%>".$pending['contact']."</td>";
                             echo "<td width=1%>".$pending['dateApplied']."</td>";
                             echo "<td width=1%>".$pending['dateApproved']."</td>";
                             echo "<td width=1%>".$pending['account_type']."</td>";
                             echo "<td width=1.5%>"."<a href='updateAccount.php?update={$pending['account_id']}'><submit>UPDATE</submit></a>"." &nbsp "."<a href='deleteAccount.php?remove={$pending['account_id']}'><submit>DELETE</submit></a>"."</td>";
-				            echo "<tr>";
-				            
+                            echo "<tr>";
+                            
                             }
+                        }
+                           
               			?>
                     </table>
                 </div>
@@ -85,6 +94,18 @@
         <form action="adminpage.php" method="post">
           <input type="submit" name="btnLogout" value="Logout">
     </form>
+
+
+    <script type="text/javascript">
+    function search(){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.open("GET","searchBar2.php?nm="+ document.getElementById("searchName").value,false);
+        xmlhttp.send(null);
+        document.getElementById("result").innerHTML=xmlhttp.responseText;
+        document.getElementById("result").style.visibility='visible';
+    }
+        
+</script>
 </body>
 
 </html>

@@ -1,10 +1,10 @@
 <?php
-	
-	include('server.php');
+    
+    include('server.php');
 
-	if(empty($_SESSION['username'])){
-		header('location: main.php');
-	}
+    if(empty($_SESSION['username'])){
+        header('location: main.php');
+    }
 
     $var = $_SESSION['username'];
 
@@ -17,24 +17,30 @@
         header('location: home.php');
     }
 
-	$sql1 = "SELECT * FROM technologies order by date_approved DESC";
-	$view1 = mysqli_query($db,$sql1);
+    $sql1 = "SELECT * FROM technologies order by date_approved DESC";
+    $view1 = mysqli_query($db,$sql1);
 
+    
+    
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>View Account</title>
+    <title>View Account</title>
 
 
 </head>
 <body>
-	<h1>Approved Technologies</h1>
+    <h1>Approved Technologies</h1>
 
-	<div>
+    <div>
             <center>
-            	<div class="contentHeader">
+                <div>
+                    <b>Search: </b> 
+                    <input type="text" name="searchNAme" id="searchName" placeholder="Search Technology Name" onKeyUp="search();" autocomplete="off">
+                </div>
+                <div class="contentHeader">
                     <table id="pos">
                         <tr>
                             <th width=1% align=center>Tech Name</th>
@@ -50,26 +56,35 @@
                         </tr>
                     </table>
                 </div>
+                <div id="result">
+                    <?php
+                        if(empty($nm)){
+        
+    $sql = "SELECT * from technologies order by date_approved DESC";
+    $result = mysqli_query($db,$sql);
 
-                <div class="">
-                    <table>
-                        <?php
-                            while($pending=mysqli_fetch_assoc($view1)){
-                            echo "<td width=1%>"."<a href='checkFiling.php?check={$pending['tech_id']}'>".$pending['tech_name']."</a>"."</td>";
-				            echo "<td width=1.5%>".$pending['tech_description']."</td>";
-                            echo "<td width=2%>".$pending['tech_owner']."</td>";
-                            echo "<td width=2%>".$pending['tech_username']."</td>";
-				            echo "<td width=2%>".$pending['tech_acct']."</td>";
-                            echo "<td width=1%>"."<a href='download.php?dl={$pending['tech_id']}'>".$pending['tech_filename']."</a>"."</td>";
-                            echo "<td width=1.5%>".$pending['status']."</td>";
-                            echo "<td width=1%>".$pending['file_type']."</td>";
-                            echo "<td width=1%>".$pending['date_approved']."</td>";
-                            echo "<td width=1%>".$pending['date_request']."</td>";
-				            echo "<tr>"; 
-                            }
-              			?>
-                    </table>
+    echo "<table>";
+    while($row=mysqli_fetch_assoc($result)){
+        echo "<tr>";
+        echo "<td width=1%>"."<a href='checkFiling.php?check={$row['tech_id']}'>"; echo $row['tech_name']; echo "</a>"."</td>";
+        echo "<td width=1.5%>"; echo $row['tech_description']; echo "</td>";
+        echo "<td width=2%>"; echo $row['tech_owner']; echo "</td>";
+        echo "<td width=2%>"; echo $row['tech_username']; echo "</td>";
+        echo "<td width=2%>"; echo $row['tech_acct']; echo "</td>";
+        echo "<td width=1%>"."<a href='download.php?dl={$row['tech_id']}'>"; echo $row['tech_filename']; echo "</a>"."</td>";
+        echo "<td width=1.5%>"; echo $row['status']; echo "</td>";
+        echo "<td width=1%>"; echo $row['file_type']; echo "</td>";
+        echo "<td width=1%>"; echo $row['date_approved']; echo "</td>";
+        echo "<td width=1%>"; echo $row['date_request']; echo "</td>";
+        echo "</tr>";
+        } 
+
+    echo "</table>";
+    }
+                    ?>
                 </div>
+
+                
             </center>
         </div>
         <br>
@@ -80,6 +95,19 @@
         <form action="adminpage.php" method="post">
           <input type="submit" name="btnLogout" value="Logout">
     </form>
+<script type="text/javascript">
+    function search(){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.open("GET","searchBar.php?nm="+ document.getElementById("searchName").value,false);
+        xmlhttp.send(null);
+        document.getElementById("result").innerHTML=xmlhttp.responseText;
+        document.getElementById("result").style.visibility='visible';
+    }
+        
+</script>
+
+
 </body>
 
 </html>
+
