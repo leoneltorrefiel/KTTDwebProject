@@ -6,7 +6,7 @@
 	}
 
 	if($_SESSION['username'] == 'admin'){
-		header('location: adminpage.php');
+		header('location: admin-my-technologies.php');
 	}
 	else{
 		$var = $_SESSION['username'];
@@ -20,8 +20,6 @@
 			header('location: staffAccount.php');
 		}
 	}
-
-	
 ?>
 
 <!DOCTYPE html>
@@ -111,9 +109,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <textarea name="tech_description" rows="10" cols="60"></textarea>
         <br>
         Attach some file here: <input type="file" name="file" value="" required>
-        <br>
-        <input type="radio" name="copyright" value="Copyright"> Copyright
-        <input type="radio" name="patent" value="Patent"> Patent
         <br>
         <input type="submit" name="techSubmit" value="Submit">
  

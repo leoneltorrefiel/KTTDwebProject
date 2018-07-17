@@ -1,5 +1,4 @@
 <?php
-	
 	session_start();
 
 	$db = mysqli_connect('localhost','root','','kttd');
@@ -17,7 +16,7 @@
 		if(mysqli_num_rows($result) > 0){
 			if($username == 'admin'){
 				$_SESSION['username'] = $username;
-				header('location: adminpage.php');
+				header('location: admin-my-technologies.php');
 			}
 			else{
 
@@ -28,7 +27,7 @@
 
 				if($res1['account_type'] == 'Staff'){
 				$_SESSION['username'] = $username;
-				header('location: staffAccount.php');
+				header('location: user-my-technologies.php');
 				}
 				if($res1['account_type'] == 'Client'){
 					$_SESSION['username'] = $username;
