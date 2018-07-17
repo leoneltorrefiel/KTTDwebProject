@@ -100,7 +100,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	  	<h1>Add New Technology</h1>
     <p>Please fill in this form to add new tech.</p>
     <hr>
-		
+		<p><?php $_SESSION['username'];  ?></p>
 		Technology Name:
 		<br>
 		<input type="text" name="tech_name">

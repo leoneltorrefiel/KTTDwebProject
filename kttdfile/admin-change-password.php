@@ -1,3 +1,32 @@
+<?php
+
+  include('server.php');
+
+  if(empty($_SESSION['username'])){
+    header('location: main.php');
+  }
+
+  else{
+    $var = $_SESSION['username'];
+  
+    $checkType = "SELECT account_type from account where username='$var'";
+    $res = mysqli_query($db,$checkType);
+
+    $res1 = mysqli_fetch_assoc($res);
+
+    if($res1['account_type'] == 'Client'){
+      header('location: home.php');
+    }
+  }
+
+  $sql1 = "SELECT * from account where username='$var' ";
+  $res2 = mysqli_query($db,$sql1);
+
+  $result = mysqli_fetch_assoc($res2);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
@@ -24,8 +53,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <img src="./assets-admin/images/avatar.png" class="w3-circle w3-margin-right" style="width:46px">
     </div>
     <div class="w3-col s8 w3-bar">
-      <span>Welcome, <strong>Mike</strong></span><br>
-      <a href="./home.php" class="w3-bar-item w3-button">Logout &nbsp <img src="./assets-admin/images/logout.png"></a>
+      <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
+      <form action="home.php" method="post">
+        <input class="w3-bar-item w3-button" type="submit" name="btnLogout" value="Logout ->">
+      </form>
     </div>
   </div>
   <hr>
@@ -55,7 +86,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+    <h5><b><i class="fa fa-dashboard"></i> Change Password</b></h5>
   </header>
 
   <div class="w3-row-padding w3-margin-bottom">
@@ -107,43 +138,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
   </div>
   <hr>
-  <div class="w3-container">
-    <h5>General Stats</h5>
-    <p>New Visitors</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-green" style="width:25%">+25%</div>
-    </div>
-  </div>
-  <br>
-  <div class="w3-container w3-dark-grey w3-padding-32">
-    <div class="w3-row">
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-green">Demographic</h5>
-        <p>Language</p>
-        <p>Country</p>
-        <p>City</p>
-      </div>
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-red">System</h5>
-        <p>Browser</p>
-        <p>OS</p>
-        <p>More</p>
-      </div>
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-orange">Target</h5>
-        <p>Users</p>
-        <p>Active</p>
-        <p>Geo</p>
-        <p>Interests</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="w3-container w3-padding-16 w3-light-grey">
-    <h4>FOOTER</h4>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-  </footer>
+  
 
   <!-- End page content -->
 </div>
@@ -176,12 +171,3 @@ function w3_close() {
 </html>
 
 
-#fff100
-#fbd241
-#f18e00
-#ce4e43
-#a03748
-#8ec735
-#108f01
-#0c5689
-#4e4d50
