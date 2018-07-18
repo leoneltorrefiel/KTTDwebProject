@@ -27,11 +27,11 @@
 
 				if($res1['account_type'] == 'Staff'){
 				$_SESSION['username'] = $username;
-				header('location: user-my-technologies.php');
+				header('location: staff-my-technologies.php');
 				}
 				if($res1['account_type'] == 'Client'){
 					$_SESSION['username'] = $username;
-					header('location: home.php');
+					header('location: client-my-technologies.php');
 				}
 			}
 

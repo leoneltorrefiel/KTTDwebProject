@@ -6,6 +6,10 @@
     header('location: main.php');
   }
 
+  if($_SESSION['username'] == 'admin'){
+    header('location: admin-my-technologies.php');
+  }
+
   else{
     $var = $_SESSION['username'];
   
@@ -14,9 +18,10 @@
 
     $res1 = mysqli_fetch_assoc($res);
 
-    if($res1['account_type'] == 'Client'){
-      header('location: home.php');
+    if($res1['account_type'] == 'Staff'){
+      header('location: staff-my-technologies.php');
     }
+
   }
 
   $sql1 = "SELECT * from account where username='$var' ";
@@ -27,10 +32,9 @@
 ?>
 
 
-
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Admin Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./assets-admin/css/w3.css">
@@ -64,17 +68,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-container">
     <h5>Dashboard</h5>
   </div>
- <div class="w3-bar-block">
+  <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="./admin-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  My Technologies</a>
-    <a href="./admin-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  My Information</a>
-    <a href="./admin-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i> Change Password</a>/
-    <br>
-    <a href="./admin-add-new-technology.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bell fa-fw"></i>  Add New Technology</a>
-    <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> Pending Accounts</a>
-    <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  Pending Technologies</a>
-    <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> Approved Accounts</a>    
-    <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i> Approved Technologies</a>    
+    <a href="./client-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  My Technologies</a>
+    <a href="./client-my-information.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-eye fa-fw"></i>  My Information</a>
+    <a href="./client-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i> Change Password</a>/
+    <a href="./client-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  Add New Technology</a>    
   </div>
 </nav>
 
@@ -87,7 +86,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> Add New Technology</b></h5>
+    <h5><b><i class="fa fa-dashboard"></i> My Information   </b></h5>
   </header>
 
   <div class="w3-row-padding w3-margin-bottom">
@@ -100,29 +99,49 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <table class="w3-table w3-striped w3-white">
           <tr>
             <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
-            <td>Technology Name: </td>
-            <td><input type="text" name="tech_name"></td>
+            <td>Username: </td>
+            <td><i><?php echo $result['username']; ?></i></td>
           </tr>
           <tr>
             <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
-            <td>Technology Description: .</td>
-            <td><textarea name="tech_description" rows="10" cols="60"></textarea></td>
+            <td>Password: </td>
+            <td><i><?php echo $result['password']; ?> </i></td>
           </tr>
           <tr>
             <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-            <td>Attach Some File: </td>
-            <td><input type="file" name="file" value="" required></td>
+            <td>Email: </td>
+            <td><i><?php echo $result['email']; ?> </i></td>
           </tr>
           <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-            <td><input type="radio" name="radio" value="Copyright"> Copyright</td>
-            <td><input type="radio" name="radio" value="Patent"> Patent</td>
+            <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
+            <td>Firstname: </td>
+            <td><i><?php echo $result['firstname']; ?></i></td>
           </tr>
           <tr>
-            <td></td>
-            <td><input type="submit" name="techSubmit" value="Submit"></td>
+            <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
+            <td>Lastname: </td>
+            <td><i><?php echo $result['lastname']; ?></i></td>
           </tr>
-          
+          <tr>
+            <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
+            <td>Address: </td>
+            <td><i><?php echo $result['address']; ?></i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
+            <td>Contact: </td>
+            <td><i><?php echo $result['contact']; ?></i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
+            <td>Profession: </td>
+            <td><i><?php echo $result['profession']; ?></i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
+            <td>Account type: </td>
+            <td><i><?php echo $result['account_type']; ?></i></td>
+          </tr>
         </table>
       </div>
     </div>
@@ -159,5 +178,3 @@ function w3_close() {
 </script>
 </body>
 </html>
-
-

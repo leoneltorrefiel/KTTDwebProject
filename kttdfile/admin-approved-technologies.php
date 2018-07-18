@@ -2,27 +2,23 @@
 
   include('server.php');
 
-  if(empty($_SESSION['username'])){
-    header('location: main.php');
-  }
-
-  else{
-    $var = $_SESSION['username'];
-  
-    $checkType = "SELECT account_type from account where username='$var'";
-    $res = mysqli_query($db,$checkType);
-
-    $res1 = mysqli_fetch_assoc($res);
-
-    if($res1['account_type'] == 'Client'){
-      header('location: home.php');
+   if(empty($_SESSION['username'])){
+        header('location: main.php');
     }
-  }
 
-  $sql1 = "SELECT * from account where username='$var' ";
-  $res2 = mysqli_query($db,$sql1);
+    $var = $_SESSION['username'];
 
-  $result = mysqli_fetch_assoc($res2);
+    $sql = "SELECT account_type from account where username='$var' ";
+    $res = mysqli_query($db,$sql);
+
+    $checkType = mysqli_fetch_assoc($res);
+
+    if($checkType['account_type'] == 'Client'){
+        header('location: home.php');
+    }
+
+    $sql1 = "SELECT * FROM technologies order by date_approved DESC";
+    $view1 = mysqli_query($db,$sql1);
 
 ?>
 
@@ -32,7 +28,7 @@
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./assets-admin/css/w3.css">
+<link rel="stylesheet" href="./assets-admin/css/w4.css">
 <link rel="stylesheet" href="./assets-admin/css/font-railway.css">
 <link rel="stylesheet" href="./assets-admin/css/font-awesome.css">
 <style>
@@ -54,6 +50,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
+      <form action="admin-approved-technologies.php" method="post">
         <input class="w3-bar-item w3-button" type="submit" name="btnLogout" value="Logout ->">
       </form>
     </div>
@@ -68,10 +65,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="./admin-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  My Information</a>
     <a href="./admin-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i> Change Password</a>/
     <br>
-    <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> Pending Accounts</a>
-    <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> Approved Accounts</a>
     <a href="./admin-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  Add New Technology</a>
+    <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> Pending Accounts</a>
     <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  Pending Technologies</a>
+    <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> Approved Accounts</a>    
     <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-history fa-fw"></i> Approved Technologies</a>    
   </div>
 </nav>
@@ -95,45 +92,53 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-        <h5>Feeds</h5>
+        <div>
+                    <b>Search: </b> 
+                    <input type="text" name="searchNAme" id="searchName" placeholder="Search Technology Name" onKeyUp="search();" autocomplete="off">
+                    <br>
+                    <br>
+                </div>
         <table class="w3-table w3-striped w3-white">
           <tr>
-            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
-            <td>New record, over 90 views.</td>
-            <td><i>10 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
-            <td>Database error.</td>
-            <td><i>15 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-            <td>New record, over 40 users.</td>
-            <td><i>17 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
-            <td>New comments.</td>
-            <td><i>25 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
-            <td>Check transactions.</td>
-            <td><i>28 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
-            <td>CPU overload.</td>
-            <td><i>35 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
-            <td>New shares.</td>
-            <td><i>39 mins</i></td>
+            <th width=1% align=center>Tech Name</th>
+                            <th width=1% align=center>Tech Description</th>
+                            <th width=1% align=center>Tech Owner</th>
+                            <th width=1% align=center>Tech Username</th>
+                            <th width=1% align=center>Account Type</th>
+                            <th width=1% align=center>Attached File</th>
+                            <th width=1% align=center>Steps Status</th>
+                            <th width=1% align=center>File Type</th>
+                            <th width=1% align=center>Date Approved</th>
+                            <th width=1% align=center>Date Request</th>
           </tr>
         </table>
       </div>
+      <div id="result">
+                    <?php
+                        if(empty($nm)){
+        
+    $sql = "SELECT * from technologies order by date_approved DESC";
+    $result = mysqli_query($db,$sql);
+
+    echo "<table class='w3-table w3-striped w3-white'>";
+    while($row=mysqli_fetch_assoc($result)){
+        echo "<tr>";
+        echo "<td width=1%>"."<a href='checkFiling.php?check={$row['tech_id']}'><font color='green'>"; echo $row['tech_name']; echo "</font></a>"."</td>";
+        echo "<td width=1.5%>"; echo $row['tech_description']; echo "</td>";
+        echo "<td width=2%>"; echo $row['tech_owner']; echo "</td>";
+        echo "<td width=2%>"; echo $row['tech_username']; echo "</td>";
+        echo "<td width=2%>"; echo $row['tech_acct']; echo "</td>";
+        echo "<td width=1%>"."<a href='download.php?dl={$row['tech_id']}'>"; echo $row['tech_filename']; echo "</a>"."</td>";
+        echo "<td width=1.5%>"; echo $row['status']; echo "</td>";
+        echo "<td width=1%>"; echo $row['file_type']; echo "</td>";
+        echo "<td width=1%>"; echo $row['date_approved']; echo "</td>";
+        echo "<td width=1%>"; echo $row['date_request']; echo "</td>";
+        echo "</tr>";
+        } 
+
+    echo "</table>";
+    }
+                    ?>
     </div>
   </div>
   <hr>
@@ -165,6 +170,15 @@ function w3_close() {
     mySidebar.style.display = "none";
     overlayBg.style.display = "none";
 }
+
+function search(){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.open("GET","searchBar.php?nm="+ document.getElementById("searchName").value,false);
+        xmlhttp.send(null);
+        document.getElementById("result").innerHTML=xmlhttp.responseText;
+        document.getElementById("result").style.visibility='visible';
+    }
+
 </script>
 </body>
 </html>

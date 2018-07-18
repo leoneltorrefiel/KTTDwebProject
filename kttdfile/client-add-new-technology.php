@@ -5,6 +5,9 @@
   if(empty($_SESSION['username'])){
     header('location: main.php');
   }
+  if($_SESSION['username'] == 'admin'){
+    header('location: admin-my-technologies.php');
+  }
 
   else{
     $var = $_SESSION['username'];
@@ -14,8 +17,8 @@
 
     $res1 = mysqli_fetch_assoc($res);
 
-    if($res1['account_type'] == 'Client'){
-      header('location: home.php');
+    if($res1['account_type'] == 'Staff'){
+      header('location: staff-my-technologies.php');
     }
   }
 
@@ -25,8 +28,6 @@
   $result = mysqli_fetch_assoc($res2);
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html>
@@ -66,15 +67,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
  <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="./admin-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  My Technologies</a>
-    <a href="./admin-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  My Information</a>
-    <a href="./admin-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i> Change Password</a>/
-    <br>
-    <a href="./admin-add-new-technology.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bell fa-fw"></i>  Add New Technology</a>
-    <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> Pending Accounts</a>
-    <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  Pending Technologies</a>
-    <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> Approved Accounts</a>    
-    <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i> Approved Technologies</a>    
+    <a href="./client-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  My Technologies</a>
+    <a href="./client-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  My Information</a>
+    <a href="./client-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i> Change Password</a>/
+    <a href="./client-add-new-technology.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bell fa-fw"></i>  Add New Technology</a>  
   </div>
 </nav>
 
@@ -159,5 +155,3 @@ function w3_close() {
 </script>
 </body>
 </html>
-
-

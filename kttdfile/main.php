@@ -2,7 +2,7 @@
 	include('server.php');
 
     if(!empty($_SESSION['username'])){
-        header('location: home.php');
+        header('location: client-my-technologies.php');
     }
 ?>
 
@@ -299,7 +299,7 @@ info@company.com
 											<h4 class="modal-title" id="mySmallModalLabel">
 												Sign In
 											</h4> 
-											<form action="home.php" method="post" class="sm-frm" style="padding:25px">
+											<form action="main.php" method="post" class="sm-frm" style="padding:25px">
 												<label>Username :</label>
 												<input type="text" class="form-control" name="username" placeholder="client123">
 												<label>Password :</label>

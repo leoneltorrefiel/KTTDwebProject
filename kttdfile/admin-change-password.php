@@ -2,27 +2,38 @@
 
   include('server.php');
 
-  if(empty($_SESSION['username'])){
-    header('location: main.php');
-  }
+  $var = $_SESSION['username'];
+  $sql = "SELECT * from account where username='$var' ";
+  $res = mysqli_query($db,$sql);
 
-  else{
-    $var = $_SESSION['username'];
-  
-    $checkType = "SELECT account_type from account where username='$var'";
-    $res = mysqli_query($db,$checkType);
+  $result = mysqli_fetch_array($res);
 
-    $res1 = mysqli_fetch_assoc($res);
 
-    if($res1['account_type'] == 'Client'){
-      header('location: home.php');
+  if(isset($_POST['currentPass'])){
+
+    $currentPass = mysqli_real_escape_string($db,$_POST['currentPass']);
+    $newPass = mysqli_real_escape_string($db,$_POST['newPass']);
+    $confirmPass = mysqli_real_escape_string($db,$_POST['confirmPass']);
+
+    $sql1 = "SELECT * from account where username='$var' and password='$currentPass' ";
+    $res1 = mysqli_query($db,$sql1);
+
+    if($newPass != $confirmPass){
+      echo "<script> alert('Password did not match!'); </script> ";
     }
+    else{
+      if(mysqli_num_rows($res1) > 0){
+        $ups = "UPDATE account set password='$newPass' where username='$var' ";
+        mysqli_query($db,$ups);
+        echo "<script> alert('Password has been Changed!'); </script> ";
+      }
+    else{
+        echo "<script> alert('Incorrect Current Password'); </script> ";
+      }
+    }
+
+    
   }
-
-  $sql1 = "SELECT * from account where username='$var' ";
-  $res2 = mysqli_query($db,$sql1);
-
-  $result = mysqli_fetch_assoc($res2);
 
 ?>
 
@@ -67,12 +78,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     <a href="./admin-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  My Technologies</a>
     <a href="./admin-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  My Information</a>
-    <a href="./admin-change-password.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-diamond fa-fw"></i> Change Password</a>
+    <a href="./admin-change-password.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-diamond fa-fw"></i> Change Password</a>/
     <br>
-    <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> Pending Accounts</a>
-    <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> Approved Accounts</a>
     <a href="./admin-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  Add New Technology</a>
+    <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> Pending Accounts</a>
     <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  Pending Technologies</a>
+    <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> Approved Accounts</a>    
     <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i> Approved Technologies</a>    
   </div>
 </nav>
@@ -96,44 +107,37 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-        <h5>Feeds</h5>
+        <h5>Change Password</h5>
+        <form action="admin-change-password.php" method="POST">
         <table class="w3-table w3-striped w3-white">
           <tr>
             <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
-            <td>New record, over 90 views.</td>
-            <td><i>10 mins</i></td>
+            <td>Username: </td>
+            <td><input type="text" name="username" value="<?php echo $result['username']; ?>" disabled></td>
           </tr>
           <tr>
             <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
-            <td>Database error.</td>
-            <td><i>15 mins</i></td>
+            <td>Current Password: </td>
+            <td><input type="password" name="currentPass" required></td>
           </tr>
           <tr>
             <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-            <td>New record, over 40 users.</td>
-            <td><i>17 mins</i></td>
+            <td>New Password: </td>
+            <td><input type="password" name="newPass" required></td>
           </tr>
           <tr>
             <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
-            <td>New comments.</td>
-            <td><i>25 mins</i></td>
+            <td>Confirm Password: </td>
+            <td><input type="password" name="confirmPass" required></td>
           </tr>
           <tr>
-            <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
-            <td>Check transactions.</td>
-            <td><i>28 mins</i></td>
+            <td></td>
+            <td></td>
+            <td><input type="submit" name="changePassBtn" value="Submit"></td>
           </tr>
-          <tr>
-            <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
-            <td>CPU overload.</td>
-            <td><i>35 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
-            <td>New shares.</td>
-            <td><i>39 mins</i></td>
-          </tr>
+          
         </table>
+        </form>
       </div>
     </div>
   </div>

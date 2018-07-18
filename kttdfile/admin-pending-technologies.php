@@ -6,23 +6,20 @@
     header('location: main.php');
   }
 
-  else{
     $var = $_SESSION['username'];
-  
-    $checkType = "SELECT account_type from account where username='$var'";
-    $res = mysqli_query($db,$checkType);
 
-    $res1 = mysqli_fetch_assoc($res);
+    $sql = "SELECT account_type from account where username='$var' ";
+    $res = mysqli_query($db,$sql);
 
-    if($res1['account_type'] == 'Client'){
-      header('location: home.php');
+    $checkType = mysqli_fetch_assoc($res);
+
+    if($checkType['account_type'] == 'Client'){
+        header('location: home.php');
     }
-  }
 
-  $sql1 = "SELECT * from account where username='$var' ";
-  $res2 = mysqli_query($db,$sql1);
 
-  $result = mysqli_fetch_assoc($res2);
+  $sql1 = "SELECT * FROM pending_tech order by datetime ASC";
+  $view1 = mysqli_query($db,$sql1);
 
 ?>
 
@@ -32,7 +29,7 @@
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./assets-admin/css/w3.css">
+<link rel="stylesheet" href="./assets-admin/css/w4.css">
 <link rel="stylesheet" href="./assets-admin/css/font-railway.css">
 <link rel="stylesheet" href="./assets-admin/css/font-awesome.css">
 <style>
@@ -67,12 +64,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     <a href="./admin-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  My Technologies</a>
     <a href="./admin-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  My Information</a>
-    <a href="./admin-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i> Change Password</a>
+    <a href="./admin-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i> Change Password</a>/
     <br>
-    <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> Pending Accounts</a>
-    <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> Approved Accounts</a>
     <a href="./admin-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  Add New Technology</a>
+    <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> Pending Accounts</a>
     <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bank fa-fw"></i>  Pending Technologies</a>
+    <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> Approved Accounts</a>    
     <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i> Approved Technologies</a>    
   </div>
 </nav>
@@ -96,43 +93,37 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-        <h5>Feeds</h5>
         <table class="w3-table w3-striped w3-white">
           <tr>
-            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
-            <td>New record, over 90 views.</td>
-            <td><i>10 mins</i></td>
+            <th align=center>Tech Name</th>
+            <th align=center>Description</th>
+            <th align=center>Owner</th>
+            <th align=center>Username</th>
+            <th align=center>Account Type</th>
+            <th align=center>Attached File</th>
+            <th align=center>Filing Type</th>   
+            <th align=center>Date Submitted</th>
+            <th align=center>Action</th>
           </tr>
-          <tr>
-            <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
-            <td>Database error.</td>
-            <td><i>15 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-            <td>New record, over 40 users.</td>
-            <td><i>17 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
-            <td>New comments.</td>
-            <td><i>25 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
-            <td>Check transactions.</td>
-            <td><i>28 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
-            <td>CPU overload.</td>
-            <td><i>35 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
-            <td>New shares.</td>
-            <td><i>39 mins</i></td>
-          </tr>
+
+          <?php
+
+                  while($pending=mysqli_fetch_assoc($view1)){
+                    echo "<td>".$pending['pending_tech_name']."</td>";
+                    echo "<td>".$pending['pending_tech_description']."</td>";
+                    echo "<td>".$pending['pending_tech_owner']."</td>";
+                    echo "<td>".$pending['pending_tech_username']."</td>";
+                    echo "<td>".$pending['pending_tech_acct']."</td>";
+                    echo "<td>"."<a href='download.php?download={$pending['pending_tech_id']}'>".$pending['p_tech_filename']."</a>"."</td>";
+                    echo "<td>".$pending['pen_file_type']."</td>";
+                    echo "<td>".$pending['datetime']."</td>";
+                    echo "<td>"."<submit><a href='approve2.php?approve={$pending['pending_tech_id']}'><font color='green' size='3'><script> document.write('&#10004');</script></font></a></submit>"." &nbsp "
+                            ."<submit><a href='decline2.php?decline={$pending['pending_tech_id']}'><font color='red'><script> document.write('&#10006');</script></red></a></submit>"."</td>";
+                    echo "<tr>";
+                    
+                            }
+                    ?>
+                    
         </table>
       </div>
     </div>
