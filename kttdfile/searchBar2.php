@@ -23,7 +23,7 @@
 		echo "<td>"; echo $row['dateApplied']; echo "</td>";
 		echo "<td>"; echo $row['dateApproved']; echo "</td>";
 		echo "<td>"; echo $row['account_type']; echo "</td>";
-		echo "<td>"; echo "<a href='updateAccount.php?update={$row['account_id']}'><submit><font color='green'>UPDATE</font></submit></a>"." &nbsp "."<a href='deleteAccount.php?remove={$row['account_id']}'><submit><font color='red'>DELETE</font></submit></a>"; echo "</td>";
+		echo "<td>"; echo "<a href='updateAccount.php?update={$row['account_id']}'><submit><font color='green' size='5'><i class='fa fa-edit'></i></font></submit></a>"." &nbsp "."<a href='deleteAccount.php?remove={$row['account_id']}'><submit><font color='red' size='5'><i class='fa fa-trash'></i></font></submit></a>"; echo "</td>";
 		echo "</tr>";
 	}
 	echo "</table>";

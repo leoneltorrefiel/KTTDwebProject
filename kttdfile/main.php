@@ -291,6 +291,7 @@ info@company.com
  onclick="jQuery(this).closest('form').submit();" href="#" class="bd-linkbutton-2  bd-button-12  bd-own-margins bd-content-element" data-toggle="modal" data-target=".bs-example-modal-sm">
     Sign IN
 </a>
+
         <!-- small modal -->
 							<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 								<div class="modal-dialog modal-sm" role="document">
@@ -298,6 +299,7 @@ info@company.com
 										<div class="modal-header">
 											<h4 class="modal-title" id="mySmallModalLabel">
 												Sign In
+
 											</h4> 
 											<form action="main.php" method="post" class="sm-frm" style="padding:25px">
 												<label>Username :</label>
@@ -307,10 +309,19 @@ info@company.com
 												<label><input type="checkbox" name="personality"> Remenber Me</label><br>
 												<button type="submit" name="btnLogin" class="btn btn-default pull-right">Login</button>
 											</form>
+
 										</div>
 									</div>
 								</div>
+
 							</div>
+<?php
+
+                                            if(isset($_GET['error']) == 1){
+                                                echo "<font color='red'><p>Invalid Account!</p></font>";
+                                            }
+
+                                            ?>
         
         <!-- large modal -->
 							<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -318,6 +329,13 @@ info@company.com
 									<div class="modal-content">
 										<div class="modal-header">
 											<h4 class="modal-title" id="myLargeModalLabel">Sign Up</h4> 
+                                            <?php
+
+                                            if(isset($_GET['error']) == 2){
+                                                echo "<font color='red'><p>Account Registered Waiting for Aprroval!</p></font>";
+                                            }
+
+                                            ?>
 											<form action="register.php" method="post" enctype="multipart/form-data" class="lg-frm" style="padding:25px">
                                                 <h3>Login detials</h3>
                                                 <br>
@@ -352,6 +370,7 @@ info@company.com
 												    <br>                                                
 												    <input type="submit" class="btn btn-default pull-right" name="btnRegister" value="Submit" id="insert"></button>
 											</form>
+                                            
 										</div>
 									</div>
 								</div>

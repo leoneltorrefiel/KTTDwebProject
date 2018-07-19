@@ -36,9 +36,8 @@
 			}
 
 		}
-		else{
-			$message = "Invalid Account";
-			echo "<script type='text/javascript'>alert('$message');</script>";
+		else{	
+			header('location: main.php?error=1');
 		}
 	}
 
@@ -187,7 +186,7 @@
 
 			$message = "Successfully Registered.";
 			echo "<script type='text/javascript'>alert('$message');</script>";
-			header('location: main.php');
+			header('location: main.php?error=2');
 		}
 	}
 
@@ -208,7 +207,7 @@
 		
 				echo "<script type='text/javascript'>alert('Status Updated!');</script>";
 
-				header('location: approvedTech.php');
+				header('location: admin-approved-technologies.php');
 			}
 			
 
@@ -229,7 +228,7 @@
 
 				echo "<script type='text/javascript'>alert('Status Updated!');</script>";
 				
-				header('location: approvedTech.php');
+				header('location: admin-approved-technologies.php');
 
 			}
 
