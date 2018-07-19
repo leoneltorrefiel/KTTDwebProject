@@ -110,6 +110,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
+        <form accept="client-add-new-technology.php" method="post" enctype="multipart/form-data">
         <table class="w3-table w3-striped w3-white">
           <tr>
             <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
@@ -128,6 +129,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
           </tr>
           <tr>
             <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
+            <td>Filing: </td>
             <td><input type="radio" name="radio" value="Copyright"> Copyright</td>
             <td><input type="radio" name="radio" value="Patent"> Patent</td>
           </tr>
@@ -137,6 +139,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
           </tr>
           
         </table>
+      </form>
       </div>
     </div>
   </div>

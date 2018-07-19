@@ -95,8 +95,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
-      <form action="home.php" method="post">
-        <input class="w3-bar-item w3-button" type="submit" name="btnLogout" value="Logout ->">
+      <form action="staff-update-account.php" method="post">
+        <button name="btnLogout"><i class='fa fa-sign-out-alt'></i></button>
       </form>
     </div>
   </div>
@@ -106,12 +106,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="./staff-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  My Technologies</a>
-    <a href="./staff-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  My Information</a>
-    <a href="./staff-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i> Change Password</a>/
-    <a href="./staff-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  Add New Technology</a>
-    <a href="./staff-approved-accounts.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bullseye fa-fw"></i> Approved Accounts</a>    
-    <a href="./staff-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i> Approved Technologies</a>    
+    <a href="./staff-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
+    <a href="./staff-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card fa-fw"></i>  My Information</a>
+    <a href="./staff-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
+    <a href="./staff-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
+    <a href="./staff-approved-accounts.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-user-circle fa-fw"></i> Approved Accounts</a>    
+    <a href="./staff-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-seedling fa-fw"></i> Approved Technologies</a>   
   </div>
 </nav>
 

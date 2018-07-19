@@ -34,7 +34,7 @@
 			$sql3 = "DELETE from pending_account where pending_account_id='$id'";
 			mysqli_query($db,$sql3);	
 			
-			echo "<meta http-equiv='refresh' content='0;url=pending_accounts.php'>";
+			echo "<meta http-equiv='refresh' content='0;url=admin-pending-accounts.php'>";
 
 			}
 

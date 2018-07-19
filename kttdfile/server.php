@@ -96,7 +96,7 @@
 		if(mysqli_num_rows($resCheck) > 0 || mysqli_num_rows($resCheck2) > 0 ){
 			$message = "Technology name already exist!.";
 			echo "<script type='text/javascript'>alert('$message');</script>";
-			header('location: home.php');
+			header('location: client-my-technologies.php');
 		}
 		else{
 			$insert = "INSERT into 	pending_tech (pending_tech_name,pending_tech_description,pending_tech_owner,pending_tech_username,pending_tech_acct,pen_file_type,p_tech_filename,p_tech_filetype,p_tech_filepath,datetime) values ('$tech_name','$tech_description','$name','$s_username','$type','$f_file','$filename','$filetype','$filepath',NOW() ) ";
@@ -104,7 +104,7 @@
 			$message = "Techonology Added, waiting for aprroval.";
 			echo "<script type='text/javascript'>alert('$message');</script>";
 			
-			header('location: home.php');
+			header('location: client-my-technologies.php');
 		}
 
 		
@@ -190,7 +190,7 @@
 		}
 	}
 
-	if(isset($_POST['patentStep'])){
+	if(isset($_POST['patentStepForward'])){
 			
 			$var1 = $_SESSION['patentStatus'];
 			$var2 = $_SESSION['patentName'];
@@ -213,7 +213,30 @@
 
 	}
 
-	if(isset($_POST['copyrightStep'])){
+	if(isset($_POST['patentStepBackward'])){
+			
+			$var1 = $_SESSION['patentStatus'];
+			$var2 = $_SESSION['patentName'];
+			$var1 = $var1 - 1;
+
+
+			if($var1 < 0){
+				echo "<script type='text/javascript'>alert('Can't back!');</script>";
+			}
+			else{
+				$sql = "UPDATE technologies SET status='$var1' where tech_name='$var2' ";
+				$q =mysqli_query($db,$sql);
+
+		
+				echo "<script type='text/javascript'>alert('Status Updated!');</script>";
+
+				header('location: admin-approved-technologies.php');
+			}
+			
+
+	}
+
+	if(isset($_POST['copyrightStepForward'])){
 			
 			$var1 = $_SESSION['copyStatus'];
 			$var2 = $_SESSION['copyName'];
@@ -229,6 +252,117 @@
 				echo "<script type='text/javascript'>alert('Status Updated!');</script>";
 				
 				header('location: admin-approved-technologies.php');
+
+			}
+
+	}
+
+	if(isset($_POST['copyrightStepBackward'])){
+			
+			$var1 = $_SESSION['copyStatus'];
+			$var2 = $_SESSION['copyName'];
+			$var1 = $var1 - 1;
+
+			if($var1 < 0){
+				echo "<script type='text/javascript'>alert('Can't back!');</script>";
+			}
+			else{
+
+				$sql = "UPDATE technologies SET status='$var1' where tech_name='$var2' ";
+				mysqli_query($db,$sql);
+
+				echo "<script type='text/javascript'>alert('Status Updated!');</script>";
+				
+				header('location: admin-approved-technologies.php');
+
+			}
+
+	}
+
+	if(isset($_POST['patentStepForward2'])){
+			
+			$var1 = $_SESSION['patentStatus'];
+			$var2 = $_SESSION['patentName'];
+			$var1 = $var1 + 1;
+
+
+			if($var1 > 12){
+				echo "<script type='text/javascript'>alert('Done all steps!');</script>";
+			}
+			else{
+				$sql = "UPDATE technologies SET status='$var1' where tech_name='$var2' ";
+				$q =mysqli_query($db,$sql);
+
+		
+				echo "<script type='text/javascript'>alert('Status Updated!');</script>";
+
+				header('location: staff-approved-technologies.php');
+			}
+			
+
+	}
+
+	if(isset($_POST['patentStepBackward2'])){
+			
+			$var1 = $_SESSION['patentStatus'];
+			$var2 = $_SESSION['patentName'];
+			$var1 = $var1 - 1;
+
+
+			if($var1 < 0){
+				echo "<script type='text/javascript'>alert('Can't back!');</script>";
+			}
+			else{
+				$sql = "UPDATE technologies SET status='$var1' where tech_name='$var2' ";
+				$q =mysqli_query($db,$sql);
+
+		
+				echo "<script type='text/javascript'>alert('Status Updated!');</script>";
+
+				header('location: staff-approved-technologies.php');
+			}
+			
+
+	}
+
+	if(isset($_POST['copyrightStepForward2'])){
+			
+			$var1 = $_SESSION['copyStatus'];
+			$var2 = $_SESSION['copyName'];
+			$var1 = $var1 + 1;
+
+			if($var1 > 6){
+				echo "<script type='text/javascript'>alert('Done all steps!');</script>";
+			}
+			else{
+				$sql = "UPDATE technologies SET status='$var1' where tech_name='$var2' ";
+				mysqli_query($db,$sql);
+
+				echo "<script type='text/javascript'>alert('Status Updated!');</script>";
+				
+				header('location: staff-approved-technologies.php');
+
+			}
+
+	}
+
+	if(isset($_POST['copyrightStepBackward2'])){
+			
+			$var1 = $_SESSION['copyStatus'];
+			$var2 = $_SESSION['copyName'];
+			$var1 = $var1 - 1;
+
+			if($var1 < 0){
+				echo "<script type='text/javascript'>alert('Can't back!');</script>";
+			}
+			else{
+
+				$sql = "UPDATE technologies SET status='$var1' where tech_name='$var2' ";
+				mysqli_query($db,$sql);
+
+				echo "<script type='text/javascript'>alert('Status Updated!');</script>";
+				
+				header('location: staff-approved-technologies.php');
 
 			}
 

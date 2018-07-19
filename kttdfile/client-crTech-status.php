@@ -6,6 +6,10 @@
 		header('location: main.php');
 	}
 
+	if($_SESSION['username'] == 'admin'){
+		header('location: admin-my-technologies.php');
+	}
+
 	
 	$var1 = $_SESSION['copyStatus'];
 	$var2 = $_SESSION['copyName'];
@@ -17,19 +21,17 @@
 
     $checkType = mysqli_fetch_assoc($res);
 
-    if($checkType['account_type'] == 'Client'){
-        header('location: client-my-technologies.php');
+    if($checkType['account_type'] == 'Staff'){
+        header('location: staff-my-technologies.php');
     }
 
-    $sql1 = "SELECT * FROM technologies order by date_approved DESC";
-    $view1 = mysqli_query($db,$sql1);
 
 ?>
 
 
 <!DOCTYPE html>
 <html>
-<title>Admin's Page</title>
+<title>Client's Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/style.css">
@@ -68,7 +70,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
-      <form action="admin-approved-technologies.php" method="post">
+      <form action="client-crTech-status.php" method="post">
         <button name="btnLogout"><i class='fa fa-sign-out-alt'></i></button>
       </form>
     </div>
@@ -79,13 +81,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="./admin-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
-    <a href="./admin-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card fa-fw"></i>  My Information</a>
-    <a href="./admin-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
-    <a href="./admin-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
-    <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list-ol fa-fw"></i> Pending Accounts</a>
-    <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list-ul fa-fw"></i>  Pending Technologies</a>
-    <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-circle fa-fw"></i> Approved Accounts</a>    
+    <a href="./client-my-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
+    <a href="./client-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card fa-fw"></i>  My Information</a>
+    <a href="./client-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
+    <a href="./client-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
+   
   </div>
 </nav>
 
@@ -98,7 +98,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> Update <?php echo $_SESSION['copyName']; ?> Status</b></h5>
+    <h5><b><i class="fa fa-dashboard"></i> Update <font color='green'><?php echo $_SESSION['copyName']; ?></font> Status</b></h5>
   </header>
 
 
@@ -111,11 +111,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
         
-    <form action="admin-update-crTech-status.php" method="post">
-	<button class="btnCheck2" name="copyrightStepBackward"><font size="3"><i class="fa fa-arrow-left fa-fw"></i></font></button>
-	<button class="btnCheck" name="copyrightStepForward"><font size="3"><i class="fa fa-arrow-right fa-fw"></i></font></button>
-	
-	</form>
 	<br>
 	<br>
 	<form>

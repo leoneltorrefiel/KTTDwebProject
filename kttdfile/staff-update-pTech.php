@@ -28,7 +28,7 @@
 
 <!DOCTYPE html>
 <html>
-<title>Admin's Page</title>
+<title>Staff's Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/style.css">
@@ -67,7 +67,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
-      <form action="admin-approved-technologies.php" method="post">
+      <form action="staff-update-pTech.php" method="post">
         <button name="btnLogout"><i class='fa fa-sign-out-alt'></i></button>
       </form>
     </div>
@@ -78,15 +78,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="./admin-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
-    <a href="./admin-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card fa-fw"></i>  My Information</a>
-    <a href="./admin-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>/
-    <br>
-    <a href="./admin-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
-    <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list-ol fa-fw"></i> Pending Accounts</a>
-    <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list-ul fa-fw"></i>  Pending Technologies</a>
-    <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-circle fa-fw"></i> Approved Accounts</a>    
-    <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-seedling fa-fw"></i> Approved Technologies</a>    
+    <a href="./staff-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
+    <a href="./staff-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card fa-fw"></i>  My Information</a>
+    <a href="./staff-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
+    <a href="./staff-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
+    <a href="./staff-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-circle fa-fw"></i> Approved Accounts</a>    
+    <a href="./staff-approved-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-seedling fa-fw"></i> Approved Technologies</a>    
   </div>
 </nav>
 
@@ -110,9 +107,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
         
-    <form action="admin-update-pTech-status.php" method="post">
-	<button class="btnCheck2" name="patentStepBackward"><font size="3"><i class="fa fa-arrow-left fa-fw"></i></font></button>
-	<button class="btnCheck" name="patentStepForward"><font size="3"><i class="fa fa-arrow-right fa-fw"></i></font></button>
+    <form action="staff-update-pTech.php" method="post">
+	<button class="btnCheck2" name="patentStepBackward2"><font size="3"><i class="fa fa-arrow-left fa-fw"></i></font></button>
+	<button class="btnCheck" name="patentStepForward2"><font size="3"><i class="fa fa-arrow-right fa-fw"></i></font></button>
 	
 	</form>
 	<br>

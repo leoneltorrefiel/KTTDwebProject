@@ -33,7 +33,7 @@
 			$sql3 = "DELETE from pending_tech where pending_tech_id='$id'";
 			mysqli_query($db,$sql3);	
 			
-			echo "<meta http-equiv='refresh' content='0;url=pending_tech.php'>";
+			echo "<meta http-equiv='refresh' content='0;url=admin-pending-technologies.php'>";
 
 			}
 

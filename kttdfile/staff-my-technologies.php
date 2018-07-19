@@ -72,8 +72,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
-      <form action="home.php" method="post">
-        <button name="btnLogout"><img src="image/eks.png" height="20" width="20"></button>
+      <form action="staff-my-technologies.php" method="post">
+        <button name="btnLogout"><i class='fa fa-sign-out-alt'></i></button>
       </form>
     </div>
   </div>
@@ -83,12 +83,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="./staff-my-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  My Technologies</a>
-    <a href="./staff-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  My Information</a>
-    <a href="./staff-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i> Change Password</a>/
-    <a href="./staff-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  Add New Technology</a>
-    <a href="./staff-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> Approved Accounts</a>    
-    <a href="./staff-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i> Approved Technologies</a>    
+    <a href="./staff-my-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
+    <a href="./staff-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card fa-fw"></i>  My Information</a>
+    <a href="./staff-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
+    <a href="./staff-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
+    <a href="./staff-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-circle fa-fw"></i> Approved Accounts</a>    
+    <a href="./staff-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-seedling fa-fw"></i> Approved Technologies</a>   
   </div>
 </nav>
 
@@ -121,7 +121,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                     <?php
                             while($pending1=mysqli_fetch_assoc($res1)){
                             echo "<td>".$pending1['tech_name']."</td>";
-                            echo "<td>"."<p> View </p>"."</td>";
+                            echo "<td>"."<a href='view-my-tech.php?check={$pending1['tech_id']}'><font color='orange' size='5'><i class='fa fa-eye fa-fw'></i></font></a>";
                             echo "<tr>"; 
                             }
                     ?>
@@ -142,6 +142,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <div class="w3-third">
         <h5>My Pending Technologies</h5>
         <table class="w3-table w3-striped w3-white">
+          <tr>
+            <td><strong>Technology Name.</strong></td>
+            <td><strong><i>Status</i></strong></td>
+          </tr>
           <tr>
           
             <?php

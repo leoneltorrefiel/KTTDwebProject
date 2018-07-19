@@ -34,6 +34,7 @@
 <title>Admin's Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="./assets-admin/css/w4.css">
 <link rel="stylesheet" href="./assets-admin/css/font-railway.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/all.css">
@@ -83,7 +84,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="./admin-my-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
     <a href="./admin-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card"></i>  My Information</a>
     <a href="./admin-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
-    <br>
     <a href="./admin-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
     <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list-ol fa-fw"></i> Pending Accounts</a>
     <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list-ul fa-fw"></i>  Pending Technologies</a>
@@ -121,7 +121,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                     <?php
                             while($pending1=mysqli_fetch_assoc($res1)){
                             echo "<td>".$pending1['tech_name']."</td>";
-                            echo "<td>"."<p> View </p>"."</td>";
+                            echo "<td>"."<a href='view-admin-tech.php?check={$pending1['tech_id']}'><font color='orange' size='5'><i class='fa fa-eye fa-fw'></i></font></a>"."</td>";
                             echo "<tr>"; 
                             }
                     ?>

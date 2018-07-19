@@ -69,8 +69,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
-      <form action="home.php" method="post">
-        <input class="w3-bar-item w3-button" type="submit" name="btnLogout" value="Logout ->">
+      <form action="client-add-new-technology.php" method="post">
+        <button name="btnLogout"><i class='fa fa-sign-out-alt'></i></button>
       </form>
     </div>
   </div>
@@ -80,10 +80,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
  <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="./client-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  My Technologies</a>
-    <a href="./client-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  My Information</a>
-    <a href="./client-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i> Change Password</a>/
-    <a href="./client-add-new-technology.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bell fa-fw"></i>  Add New Technology</a>  
+    <a href="./client-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
+    <a href="./client-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card fa-fw"></i>  My Information</a>
+    <a href="./client-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
+    <a href="./client-add-new-technology.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>  
   </div>
 </nav>
 
@@ -106,33 +106,38 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
+        <form accept="client-add-new-technology.php" method="post" enctype="multipart/form-data">
         <table class="w3-table w3-striped w3-white">
           <tr>
-            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
+            <td><i class="fa fa-share-alt w3-text-blue w3-large"></i></td>
             <td>Technology Name: </td>
             <td><input type="text" name="tech_name"></td>
           </tr>
           <tr>
-            <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
+            <td><i class="fa fa-share-alt w3-text-red w3-large"></i></td>
             <td>Technology Description: .</td>
             <td><textarea name="tech_description" rows="10" cols="60"></textarea></td>
           </tr>
           <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
+            <td><i class="fa fa-share-alt w3-text-yellow w3-large"></i></td>
             <td>Attach Some File: </td>
             <td><input type="file" name="file" value="" required></td>
           </tr>
           <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
+            <td><i class="fa fa-share-alt w3-text-yellow w3-large"></i></td>
+            <td>Filing: </td>
             <td><input type="radio" name="radio" value="Copyright"> Copyright</td>
             <td><input type="radio" name="radio" value="Patent"> Patent</td>
           </tr>
           <tr>
             <td></td>
+            
             <td><input type="submit" name="techSubmit" value="Submit"></td>
+          
           </tr>
           
         </table>
+        </form>
       </div>
     </div>
   </div>
