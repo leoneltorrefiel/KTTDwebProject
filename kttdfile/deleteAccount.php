@@ -12,7 +12,7 @@
 			$sql = "DELETE from account where account_id='$id' ";
 			mysqli_query($db,$sql);
 
-			echo "<meta http-equiv='refresh' content='0;url=viewAccounts.php'>";
+			echo "<meta http-equiv='refresh' content='0;url=admin-my-technologies.php'>";
 		}
 		else{
 			return false;

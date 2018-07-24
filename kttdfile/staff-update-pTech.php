@@ -21,7 +21,7 @@
         header('location: client-my-technologies.php');
     }
 
-    $sql1 = "SELECT * FROM technologies order by date_approved DESC";
+    $sql1 = "SELECT * FROM technologies order by status ASC";
     $view1 = mysqli_query($db,$sql1);
 
 ?>

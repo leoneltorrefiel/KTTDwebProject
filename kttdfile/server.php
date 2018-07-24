@@ -93,19 +93,12 @@
 		$sqlCheckName2 = "SELECT tech_name from technologies where tech_name='$tech_name' ";
 		$resCheck2 = mysqli_query($db,$sqlCheckName2);
 
-		if(mysqli_num_rows($resCheck) > 0 || mysqli_num_rows($resCheck2) > 0 ){
-			$message = "Technology name already exist!.";
-			echo "<script type='text/javascript'>alert('$message');</script>";
-			header('location: client-my-technologies.php');
-		}
-		else{
+		
 			$insert = "INSERT into 	pending_tech (pending_tech_name,pending_tech_description,pending_tech_owner,pending_tech_username,pending_tech_acct,pen_file_type,p_tech_filename,p_tech_filetype,p_tech_filepath,datetime) values ('$tech_name','$tech_description','$name','$s_username','$type','$f_file','$filename','$filetype','$filepath',NOW() ) ";
 			mysqli_query($db,$insert);
-			$message = "Techonology Added, waiting for aprroval.";
-			echo "<script type='text/javascript'>alert('$message');</script>";
+
+			header('location: admin-my-technologies.php?error=1');
 			
-			header('location: client-my-technologies.php');
-		}
 
 		
 	}

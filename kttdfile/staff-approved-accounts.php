@@ -25,6 +25,8 @@
   $sql1 = "SELECT * FROM account order by dateApproved ASC";
   $view1 = mysqli_query($db,$sql1);
 
+  $count = mysqli_num_rows($view1);
+
 
 ?>
 
@@ -102,7 +104,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </header>
 
   <div class="w3-row-padding w3-margin-bottom">
-    
+    <h4>Total Technologies:  <strong><?php echo "  $count"; ?></strong></h4>
   </div>
 
 

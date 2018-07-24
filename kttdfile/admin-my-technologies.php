@@ -71,7 +71,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
       <form action="admin-my-technologies.php" method="post">
-        <button name="btnLogout"><i class='fa fa-sign-out-alt'></i></button>
+        <button class="btnLogout" name="btnLogout">Logout <i class='fa fa-sign-out-alt'></i></button>
       </form>
     </div>
   </div>
@@ -84,11 +84,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="./admin-my-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
     <a href="./admin-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card"></i>  My Information</a>
     <a href="./admin-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
+    <br>
     <a href="./admin-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
-    <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list-ol fa-fw"></i> Pending Accounts</a>
-    <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list-ul fa-fw"></i>  Pending Technologies</a>
-    <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-circle fa-fw"></i> Approved Accounts</a>    
-    <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-seedling fa-fw"></i> Approved Technologies</a>    
+    <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck-loading fa-fw"></i>  Pending Technologies</a>
+    <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck fa-fw"></i> Approved Technologies</a>    
+    <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-user-clock fa-fw"></i> Pending Accounts</a>
+    
+    <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Approved Accounts</a>    
+    
   </div>
 </nav>
 
@@ -101,7 +104,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> My Technologies </b></h5>
+    <p>Dashboard><b>My Technologies </b></p>
   </header>
 
   <div class="w3-row-padding w3-margin-bottom">
@@ -111,7 +114,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-        <h5>My Approved Technologies</h5>
+        <h5>Approved Technologies</h5>
         <table class="w3-table w3-striped w3-white">
           <tr>
             <td><strong>Technology Name.</strong></td>
@@ -134,21 +137,28 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
 
   <div class="w3-row-padding w3-margin-bottom">
-    
+    <?php
+            if(isset($_GET['error']) == 1){
+                echo "<font color='green'><p>Technology Submitted. Waiting for Approval!</p></font>";
+            }
+
+    ?>
   </div>
 
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-        <h5>My Pending Technologies</h5>
+        <h5>Pending Technologies</h5>
         <table class="w3-table w3-striped w3-white">
           <tr>
           
             <?php
                     while($pending=mysqli_fetch_assoc($res_1)){
                     echo "<td>".$pending['pending_tech_name']."</td>";
-                    echo "<td>"."<p> Waiting.... </p>"."</td>"; 
+                    echo "<td>"."Waiting..."."</td>"; 
+                    echo "</tr>";
                             }
+                            
                     ?>
           </tr>
         </table>
