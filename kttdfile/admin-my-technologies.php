@@ -51,6 +51,17 @@
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/svg-with-js.min.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.min.css">
+    
+<!-- TableUI -->
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="tableUI/css/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/perfect-scrollbar/perfect-scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/css/util.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/css/main.css">
+<!--===============================================================================================-->
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -70,8 +81,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
-      <form action="admin-my-technologies.php" method="post">
-        <button class="btnLogout" name="btnLogout">Logout <i class='fa fa-sign-out-alt'></i></button>
+      <form action="admin-my-information.php" method="post">
+        <button class="btnLogout" name="btnLogout">&nbsp;&nbsp;Logout <i class='fa fa-sign-out-alt'>&nbsp;&nbsp;</i></button>
       </form>
     </div>
   </div>
@@ -89,9 +100,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck-loading fa-fw"></i>  Pending Technologies</a>
     <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck fa-fw"></i> Approved Technologies</a>    
     <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-user-clock fa-fw"></i> Pending Accounts</a>
-    
     <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Approved Accounts</a>    
-    
   </div>
 </nav>
 
@@ -104,68 +113,62 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <p>Dashboard><b>My Technologies </b></p>
+    <p>Dashboard><b>My Technologies</b></p>
+
   </header>
 
-  <div class="w3-row-padding w3-margin-bottom">
-    
-  </div>
-
+<div id="div-id-name">
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-        <h5>Approved Technologies</h5>
-        <table class="w3-table w3-striped w3-white">
-          <tr>
-            <td><strong>Technology Name.</strong></td>
-            <td><strong><i>Status</i></strong></td>
-          </tr>
-          
-                    <?php
+				<div class="table100 ver2 m-b-110">
+                    <div class="table100-head">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1"><h3>My Technologies<a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="#ed9d25" size="5"><i class="fa fa-print fa-fw"></i></font></a></h3>
+                                    </th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="table100-body js-pscroll">
+						<table>
+							<tbody>
+                                <tr class="row100 body">
+									<td class="cell100 column1-amt"><b>Technology Name</b></td>
+                                    <td class="cell100 column2"><b>Filling Type</b></td>
+									<td class="cell100 column3"><b>Tech Status</b></td>
+                                    <td class="cell100 column3"><center><b>Filing Status</b></center></td>
+								</tr>
+                                <tr>
+                                    <?php
                             while($pending1=mysqli_fetch_assoc($res1)){
-                            echo "<td>".$pending1['tech_name']."</td>";
-                            echo "<td>"."<a href='view-admin-tech.php?check={$pending1['tech_id']}'><font color='orange' size='5'><i class='fa fa-eye fa-fw'></i></font></a>"."</td>";
+                            echo "<td class='cell100 column1-amt'>".$pending1['tech_name']."</td>";
+                            echo "<td class='cell100 column2'>".$pending1['file_type']."</td>";
+                            echo "<td class='cell100 column3'>"."Aprroved"."</td>";
+                            echo "<td class='cell100 column3'><center>"."<a href='view-admin-tech.php?check={$pending1['tech_id']}'><font color='#8ec735'><i class='fa fa-eye fa-fw'></i></font></a>"."</center></td>";
                             echo "<tr>"; 
                             }
-                    ?>
-    
-          </tr>
 
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="w3-row-padding w3-margin-bottom">
-    <?php
-            if(isset($_GET['error']) == 1){
-                echo "<font color='green'><p>Technology Submitted. Waiting for Approval!</p></font>";
-            }
-
-    ?>
-  </div>
-
-  <div class="w3-panel">
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-third">
-        <h5>Pending Technologies</h5>
-        <table class="w3-table w3-striped w3-white">
-          <tr>
-          
-            <?php
-                    while($pending=mysqli_fetch_assoc($res_1)){
-                    echo "<td>".$pending['pending_tech_name']."</td>";
-                    echo "<td>"."Waiting..."."</td>"; 
-                    echo "</tr>";
+                            while($pending=mysqli_fetch_assoc($res_1)){
+                            echo "<td class='cell100 column1-amt'>".$pending['pending_tech_name']."</td>";
+                            echo "<td class='cell100 column2'>".$pending['pen_file_type']."</td>";
+                            echo "<td class='cell100 column3'>"."Waiting..."."</td>";
+                            echo "<td class='cell100 column3'><center>"."<font color='#4e4d50' size=''><i class='far fa-eye-slash fa-fw'></i></font>"."</center></td>";
+                            echo "<tr>"; 
+                            echo "</tr>";
                             }
-                            
-                    ?>
-          </tr>
-        </table>
+                                    ?>
+                                </tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
       </div>
     </div>
   </div>
-
+<div>
   <hr>
   
 
@@ -173,6 +176,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </div>
 
 <script>
+
+  function printLayer(el){
+    var printPage = document.body.innerHTML;
+    var printContent = document.getElementById(el).innerHTML;
+    document.body.innerHTML = printContent;
+    window.print();
+    document.body.innerHTML = printPage;
+  }
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 
@@ -198,5 +209,3 @@ function w3_close() {
 </script>
 </body>
 </html>
-
-

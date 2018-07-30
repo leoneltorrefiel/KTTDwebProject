@@ -24,8 +24,15 @@
 
   $sql1 = "SELECT * FROM account order by dateApproved ASC";
   $view1 = mysqli_query($db,$sql1);
-
   $count = mysqli_num_rows($view1);
+
+  $sql2 = "SELECT * FROM account where account_type='Staff' ";
+  $view2 = mysqli_query($db,$sql2);
+  $countStaff = mysqli_num_rows($view2);
+
+  $sql2 = "SELECT * FROM account where account_type='Client' ";
+  $view2 = mysqli_query($db,$sql2);
+  $countClient = mysqli_num_rows($view2);
 
 
 ?>
@@ -99,15 +106,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
   <!-- Header -->
-  <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> Approved Accounts</b></h5>
-  </header>
-
   <div class="w3-row-padding w3-margin-bottom">
-    <h4>Total Technologies:  <strong><?php echo "  $count"; ?></strong></h4>
+    <h4>Total Accounts:  <strong><?php echo "  $count"; ?></strong></h4>
+    <h4>Total Staffs:  <strong><?php echo "  $countStaff"; ?></strong></h4>
+    <h4>Total Clients:  <strong><?php echo "  $countClient"; ?></strong></h4>
   </div>
-
-
+  
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
@@ -115,22 +119,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                     <input type="text" name="searchNAme" id="searchName" placeholder="Search Username" onKeyUp="search();" autocomplete="off">
                     <br>
                     <br>
-        <table class="w3-table w3-striped w3-white">
-          <tr>
-                            <th align=center>Image</th>
-                            <th align=center>Username</th>
-                            <th align=center>Password</th>
-                            <th align=center>Firstname</th>
-                            <th align=center>Lastname</th>
-                            <th align=center>Email</th>
-                            <th align=center>Address</th>
-                            <th align=center>Contact</th>
-                            <th align=center>Date Applied</th>
-                            <th align=center>Date Approved</th>
-                            <th align=center>Account Type</th>
-                            <th align=center>Action</th>
-                         </tr>
-                        </table>  
+          
           </div>
            <div id="result">
            <?php
@@ -141,6 +130,20 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                             
                             echo "<table class='w3-table w3-striped w3-white'>";
                             echo "<tr>";
+                            echo "<th align=center>Image</th>";
+                            echo "<th align=center>Username</th>";
+                            echo "<th align=center>Password</th>";
+                            echo "<th align=center>Firstname</th>";
+                            echo "<th align=center>Lastname</th>";
+                            echo "<th align=center>Email</th>";
+                            echo "<th align=center>Address</th>";
+                            echo "<th align=center>Contact</th>";
+                            echo "<th align=center>Date Applied</th>";
+                            echo "<th align=center>Date Approved</th>";
+                            echo "<th align=center>Account Type</th>";
+                            echo "<th align=center>Action</th>";
+                            echo "</tr>";
+
                              while($pending=mysqli_fetch_assoc($view1)){
                             echo "<td>"."<img  height='30' width='30' src='".$pending['file_path']."'>"."</td>";
                             echo "<td>".$pending['username']."</td>";

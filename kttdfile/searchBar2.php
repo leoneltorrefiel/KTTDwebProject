@@ -10,6 +10,21 @@
 
 	echo "<table class='w3-table w3-striped w3-white'>";
 
+	echo "<tr>";
+    echo "<th align=center>Image</th>";
+    echo "<th align=center>Username</th>";
+    echo "<th align=center>Password</th>";
+    echo "<th align=center>Firstname</th>";
+    echo "<th align=center>Lastname</th>";
+    echo "<th align=center>Email</th>";
+    echo "<th align=center>Address</th>";
+    echo "<th align=center>Contact</th>";
+    echo "<th align=center>Date Applied</th>";
+    echo "<th align=center>Date Approved</th>";
+    echo "<th align=center>Account Type</th>";
+    echo "<th align=center>Action</th>";
+    echo "</tr>";
+
 	while($row=mysqli_fetch_assoc($result)){
 		echo "<tr>";
 		echo "<td>"."<img  height='30' width='30' src='"; echo $row['file_path']; echo "'>"."</td>";

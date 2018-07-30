@@ -100,9 +100,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> My Information   </b></h5>
+    <h5><b><i class="fa fa-dashboard"></i> My Information   <a href="#" onclick="printLayer('div-id-name')"><font color="#ed9d25" size="5"><i class="fa fa-print fa-fw"></i></font></a></b></h5>
   </header>
-
+<div id="div-id-name">
   <div class="w3-row-padding w3-margin-bottom">
     
   </div>
@@ -160,6 +160,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       </div>
     </div>
   </div>
+</div>
   <hr>
   
 
@@ -167,6 +168,15 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </div>
 
 <script>
+
+  function printLayer(el){
+    var printPage = document.body.innerHTML;
+    var printContent = document.getElementById(el).innerHTML;
+    document.body.innerHTML = printContent;
+    window.print();
+    document.body.innerHTML = printPage;
+  }
+
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 

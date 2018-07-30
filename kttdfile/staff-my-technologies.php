@@ -121,44 +121,29 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                     <?php
                             while($pending1=mysqli_fetch_assoc($res1)){
                             echo "<td>".$pending1['tech_name']."</td>";
-                            echo "<td>"."<a href='view-my-tech.php?check={$pending1['tech_id']}'><font color='orange' size='5'><i class='fa fa-eye fa-fw'></i></font></a>";
+                             echo "<td>".$pending1['file_type']."</td>";
+                            echo "<td>"."Aprroved"."</td>";
+                            echo "<td>"."<a href='view-admin-tech.php?check={$pending1['tech_id']}'><font color='orange' size='5'><i class='fa fa-eye fa-fw'></i></font></a>"."</td>";
                             echo "<tr>"; 
                             }
-                    ?>
-    
-          </tr>
 
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="w3-row-padding w3-margin-bottom">
-    
-  </div>
-
-  <div class="w3-panel">
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-third">
-        <h5>My Pending Technologies</h5>
-        <table class="w3-table w3-striped w3-white">
-          <tr>
-            <td><strong>Technology Name.</strong></td>
-            <td><strong><i>Status</i></strong></td>
-          </tr>
-          <tr>
-          
-            <?php
-                    while($pending=mysqli_fetch_assoc($res_1)){
-                    echo "<td>".$pending['pending_tech_name']."</td>";
-                    echo "<td>"."Waiting...."."</td>"; 
+                            while($pending=mysqli_fetch_assoc($res_1)){
+                            echo "<td>".$pending['pending_tech_name']."</td>";
+                            echo "<td>".$pending['pen_file_type']."</td>";
+                            echo "<td>"."Waiting..."."</td>";
+                            echo "<td>"."<font color='gray' size='5'><i class='fa fa-eye fa-fw'></i></font>"."</td>";
+                            echo "<tr>"; 
+                            echo "</tr>";
                             }
                     ?>
+    
           </tr>
+
         </table>
       </div>
     </div>
   </div>
+
 
   <hr>
   

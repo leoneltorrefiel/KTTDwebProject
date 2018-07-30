@@ -2,9 +2,9 @@
 
   include('server.php');
 
-  if(empty($_SESSION['username'])){
-    header('location: main.php');
-  }
+   if(empty($_SESSION['username'])){
+        header('location: main.php');
+    }
 
     $var = $_SESSION['username'];
 
@@ -14,23 +14,29 @@
     $checkType = mysqli_fetch_assoc($res);
 
     if($checkType['account_type'] == 'Client'){
-        header('location: client-my-technologies.php');
+        header('location: home.php');
     }
 
+    $sql1 = "SELECT * FROM technologies order by status ASC";
+    $view1 = mysqli_query($db,$sql1);
+    $count = mysqli_num_rows($view1);
 
-  $sql1 = "SELECT * FROM account order by dateApproved ASC";
-  $view1 = mysqli_query($db,$sql1);
+    $sql2 = "SELECT * from technologies where file_type='Copyright' ";
+    $view2 = mysqli_query($db,$sql2);
+    $countCR = mysqli_num_rows($view2);
 
-  $count = mysqli_num_rows($view1);
-  
+    $sql3 = "SELECT * from technologies where file_type='Patent' ";
+    $view3 = mysqli_query($db,$sql3);
+    $countP = mysqli_num_rows($view3);
+
 ?>
-
 
 <!DOCTYPE html>
 <html>
 <title>Admin's Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="./assets-admin/css/w4.css">
 <link rel="stylesheet" href="./assets-admin/css/font-railway.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/all.css">
@@ -47,6 +53,17 @@
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/svg-with-js.min.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.min.css">
+    
+<!-- TableUI -->
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="tableUI/css/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/perfect-scrollbar/perfect-scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/css/util.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/css/main.css">
+<!--===============================================================================================-->
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -66,8 +83,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
-     <form action="admin-approved-accounts.php" method="post">
-        <button class="btnLogout" name="btnLogout">Logout <i class='fa fa-sign-out-alt'></i></button>
+      <form action="admin-my-information.php" method="post">
+        <button class="btnLogout" name="btnLogout">&nbsp;&nbsp;Logout <i class='fa fa-sign-out-alt'>&nbsp;&nbsp;</i></button>
       </form>
     </div>
   </div>
@@ -77,12 +94,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="./admin-my-technologies.php" class="w3-bar-item w3-button w3-padding "><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
-    <a href="./admin-my-information.php" class="w3-bar-item w3-button w3-padding "><i class="fa fa-id-card"></i>  My Information</a>
-    <a href="./admin-change-password.php" class="w3-bar-item w3-button w3-padding "><i class="fa fa-key fa-fw"></i> Change Password</a>
+    <a href="./admin-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
+    <a href="./admin-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card"></i>  My Information</a>
+    <a href="./admin-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
     <br>
     <a href="./admin-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
-    <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding "><i class="fas fa-truck-loading fa-fw"></i>  Pending Technologies</a>
+    <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck-loading fa-fw"></i>  Pending Technologies</a>
     <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck fa-fw"></i> Approved Technologies</a>    
     <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-user-clock fa-fw"></i> Pending Accounts</a>
     <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-user-alt fa-fw"></i> Approved Accounts</a>    
@@ -99,79 +116,84 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <p>Dashboard><b>Approved Accounts</b></p>
+
   </header>
 
-  <div class="w3-row-padding w3-margin-bottom">
-    <h4>Total Accounts:  <strong><?php echo "  $count"; ?></strong></h4>
-  </div>
-
-
+<div id="div-id-name">
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-         <b>Search: </b> <i class="fa fa-search fa-fw"></i> 
-                    <input type="text" name="searchNAme" id="searchName" placeholder="Search Username" onKeyUp="search();" autocomplete="off">
-                    <br>
-                    <br>
-        <table class="w3-table w3-striped w3-white">
-          <tr>
-                            <th align=center>Image</th>
-                            <th align=center>Username</th>
-                            <th align=center>Password</th>
-                            <th align=center>Firstname</th>
-                            <th align=center>Lastname</th>
-                            <th align=center>Email</th>
-                            <th align=center>Address</th>
-                            <th align=center>Contact</th>
-                            <th align=center>Date Applied</th>
-                            <th align=center>Date Approved</th>
-                            <th align=center>Account Type</th>
-                            <th align=center>Action</th>
-                         </tr>
-                        </table>  
-          </div>
-           <div id="result">
-           <?php
-                      
-                        if(empty($nm)){
-                            $sql1 = "SELECT * FROM account order by dateApproved ASC";
-                            $view1 = mysqli_query($db,$sql1);
-                            
-                            echo "<table class='w3-table w3-striped w3-white'>";
-                            echo "<tr>";
-                             while($pending=mysqli_fetch_assoc($view1)){
-                            echo "<td>"."<img  height='30' width='30' src='".$pending['file_path']."'>"."</td>";
-                            echo "<td>".$pending['username']."</td>";
-                            echo "<td>".$pending['password']."</td>";
-                            echo "<td>".$pending['firstname']."</td>";
-                            echo "<td>".$pending['lastname']."</td>";
-                            echo "<td>".$pending['email']."</td>";
-                            echo "<td>".$pending['address']."</td>";
-                            echo "<td>".$pending['contact']."</td>";
-                            echo "<td>".$pending['dateApplied']."</td>";
-                            echo "<td>".$pending['dateApproved']."</td>";
-                            echo "<td>".$pending['account_type']."</td>";
-                            echo "<td>"."<a href='admin-update-account.php?update1={$pending['account_id']}'><submit><font color='green' size='5'><i class='fa fa-edit'></i></font></submit></a>"." &nbsp "."<a href='deleteAccount.php?remove={$pending['account_id']}'><submit><font color='red' size='5'><i class='fa fa-trash'></i></font></submit></a>"."</td>";
-                            echo "</tr>";
-                           
-                            }
-                             echo "</table>";
-                        }
-                           
-                    ?>
-                  
-                
-          </div>
+				<div class="table100 ver2 m-b-110">
+                    <div class="table100-head">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1"><h3>Approved Technologies</h3>
+                                    </th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="table100-body js-pscroll">
+						<table>
+							<tbody>
+                                <tr class="row100 body">
+									<td class="cell100 column1-apt"><b>Technology Name</b></td>
+                                    <td class="cell100 column1-apt"><b>Description</b></td>
+									<td class="cell100 column3-apt"><b>Tech Owner</b></td>
+                                    <td class="cell100 column2"><b>Filling Type</b></td>
+                                    <td class="cell100 column2"><b>Attached File</b></td>
+                                    <td class="cell100 column2"><b>Steps</b></td>
+								</tr>
+                                <tr>
+                                    <?php
+                                     
+      if(empty($nm)){
         
+    $sql = "SELECT * from technologies order by date_approved DESC";
+    $result = mysqli_query($db,$sql);
+
+    while($row=mysqli_fetch_assoc($result)){
+
+        echo "<td class='cell100 column1-apt'>"."<a href='checkFiling.php?check={$row['tech_id']}'>
+        <font color='green'> </i> "; echo $row['tech_name']; echo "</font></a>"."</td>";
+        echo "<td class='cell100 column1-apt'>"; echo $row['tech_description']; echo "</td>";
+        echo "<td class='cell100 column3-apt'>"; echo $row['tech_owner']; echo "</td>";
+        echo "<td class='cell100 column2'>"; echo $row['file_type']; echo "</td>";
+        echo "<td class='cell100 column2'>"."<a href='download.php?dl={$row['tech_id']}'>"; echo $row['tech_filename']; echo "</a>"."</td>";
+        
+        
+        echo "<td class='cell100 column2'>"; echo $row['status']; echo "</td>";
+        echo "</tr>";
+        } 
+
+    echo "</table>";
+    }
+                    ?>
+                                </tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
       </div>
     </div>
   </div>
+<div>
   <hr>
   
+
   <!-- End page content -->
 </div>
 
 <script>
+
+  function printLayer(el){
+    var printPage = document.body.innerHTML;
+    var printContent = document.getElementById(el).innerHTML;
+    document.body.innerHTML = printContent;
+    window.print();
+    document.body.innerHTML = printPage;
+  }
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 
@@ -194,17 +216,6 @@ function w3_close() {
     mySidebar.style.display = "none";
     overlayBg.style.display = "none";
 }
-
-function search(){
-        xmlhttp= new XMLHttpRequest();
-        xmlhttp.open("GET","searchBar2.php?nm="+ document.getElementById("searchName").value,false);
-        xmlhttp.send(null);
-        document.getElementById("result").innerHTML=xmlhttp.responseText;
-        document.getElementById("result").style.visibility='visible';
-    }
 </script>
 </body>
 </html>
-
-
-

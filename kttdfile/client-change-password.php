@@ -76,6 +76,15 @@
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/svg-with-js.min.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.min.css">
+
+  <link rel="icon" type="image/png" href="tableUI/css/images/icons/favicon.ico"/>
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/animate/animate.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/select2/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/perfect-scrollbar/perfect-scrollbar.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/css/util.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/css/main.css">
+
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -122,50 +131,58 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> Change Password</b></h5>
+    <p>Dashboard><b>My Information </b></p>
   </header>
 
-  <div class="w3-row-padding w3-margin-bottom">
-    
-  </div>
 
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-        <h5>Change Password</h5>
-        <form action="client-change-password.php" method="POST">
-        <table class="w3-table w3-striped w3-white">
-          <tr>
-            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
-            <td>Username: </td>
-            <td><input type="text" name="username" value="<?php echo $result['username']; ?>" disabled></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
-            <td>Current Password: </td>
-            <td><input type="password" name="currentPass" required></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-            <td>New Password: </td>
-            <td><input type="password" name="newPass" required></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
-            <td>Confirm Password: </td>
-            <td><input type="password" name="confirmPass" required></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td><input type="submit" name="changePassBtn" value="Submit"></td>
-          </tr>
-          
-        </table>
-        </form>
+        <div class="table100 ver5 m-b-110">
+                    <div class="table100-head">
+            <table>
+              <thead>
+                <tr class="row100 head">
+                  <th class="cell100 column1"><h3>My Information</h3></th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="table100-body js-pscroll">
+            <table>
+              <tbody>
+                                <tr class="row100 body">
+                                  <form action="admin-change-password.php" method="post">
+                  <td class="cell100 column1">Username</td>
+                  <td><b><?php echo $result['username']; ?></b></td>
+                </tr>
+                <tr class="row100 body">
+                  <td class="cell100 column1">Current Password</td>
+                  <td><b><input type="password" name="currentPass" required></b></td>
+                </tr>
+
+                <tr class="row100 body">
+                  <td class="cell100 column1">New Password</td>
+                  <td><input type="password" name="newPass" placeholder="input new password" required></td>
+                </tr>
+
+                <tr class="row100 body">
+                  <td class="cell100 column1">Confirm Password</td>
+                  <td><p><input type="password" name="confirmPass" placeholder="input new password" required></p></td>
+                </tr>                       
+                                <tr class="row100 body">
+                                <input class="btnLogout" type="submit" name="changePassBtn" value="Change">
+                                
+                                </form>   
+                                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+    
   <hr>
   
 

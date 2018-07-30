@@ -23,8 +23,15 @@
 
     $sql1 = "SELECT * FROM technologies order by status ASC";
     $view1 = mysqli_query($db,$sql1);
-
     $count = mysqli_num_rows($view1);
+
+    $sql2 = "SELECT * from technologies where file_type='Copyright' ";
+    $view2 = mysqli_query($db,$sql2);
+    $countCR = mysqli_num_rows($view2);
+
+    $sql3 = "SELECT * from technologies where file_type='Patent' ";
+    $view3 = mysqli_query($db,$sql3);
+    $countP = mysqli_num_rows($view3);
 
 ?>
 
@@ -102,7 +109,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </header>
 
   <div class="w3-row-padding w3-margin-bottom">
-    <h4>Total Technologies:  <strong><?php echo "  $count"; ?></strong></h4>
+    <h4>Total Technologies:  <strong><?php echo "  $count  "; ?></strong></h4><h4>Total Copyright:  <strong><?php echo "  $countCR  "; ?></strong></h4><h4>Total Patent:  <strong><?php echo "  $countP"; ?></strong></h4>
   </div>
 
   <div class="w3-panel">
@@ -114,29 +121,28 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                     <br>
                     <br>
                 </div>
-        <table class="w3-table w3-striped w3-white">
-          <tr>
-            <th width=1% align=center>Tech Name</th>
-                            <th width=1% align=center>Tech Description</th>
-                            <th width=1% align=center>Tech Owner</th>
-                            <th width=1% align=center>Tech Username</th>
-                            <th width=1% align=center>Account Type</th>
-                            <th width=1% align=center>Attached File</th>
-                            <th width=1% align=center>Steps Status</th>
-                            <th width=1% align=center>File Type</th>
-                            <th width=1% align=center>Date Approved</th>
-                            <th width=1% align=center>Date Request</th>
-          </tr>
-        </table>
+    
       </div>
       <div id="result">
                     <?php
                         if(empty($nm)){
         
-    $sql = "SELECT * from technologies order by date_approved DESC";
+    $sql = "SELECT * from technologies order by status DESC";
     $result = mysqli_query($db,$sql);
 
     echo "<table class='w3-table w3-striped w3-white'>";
+    echo "<tr>";
+    echo "<th align=center>Tech Name</th>";
+    echo "<th align=center>Tech Description</th>";
+    echo "<th align=center>Tech Owner</th>";
+    echo "<th align=center>Tech Username</th>";
+    echo "<th align=center>Account Type</th>";
+    echo "<th align=center>Attached File</th>";
+    echo "<th align=center>Steps Status</th>";
+    echo "<th align=center>Filing Type</th>";
+    echo "<th align=center>Date Approved</th>";
+    echo "<th align=center>Date Request</th>";
+    echo "</tr>";
     while($row=mysqli_fetch_assoc($result)){
         echo "<tr>";
         echo "<td width=1%>"."<a href='checkFiling2.php?check={$row['tech_id']}'><font color='green'><i class='fa fa-map-marked-alt'></i>"; echo $row['tech_name']; echo "</font></a>"."</td>";
