@@ -2,9 +2,9 @@
 
   include('server.php');
 
-   if(empty($_SESSION['username'])){
-        header('location: main.php');
-    }
+  if(empty($_SESSION['username'])){
+    header('location: main.php');
+  }
 
     $var = $_SESSION['username'];
 
@@ -14,22 +14,25 @@
     $checkType = mysqli_fetch_assoc($res);
 
     if($checkType['account_type'] == 'Client'){
-        header('location: home.php');
+        header('location: client-my-technologies.php');
     }
 
-    $sql1 = "SELECT * FROM technologies order by status ASC";
-    $view1 = mysqli_query($db,$sql1);
-    $count = mysqli_num_rows($view1);
 
-    $sql2 = "SELECT * from technologies where file_type='Copyright' ";
-    $view2 = mysqli_query($db,$sql2);
-    $countCR = mysqli_num_rows($view2);
+  $sql1 = "SELECT * FROM account order by dateApproved ASC";
+  $view1 = mysqli_query($db,$sql1);
+  $count = mysqli_num_rows($view1);
 
-    $sql3 = "SELECT * from technologies where file_type='Patent' ";
-    $view3 = mysqli_query($db,$sql3);
-    $countP = mysqli_num_rows($view3);
+  $sql2 = "SELECT * FROM account where account_type='Staff' ";
+  $view2 = mysqli_query($db,$sql2);
+  $countStaff = mysqli_num_rows($view2);
 
+  $sql2 = "SELECT * FROM account where account_type='Client' ";
+  $view2 = mysqli_query($db,$sql2);
+  $countClient = mysqli_num_rows($view2);
+
+  
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -128,7 +131,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 						<table>
 							<thead>
 								<tr class="row100 head">
-									<th class="cell100 column1"><h3>Approved Technologies</h3>
+									<th class="cell100 column1"><h3>Approved Accounts</h3>
                                     </th>
 								</tr>
 							</thead>
@@ -138,38 +141,33 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 						<table>
 							<tbody>
                                 <tr class="row100 body">
-									<td class="cell100 column1-apt"><b>Technology Name</b></td>
-                                    <td class="cell100 column1-apt"><b>Description</b></td>
-									<td class="cell100 column3-apt"><b>Tech Owner</b></td>
-                                    <td class="cell100 column2"><b>Filling Type</b></td>
-                                    <td class="cell100 column2"><b>Attached File</b></td>
-                                    <td class="cell100 column2"><b>Steps</b></td>
+									<td class="cell100 column1-aaa"></td>
+									<td class="cell100 column2-aaa"><b>Name</b></td>
+                                    <td class="cell100 column3-aaa"><b>Email</b></td>
+                                    <td class="cell100 column4-aaa"><b>Contact</b></td>
+                                    <td class="cell100 column5-aaa"><b>Type</b></td>
+                                    <td class="cell100 column6-aaa"><b>Action</b></td>
 								</tr>
                                 <tr>
                                     <?php
-                                     
-      if(empty($nm)){
-        
-    $sql = "SELECT * from technologies order by date_approved DESC";
-    $result = mysqli_query($db,$sql);
+                                        if(empty($nm)){
+                                            $sql1 = "SELECT * FROM account order by dateApproved ASC";
+                                            $view1 = mysqli_query($db,$sql1);
+                            
 
-    while($row=mysqli_fetch_assoc($result)){
-
-        echo "<td class='cell100 column1-apt'>"."<a href='checkFiling.php?check={$row['tech_id']}'>
-        <font color='green'> </i> "; echo $row['tech_name']; echo "</font></a>"."</td>";
-        echo "<td class='cell100 column1-apt'>"; echo $row['tech_description']; echo "</td>";
-        echo "<td class='cell100 column3-apt'>"; echo $row['tech_owner']; echo "</td>";
-        echo "<td class='cell100 column2'>"; echo $row['file_type']; echo "</td>";
-        echo "<td class='cell100 column2'>"."<a href='download.php?dl={$row['tech_id']}'>"; echo $row['tech_filename']; echo "</a>"."</td>";
-        
-        
-        echo "<td class='cell100 column2'>"; echo $row['status']; echo "</td>";
-        echo "</tr>";
-        } 
-
-    echo "</table>";
-    }
-                    ?>
+                                            while($pending=mysqli_fetch_assoc($view1)) {
+                                                echo "<td class='cell100 column1-aaa'>"."<center><img  height='50' width='50' src='".$pending['file_path']."'></center>"."</td>";
+                                                echo "<td class='cell100 column2-aaa'>".$pending['firstname']." ";
+                                                echo "".$pending['lastname']."</td>";
+                                                echo "<td class='cell100 column3-aaa'>".$pending['email']."</td>";
+                                                echo "<td class='cell100 column4-aaa'>".$pending['contact']."</td>";
+                                                echo "<td class='cell100 column5-aaa'>".$pending['account_type']."</td>";
+                                                echo "<td class='cell100 column6-aaa'>"."<center><a href='admin-update-account.php?update1={$pending['account_id']}'><submit><font color='green' size='5'><i class='fa fa-edit'></i></font></submit></a>"." &nbsp "."<a href='deleteAccount.php?remove={$pending['account_id']}'><submit><font color='red' size='5'><i class='fa fa-trash'></i></font></submit></a><center>"."</td>";
+                                                echo "</tr>";
+                           
+                                            }
+                                        }
+                                    ?>
                                 </tr>
 							</tbody>
 						</table>

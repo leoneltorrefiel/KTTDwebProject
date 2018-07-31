@@ -190,8 +190,8 @@
 			$var1 = $var1 + 1;
 
 
-			if($var1 > 12){
-				echo "<script type='text/javascript'>alert('Done all steps!');</script>";
+			if($var1 >15){
+				echo "<script type='text/javascript'>alert('Steps are completed press OK to go back');</script>";
 			}
 			else{
 				$sql = "UPDATE technologies SET status='$var1' where tech_name='$var2' ";
@@ -200,7 +200,7 @@
 		
 				echo "<script type='text/javascript'>alert('Status Updated!');</script>";
 
-				header('location: admin-approved-technologies.php');
+				header('location: admin-update-patent-status.php');
 			}
 			
 
@@ -223,7 +223,7 @@
 		
 				echo "<script type='text/javascript'>alert('Status Updated!');</script>";
 
-				header('location: admin-approved-technologies.php');
+				header('location: admin-update-patent-status.php');
 			}
 			
 

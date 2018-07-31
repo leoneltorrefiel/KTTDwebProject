@@ -45,7 +45,7 @@
    			$varName1 = $getName['status'];
    			$_SESSION['patentStatus'] = $varName1;
 
-			header('location: admin-update-pTech-status.php');
+			header('location: admin-update-patent-status.php');
 		}
 	}
 

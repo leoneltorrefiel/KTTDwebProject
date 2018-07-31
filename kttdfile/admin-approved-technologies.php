@@ -138,38 +138,30 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 						<table>
 							<tbody>
                                 <tr class="row100 body">
-									<td class="cell100 column1-apt"><b>Technology Name</b></td>
-                                    <td class="cell100 column1-apt"><b>Description</b></td>
-									<td class="cell100 column3-apt"><b>Tech Owner</b></td>
-                                    <td class="cell100 column2"><b>Filling Type</b></td>
-                                    <td class="cell100 column2"><b>Attached File</b></td>
-                                    <td class="cell100 column2"><b>Steps</b></td>
+									<td class="cell100 column1-aat"><b>Technology Name</b></td>
+                                    <td class="cell100 column2-aat"><b>Attached File</b></td>
+									<td class="cell100 column3-aat"><b>Tech Owner</b></td>
+                                    <td class="cell100 column4-aat"><b>Filing Type</b></td>
+                                    <td class="cell100 column5-aat"><b>Filing Date</b></td>
+                                    <td class="cell100 column6-aat"><b>Step Status</b></td>
 								</tr>
                                 <tr>
                                     <?php
-                                     
-      if(empty($nm)){
-        
-    $sql = "SELECT * from technologies order by date_approved DESC";
-    $result = mysqli_query($db,$sql);
+                                        if(empty($nm)) {
+                                            $sql = "SELECT * from technologies order by date_approved DESC";
+                                            $result = mysqli_query($db,$sql);
 
-    while($row=mysqli_fetch_assoc($result)){
-
-        echo "<td class='cell100 column1-apt'>"."<a href='checkFiling.php?check={$row['tech_id']}'>
-        <font color='green'> </i> "; echo $row['tech_name']; echo "</font></a>"."</td>";
-        echo "<td class='cell100 column1-apt'>"; echo $row['tech_description']; echo "</td>";
-        echo "<td class='cell100 column3-apt'>"; echo $row['tech_owner']; echo "</td>";
-        echo "<td class='cell100 column2'>"; echo $row['file_type']; echo "</td>";
-        echo "<td class='cell100 column2'>"."<a href='download.php?dl={$row['tech_id']}'>"; echo $row['tech_filename']; echo "</a>"."</td>";
-        
-        
-        echo "<td class='cell100 column2'>"; echo $row['status']; echo "</td>";
-        echo "</tr>";
-        } 
-
-    echo "</table>";
-    }
-                    ?>
+                                            while($row=mysqli_fetch_assoc($result)) {
+                                                echo "<td class='cell100 column1-aat'>"."<a href='checkFiling.php?check={$row['tech_id']}'><font color='green'> </i> "; echo $row['tech_name']; echo "</font></a>"."</td>";
+                                                echo "<td class='cell100 column5-aat'>"."<a href='download.php?dl={$row['tech_id']}'>"; echo $row['tech_filename']; echo "</a>"."</td>";
+                                                echo "<td class='cell100 column3-aat'>"; echo $row['tech_owner']; echo "</td>";
+                                                echo "<td class='cell100 column4-aat'>"; echo $row['file_type']; echo "</td>";
+                                                echo "<td class='cell100 column5-aat'>"."<a href='download.php?dl={$row['tech_id']}'>"; echo $row['date_request']; echo "</a>"."</td>";
+                                                echo "<td class='cell100 column6-aat'>"; echo $row['status']; echo "</td>";
+                                                echo "</tr>";
+                                            }
+                                        }
+                                    ?>
                                 </tr>
 							</tbody>
 						</table>

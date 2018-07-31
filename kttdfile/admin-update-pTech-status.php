@@ -109,7 +109,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
         
-    <form action="admin-update-pTech-status.php" method="post">
+    <form action="admin-update-patent-status.php" method="post">
 	<button class="btnCheck2" name="patentStepBackward"><font size="3"><i class="fa fa-arrow-left fa-fw"></i></font></button>
 	<button class="btnCheck" name="patentStepForward"><font size="3"><i class="fa fa-arrow-right fa-fw"></i></font></button>
 	

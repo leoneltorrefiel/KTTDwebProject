@@ -135,22 +135,29 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 						<table>
 							<tbody>
                                 <tr class="row100 body">
-									<td class="cell100 column1">Technology Name</td>
+                                    <td class="cell100 column3-annt"></td>
+									<td class="cell100 column1-aant">Technology Name</td>
                                     <td><textarea rows="1" cols="70" style="resize: none;" class="textArea" name="tech_name" required></textarea></td>
+                                    <td></td>
 								</tr>
 								<tr class="row100 body">
-									<td class="cell100 column1">Description</td>
+                                    <td class="cell100 column3-annt"></td>
+									<td class="cell100 column1-aant">Description</td>
 									<td><textarea class="textArea" name="tech_description" rows="10" cols="70" required></textarea></td>
+                                    <td></td>
 								</tr>
 
 								<tr class="row100 body">
-									<td class="cell100 column1">Attach File</td>
+                                    <td class="cell100 column3-annt"></td>
+									<td class="cell100 column1-aant">Attach File</td>
 									<td><input type="file" name="file" value="" required></td>
+                                    <td></td>
 								</tr>
                                 
                                 <tr class="row100 body">
-									<td class="cell100 column1">Filing Type</td>
-									<td class="cell100 column4">Copyright<input type="radio" name="radio" value="Copyright" required>
+                                    <td class="cell100 column3-annt"></td>
+									<td class="cell100 column1-aant">Filing Type</td>
+									<td class="cell100 column2-aant">Copyright<input type="radio" name="radio" value="Copyright" required>
                                     <br>
                                     Patent<input type="radio" name="radio" value="Patent" required></td>
 								</tr>
@@ -158,8 +165,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 						</table>
                         <tr class="row100 body">
                             <td>
-                                <button style="width:50%; height:42px" class="btnChange" name="changePassBtn">Submit</button>
+                                <button style="width:100%; height:42px" class="btnChange" name="changePassBtn">Submit</button>
                             </td>
+                            <td class="cell100 column3-aant"></td>
 						</tr>  
 					</div>
 				</div>
