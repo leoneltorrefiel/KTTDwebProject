@@ -306,8 +306,8 @@ info@company.com
 												<input type="text" class="form-control" name="username" placeholder="client123">
 												<label>Password :</label>
 												<input type="password" name="password" class="form-control" placeholder="********">
-												<label><input type="checkbox" name="personality"> Remenber Me</label><br>
-												<button type="submit" name="btnLogin" class="btn btn-default pull-right">Login</button>
+												<button style="width:100%; height:35px; margin-top:20px" type="submit" name="btnLogin" class="btn btn-default pull-right">Login</button>
+                                                <br>
 											</form>
 
 										</div>
@@ -367,8 +367,9 @@ info@company.com
                                                     <input type="text" class="form-control" name="email" placeholder="" required>
                                                     <label>Image</label>
                                                     <input type="file" name="picture" value="Select Image" id="image" required>
-												    <br>                                                
-												    <input type="submit" class="btn btn-default pull-right" name="btnRegister" value="Submit" id="insert"></button>
+												    <br>
+												    <input style="width:100%; height:35px" type="submit" class="btn btn-default pull-right" name="btnRegister" value="Submit" id="insert"></button>
+                                                    <br>
 											</form>
                                             
 										</div>

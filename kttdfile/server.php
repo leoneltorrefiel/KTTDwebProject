@@ -190,17 +190,18 @@
 			$var1 = $var1 + 1;
 
 
-			if($var1 >15){
-				echo "<script type='text/javascript'>alert('Steps are completed press OK to go back');</script>";
-			}
-			else{
+			if($var1<16) {
 				$sql = "UPDATE technologies SET status='$var1' where tech_name='$var2' ";
 				$q =mysqli_query($db,$sql);
 
 		
-				echo "<script type='text/javascript'>alert('Status Updated!');</script>";
-
-				header('location: admin-update-patent-status.php');
+				echo 
+                    "<script>alert('Successfully increased the step by 1');window.location.href='admin-approved-technologies.php';</script>";
+			}
+			else{
+				
+                
+                echo "<script type='text/javascript'>alert('All steps are completed. \\n Press OK to go back');</script>";
 			}
 			
 
@@ -212,22 +213,19 @@
 			$var2 = $_SESSION['patentName'];
 			$var1 = $var1 - 1;
 
-
+            
 			if($var1 < 0){
-				echo "<script type='text/javascript'>alert('Can't back!');</script>";
+				echo "<script type='text/javascript'>alert('No steps completed yet. \\n Press OK to go back');</script>";
 			}
-			else{
-				$sql = "UPDATE technologies SET status='$var1' where tech_name='$var2' ";
-				$q =mysqli_query($db,$sql);
+        
 
-		
-				echo "<script type='text/javascript'>alert('Status Updated!');</script>";
-
-				header('location: admin-update-patent-status.php');
+            else {
+                    $sql = "UPDATE technologies SET status='$var1' where tech_name='$var2' ";
+				    $q =mysqli_query($db,$sql);
+                
+				    echo "<script>alert('Successfully decreased the step by 1');window.location.href='admin-approved-technologies.php';</script>";
 			}
-			
-
-	}
+    }
 
 	if(isset($_POST['copyrightStepForward'])){
 			
@@ -235,16 +233,14 @@
 			$var2 = $_SESSION['copyName'];
 			$var1 = $var1 + 1;
 
-			if($var1 > 6){
-				echo "<script type='text/javascript'>alert('Done all steps!');</script>";
+			if($var1 > 7){
+				echo "<script type='text/javascript'>alert('Steps are completed \\n Press OK to go back');</script>";
 			}
 			else{
 				$sql = "UPDATE technologies SET status='$var1' where tech_name='$var2' ";
 				mysqli_query($db,$sql);
 
-				echo "<script type='text/javascript'>alert('Status Updated!');</script>";
-				
-				header('location: admin-approved-technologies.php');
+				echo "<script>alert('Successfully increased the step by 1');window.location.href='admin-approved-technologies.php';</script>";
 
 			}
 
@@ -257,16 +253,15 @@
 			$var1 = $var1 - 1;
 
 			if($var1 < 0){
-				echo "<script type='text/javascript'>alert('Can't back!');</script>";
+				echo "<script type='text/javascript'>alert('No steps completed yet. \\n Press OK to go back');</script>";
 			}
+        
 			else{
 
 				$sql = "UPDATE technologies SET status='$var1' where tech_name='$var2' ";
 				mysqli_query($db,$sql);
 
-				echo "<script type='text/javascript'>alert('Status Updated!');</script>";
-				
-				header('location: admin-approved-technologies.php');
+				echo "<script>alert('Successfully decreased the step by 1');window.location.href='admin-approved-technologies.php';</script>";
 
 			}
 

@@ -135,37 +135,52 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 						<table>
 							<tbody>
                                 <tr class="row100 body">
-									<td class="cell100 column1">Account Type</td>
-									<td><b><?php echo $result['account_type']; ?></b></td>
+                                    
+                                    <td class="cell100 column1-ami"></td>
+									<td class="cell100 column2-ami">Account Type</td>
+									<td class="cell100 column3-ami"><b><?php echo $result['account_type']; ?></b></td>
+                                    <td class="cell100 column4-ami"></td>
 								</tr>
 								<tr class="row100 body">
-									<td class="cell100 column1">Username</td>
-									<td><b><?php echo $result['username']; ?></b></td>
-								</tr>
-
-								<tr class="row100 body">
-									<td class="cell100 column1">Password</td>
-									<td><b><?php echo str_repeat("*",strlen($result['password']));?></b></td>
-								</tr>
-
-								<tr class="row100 body">
-									<td class="cell100 column1">Fullname</td>
-									<td><b><?php echo $result['firstname']; ?>&nbsp;<?php echo $result['lastname']; ?></b></td>
+                                    <td class="cell100 column1-ami"></td>
+									<td class="cell100 column2-ami">Username</td>
+									<td class="cell100 column3-ami"><b><?php echo $result['username']; ?></b></td>
+                                    <td class="cell100 column4-ami"></td>
 								</tr>
 
 								<tr class="row100 body">
-									<td class="cell100 column1">Profession</td>
-									<td><b><?php echo $result['profession']; ?></b></td>
+                                    <td class="cell100 column1-ami"></td>
+									<td class="cell100 column2-ami">Password</td>
+									<td class="cell100 column3-ami"><b><?php echo str_repeat("*",strlen($result['password']));?></b></td>
+                                    <td class="cell100 column4-ami"></td>
 								</tr>
 
 								<tr class="row100 body">
-									<td class="cell100 column1">E-mail</td>
-									<td><b><?php echo $result['email']; ?></b></td>
+                                    <td class="cell100 column1-ami"></td>
+									<td class="cell100 column2-ami">Fullname</td>
+									<td class="cell100 column3-ami"><b><?php echo $result['firstname']; ?>&nbsp;<?php echo $result['lastname']; ?></b></td>
+                                    <td class="cell100 column4-ami"></td>
 								</tr>
 
 								<tr class="row100 body">
-									<td class="cell100 column1">Contact</td>
-									<td><b><?php echo $result['contact']; ?></b></td>
+                                    <td class="cell100 column1-ami"></td>
+									<td class="cell100 column2-ami">Profession</td>
+									<td class="cell100 column3-ami"><b><?php echo $result['profession']; ?></b></td>
+                                    <td class="cell100 column4-ami"></td>
+								</tr>
+
+								<tr class="row100 body">
+                                    <td class="cell100 column1-ami"></td>
+									<td class="cell100 column2-ami">E-mail</td>
+									<td class="cell100 column3-amiami"><b><?php echo $result['email']; ?></b></td>
+                                    <td class="cell100 column4-ami"></td>
+								</tr>
+
+								<tr class="row100 body">
+                                    <td class="cell100 column1-ami"></td>
+									<td class="cell100 column2-ami">Contact</td>
+									<td class="cell100 column3-ami"><b><?php echo $result['contact']; ?></b></td>
+                                    <td class="cell100 column4-ami"></td>
 								</tr>
 							</tbody>
 						</table>

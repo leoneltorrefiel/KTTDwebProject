@@ -146,32 +146,35 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 						<table>
 							<tbody>
                                 <tr class="row100 body">
-									<td class="cell100 column1">Current Password</td>
-									<td class="cell100 column1">
+                                    <td class="cell100 column1-acp"></td>
+									<td class="cell100 column2-acp">Current Password</td>
+									<td class="cell100 column3-acp">
                                         <input class="pwdBox" type="password" name="currentPass" placeholder="Current Password"required>
                                     </td>
-                                    <td></td>
+                                    <td class="cell100 column4-acp"></td>
 								</tr>
 								<tr class="row100 body">
-									<td class="cell100 column1">New Password</td>
-									<td class="cell100 column1">
+                                    <td class="cell100 column1-acp"></td>
+									<td class="cell100 column2-acp">New Password</td>
+									<td class="cell100 column3-acp">
                                         <input class="pwdBox" type="password" name="newPass" placeholder="New Password" required>
                                     </td>
-                                    <td></td>
+                                    <td class="cell100 column4-acp"></td>
 								</tr>
 
 								<tr class="row100 body">
-									<td class="cell100 column1">Confirm Password</td>
-									<td class="cell100 column1">
+                                    <td class="cell100 column1-acp"></td>
+									<td class="cell100 column2-acp">Confirm Password</td>
+									<td class="cell100 column3-acp">
                                         <input class="pwdBox" type="password" name="confirmPass" placeholder="Confirm Password" required>
                                     </td>
-                                    <td></td>
+                                    <td class="cell100 column4-acp"></td>
 								</tr>
 							</tbody>
 						</table>
                         <tr class="row100 body">
                             <td>
-                                <button style="width:50%; height:42px" class="btnChange" name="changePassBtn">Submit</button>
+                                <button style="width:100%; height:42px" class="btnChange" name="changePassBtn">Submit</button>
                             </td>
 						</tr>  
 					</div>

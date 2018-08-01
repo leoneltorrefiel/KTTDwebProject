@@ -6,11 +6,11 @@
 		header('location: main.php');
 	}
 
+	
+	$var1 = $_SESSION['copyStatus'];
+	$var2 = $_SESSION['copyName'];
 
-	$var1 = $_SESSION['patentStatus'];
-	$var2 = $_SESSION['patentName'];
-
-	$var = $_SESSION['username'];
+    $var = $_SESSION['username'];
 
     $sql = "SELECT account_type from account where username='$var' ";
     $res = mysqli_query($db,$sql);
@@ -122,11 +122,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
          <center>
             <form action="" method="post">
                 <div class="popup">
-                <button id="b1" class="btnCheck2" name="patentStepBackward"><font color="#FF4D00" size="10"><i class="far fa-minus-square fa-fw"></i></font></button>
+                <button id="b1" class="btnCheck2" name="copyrightStepBackward"><font color="#FF4D00" size="10"><i class="far fa-minus-square fa-fw"></i></font></button>
                 <span class="popuptext" id="myPopup">decrease step by 1</span>
                 </div>
                 <div class="popup">
-                <button id="b1"  class="btnCheck" name="patentStepForward"><font color="#108f01" size="10"><i class="far fa-plus-square fa-fw"></i></font></button>
+                <button id="b1"  class="btnCheck" name="copyrightStepForward"><font color="#108f01" size="10"><i class="far fa-plus-square fa-fw"></i></font></button>
                 <span class="popuptext" id="myPopup">increase step by 1</span>
                 </div>
 
@@ -137,99 +137,55 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <section>
                 <div class="steps">
                     <ul class="steps-container">
-                        <li style="width: 6.666666666666667%" id="step1">
+                        <li style="width: 14.28571428571429%" id="step1">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 1</div>
+                                <div class="step-description">Description</div>
                             </div>
                         </li>
-                        <li style="width: 6.666666666666667%" id="step2">
+                        <li style="width: 14.28571428571429%" id="step2">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 2</div>
+                                <div class="step-description">Description</div>
                             </div>
                         </li>
-                        <li style="width: 6.666666666666667%" id="step3">
+                        <li style="width: 14.28571428571429%" id="step3">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 3</div>
+                                <div class="step-description">Description</div>
                             </div>
                         </li>
-                        <li style="width: 6.666666666666667%" id="step4">
+                        <li style="width: 14.28571428571429%" id="step4">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 4</div>
+                                <div class="step-description">Description</div>
                             </div>
                         </li>
-                        <li style="width: 6.666666666666667%" id="step5">
+                        <li style="width: 14.28571428571429%" id="step5">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 5</div>
+                                <div class="step-description">Description</div>
                             </div>
                         </li>
-                        <li style="width: 6.666666666666667%" id="step6">
+                        <li style="width: 14.28571428571429%" id="step6">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 6</div>
+                                <div class="step-description">Description</div>
                             </div>
                         </li>
-                        <li style="width: 6.666666666666667%" id="step7">
-                            <div class="step">
-                                <div class="step-image"><span></span></div>
-                                <div class="step-current">Step 7</div>
-                            </div>
-                        </li>
-                        <li style="width: 6.666666666666667%" id="step8">
-                            <div class="step">
-                                <div class="step-image"><span></span></div>
-                                <div class="step-current">Step 8</div>
-                            </div>
-                        </li>
-                        <li style="width: 6.666666666666667%" id="step9">
-                            <div class="step">
-                                <div class="step-image"><span></span></div>
-                                <div class="step-current">Step 9</div>
-                            </div>
-                        </li>
-                        <li style="width: 6.666666666666667%" id="step10">
-                            <div class="step">
-                                <div class="step-image"><span></span></div>
-                                <div class="step-current">Step 10</div>
-                            </div>
-                        </li>
-                        <li style="width: 6.666666666666667%" id="step11">
-                            <div class="step">
-                                <div class="step-image"><span></span></div>
-                                <div class="step-current">Step 11</div>
-                            </div>
-                        </li>
-                        <li style="width: 6.666666666666667%" id="step12">
-                            <div class="step">
-                                <div class="step-image"><span></span></div>
-                                <div class="step-current">Step 12</div>
-                            </div>
-                        </li>
-                        <li style="width: 6.666666666666667%" id="step13">
-                            <div class="step">
-                                <div class="step-image"><span></span></div>
-                                <div class="step-current">Step 13</div>
-                            </div>
-                        </li>
-                        <li style="width: 6.666666666666667%" id="step14">
-                            <div class="step">
-                                <div class="step-image"><span></span></div>
-                                <div class="step-current">Step 14</div>
-                            </div>
-                        </li>
-                        <li style="width: 6.666666666666667%" id="step15">
+                        <li style="width: 14.28571428571429%" id="step7">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">End</div>
+                                <div class="step-description">Description</div>
                             </div>
                         </li>
-                        
-                        
-
                     </ul>
                     <div class="step-bar" id="step-bar"></div>
                 </div>
@@ -279,20 +235,20 @@ var temp = <?php echo $var1; ?>
 
 	if(temp == 1){
         document.getElementById("step1").className = "activated";
-        document.getElementById("step-bar").style.width = "6.666666666666667%";
+        document.getElementById("step-bar").style.width = "14.28571428571429%";
 	}
 
 	if(temp == 2){
         document.getElementById("step1").className = "activated";
 		document.getElementById("step2").className = "activated";
-        document.getElementById("step-bar").style.width = "13.33333333333333%";
+        document.getElementById("step-bar").style.width = "28.57142857142858%";
 	}
 
 	if(temp == 3){
 		document.getElementById("step1").className = "activated";
         document.getElementById("step2").className = "activated";
         document.getElementById("step3").className = "activated";
-        document.getElementById("step-bar").style.width = "20%";
+        document.getElementById("step-bar").style.width = "42.85714285714287%";
 	}
 
 	if(temp == 4){
@@ -300,7 +256,7 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step2").className = "activated";
         document.getElementById("step3").className = "activated";
         document.getElementById("step4").className = "activated";
-        document.getElementById("step-bar").style.width = "26.66666666666667%";
+        document.getElementById("step-bar").style.width = "57.14285714285716%";
     }
     
     if(temp == 5){
@@ -309,7 +265,7 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step3").className = "activated";
         document.getElementById("step4").className = "activated";
         document.getElementById("step5").className = "activated";
-        document.getElementById("step-bar").style.width = "33.33333333333334%";
+        document.getElementById("step-bar").style.width = "71.42857142857145%";
     }
     
     if(temp == 6){
@@ -319,7 +275,7 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step4").className = "activated";
         document.getElementById("step5").className = "activated";
         document.getElementById("step6").className = "activated";
-        document.getElementById("step-bar").style.width = "40%";
+        document.getElementById("step-bar").style.width = "85.71428571428574%";
     }
     
     if(temp == 7){
@@ -330,134 +286,8 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step5").className = "activated";
         document.getElementById("step6").className = "activated";
         document.getElementById("step7").className = "activated";
-        document.getElementById("step-bar").style.width = "46.66666666666667%";
-    }
-
-	if(temp == 8){
-        document.getElementById("step1").className = "activated";
-        document.getElementById("step2").className = "activated";
-        document.getElementById("step3").className = "activated";
-        document.getElementById("step4").className = "activated";
-        document.getElementById("step5").className = "activated";
-        document.getElementById("step6").className = "activated";
-        document.getElementById("step7").className = "activated";
-        document.getElementById("step8").className = "activated";
-        document.getElementById("step-bar").style.width = "53.33333333333334%";
-    }
-    
-    if(temp == 9){
-        document.getElementById("step1").className = "activated";
-        document.getElementById("step2").className = "activated";
-        document.getElementById("step3").className = "activated";
-        document.getElementById("step4").className = "activated";
-        document.getElementById("step5").className = "activated";
-        document.getElementById("step6").className = "activated";
-        document.getElementById("step7").className = "activated";
-        document.getElementById("step8").className = "activated";
-        document.getElementById("step9").className = "activated";
-        document.getElementById("step-bar").style.width = "60.00000000000001%";
-    }
-    
-    if(temp == 10){
-        document.getElementById("step1").className = "activated";
-        document.getElementById("step2").className = "activated";
-        document.getElementById("step3").className = "activated";
-        document.getElementById("step4").className = "activated";
-        document.getElementById("step5").className = "activated";
-        document.getElementById("step6").className = "activated";
-        document.getElementById("step7").className = "activated";
-        document.getElementById("step8").className = "activated";
-        document.getElementById("step9").className = "activated";
-        document.getElementById("step10").className = "activated";
-        document.getElementById("step-bar").style.width = "66.66666666666668%";
-    }
-    
-    if(temp == 11){
-        document.getElementById("step1").className = "activated";
-        document.getElementById("step2").className = "activated";
-        document.getElementById("step3").className = "activated";
-        document.getElementById("step4").className = "activated";
-        document.getElementById("step5").className = "activated";
-        document.getElementById("step6").className = "activated";
-        document.getElementById("step7").className = "activated";
-        document.getElementById("step8").className = "activated";
-        document.getElementById("step9").className = "activated";
-        document.getElementById("step10").className = "activated";
-        document.getElementById("step11").className = "activated";
-        document.getElementById("step-bar").style.width = "73.33333333333335%";
-    }
-    
-    if(temp == 12){
-        document.getElementById("step1").className = "activated";
-        document.getElementById("step2").className = "activated";
-        document.getElementById("step3").className = "activated";
-        document.getElementById("step4").className = "activated";
-        document.getElementById("step5").className = "activated";
-        document.getElementById("step6").className = "activated";
-        document.getElementById("step7").className = "activated";
-        document.getElementById("step8").className = "activated";
-        document.getElementById("step9").className = "activated";
-        document.getElementById("step10").className = "activated";
-        document.getElementById("step11").className = "activated";
-        document.getElementById("step12").className = "activated";
-        document.getElementById("step-bar").style.width = "80.00000000000002%";
-    }
-    
-    if(temp == 13){
-        document.getElementById("step1").className = "activated";
-        document.getElementById("step2").className = "activated";
-        document.getElementById("step3").className = "activated";
-        document.getElementById("step4").className = "activated";
-        document.getElementById("step5").className = "activated";
-        document.getElementById("step6").className = "activated";
-        document.getElementById("step7").className = "activated";
-        document.getElementById("step8").className = "activated";
-        document.getElementById("step9").className = "activated";
-        document.getElementById("step10").className = "activated";
-        document.getElementById("step11").className = "activated";
-        document.getElementById("step12").className = "activated";
-        document.getElementById("step13").className = "activated";
-        document.getElementById("step-bar").style.width = "86.66666666666669%";
-    }
-    
-    if(temp == 14){
-        document.getElementById("step1").className = "activated";
-        document.getElementById("step2").className = "activated";
-        document.getElementById("step3").className = "activated";
-        document.getElementById("step4").className = "activated";
-        document.getElementById("step5").className = "activated";
-        document.getElementById("step6").className = "activated";
-        document.getElementById("step7").className = "activated";
-        document.getElementById("step8").className = "activated";
-        document.getElementById("step9").className = "activated";
-        document.getElementById("step10").className = "activated";
-        document.getElementById("step11").className = "activated";
-        document.getElementById("step12").className = "activated";
-        document.getElementById("step13").className = "activated";
-        document.getElementById("step14").className = "activated";
-        document.getElementById("step-bar").style.width = "93.33333333333336%";
-    }
-    
-    if(temp == 15){
-        document.getElementById("step1").className = "activated";
-        document.getElementById("step2").className = "activated";
-        document.getElementById("step3").className = "activated";
-        document.getElementById("step4").className = "activated";
-        document.getElementById("step5").className = "activated";
-        document.getElementById("step6").className = "activated";
-        document.getElementById("step7").className = "activated";
-        document.getElementById("step8").className = "activated";
-        document.getElementById("step9").className = "activated";
-        document.getElementById("step10").className = "activated";
-        document.getElementById("step11").className = "activated";
-        document.getElementById("step12").className = "activated";
-        document.getElementById("step13").className = "activated";
-        document.getElementById("step14").className = "activated";
-        document.getElementById("step15").className = "activated";
         document.getElementById("step-bar").style.width = "100%";
     }
-    
-
 </script>
 </body>
 </html>

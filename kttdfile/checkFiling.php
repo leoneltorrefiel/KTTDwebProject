@@ -27,7 +27,7 @@
    			$varName1 = $getName['status'];
    			$_SESSION['copyStatus'] = $varName1;
 
-			header('location: admin-update-crTech-status.php');
+			header('location: admin-update-copyright-status.php');
 		}
 
 		if($getType['file_type'] == 'Patent'){

@@ -176,6 +176,41 @@ th, td {
 }
 
 
+/*ADMIN My Information*/
+.column1-ami {
+  width: 30%;
+}
+
+.column2-ami {
+  width: 20%;
+}
+
+.column3-ami {
+  width: 20%;
+}
+
+.column4-ami {
+  width: 30%;
+}
+
+
+/*ADMIN Change Passwordy*/
+.column1-acp {
+  width: 30%;
+}
+
+.column2-acp {
+  width: 20%;
+}
+
+.column3-acp {
+    width: 20%;
+}
+
+.column4-acp {
+    width: 30%;
+}
+
 
 /*ADMIN Add New Technology*/
 .column1-aant {
@@ -188,7 +223,7 @@ th, td {
 }
 
 .column3-aant {
-    width: 15;
+    width: 15%;
     background-color: transparent;
 }
 
