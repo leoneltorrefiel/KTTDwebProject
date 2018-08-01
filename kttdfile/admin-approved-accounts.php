@@ -118,6 +118,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
+    <h5>Accounts:  <strong><?php echo "  $count"; ?></strong></h5>
+    <h5>Staffs:  <strong><?php echo "  $countStaff"; ?></strong></h5>
+    <h5>Clients:  <strong><?php echo "  $countClient"; ?></strong></h5>
     <p>Dashboard><b>Approved Accounts</b></p>
 
   </header>
@@ -126,6 +129,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
+      <div><i style="top:10px" class="fa fa-search fa-fw"></i>
+      <input type="text" name="searchNAme" id="searchName" placeholder="Search Username" onKeyUp="search();" autocomplete="off" size="30">
+      <div>
+                    
+                     
+        <div id="div-id-name">
 				<div class="table100 ver2 m-b-110">
                     <div class="table100-head">
 						<table>
@@ -133,36 +142,41 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 								<tr class="row100 head">
 									<th class="cell100 column1"><h3>Approved Accounts</h3>
                                     </th>
+                                    <th>
+                                        <a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="#ed9d25" size="5"><i class="fa fa-print fa-fw"></i></font></a>
+                                    </th>
 								</tr>
 							</thead>
 						</table>
 					</div>
 					<div class="table100-body js-pscroll">
-						<table>
-							<tbody>
-                                <tr class="row100 body">
-									<td class="cell100 column1-aaa"></td>
-									<td class="cell100 column2-aaa"><b>Name</b></td>
-                                    <td class="cell100 column3-aaa"><b>Email</b></td>
-                                    <td class="cell100 column4-aaa"><b>Contact</b></td>
-                                    <td class="cell100 column5-aaa"><b>Type</b></td>
-                                    <td class="cell100 column6-aaa"><b>Action</b></td>
-								</tr>
-                                <tr>
+            <div id="result">
+						
+
                                     <?php
                                         if(empty($nm)){
                                             $sql1 = "SELECT * FROM account order by dateApproved ASC";
                                             $view1 = mysqli_query($db,$sql1);
+
+                                            echo "<table>";
+                                            echo "<tbody>";
+                                            echo "<tr class='row100 body'>";
+                                            echo "<td class='cell100 column1-aaa'><b></b></td>";
+                                            echo "<td class='cell100 column2-aaa'><b>Username</b></td>";
+                                            echo "<td class='cell100 column4-aaa'><b>Email</b></td>";
+                                            echo "<td class='cell100 column5-aaa'><b>Contact</b></td>";
+                                            echo "<td class='cell100 column6-aaa'><b>Type</b></td>";
+                                            echo "<td class='cell100 column6-aaa'><b>Action</b></td>";
+                                            echo "</tr>";
                             
 
                                             while($pending=mysqli_fetch_assoc($view1)) {
                                                 echo "<td class='cell100 column1-aaa'>"."<center><img  height='50' width='50' src='".$pending['file_path']."'></center>"."</td>";
-                                                echo "<td class='cell100 column2-aaa'>".$pending['firstname']." ";
-                                                echo "".$pending['lastname']."</td>";
+                                                echo "<td class='cell100 column2-aaa'>".$pending['username']."</td>";
                                                 echo "<td class='cell100 column3-aaa'>".$pending['email']."</td>";
                                                 echo "<td class='cell100 column4-aaa'>".$pending['contact']."</td>";
                                                 echo "<td class='cell100 column5-aaa'>".$pending['account_type']."</td>";
-                                                echo "<td class='cell100 column6-aaa'>"."<center><a href='admin-update-account.php?update1={$pending['account_id']}'><submit><font color='green' size='5'><i class='fa fa-edit'></i></font></submit></a>"." &nbsp "."<a href='deleteAccount.php?remove={$pending['account_id']}'><submit><font color='red' size='5'><i class='fa fa-trash'></i></font></submit></a><center>"."</td>";
+                                                echo "<td class='cell100 column6-aaa'>"."<center><a href='admin-update-account.php?update1={$pending['account_id']}'><submit><font color='green' size='5'><i class='fa fa-edit'></i></font></submit></a>"." &nbsp "."<center>"."</td>";
                                                 echo "</tr>";
                            
                                             }
@@ -171,10 +185,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 </tr>
 							</tbody>
 						</table>
+           </div>
 					</div>
 				</div>
-      </div>
     </div>
+  </div>
   </div>
 <div>
   <hr>
@@ -214,6 +229,17 @@ function w3_close() {
     mySidebar.style.display = "none";
     overlayBg.style.display = "none";
 }
+
+
+function search(){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.open("GET","searchBar2.php?nm="+ document.getElementById("searchName").value,false);
+        xmlhttp.send(null);
+        document.getElementById("result").innerHTML=xmlhttp.responseText;
+        document.getElementById("result").style.visibility='visible';
+    }
+
+
 </script>
 </body>
 </html>

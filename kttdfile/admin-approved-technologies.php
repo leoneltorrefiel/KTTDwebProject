@@ -128,7 +128,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 						<table>
 							<thead>
 								<tr class="row100 head">
-									<th class="cell100 column1"><h3>Approved Technologies</h3>
+									<th class="cell100 column1"><h3>Approved Technologies<a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="#ed9d25" size="5"><i class="fa fa-print fa-fw"></i></font></a></h3>
                                     </th>
 								</tr>
 							</thead>
