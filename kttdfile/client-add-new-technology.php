@@ -128,6 +128,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
               </thead>
             </table>
           </div>
+          <form action="client-add-new-technology.php" method="post" enctype="multipart/form-data">
           <div class="table100-body js-pscroll">
             <table>
               <tbody>
@@ -162,10 +163,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             </table>
                         <tr class="row100 body">
                             <td>
-                                <button style="width:100%; height:42px" class="btnChange" name="changePassBtn">Submit</button>
+                              
+                                <button style="width:100%; height:42px" class="btnChange" name="techSubmit">Submit</button>
+                              
                             </td>
                             <td class="cell100 column3-aant"></td>
             </tr>  
+            </form>
           </div>
         </div>
       </div>

@@ -51,6 +51,21 @@
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/svg-with-js.min.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.min.css">
+<link rel="stylesheet" href="./assets-admin/css/step-progress.min.css">
+<link rel="stylesheet" href="./assets-admin/css/styles.css">
+<link rel="stylesheet" href="./assets-admin/css/zoom.css">
+    
+    <!-- TableUI -->
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="tableUI/css/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/perfect-scrollbar/perfect-scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/css/util.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/css/main.css">
+<!--===============================================================================================-->
+
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -100,34 +115,142 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> Update <font color='green'><?php echo $_SESSION['copyName']; ?></font> Status</b></h5>
+    <p>Dashboard>My Technologies><b><?php echo $_SESSION['copyName']; ?> Status</b></p>
   </header>
-
-
-  <div class="w3-row-padding w3-margin-bottom">
-  	<h3>Copyright and Related Rights</h3>
-    
-  </div>
-
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-        
-	<br>
-	<br>
-	<form>
-	Step 1 <p id="step1"></p>
-	Step 2 <p id="step2"></p>
-	Step 3 <p id="step3"></p>
-	Step 4 <p id="step4"></p>
-	Step 5 <p id="step5"></p>
-	Step 5 <p id="step6"></p>
-    </form>
+          <section>
+                <div class="steps">
+                    <ul class="steps-container">
+                        <li style="width: 14.28571428571429%" id="step1">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 1</div>
+                                <div class="step-description">
+                                    <details>
+                                        <summary>Description</summary>
+                                        <b><p>Client/ ITSO Team</p></b>
+                                        <p align="left">*Sign-in</p>
+                                        <p align="left">*Initial negotiations</p>
+                                        <p align="left">*Discussion</p>
+                                    </details>
+                                </div>
+ 
+                            </div>
+                        </li>
+                        <li style="width: 14.28571428571429%" id="step2">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 2</div>
+                                <div class="step-description">
+                                    <details>
+                                        <summary>Description</summary>
+                                        <b><p>Client/ Manager/ Technical Staff</p></b>
+                                        <p align="left">*Provide Non-Disclosure Agreement</p>
+                                        <p align="left">*Application Process</p>
+                                        <p align="left">*Conduct Office Feedback Form</p>
+                                        <p align="left">*Create folder</p>
+                                        <p align="left">*Issuance of Quotaion for Patent Search and/or Patent Draft, if necessary</p>
+                                    </details>
+                                </div>
+                            </div>
+                        </li>
+                        <li style="width: 14.28571428571429%" id="step3">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 3</div>
+                                <div class="step-description">
+                                    <details>
+                                        <summary>Description</summary>
+                                        <b><p>ITSO Team</p></b>
+                                        <p align="left">*Analyze Information</p>
+                                        <p align="left">*(disclosure, drawings)</p>
+                                        <p align="left">*Conceptualized the innovation/ invention</p>
+                                        <p align="left">*Unity of invention</p>
+                                        <p align="left">*Task assignment</p>
+                                        <p align="left">*Triage (fill-up triage form)</p>
+                                    </details>
+                                </div>
+                            </div>
+                        </li>
+                        <li style="width: 14.28571428571429%" id="step4">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 4</div>
+                                <div class="step-description">
+                                    <details>
+                                        <summary>Description</summary>
+                                        <b><p>Technical Expert/ Technical Staff</p></b>
+                                        <p align="left">*Conduct Patent</p>
+                                        <p align="left">*Search (Use Databaeses,</p>
+                                        <p align="left">*IPC Classification, Update Status, Fill-in Log Wrapper)</p>
+                                    </details>
+                                </div>
+                            </div>
+                        </li>
+                        <li style="width: 14.28571428571429%" id="step5">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 5</div>
+                                <div class="step-description">
+                                    <details>
+                                        <summary>Description</summary>
+                                        <b><p>Client/ Manager/ Technical Staff</p></b>
+                                        <p align="left">*Meet staff and clients</p>
+                                        <p align="left">*Present search reports</p>
+                                        <p align="left">*Prior arts presentation</p>
+                                        <p align="left">*Tabulation</p>
+                                        <p align="left">*Meet with client/s for deliberation and presentation of data</p>
+                                        <p align="left">*Issuance of Quotation Slip for Patent Draft</p>
+                                    </details>
+                                </div>
+                            </div>
+                        </li>
+                        <li style="width: 14.28571428571429%" id="step6">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 6</div>
+                                <div class="step-description">
+                                    <details>
+                                        <summary>Description</summary>
+                                        <b><p>Manager/ Technical Staff</p></b>
+                                        <p align="left">*Draft Paper A</p>
+                                        <p align="left">*Assignment & Designation</p>
+                                        <p align="left">*Emnodiment</p>
+                                        <p align="left">*Prior arts (drafting of claims, novelty of claims)</p>
+                                        <p align="left">*Initial proof read (numerical referencing, technical terms)</p>
+                                        <p align="left">*Conduct dry run</p>
+                                        <p align="left">*(Basis for Paper B)</p>
+                                    </details>
+                                </div>
+                            </div>
+                        </li>
+                        <li style="width: 14.28571428571429%" id="step7">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">End</div>
+                                <div class="step-description">
+                                    <details>
+                                        <summary>Description</summary>
+                                        <b><p>Congratulations!
+                                            <br>All steps are done</p></b>
+                                    </details>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="step-bar" id="step-bar"></div>
+                </div>
+        </section>
+          
+    
   </div>
-  <hr>
+ 
   
-
+<hr>
   <!-- End page content -->
+</div>
 </div>
 </div>
 
@@ -157,77 +280,67 @@ function w3_close() {
 
 var temp = <?php echo $var1; ?>
 	
- 
 
-	if(temp == 0){	
-		document.getElementById("step1").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-	}	
+	if(temp == 0){
+        document.getElementById("step1").className = "";
+        document.getElementById("step-bar").style.width = "0%";
+	}
 
 	if(temp == 1){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step-bar").style.width = "14.28571428571429%";
 	}
 
 	if(temp == 2){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		
+        document.getElementById("step1").className = "activated";
+		document.getElementById("step2").className = "activated";
+        document.getElementById("step-bar").style.width = "28.57142857142858%";
 	}
 
 	if(temp == 3){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
+		document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step-bar").style.width = "42.85714285714287%";
 	}
+
 	if(temp == 4){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		
-	}
-
-	if(temp == 5){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		
-	}
-
-	if(temp == 6){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		
-	}
-
-
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step4").className = "activated";
+        document.getElementById("step-bar").style.width = "57.14285714285716%";
+    }
+    
+    if(temp == 5){
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step4").className = "activated";
+        document.getElementById("step5").className = "activated";
+        document.getElementById("step-bar").style.width = "71.42857142857145%";
+    }
+    
+    if(temp == 6){
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step4").className = "activated";
+        document.getElementById("step5").className = "activated";
+        document.getElementById("step6").className = "activated";
+        document.getElementById("step-bar").style.width = "85.71428571428574%";
+    }
+    
+    if(temp == 7){
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step4").className = "activated";
+        document.getElementById("step5").className = "activated";
+        document.getElementById("step6").className = "activated";
+        document.getElementById("step7").className = "activated";
+        document.getElementById("step-bar").style.width = "100%";
+    }
 </script>
 </body>
 </html>
-

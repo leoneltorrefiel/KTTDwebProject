@@ -114,72 +114,75 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <p>Dashboard><b>Add New Technology </b></p>
-
+    <h5><b><i class="fa fa-dashboard"></i> Add New Technology</b></h5>
   </header>
-
 
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-				<div class="table100 ver2 m-b-110">
+        <div class="table100 ver2 m-b-110">
                     <div class="table100-head">
-						<table>
-							<thead>
-								<tr class="row100 head">
-									<th class="cell100 column1"><h3>Add New Technology</h3>
+            <table>
+              <thead>
+                <tr class="row100 head">
+                  <th class="cell100 column1"><h3>Add New Technology</h3>
                                     </th>
-								</tr>
-							</thead>
-						</table>
-					</div>
-					<div class="table100-body js-pscroll">
-						<table>
-							<tbody>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <form action="client-add-new-technology.php" method="post" enctype="multipart/form-data">
+          <div class="table100-body js-pscroll">
+            <table>
+              <tbody>
                                 <tr class="row100 body">
                                     <td class="cell100 column3-annt"></td>
-									<td class="cell100 column1-aant">Technology Name</td>
+                  <td class="cell100 column1-aant">Technology Name</td>
                                     <td><textarea rows="1" cols="70" style="resize: none;" class="textArea" name="tech_name" required></textarea></td>
                                     <td></td>
-								</tr>
-								<tr class="row100 body">
+                </tr>
+                <tr class="row100 body">
                                     <td class="cell100 column3-annt"></td>
-									<td class="cell100 column1-aant">Description</td>
-									<td><textarea class="textArea" name="tech_description" rows="10" cols="70" required></textarea></td>
+                  <td class="cell100 column1-aant">Description</td>
+                  <td><textarea class="textArea" name="tech_description" rows="10" cols="70" required></textarea></td>
                                     <td></td>
-								</tr>
+                </tr>
 
-								<tr class="row100 body">
+                <tr class="row100 body">
                                     <td class="cell100 column3-annt"></td>
-									<td class="cell100 column1-aant">Attach File</td>
-									<td><input type="file" name="file" value="" required></td>
+                  <td class="cell100 column1-aant">Attach File</td>
+                  <td><input type="file" name="file" value="" required></td>
                                     <td></td>
-								</tr>
+                </tr>
                                 
                                 <tr class="row100 body">
                                     <td class="cell100 column3-annt"></td>
-									<td class="cell100 column1-aant">Filing Type</td>
-									<td class="cell100 column2-aant">Copyright<input type="radio" name="radio" value="Copyright" required>
+                  <td class="cell100 column1-aant">Filing Type</td>
+                  <td class="cell100 column2-aant">Copyright<input type="radio" name="radio" value="Copyright" required>
                                     <br>
                                     Patent<input type="radio" name="radio" value="Patent" required></td>
-								</tr>
-							</tbody>
-						</table>
+                </tr>
+              </tbody>
+            </table>
                         <tr class="row100 body">
                             <td>
-                                <button style="width:100%; height:42px" class="btnChange" name="changePassBtn">Submit</button>
+                              
+                                <button style="width:100%; height:42px" class="btnChange" name="techSubmit">Submit</button>
+                              
                             </td>
                             <td class="cell100 column3-aant"></td>
-						</tr>  
-					</div>
-				</div>
+            </tr>  
+            </form>
+          </div>
+        </div>
       </div>
   </div>
 </div>
-</div>
-
   <hr>
   
+
+  <!-- End page content -->
+</div>
 
 
 <script>

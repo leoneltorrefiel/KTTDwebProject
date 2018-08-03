@@ -150,7 +150,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                             echo "<td class='cell100 column1-amt'>".$pending1['tech_name']."</td>";
                             echo "<td class='cell100 column2'>".$pending1['file_type']."</td>";
                             echo "<td class='cell100 column3'>"."Aprroved"."</td>";
-                            echo "<td class='cell100 column3'><center>"."<a href='view-admin-tech.php?check={$pending1['tech_id']}'><font color='#8ec735'><i class='fa fa-eye fa-fw'></i></font></a>"."</center></td>";
+                            echo "<td class='cell100 column3'><center>"."<a href='view-my-tech.php?check={$pending1['tech_id']}'><font color='#8ec735'><i class='fa fa-eye fa-fw'></i></font></a>"."</center></td>";
                             echo "<tr>"; 
                             }
 
