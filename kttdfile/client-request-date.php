@@ -144,18 +144,21 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
               <tbody>
                 <tr class="row100 body">
                   <td class="cell100 column1-amt"><b>Request Date</b></td>
+                  <td class="cell100 column1-amt"><b>Reason</b></td>
                   <td class="cell100 column2"><b>Status</b></td>
                 </tr>
                                 <tr>
                                     <?php
                             while($pending1=mysqli_fetch_assoc($res1)){
                             echo "<td class='cell100 column1-amt'>".$pending1['reqdate']."</td>";
+                            echo "<td class='cell100 column1-amt'>".$pending1['reason']."</td>";
                             echo "<td class='cell100 column3'>"."<font color='#8ec735'><i class='fa fa-check fa-fw'></i></font>"."</td>";
                             echo "<tr>"; 
                             }
 
                             while($pending=mysqli_fetch_assoc($res_1)){
                             echo "<td class='cell100 column1-amt'>".$pending['reqDate']."</td>";
+                            echo "<td class='cell100 column1-amt'>".$pending['reason']."</td>";
                             echo "<td class='cell100 column3'>"."Waiting..."."</td>";
                             echo "<tr>"; 
                             echo "</tr>";

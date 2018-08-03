@@ -113,7 +113,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
       <header class="w3-container" style="padding-top:22px">
-    <p>Dashboard><b>Approved Request</b></p>
 
   </header>
     
@@ -151,7 +150,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                             echo "<tbody>";
                                             echo "<tr class='row100 body'>";
                                             echo "<td class='cell100 column2-aaa'><b>Name</b></td>";
-                                            echo "<td class='cell100 column3-aaa'><b>Username</b></td>";
+                                            echo "<td class='cell100 column3-aaa'><b>Reason</b></td>";
                                             echo "<td class='cell100 column4-aaa'><b>Email</b></td>";
                                             echo "<td class='cell100 column5-aaa'><b>Contact</b></td>";
                                             echo "<td class='cell100 column6-aaa'><b>Date Requested</b></td>";
@@ -162,7 +161,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                             while($pending=mysqli_fetch_assoc($view1)) {
                                                 echo "<td class='cell100 column2-aaa'>".$pending['firstname']." ";
                                                 echo "".$pending['lastname']."</td>";
-                                                echo "<td class='cell100 column3-aaa'>".$pending['username']."</td>";
+                                                echo "<td class='cell100 column3-aaa'>".$pending['reason']."</td>";
                                                 echo "<td class='cell100 column4-aaa'>".$pending['email']."</td>";
                                                 echo "<td class='cell100 column5-aaa'>".$pending['contact']."</td>";
                                                 echo "<td class='cell100 column6-aaa'>".$pending['reqdate']."</td>";
@@ -182,7 +181,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
     <div style="margin-top: -100px">
     <span>Totals Request:  <strong><?php echo "  $count"; ?></strong></span>
-  </div>
+    </div>
     
   </div>
   </div>

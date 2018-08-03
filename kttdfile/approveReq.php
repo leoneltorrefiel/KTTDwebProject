@@ -17,9 +17,10 @@
 			$email = $result['email'];
 			$contact = $result['contact'];
 			$reqDate = $result['reqDate'];
+			$reason = $result['reason'];
 
 
-			$sql2 = "INSERT into approvedreq(username,firstname,lastname,email,contact,reqdate) values('$username','$firstname','$lastname','$email','$contact','$reqDate') ";
+			$sql2 = "INSERT into approvedreq(username,firstname,lastname,email,contact,reqdate,reason) values('$username','$firstname','$lastname','$email','$contact','$reqDate','$reason') ";
 			mysqli_query($db,$sql2);
 
 			

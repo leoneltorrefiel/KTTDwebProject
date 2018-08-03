@@ -14,7 +14,7 @@
     $checkType = mysqli_fetch_assoc($res);
 
     if($checkType['account_type'] == 'Client'){
-        header('location: home.php');
+        header('location: client-my-technologies.php');
     }
 
 
@@ -113,7 +113,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <p>Dashboard><b>Pending Request</b></p>
 
   </header>
 
@@ -137,7 +136,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
               <tbody>
                                 <tr class="row100 body">
                                     <td class="cell100 column1-apt"><b>Name</b></td>
-                                    <td class="cell100 column2-apt"><b>Username</b></td>
+                                    <td class="cell100 column2-apt"><b>Reason</b></td>
                                     <td class="cell100 column3-apt"><b>Email</b></td>
                                     <td class="cell100 column4-apt"><b>Contact</b></td>
                                     <td class="cell100 column5-apt"><b>Request Date</b></td>
@@ -149,7 +148,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                           echo "<tr>"; 
                                             echo "<td class='cell100 column1-apt'>".$pending['firstname']." ".$pending['lastname']."</td>";
                                             
-                                            echo "<td class='cell100 column2-apt'>".$pending['username']."</td>";
+                                            echo "<td class='cell100 column2-apt'>".$pending['reason']."</td>";
                                             echo "<td class='cell100 column3-apt'>".$pending['email']."</td>";
                                             echo "<td class='cell100 column3-apt'>".$pending['contact']."</td>";
                                             echo "<td class='cell100 column4-apt'>".$pending['reqDate']."</td>";
@@ -161,10 +160,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             </table>
           </div>
         </div>
+        <div style="margin-top: -100px">
+        <span>Totals Request:  <strong><?php echo "  $count"; ?></strong></span>
+        </div>
       </div>
     </div>
   </div>
-<div>
+</div>
   <hr>
   
 
@@ -202,6 +204,16 @@ function w3_close() {
     mySidebar.style.display = "none";
     overlayBg.style.display = "none";
 }
+
+function search(){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.open("GET","searchDate.php?nm="+ document.getElementById("searchName").value,false);
+        xmlhttp.send(null);
+        document.getElementById("result").innerHTML=xmlhttp.responseText;
+        document.getElementById("result").style.visibility='visible';
+    }
+
+
 </script>
 </body>
 </html>

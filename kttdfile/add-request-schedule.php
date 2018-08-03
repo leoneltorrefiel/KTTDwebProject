@@ -44,6 +44,7 @@
     $reqLastname = $result3['lastname'];
     $reqEmail = $result3['email'];
     $reqContact = $result3['contact'];
+    $reqReason = mysqli_real_escape_string($db,$_POST['reqReason']);
     $reqDate = mysqli_real_escape_string($db,$_POST['reqDate']);
 
     $checkReq = "SELECT reqDate from peding_request where reqDate='$reqDate' and username='$var' ";
@@ -53,7 +54,7 @@
       echo "<script>alert('You Already Requested that Date');</script>";
     }
     else{
-      $insert = "INSERT into peding_request(username,firstname,lastname,email,contact,reqDate) value('$reqUsername','$reqName','$reqLastname','$reqEmail','$reqContact','$reqDate')";
+      $insert = "INSERT into peding_request(username,firstname,lastname,email,contact,reqDate,reason) value('$reqUsername','$reqName','$reqLastname','$reqEmail','$reqContact','$reqDate','$reqReason')";
     $exe = mysqli_query($db,$insert);
        echo "<script>alert('Request Submitted!');</script>";
     }

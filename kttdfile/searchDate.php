@@ -13,7 +13,7 @@ echo "<table>";
      echo "<tbody>";
      echo "<tr class='row100 body'>";
      echo "<td class='cell100 column2-aat'><b>Name</b></td>";
-     echo "<td class='cell100 column3-aat'><b>Username</b></td>";
+     echo "<td class='cell100 column3-aat'><b>Reason</b></td>";
      echo "<td class='cell100 column4-aat'><b>Email</b></td>";
      echo "<td class='cell100 column5-aat'><b>Contact</b></td>";
      echo "<td class='cell100 column6-aat'><b>Date Request</b></td>";
@@ -22,7 +22,7 @@ echo "<table>";
 
 	while($row=mysqli_fetch_assoc($result)){
         echo "<td class='cell100 column2-aaa'>".$row['firstname']." ".$row['lastname'];
-        echo "<td class='cell100 column3-aat'>"; echo $row['username']; echo "</td>";
+        echo "<td class='cell100 column3-aat'>"; echo $row['reason']; echo "</td>";
         echo "<td class='cell100 column4-aat'>"; echo $row['email']; echo "</td>";
         echo "<td class='cell100 column6-aat'>"; echo $row['contact']; echo "</td>";
         echo "<td class='cell100 column6-aat'>"; echo $row['reqdate']; echo "</td>";
