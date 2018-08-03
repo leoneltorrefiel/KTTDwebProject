@@ -34,6 +34,7 @@
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="./assets-admin/css/w4.css">
 <link rel="stylesheet" href="./assets-admin/css/font-railway.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/all.css">
@@ -50,6 +51,18 @@
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/svg-with-js.min.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.min.css">
+    
+<!-- TableUI -->
+<!--===============================================================================================-->  
+  <link rel="icon" type="image/png" href="tableUI/css/images/icons/favicon.ico"/>
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/animate/animate.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/select2/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/perfect-scrollbar/perfect-scrollbar.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/css/util.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/css/main.css">
+
+
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -101,48 +114,63 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <h5><b><i class="fa fa-dashboard"></i> Add New Technology</b></h5>
   </header>
 
-  <div class="w3-row-padding w3-margin-bottom">
-    
-  </div>
-
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-        <form accept="client-add-new-technology.php" method="post" enctype="multipart/form-data">
-        <table class="w3-table w3-striped w3-white">
-          <tr>
-            <td><i class="fa fa-share-alt w3-text-blue w3-large"></i></td>
-            <td>Technology Name: </td>
-            <td><input type="text" name="tech_name"></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-share-alt w3-text-red w3-large"></i></td>
-            <td>Technology Description: .</td>
-            <td><textarea name="tech_description" rows="10" cols="60"></textarea></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-share-alt w3-text-yellow w3-large"></i></td>
-            <td>Attach Some File: </td>
-            <td><input type="file" name="file" value="" required></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-share-alt w3-text-yellow w3-large"></i></td>
-            <td>Filing: </td>
-            <td><input type="radio" name="radio" value="Copyright"> Copyright</td>
-            <td><input type="radio" name="radio" value="Patent"> Patent</td>
-          </tr>
-          <tr>
-            <td></td>
-            
-            <td><input type="submit" name="techSubmit" value="Submit"></td>
-          
-          </tr>
-          
-        </table>
-        </form>
+        <div class="table100 ver2 m-b-110">
+                    <div class="table100-head">
+            <table>
+              <thead>
+                <tr class="row100 head">
+                  <th class="cell100 column1"><h3>Add New Technology</h3>
+                                    </th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="table100-body js-pscroll">
+            <table>
+              <tbody>
+                                <tr class="row100 body">
+                                    <td class="cell100 column3-annt"></td>
+                  <td class="cell100 column1-aant">Technology Name</td>
+                                    <td><textarea rows="1" cols="70" style="resize: none;" class="textArea" name="tech_name" required></textarea></td>
+                                    <td></td>
+                </tr>
+                <tr class="row100 body">
+                                    <td class="cell100 column3-annt"></td>
+                  <td class="cell100 column1-aant">Description</td>
+                  <td><textarea class="textArea" name="tech_description" rows="10" cols="70" required></textarea></td>
+                                    <td></td>
+                </tr>
+
+                <tr class="row100 body">
+                                    <td class="cell100 column3-annt"></td>
+                  <td class="cell100 column1-aant">Attach File</td>
+                  <td><input type="file" name="file" value="" required></td>
+                                    <td></td>
+                </tr>
+                                
+                                <tr class="row100 body">
+                                    <td class="cell100 column3-annt"></td>
+                  <td class="cell100 column1-aant">Filing Type</td>
+                  <td class="cell100 column2-aant">Copyright<input type="radio" name="radio" value="Copyright" required>
+                                    <br>
+                                    Patent<input type="radio" name="radio" value="Patent" required></td>
+                </tr>
+              </tbody>
+            </table>
+                        <tr class="row100 body">
+                            <td>
+                                <button style="width:100%; height:42px" class="btnChange" name="changePassBtn">Submit</button>
+                            </td>
+                            <td class="cell100 column3-aant"></td>
+            </tr>  
+          </div>
+        </div>
       </div>
-    </div>
   </div>
+</div>
   <hr>
   
 

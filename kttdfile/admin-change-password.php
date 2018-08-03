@@ -176,7 +176,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 						</table>
                         <tr class="row100 body">
                             <td>
-                                <button style="width:100%; height:42px" class="btnChange" name="changePassBtn">Submit</button>
+                                <button style="width:100%; height:42px" class="btnChange" name="changePassBtn">Change</button>
                             </td>
 						</tr>  
 					</div>

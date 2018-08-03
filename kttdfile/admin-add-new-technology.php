@@ -118,7 +118,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   </header>
 
-<div id="div-id-name">
+
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
@@ -127,7 +127,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 						<table>
 							<thead>
 								<tr class="row100 head">
-									<th class="cell100 column1"><h3>Add New Technology<a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="#ed9d25" size="5"><i class="fa fa-print fa-fw"></i></font></a></h3>
+									<th class="cell100 column1"><h3>Add New Technology</h3>
                                     </th>
 								</tr>
 							</thead>
@@ -174,14 +174,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 					</div>
 				</div>
       </div>
-    </div>
   </div>
-<div>
+</div>
+</div>
+
   <hr>
   
 
-  <!-- End page content -->
-</div>
 
 <script>
 

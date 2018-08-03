@@ -60,6 +60,7 @@
 <title>Client Change Password</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="./assets-admin/css/w4.css">
 <link rel="stylesheet" href="./assets-admin/css/font-railway.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/all.css">
@@ -76,7 +77,9 @@
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/svg-with-js.min.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.min.css">
-
+    
+<!-- TableUI -->
+<!--===============================================================================================-->  
   <link rel="icon" type="image/png" href="tableUI/css/images/icons/favicon.ico"/>
   <link rel="stylesheet" type="text/css" href="tableUI/vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="tableUI/vendor/animate/animate.css">
@@ -84,6 +87,7 @@
   <link rel="stylesheet" type="text/css" href="tableUI/vendor/perfect-scrollbar/perfect-scrollbar.css">
   <link rel="stylesheet" type="text/css" href="tableUI/css/util.css">
   <link rel="stylesheet" type="text/css" href="tableUI/css/main.css">
+<!--===============================================================================================-->
 
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
@@ -140,12 +144,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-        <div class="table100 ver5 m-b-110">
+          <form action="admin-change-password.php" method="POST">
+                <div class="table100 ver2 m-b-110">
                     <div class="table100-head">
             <table>
               <thead>
                 <tr class="row100 head">
-                  <th class="cell100 column1"><h3>My Information</h3></th>
+                  <th class="cell100 column1"><h3>Change Password</h3></th>
                 </tr>
               </thead>
             </table>
@@ -154,33 +159,40 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             <table>
               <tbody>
                                 <tr class="row100 body">
-                                  <form action="admin-change-password.php" method="post">
-                  <td class="cell100 column1">Username</td>
-                  <td><b><?php echo $result['username']; ?></b></td>
+                                    <td class="cell100 column1-acp"></td>
+                  <td class="cell100 column2-acp">Current Password</td>
+                  <td class="cell100 column3-acp">
+                                        <input class="pwdBox" type="password" name="currentPass" placeholder="Current Password" required>
+                                    </td>
+                                    <td class="cell100 column4-acp"></td>
                 </tr>
                 <tr class="row100 body">
-                  <td class="cell100 column1">Current Password</td>
-                  <td><b><input type="password" name="currentPass" required></b></td>
+                                    <td class="cell100 column1-acp"></td>
+                  <td class="cell100 column2-acp">New Password</td>
+                  <td class="cell100 column3-acp">
+                                        <input class="pwdBox" type="password" name="newPass" placeholder="New Password" required>
+                                    </td>
+                                    <td class="cell100 column4-acp"></td>
                 </tr>
 
                 <tr class="row100 body">
-                  <td class="cell100 column1">New Password</td>
-                  <td><input type="password" name="newPass" placeholder="input new password" required></td>
+                                    <td class="cell100 column1-acp"></td>
+                  <td class="cell100 column2-acp">Confirm Password</td>
+                  <td class="cell100 column3-acp">
+                                        <input class="pwdBox" type="password" name="confirmPass" placeholder="Confirm Password" required>
+                                    </td>
+                                    <td class="cell100 column4-acp"></td>
                 </tr>
-
-                <tr class="row100 body">
-                  <td class="cell100 column1">Confirm Password</td>
-                  <td><p><input type="password" name="confirmPass" placeholder="input new password" required></p></td>
-                </tr>                       
-                                <tr class="row100 body">
-                                <input class="btnLogout" type="submit" name="changePassBtn" value="Change">
-                                
-                                </form>   
-                                </tr>
               </tbody>
             </table>
+                        <tr class="row100 body">
+                            <td>
+                                <button style="width:100%; height:42px" class="btnChange" name="changePassBtn">Change</button>
+                            </td>
+            </tr>  
           </div>
         </div>
+          </form>
       </div>
     </div>
   </div>
