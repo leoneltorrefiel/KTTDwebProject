@@ -41,6 +41,7 @@
 <title>Staff's Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="./assets-admin/css/w4.css">
 <link rel="stylesheet" href="./assets-admin/css/font-railway.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/all.css">
@@ -57,6 +58,17 @@
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/svg-with-js.min.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.min.css">
+    
+<!-- TableUI -->
+<!--===============================================================================================-->  
+  <link rel="icon" type="image/png" href="tableUI/css/images/icons/favicon.ico"/>
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/animate/animate.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/select2/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/perfect-scrollbar/perfect-scrollbar.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/css/util.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/css/main.css">
+<!--===============================================================================================-->
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -93,7 +105,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="./staff-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
     <a href="./staff-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-circle fa-fw"></i> Approved Accounts</a>    
     <a href="./staff-approved-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-seedling fa-fw"></i> Approved Technologies</a> 
-    <a href="./staff-approved-reuest.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Request Schedule</a>    
+    <a href="./staff-approved-request.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Approved Request</a>    
   </div>
 </nav>
 
@@ -106,64 +118,70 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> Approved Technologies</b></h5>
+    <p>Dashboard><b>Approved Technologies</b></p>
+
   </header>
 
-  <div class="w3-row-padding w3-margin-bottom">
-    <h4>Total Technologies:  <strong><?php echo "  $count  "; ?></strong></h4><h4>Total Copyright:  <strong><?php echo "  $countCR  "; ?></strong></h4><h4>Total Patent:  <strong><?php echo "  $countP"; ?></strong></h4>
-  </div>
-
+<div id="div-id-name">
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-        <div>
-                    <b>Search: </b> <i class="fa fa-search fa-fw"></i>
-                    <input type="text" name="searchNAme" id="searchName" placeholder="Search Technology Name" onKeyUp="search();" autocomplete="off">
-                    <br>
-                    <br>
-                </div>
-    
+          <div class="search-bar-container"><i class="fa fa-search fa-fw"></i>
+      <input class="search-bar" type="text" name="searchNAme" id="searchName" placeholder="Search Technology" onKeyUp="search();" autocomplete="off" style="height:30px; width:200px">
+      </div> 
+          <div id="div-id-name">
+        <div class="table100 ver2 m-b-110">
+                    <div class="table100-head">
+            <table>
+              <thead>
+                <tr class="row100 head">
+                                    <th class="cell100 column1"><h3>Approved Technologies</h3>
+                                    </th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="table100-body js-pscroll">
+                        <div id="div-id-name">
+          <div id="result">
+            <table>
+              <tbody>
+                                <tr class="row100 body">
+                  <td class="cell100 column1-aat"><b>Technology Name</b></td>
+                                    <td class="cell100 column2-aat"><b>Attached File</b></td>
+                  <td class="cell100 column3-aat"><b>Tech Owner</b></td>
+                                    <td class="cell100 column4-aat"><b>Filing Type</b></td>
+                                    <td class="cell100 column5-aat"><b>Filing Date</b></td>
+                                    <td class="cell100 column6-aat"><b>Step Status</b></td>
+                </tr>
+                                <tr>
+                                    <?php
+                                        if(empty($nm)) {
+                                            $sql = "SELECT * from technologies order by date_approved DESC";
+                                            $result = mysqli_query($db,$sql);
+
+                                            while($row=mysqli_fetch_assoc($result)) {
+                                                echo "<td class='cell100 column1-aat'>"."<a href='checkFiling.php?check={$row['tech_id']}'><font color='green'> </i> "; echo $row['tech_name']; echo "</font></a>"."</td>";
+                                                echo "<td class='cell100 column2-aat'>"."<a href='download.php?dl={$row['tech_id']}'>"; echo $row['tech_filename']; echo "</a>"."</td>";
+                                                echo "<td class='cell100 column3-aat'>"; echo $row['tech_owner']; echo "</td>";
+                                                echo "<td class='cell100 column4-aat'>"; echo $row['file_type']; echo "</td>";
+                                                echo "<td class='cell100 column5-aat'>"."<a{$row['tech_id']}'>"; echo $row['date_request']; echo "</a>"."</td>";
+                                                echo "<td class='cell100 column6-aat'>"; echo $row['status']; echo "</td>";
+                                                echo "</tr>";
+                                            }
+                                        }
+                                    ?>
+                                </tr>
+              </tbody>
+            </table>
+                            </div>
+                        </div>
+          </div>
+        </div>
       </div>
-      <div id="result">
-                    <?php
-                        if(empty($nm)){
-        
-    $sql = "SELECT * from technologies order by status DESC";
-    $result = mysqli_query($db,$sql);
-
-    echo "<table class='w3-table w3-striped w3-white'>";
-    echo "<tr>";
-    echo "<th align=center>Tech Name</th>";
-    echo "<th align=center>Tech Description</th>";
-    echo "<th align=center>Tech Owner</th>";
-    echo "<th align=center>Tech Username</th>";
-    echo "<th align=center>Account Type</th>";
-    echo "<th align=center>Attached File</th>";
-    echo "<th align=center>Steps Status</th>";
-    echo "<th align=center>Filing Type</th>";
-    echo "<th align=center>Date Approved</th>";
-    echo "<th align=center>Date Request</th>";
-    echo "</tr>";
-    while($row=mysqli_fetch_assoc($result)){
-        echo "<tr>";
-        echo "<td width=1%>"."<a href='checkFiling2.php?check={$row['tech_id']}'><font color='green'><i class='fa fa-map-marked-alt'></i>"; echo $row['tech_name']; echo "</font></a>"."</td>";
-        echo "<td width=1.5%>"; echo $row['tech_description']; echo "</td>";
-        echo "<td width=2%>"; echo $row['tech_owner']; echo "</td>";
-        echo "<td width=2%>"; echo $row['tech_username']; echo "</td>";
-        echo "<td width=2%>"; echo $row['tech_acct']; echo "</td>";
-        echo "<td width=1%>"."<a href='download.php?dl={$row['tech_id']}'>"; echo $row['tech_filename']; echo "</a>"."</td>";
-        echo "<td width=1.5%>"; echo $row['status']; echo "</td>";
-        echo "<td width=1%>"; echo $row['file_type']; echo "</td>";
-        echo "<td width=1%>"; echo $row['date_approved']; echo "</td>";
-        echo "<td width=1%>"; echo $row['date_request']; echo "</td>";
-        echo "</tr>";
-        } 
-
-    echo "</table>";
-    }
-                    ?>
     </div>
   </div>
+<div>
   <hr>
   
 

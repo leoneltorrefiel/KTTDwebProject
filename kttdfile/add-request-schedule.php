@@ -143,7 +143,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   </header>
 
-
+  <form action="add-request-schedule.php" method="post">
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
@@ -167,6 +167,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                     <td><input type="date" name="reqDate" required></td>
                                     <td></td>
                 </tr>
+                <tr class="row100 body">
+                                    <td class="cell100 column3-annt"></td>
+                  <td class="cell100 column1-aant">Reason</td>
+                  <td><textarea class="textArea" name="reqReason" rows="10" cols="70" required></textarea></td>
+                                    <td></td>
+                </tr>
               </tbody>
             </table>
                         <tr class="row100 body">
@@ -175,11 +181,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                             </td>
                             <td class="cell100 column3-aant"></td>
             </tr>  
+             
           </div>
         </div>
       </div>
   </div>
 </div>
+</form>
 </div>
 <hr>
 

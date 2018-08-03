@@ -43,6 +43,7 @@
 <title>Staff's Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="./assets-admin/css/w4.css">
 <link rel="stylesheet" href="./assets-admin/css/font-railway.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/all.css">
@@ -59,6 +60,17 @@
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/svg-with-js.min.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.min.css">
+    
+<!-- TableUI -->
+<!--===============================================================================================-->  
+  <link rel="icon" type="image/png" href="tableUI/css/images/icons/favicon.ico"/>
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/animate/animate.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/select2/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/perfect-scrollbar/perfect-scrollbar.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/css/util.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/css/main.css">
+<!--===============================================================================================-->
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -95,7 +107,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="./staff-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
     <a href="./staff-approved-accounts.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-user-circle fa-fw"></i> Approved Accounts</a>    
     <a href="./staff-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-seedling fa-fw"></i> Approved Technologies</a> 
-    <a href="./staff-approved-reuest.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Request Schedule</a>    
+    <a href="./staff-approved-request.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Approved Request</a>    
   </div>
 </nav>
 
@@ -107,73 +119,88 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
   <!-- Header -->
-  <div class="w3-row-padding w3-margin-bottom">
-    <h4>Total Accounts:  <strong><?php echo "  $count"; ?></strong></h4>
-    <h4>Total Staffs:  <strong><?php echo "  $countStaff"; ?></strong></h4>
-    <h4>Total Clients:  <strong><?php echo "  $countClient"; ?></strong></h4>
-  </div>
-  
+      <header class="w3-container" style="padding-top:22px">
+    <p>Dashboard><b>Approved Accounts</b></p>
+
+  </header>
+    
+<div id="div-id-name">
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-         <b>Search: </b> <i class="fa fa-search fa-fw"></i>
-                    <input type="text" name="searchNAme" id="searchName" placeholder="Search Username" onKeyUp="search();" autocomplete="off">
-                    <br>
-                    <br>
+    <div class="search-bar-container"><i class="fa fa-search fa-fw"></i>
+      <input class="search-bar" type="text" name="searchNAme" id="searchName" placeholder="Search Username" onKeyUp="search();" autocomplete="off" style="height:30px; width:200px">
+      </div>    
           
+          
+        <div id="div-id-name">
+        <div class="table100 ver2 m-b-110">
+                    <div class="table100-head">
+            <table>
+              <thead>
+                <tr class="row100 head">
+                  <th class="cell100 column1">   <h3>Approved Accounts</h3>
+                                    </th>
+                </tr>
+              </thead>
+            </table>
           </div>
-           <div id="result">
-           <?php
-                      
-                        if(empty($nm)){
-                            $sql1 = "SELECT * FROM account order by dateApproved ASC";
-                            $view1 = mysqli_query($db,$sql1);
-                            
-                            echo "<table class='w3-table w3-striped w3-white'>";
-                            echo "<tr>";
-                            echo "<th align=center>Image</th>";
-                            echo "<th align=center>Username</th>";
-                            echo "<th align=center>Password</th>";
-                            echo "<th align=center>Firstname</th>";
-                            echo "<th align=center>Lastname</th>";
-                            echo "<th align=center>Email</th>";
-                            echo "<th align=center>Address</th>";
-                            echo "<th align=center>Contact</th>";
-                            echo "<th align=center>Date Applied</th>";
-                            echo "<th align=center>Date Approved</th>";
-                            echo "<th align=center>Account Type</th>";
-                            echo "<th align=center>Action</th>";
-                            echo "</tr>";
+          <div class="table100-body js-pscroll">
+            <div id="result">
+            
 
-                             while($pending=mysqli_fetch_assoc($view1)){
-                            echo "<td>"."<img  height='30' width='30' src='".$pending['file_path']."'>"."</td>";
-                            echo "<td>".$pending['username']."</td>";
-                            echo "<td>".$pending['password']."</td>";
-                            echo "<td>".$pending['firstname']."</td>";
-                            echo "<td>".$pending['lastname']."</td>";
-                            echo "<td>".$pending['email']."</td>";
-                            echo "<td>".$pending['address']."</td>";
-                            echo "<td>".$pending['contact']."</td>";
-                            echo "<td>".$pending['dateApplied']."</td>";
-                            echo "<td>".$pending['dateApproved']."</td>";
-                            echo "<td>".$pending['account_type']."</td>";
-                            echo "<td>"."<a href='staff-update-account.php?update={$pending['account_id']}'><submit><font color='green' size='5'><i class='fa fa-edit'></i></font></submit></a>"." &nbsp "."<a href='deleteAccount.php?remove={$pending['account_id']}'><submit><font color='red' size='5'><i class='fa fa-trash'></i></font></submit></a>"."</td>";
-                            echo "</tr>";
+                                    <?php
+                                        if(empty($nm)){
+                                            $sql1 = "SELECT * FROM account order by dateApproved ASC";
+                                            $view1 = mysqli_query($db,$sql1);
+
+                                            echo "<table>";
+                                            echo "<tbody>";
+                                            echo "<tr class='row100 body'>";
+                                            echo "<td class='cell100 column1-aaa'><b></b></td>";
+                                            echo "<td class='cell100 column2-aaa'><b>Fullname</b></td>";
+                                            echo "<td class='cell100 column3-aaa'><b>Username</b></td>";
+                                            echo "<td class='cell100 column4-aaa'><b>Email</b></td>";
+                                            echo "<td class='cell100 column5-aaa'><b>Contact</b></td>";
+                                            echo "<td class='cell100 column6-aaa'><b>Type</b></td>";
+                                            echo "<td class='cell100 column7-aaa'><b>Action</b></td>";
+                                            echo "</tr>";
+                            
+
+                                            while($pending=mysqli_fetch_assoc($view1)) {
+                                                echo "<td class='cell100 column1-aaa'>"."<center><img  height='50' width='50' src='".$pending['file_path']."'></center>"."</td>";
+                                                echo "<td class='cell100 column2-aaa'>".$pending['firstname']." ";
+                                                echo "".$pending['lastname']."</td>";
+                                                echo "<td class='cell100 column3-aaa'>".$pending['username']."</td>";
+                                                echo "<td class='cell100 column4-aaa'>".$pending['email']."</td>";
+                                                echo "<td class='cell100 column5-aaa'>".$pending['contact']."</td>";
+                                                echo "<td class='cell100 column6-aaa'>".$pending['account_type']."</td>";
+                                                echo "<td class='cell100 column7-aaa'>"."<center><a href='admin-update-account.php?update1={$pending['account_id']}'><submit><font color='green' size='5'><i class='fa fa-edit'></i></font></submit></a>"." &nbsp "."<center>"."</td>";
+                                                echo "</tr>";
                            
-                            }
-                             echo "</table>";
-                        }
-                           
-                    ?>
-                  
+                                            }
+                                        }
+                                    ?>
                 
+                                </tr>
+              </tbody>
+            </table>
+                        </div>
           </div>
-        
-      </div>
+        </div>
     </div>
+    <div style="margin-top: -100px">
+    <span>Totals Staff Accounts:  <strong><?php echo "  $countStaff"; ?></strong></span>
+    <span class="span2">Totoal Client Accounts:  <strong><?php echo "  $countClient"; ?></strong></span>
+    <span class="span3">Total Accounts:  <strong><?php echo "  $count"; ?></strong></span>
   </div>
+    
+  </div>
+  </div>
+<div>
   <hr>
   
+
   <!-- End page content -->
 </div>
 

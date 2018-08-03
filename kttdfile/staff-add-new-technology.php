@@ -34,6 +34,7 @@
 <title>Staff's Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="./assets-admin/css/w4.css">
 <link rel="stylesheet" href="./assets-admin/css/font-railway.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/all.css">
@@ -50,6 +51,17 @@
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/svg-with-js.min.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.min.css">
+    
+<!-- TableUI -->
+<!--===============================================================================================-->  
+  <link rel="icon" type="image/png" href="tableUI/css/images/icons/favicon.ico"/>
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/animate/animate.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/select2/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/vendor/perfect-scrollbar/perfect-scrollbar.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/css/util.css">
+  <link rel="stylesheet" type="text/css" href="tableUI/css/main.css">
+<!--===============================================================================================-->
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -86,7 +98,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="./staff-add-new-technology.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
     <a href="./staff-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-circle fa-fw"></i> Approved Accounts</a>    
     <a href="./staff-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-seedling fa-fw"></i> Approved Technologies</a>
-    <a href="./staff-approved-reuest.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Request Schedule</a>      
+    <a href="./staff-approved-reuest.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Approved Request</a>      
   </div>
 </nav>
 
