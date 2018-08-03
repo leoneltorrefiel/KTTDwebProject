@@ -72,7 +72,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-  <span class="w3-bar-item w3-right">KTTD</span>
+  <span class="w3-bar-item w3-right"><a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="white" size="3"><i class="fa fa-print fa-fw"></i></font></a></span>
 </div>
 
 <!-- Sidebar/menu -->
@@ -123,18 +123,24 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
+          <div class="search-bar-container"><i class="fa fa-search fa-fw"></i>
+      <input class="search-bar" type="text" name="searchNAme" id="searchName" placeholder="Search Technology" onKeyUp="search();" autocomplete="off" style="height:30px; width:200px">
+      </div> 
+          <div id="div-id-name">
 				<div class="table100 ver2 m-b-110">
                     <div class="table100-head">
 						<table>
 							<thead>
 								<tr class="row100 head">
-									<th class="cell100 column1"><h3>Approved Technologies<a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="#ed9d25" size="5"><i class="fa fa-print fa-fw"></i></font></a></h3>
+                                    <th class="cell100 column1"><h3>Approved Technologies</h3>
                                     </th>
 								</tr>
 							</thead>
 						</table>
 					</div>
 					<div class="table100-body js-pscroll">
+                        <div id="div-id-name">
+					<div id="result">
 						<table>
 							<tbody>
                                 <tr class="row100 body">
@@ -153,10 +159,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
                                             while($row=mysqli_fetch_assoc($result)) {
                                                 echo "<td class='cell100 column1-aat'>"."<a href='checkFiling.php?check={$row['tech_id']}'><font color='green'> </i> "; echo $row['tech_name']; echo "</font></a>"."</td>";
-                                                echo "<td class='cell100 column5-aat'>"."<a href='download.php?dl={$row['tech_id']}'>"; echo $row['tech_filename']; echo "</a>"."</td>";
+                                                echo "<td class='cell100 column2-aat'>"."<a href='download.php?dl={$row['tech_id']}'>"; echo $row['tech_filename']; echo "</a>"."</td>";
                                                 echo "<td class='cell100 column3-aat'>"; echo $row['tech_owner']; echo "</td>";
                                                 echo "<td class='cell100 column4-aat'>"; echo $row['file_type']; echo "</td>";
-                                                echo "<td class='cell100 column5-aat'>"."<a href='download.php?dl={$row['tech_id']}'>"; echo $row['date_request']; echo "</a>"."</td>";
+                                                echo "<td class='cell100 column5-aat'>"."<a{$row['tech_id']}'>"; echo $row['date_request']; echo "</a>"."</td>";
                                                 echo "<td class='cell100 column6-aat'>"; echo $row['status']; echo "</td>";
                                                 echo "</tr>";
                                             }
@@ -165,6 +171,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 </tr>
 							</tbody>
 						</table>
+                            </div>
+                        </div>
 					</div>
 				</div>
       </div>
@@ -208,6 +216,17 @@ function w3_close() {
     mySidebar.style.display = "none";
     overlayBg.style.display = "none";
 }
+
+function search(){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.open("GET","searchBar.php?nm="+ document.getElementById("searchName").value,false);
+        xmlhttp.send(null);
+        document.getElementById("result").innerHTML=xmlhttp.responseText;
+        document.getElementById("result").style.visibility='visible';
+    }
+
+
 </script>
 </body>
+</html>
 </html>

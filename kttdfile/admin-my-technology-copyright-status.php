@@ -7,6 +7,8 @@
 	}
 
 	
+
+	
 	$var1 = $_SESSION['copyStatus'];
 	$var2 = $_SESSION['copyName'];
 
@@ -17,18 +19,17 @@
 
     $checkType = mysqli_fetch_assoc($res);
 
+    
     if($checkType['account_type'] == 'Client'){
         header('location: client-my-technologies.php');
     }
 
-    $sql1 = "SELECT * FROM technologies order by status ASC";
-    $view1 = mysqli_query($db,$sql1);
 
 ?>
 
 
 <!DOCTYPE html>
-<html>
+<html class="fadeIn">
 <title>Admin's Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,9 +52,9 @@
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.min.css">
 <link rel="stylesheet" href="./assets-admin/css/step-progress.min.css">
 <link rel="stylesheet" href="./assets-admin/css/styles.css">
-
-
-	    <!-- TableUI -->
+<link rel="stylesheet" href="./assets-admin/css/zoom.css">
+    
+    <!-- TableUI -->
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="tableUI/css/images/icons/favicon.ico"/>
 	<link rel="stylesheet" type="text/css" href="tableUI/vendor/bootstrap/css/bootstrap.min.css">
@@ -63,8 +64,7 @@
 	<link rel="stylesheet" type="text/css" href="tableUI/css/util.css">
 	<link rel="stylesheet" type="text/css" href="tableUI/css/main.css">
 <!--===============================================================================================-->
-
-
+    
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -84,8 +84,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
-      <form action="admin-approved-technologies.php" method="post">
-        <button name="btnLogout"><i class='fa fa-sign-out-alt'></i></button>
+      <form action="admin-my-information.php" method="post">
+        <button class="btnLogout" name="btnLogout">&nbsp;&nbsp;Logout <i class='fa fa-sign-out-alt'>&nbsp;&nbsp;</i></button>
       </form>
     </div>
   </div>
@@ -95,14 +95,15 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="./admin-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
-    <a href="./admin-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card fa-fw"></i>  My Information</a>
+    <a href="./admin-my-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
+    <a href="./admin-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card"></i>  My Information</a>
     <a href="./admin-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
+    <br>
     <a href="./admin-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
-    <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list-ol fa-fw"></i> Pending Accounts</a>
-    <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list-ul fa-fw"></i>  Pending Technologies</a>
-    <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-circle fa-fw"></i> Approved Accounts</a>
-    <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-seedling fa-fw"></i> Approved Technologies</a>    
+    <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck-loading fa-fw"></i>  Pending Technologies</a>
+    <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck fa-fw"></i> Approved Technologies</a>    
+    <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-user-clock fa-fw"></i> Pending Accounts</a>
+    <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Approved Accounts</a>    
   </div>
 </nav>
 
@@ -115,87 +116,146 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> Update <?php echo $_SESSION['copyName']; ?> Status</b></h5>
+    <p>Dashboard>My Technologies><b><?php echo $_SESSION['copyName']; ?> Status</b></p>
   </header>
-
-
-  <div class="w3-row-padding w3-margin-bottom">
-  	<h3>Copyright and Related Rights</h3>
-    
-  </div>
-
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-        
-    <form action="admin-update-copyright-status.php" method="post">
-	<button class="btnCheck2" name="copyrightStepBackward"><font size="3"><i class="fa fa-arrow-left fa-fw"></i></font></button>
-	<button class="btnCheck" name="copyrightStepForward"><font size="3"><i class="fa fa-arrow-right fa-fw"></i></font></button>
-	
-	</form>
-	<br>
-	<br>
-	
-  
-  	<section>
+          <section>
                 <div class="steps">
                     <ul class="steps-container">
-                        <li style="width: 16.66666666666667%" id="step1">
+                        <li style="width: 14.28571428571429%" id="step1">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 1</div>
-                                <div class="step-description">Description</div>
+                                <div class="step-description">
+                                    <details>
+                                        <summary>Description</summary>
+                                        <b><p>Client/ ITSO Team</p></b>
+                                        <p align="left">*Sign-in</p>
+                                        <p align="left">*Initial negotiations</p>
+                                        <p align="left">*Discussion</p>
+                                    </details>
+                                </div>
+ 
                             </div>
                         </li>
-                        <li style="width: 16.66666666666667%" id="step2">
+                        <li style="width: 14.28571428571429%" id="step2">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 2</div>
-                                <div class="step-description">Description</div>
+                                <div class="step-description">
+                                    <details>
+                                        <summary>Description</summary>
+                                        <b><p>Client/ Manager/ Technical Staff</p></b>
+                                        <p align="left">*Provide Non-Disclosure Agreement</p>
+                                        <p align="left">*Application Process</p>
+                                        <p align="left">*Conduct Office Feedback Form</p>
+                                        <p align="left">*Create folder</p>
+                                        <p align="left">*Issuance of Quotaion for Patent Search and/or Patent Draft, if necessary</p>
+                                    </details>
+                                </div>
                             </div>
                         </li>
-                        <li style="width: 16.66666666666667%" id="step3">
+                        <li style="width: 14.28571428571429%" id="step3">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 3</div>
-                                <div class="step-description">Description</div>
+                                <div class="step-description">
+                                    <details>
+                                        <summary>Description</summary>
+                                        <b><p>ITSO Team</p></b>
+                                        <p align="left">*Analyze Information</p>
+                                        <p align="left">*(disclosure, drawings)</p>
+                                        <p align="left">*Conceptualized the innovation/ invention</p>
+                                        <p align="left">*Unity of invention</p>
+                                        <p align="left">*Task assignment</p>
+                                        <p align="left">*Triage (fill-up triage form)</p>
+                                    </details>
+                                </div>
                             </div>
                         </li>
-                        <li style="width: 16.66666666666667%" id="step4">
+                        <li style="width: 14.28571428571429%" id="step4">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 4</div>
-                                <div class="step-description">Description</div>
+                                <div class="step-description">
+                                    <details>
+                                        <summary>Description</summary>
+                                        <b><p>Technical Expert/ Technical Staff</p></b>
+                                        <p align="left">*Conduct Patent</p>
+                                        <p align="left">*Search (Use Databaeses,</p>
+                                        <p align="left">*IPC Classification, Update Status, Fill-in Log Wrapper)</p>
+                                    </details>
+                                </div>
                             </div>
                         </li>
-                        <li style="width: 16.66666666666667%" id="step5">
+                        <li style="width: 14.28571428571429%" id="step5">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 5</div>
-                                <div class="step-description">Description</div>
+                                <div class="step-description">
+                                    <details>
+                                        <summary>Description</summary>
+                                        <b><p>Client/ Manager/ Technical Staff</p></b>
+                                        <p align="left">*Meet staff and clients</p>
+                                        <p align="left">*Present search reports</p>
+                                        <p align="left">*Prior arts presentation</p>
+                                        <p align="left">*Tabulation</p>
+                                        <p align="left">*Meet with client/s for deliberation and presentation of data</p>
+                                        <p align="left">*Issuance of Quotation Slip for Patent Draft</p>
+                                    </details>
+                                </div>
                             </div>
                         </li>
-                        <li style="width: 16.66666666666667%" id="step6">
+                        <li style="width: 14.28571428571429%" id="step6">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 6</div>
-                                <div class="step-description">Description</div>
+                                <div class="step-description">
+                                    <details>
+                                        <summary>Description</summary>
+                                        <b><p>Manager/ Technical Staff</p></b>
+                                        <p align="left">*Draft Paper A</p>
+                                        <p align="left">*Assignment & Designation</p>
+                                        <p align="left">*Emnodiment</p>
+                                        <p align="left">*Prior arts (drafting of claims, novelty of claims)</p>
+                                        <p align="left">*Initial proof read (numerical referencing, technical terms)</p>
+                                        <p align="left">*Conduct dry run</p>
+                                        <p align="left">*(Basis for Paper B)</p>
+                                    </details>
+                                </div>
                             </div>
-                        </li> 
-
+                        </li>
+                        <li style="width: 14.28571428571429%" id="step7">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">End</div>
+                                <div class="step-description">
+                                    <details class="details">
+                                        <summary>Description</summary>
+                                        <b><p>Congratulations!
+                                            <br>All steps are done</p></b>
+                                    </details>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                     <div class="step-bar" id="step-bar"></div>
                 </div>
         </section>
-
-        </div>
-
-  <hr>
+          <div>asflk
+          </div>
+          
+    
+  </div>
+ 
   
-
+<hr>
   <!-- End page content -->
 </div>
 </div>
+
 
 <script>
 // Get the Sidebar
@@ -223,7 +283,6 @@ function w3_close() {
 
 var temp = <?php echo $var1; ?>
 	
- 
 
 	if(temp == 0){
         document.getElementById("step1").className = "";
@@ -232,20 +291,20 @@ var temp = <?php echo $var1; ?>
 
 	if(temp == 1){
         document.getElementById("step1").className = "activated";
-        document.getElementById("step-bar").style.width = "16.66666666666667%";
+        document.getElementById("step-bar").style.width = "14.28571428571429%";
 	}
 
 	if(temp == 2){
         document.getElementById("step1").className = "activated";
 		document.getElementById("step2").className = "activated";
-        document.getElementById("step-bar").style.width = "33.33333333333333%";
+        document.getElementById("step-bar").style.width = "28.57142857142858%";
 	}
 
 	if(temp == 3){
 		document.getElementById("step1").className = "activated";
         document.getElementById("step2").className = "activated";
         document.getElementById("step3").className = "activated";
-        document.getElementById("step-bar").style.width = "49.99%";
+        document.getElementById("step-bar").style.width = "42.85714285714287%";
 	}
 
 	if(temp == 4){
@@ -253,7 +312,7 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step2").className = "activated";
         document.getElementById("step3").className = "activated";
         document.getElementById("step4").className = "activated";
-        document.getElementById("step-bar").style.width = "66.65%";
+        document.getElementById("step-bar").style.width = "57.14285714285716%";
     }
     
     if(temp == 5){
@@ -262,7 +321,7 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step3").className = "activated";
         document.getElementById("step4").className = "activated";
         document.getElementById("step5").className = "activated";
-        document.getElementById("step-bar").style.width = "83.31%";
+        document.getElementById("step-bar").style.width = "71.42857142857145%";
     }
     
     if(temp == 6){
@@ -272,10 +331,19 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step4").className = "activated";
         document.getElementById("step5").className = "activated";
         document.getElementById("step6").className = "activated";
+        document.getElementById("step-bar").style.width = "85.71428571428574%";
+    }
+    
+    if(temp == 7){
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step4").className = "activated";
+        document.getElementById("step5").className = "activated";
+        document.getElementById("step6").className = "activated";
+        document.getElementById("step7").className = "activated";
         document.getElementById("step-bar").style.width = "100%";
     }
-
-
 </script>
 </body>
 </html>

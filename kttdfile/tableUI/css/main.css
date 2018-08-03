@@ -299,26 +299,31 @@ th, td {
 }
 
 .column2-apa {
-  width: 20%;
+  width: 16%;
   text-align: center;
 }
 
 .column3-apa {
-  width: 20%;
+  width: 16%;
   text-align: center;
 }
 
 .column4-apa {
-  width: 20%;
+  width: 16%;
   text-align: center;
 }
 
 .column5-apa {
-  width: 20%;
+  width: 16%;
   text-align: center;
 }
 
 .column6-apa {
+  width: 16%;
+  text-align: center;
+}
+
+.column7-apa {
   width: 10%;
   text-align: center;
 }
@@ -331,26 +336,31 @@ th, td {
 }
 
 .column2-aaa {
-  width: 20%;
+  width: 16%;
   text-align: center;
 }
 
 .column3-aaa {
-  width: 20%;
+  width: 16%;
   text-align: center;
 }
 
 .column4-aaa {
-  width: 20%;
+  width: 16%;
   text-align: center;
 }
 
 .column5-aaa {
-  width: 20%;
+  width: 16%;
   text-align: center;
 }
 
 .column6-aaa {
+  width: 16%;
+  text-align: center;
+}
+
+.column7-aaa {
   width: 10%;
   text-align: center;
 }
