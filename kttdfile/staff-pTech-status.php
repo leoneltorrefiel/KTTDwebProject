@@ -24,6 +24,11 @@
         header('location: client-my-technologies.php');
     }
 
+     $getPic = "SELECT * from account where username='$var' ";
+    $exe = mysqli_query($db,$getPic);
+
+    $put = mysqli_fetch_assoc($exe);
+
 
 ?>
 

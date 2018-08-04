@@ -32,6 +32,8 @@
 
     $put = mysqli_fetch_assoc($exe);
 
+    
+
 ?>
 
 <!DOCTYPE html>

@@ -26,7 +26,10 @@
   $count = mysqli_num_rows($view1);
 
  
+   $getPic = "SELECT * from account where username='$var' ";
+    $exe = mysqli_query($db,$getPic);
 
+    $put = mysqli_fetch_assoc($exe);
   
 ?>
 
@@ -78,7 +81,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-      <img src="./assets-admin/images/avatar.png" class="w3-circle w3-margin-right" style="width:46px">
+      <?php echo "<img  height='50' width='50' src='".$put['file_path']."' class='w3-circle w3-margin-right' style='width:46px'>"; ?>
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>

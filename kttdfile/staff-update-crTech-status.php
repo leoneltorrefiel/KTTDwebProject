@@ -24,6 +24,12 @@
     $sql1 = "SELECT * FROM technologies order by status ASC";
     $view1 = mysqli_query($db,$sql1);
 
+
+     $getPic = "SELECT * from account where username='$var' ";
+    $exe = mysqli_query($db,$getPic);
+
+    $put = mysqli_fetch_assoc($exe);
+
 ?>
 
 
