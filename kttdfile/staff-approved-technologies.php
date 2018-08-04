@@ -77,7 +77,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-  <span class="w3-bar-item w3-right">KTTD</span>
+  <span class="w3-bar-item w3-right"><a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="white" size="3"><i class="fa fa-print fa-fw"></i></font></a></span>
 </div>
 
 <!-- Sidebar/menu -->
@@ -161,7 +161,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                             $result = mysqli_query($db,$sql);
 
                                             while($row=mysqli_fetch_assoc($result)) {
-                                                echo "<td class='cell100 column1-aat'>"."<a href='checkFiling.php?check={$row['tech_id']}'><font color='green'> </i> "; echo $row['tech_name']; echo "</font></a>"."</td>";
+                                                echo "<td class='cell100 column1-aat'>"."<a href='checkFiling2.php?check={$row['tech_id']}'><font color='green'> </i> "; echo $row['tech_name']; echo "</font></a>"."</td>";
                                                 echo "<td class='cell100 column2-aat'>"."<a href='download.php?dl={$row['tech_id']}'>"; echo $row['tech_filename']; echo "</a>"."</td>";
                                                 echo "<td class='cell100 column3-aat'>"; echo $row['tech_owner']; echo "</td>";
                                                 echo "<td class='cell100 column4-aat'>"; echo $row['file_type']; echo "</td>";
@@ -179,6 +179,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
           </div>
         </div>
       </div>
+      <div style="margin-top: -100px">
+    <span>Totals Copyright:  <strong><?php echo "  $countCR"; ?></strong></span>
+    <span class="span2">Totoal Patent:  <strong><?php echo "  $countP"; ?></strong></span>
+    <span class="span3">Total Technologies:  <strong><?php echo "  $count"; ?></strong></span>
+  </div>
     </div>
   </div>
 <div>
@@ -189,6 +194,15 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </div>
 
 <script>
+
+  function printLayer(el){
+    var printPage = document.body.innerHTML;
+    var printContent = document.getElementById(el).innerHTML;
+    document.body.innerHTML = printContent;
+    window.print();
+    document.body.innerHTML = printPage;
+  }
+  
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 

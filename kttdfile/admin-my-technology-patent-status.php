@@ -62,13 +62,31 @@
     
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+.currentStep {
+    position: relative;
+    top: 300px;
+    left: 300px;
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px; 
+}
+
+.nextStep {
+    position: relative;
+    left: 800px;
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px;
+}
+
 </style>
 <body class="w3-light-grey">
 
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-  <span class="w3-bar-item w3-right">KTTD</span>
+  <span class="w3-bar-item w3-right"><a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="white" size="3"><i class="fa fa-print fa-fw"></i></font></a></span>
 </div>
 
 <!-- Sidebar/menu -->
@@ -221,12 +239,17 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
           
     
   </div>
- 
+    <div class="currentStep" id="currentStep">
+    </div>  
+    <div class="nextStep" id="nextStep">
+    </div>  
   
 <hr>
   <!-- End page content -->
 </div>
 </div>
+
+
 
 
 <script>
@@ -259,17 +282,23 @@ var temp = <?php echo $var1; ?>
 	if(temp == 0){
         document.getElementById("step1").className = "";
         document.getElementById("step-bar").style.width = "0%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step0.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step1.png')";
 	}
 
 	if(temp == 1){
         document.getElementById("step1").className = "activated";
         document.getElementById("step-bar").style.width = "6.666666666666667%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step1.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step2.png')";
 	}
 
 	if(temp == 2){
         document.getElementById("step1").className = "activated";
 		document.getElementById("step2").className = "activated";
         document.getElementById("step-bar").style.width = "13.33333333333333%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step2.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step3.png')";
 	}
 
 	if(temp == 3){
@@ -277,6 +306,8 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step2").className = "activated";
         document.getElementById("step3").className = "activated";
         document.getElementById("step-bar").style.width = "20%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step3.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step4.png')";
 	}
 
 	if(temp == 4){
@@ -285,6 +316,8 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step3").className = "activated";
         document.getElementById("step4").className = "activated";
         document.getElementById("step-bar").style.width = "26.66666666666667%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step4.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step5.png')";
     }
     
     if(temp == 5){
@@ -294,6 +327,8 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step4").className = "activated";
         document.getElementById("step5").className = "activated";
         document.getElementById("step-bar").style.width = "33.33333333333334%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step5.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step6.png')";
     }
     
     if(temp == 6){
@@ -304,6 +339,8 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step5").className = "activated";
         document.getElementById("step6").className = "activated";
         document.getElementById("step-bar").style.width = "40%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step6.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step7.png')";
     }
     
     if(temp == 7){
@@ -315,6 +352,8 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step6").className = "activated";
         document.getElementById("step7").className = "activated";
         document.getElementById("step-bar").style.width = "46.66666666666667%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step7.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step8.png')";
     }
 
 	if(temp == 8){
@@ -327,6 +366,8 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step7").className = "activated";
         document.getElementById("step8").className = "activated";
         document.getElementById("step-bar").style.width = "53.33333333333334%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step8.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step9.png')";
     }
     
     if(temp == 9){
@@ -340,6 +381,8 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step8").className = "activated";
         document.getElementById("step9").className = "activated";
         document.getElementById("step-bar").style.width = "60.00000000000001%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step9.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step10.png')";
     }
     
     if(temp == 10){
@@ -354,6 +397,8 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step9").className = "activated";
         document.getElementById("step10").className = "activated";
         document.getElementById("step-bar").style.width = "66.66666666666668%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step10.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step11.png')";
     }
     
     if(temp == 11){
@@ -369,6 +414,8 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step10").className = "activated";
         document.getElementById("step11").className = "activated";
         document.getElementById("step-bar").style.width = "73.33333333333335%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step11.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step12.png')";
     }
     
     if(temp == 12){
@@ -385,6 +432,8 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step11").className = "activated";
         document.getElementById("step12").className = "activated";
         document.getElementById("step-bar").style.width = "80.00000000000002%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step12.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step13.png')";
     }
     
     if(temp == 13){
@@ -402,6 +451,8 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step12").className = "activated";
         document.getElementById("step13").className = "activated";
         document.getElementById("step-bar").style.width = "86.66666666666669%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step13.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step14.png')";
     }
     
     if(temp == 14){
@@ -420,6 +471,8 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step13").className = "activated";
         document.getElementById("step14").className = "activated";
         document.getElementById("step-bar").style.width = "93.33333333333336%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step14.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step15.png')";
     }
     
     if(temp == 15){
@@ -439,6 +492,8 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step14").className = "activated";
         document.getElementById("step15").className = "activated";
         document.getElementById("step-bar").style.width = "100%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step15.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step15.png')";
     }
     
 

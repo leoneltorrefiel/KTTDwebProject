@@ -65,13 +65,31 @@
     
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+.currentStep {
+    position: relative;
+    top: 300px;
+    left: 300px;
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px; 
+}
+
+.nextStep {
+    position: relative;
+    left: 800px;
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px;
+}
+
 </style>
 <body class="w3-light-grey">
 
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-  <span class="w3-bar-item w3-right">KTTD</span>
+  <span class="w3-bar-item w3-right"><a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="white" size="3"><i class="fa fa-print fa-fw"></i></font></a></span>
 </div>
 
 <!-- Sidebar/menu -->
@@ -93,13 +111,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="./admin-my-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
+    <a href="./admin-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
     <a href="./admin-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card"></i>  My Information</a>
     <a href="./admin-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
     <br>
     <a href="./admin-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
     <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck-loading fa-fw"></i>  Pending Technologies</a>
-    <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck fa-fw"></i> Approved Technologies</a>    
+    <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fas fa-truck fa-fw"></i> Approved Technologies</a>    
     <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-user-clock fa-fw"></i> Pending Accounts</a>
     <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Approved Accounts</a>
     <a href="./admin-pending-request.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Pending Request</a>
@@ -195,6 +213,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
           
     
   </div>
+    <div class="currentStep" id="currentStep">
+    </div>  
+    <div class="nextStep" id="nextStep">
+    </div>
  
   
 <hr>
@@ -233,32 +255,42 @@ var temp = <?php echo $var1; ?>
 	if(temp == 0){
         document.getElementById("step1").className = "";
         document.getElementById("step-bar").style.width = "0%";
-	}
+        document.getElementById("currentStep").style.backgroundImage = "url('copyright-steps/currentstep/copyright-step0.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('copyright-steps/nextstep/copyright-step1.png')";
+    }
 
-	if(temp == 1){
+    if(temp == 1){
         document.getElementById("step1").className = "activated";
         document.getElementById("step-bar").style.width = "14.28571428571429%";
-	}
+        document.getElementById("currentStep").style.backgroundImage = "url('copyright-steps/currentstep/copyright-step1.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('copyright-steps/nextstep/copyright-step2.png')";
+    }
 
-	if(temp == 2){
+    if(temp == 2){
         document.getElementById("step1").className = "activated";
-		document.getElementById("step2").className = "activated";
+        document.getElementById("step2").className = "activated";
         document.getElementById("step-bar").style.width = "28.57142857142858%";
-	}
+        document.getElementById("currentStep").style.backgroundImage = "url('copyright-steps/currentstep/copyright-step2.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('copyright-steps/nextstep/copyright-step3.png')";
+    }
 
-	if(temp == 3){
-		document.getElementById("step1").className = "activated";
+    if(temp == 3){
+        document.getElementById("step1").className = "activated";
         document.getElementById("step2").className = "activated";
         document.getElementById("step3").className = "activated";
         document.getElementById("step-bar").style.width = "42.85714285714287%";
-	}
+        document.getElementById("currentStep").style.backgroundImage = "url('copyright-steps/currentstep/copyright-step3.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('copyright-steps/nextstep/copyright-step4.png')";
+    }
 
-	if(temp == 4){
+    if(temp == 4){
         document.getElementById("step1").className = "activated";
         document.getElementById("step2").className = "activated";
         document.getElementById("step3").className = "activated";
         document.getElementById("step4").className = "activated";
         document.getElementById("step-bar").style.width = "57.14285714285716%";
+        document.getElementById("currentStep").style.backgroundImage = "url('copyright-steps/currentstep/copyright-step4.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('copyright-steps/nextstep/copyright-step5.png')";
     }
     
     if(temp == 5){
@@ -268,6 +300,8 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step4").className = "activated";
         document.getElementById("step5").className = "activated";
         document.getElementById("step-bar").style.width = "71.42857142857145%";
+        document.getElementById("currentStep").style.backgroundImage = "url('copyright-steps/currentstep/copyright-step5.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('copyright-steps/nextstep/copyright-step6.png')";
     }
     
     if(temp == 6){
@@ -278,6 +312,8 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step5").className = "activated";
         document.getElementById("step6").className = "activated";
         document.getElementById("step-bar").style.width = "85.71428571428574%";
+        document.getElementById("currentStep").style.backgroundImage = "url('copyright-steps/currentstep/copyright-step6.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('copyright-steps/nextstep/copyright-step7.png')";
     }
     
     if(temp == 7){
@@ -289,7 +325,11 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step6").className = "activated";
         document.getElementById("step7").className = "activated";
         document.getElementById("step-bar").style.width = "100%";
+        document.getElementById("currentStep").style.backgroundImage = "url('copyright-steps/currentstep/copyright-step7.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('copyright-steps/nextstep/copyright-step7.png')";
     }
+
+
 </script>
 </body>
 </html>

@@ -178,6 +178,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 					</div>
 				</div>
       </div>
+    <div style="margin-top: -100px">
+    <span>Totals Copyright:  <strong><?php echo "  $countCR"; ?></strong></span>
+    <span class="span2">Totoal Patent:  <strong><?php echo "  $countP"; ?></strong></span>
+    <span class="span3">Total Technologies:  <strong><?php echo "  $count"; ?></strong></span>
+  </div>
     </div>
   </div>
 <div>

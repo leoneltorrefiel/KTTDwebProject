@@ -49,15 +49,48 @@
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/svg-with-js.min.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.min.css">
+<link rel="stylesheet" href="./assets-admin/css/step-progress.min.css">
+<link rel="stylesheet" href="./assets-admin/css/styles.css">
+<link rel="stylesheet" href="./assets-admin/css/zoom.css">
+    
+    <!-- TableUI -->
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="tableUI/css/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/perfect-scrollbar/perfect-scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/css/util.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/css/main.css">
+<!--===============================================================================================-->
+    
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+.currentStep {
+    position: relative;
+    top: 300px;
+    left: 300px;
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px; 
+}
+
+.nextStep {
+    position: relative;
+    left: 800px;
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px;
+}
+
 </style>
 <body class="w3-light-grey">
 
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-  <span class="w3-bar-item w3-right">KTTD</span>
+  <span class="w3-bar-item w3-right"><a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="white" size="3"><i class="fa fa-print fa-fw"></i></font></a></span>
 </div>
 
 <!-- Sidebar/menu -->
@@ -98,35 +131,118 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> Update <?php echo $_SESSION['patentName']; ?> Status</b></h5>
+    <p>Dashboard>My Technologies><b><?php echo $_SESSION['patentName']; ?> Status</b></p>
   </header>
-
-  <div class="w3-row-padding w3-margin-bottom">
-    <h3>Patent and Utility Model</h3>
-  </div>
-
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-       
-	<br>
-	<br>
-	<form>
-	Step 1 <p id="step1"></p>
-	Step 2 <p id="step2"></p>
-	Step 3 <p id="step3"></p>
-	Step 4 <p id="step4"></p>
-	Step 5 <p id="step5"></p>
-	Step 6 <p id="step6"></p>
-	Step 7 <p id="step7"></p>
-	Step 8 <p id="step8"></p>
-	Step 9 <p id="step9"></p>
-	Step 10 <p id="step10"></p>
-	Step 11 <p id="step11"></p>
-	Step 12 <p id="step12"></p>
-    </form>
+    <section>
+                <div class="steps">
+                    <ul class="steps-container">
+                        <li style="width: 6.666666666666667%" id="step1">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 1</div>
+                            </div>
+                        </li>
+                        <li style="width: 6.666666666666667%" id="step2">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 2</div>
+                            </div>
+                        </li>
+                        <li style="width: 6.666666666666667%" id="step3">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 3</div>
+                            </div>
+                        </li>
+                        <li style="width: 6.666666666666667%" id="step4">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 4</div>
+                            </div>
+                        </li>
+                        <li style="width: 6.666666666666667%" id="step5">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 5</div>
+                            </div>
+                        </li>
+                        <li style="width: 6.666666666666667%" id="step6">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 6</div>
+                            </div>
+                        </li>
+                        <li style="width: 6.666666666666667%" id="step7">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 7</div>
+                            </div>
+                        </li>
+                        <li style="width: 6.666666666666667%" id="step8">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 8</div>
+                            </div>
+                        </li>
+                        <li style="width: 6.666666666666667%" id="step9">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 9</div>
+                            </div>
+                        </li>
+                        <li style="width: 6.666666666666667%" id="step10">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 10</div>
+                            </div>
+                        </li>
+                        <li style="width: 6.666666666666667%" id="step11">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 11</div>
+                            </div>
+                        </li>
+                        <li style="width: 6.666666666666667%" id="step12">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 12</div>
+                            </div>
+                        </li>
+                        <li style="width: 6.666666666666667%" id="step13">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 13</div>
+                            </div>
+                        </li>
+                        <li style="width: 6.666666666666667%" id="step14">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 14</div>
+                            </div>
+                        </li>
+                        <li style="width: 6.666666666666667%" id="step15">
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">End</div>
+                            </div>
+                        </li>
+                        
+                        
+
+                    </ul>
+                    <div class="step-bar" id="step-bar"></div>
+                </div>
+        </section>
+          
+    
   </div>
- 
+    <div class="currentStep" id="currentStep">
+    </div>  
+    <div class="nextStep" id="nextStep">
+    </div>  
   
 <hr>
   <!-- End page content -->
@@ -134,7 +250,18 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </div>
 
 
+
+
 <script>
+
+    function printLayer(el){
+    var printPage = document.body.innerHTML;
+    var printContent = document.getElementById(el).innerHTML;
+    document.body.innerHTML = printContent;
+    window.print();
+    document.body.innerHTML = printPage;
+  }
+  
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 
@@ -162,202 +289,222 @@ var temp = <?php echo $var1; ?>
 	
 
 	if(temp == 0){
-		document.getElementById("step1").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step7").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step8").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step9").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step10").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step11").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step12").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
+        document.getElementById("step1").className = "";
+        document.getElementById("step-bar").style.width = "0%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step0.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step1.png')";
 	}
 
 	if(temp == 1){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step7").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step8").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step9").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step10").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step11").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step12").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step-bar").style.width = "6.666666666666667%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step1.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step2.png')";
 	}
 
 	if(temp == 2){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step7").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step8").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step9").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step10").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step11").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step12").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
+        document.getElementById("step1").className = "activated";
+		document.getElementById("step2").className = "activated";
+        document.getElementById("step-bar").style.width = "13.33333333333333%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step2.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step3.png')";
 	}
 
 	if(temp == 3){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step7").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step8").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step9").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step10").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step11").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step12").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
+		document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step-bar").style.width = "20%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step3.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step4.png')";
 	}
-	
 
 	if(temp == 4){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step7").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step8").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step9").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step10").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step11").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step12").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-	}
-
-	if(temp == 5){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step7").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step8").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step9").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step10").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step11").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step12").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-	}
-
-	if(temp == 6){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step7").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step8").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step9").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step10").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step11").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step12").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-	}
-
-	if(temp == 7){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step7").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step8").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step9").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step10").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step11").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step12").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-	}
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step4").className = "activated";
+        document.getElementById("step-bar").style.width = "26.66666666666667%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step4.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step5.png')";
+    }
+    
+    if(temp == 5){
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step4").className = "activated";
+        document.getElementById("step5").className = "activated";
+        document.getElementById("step-bar").style.width = "33.33333333333334%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step5.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step6.png')";
+    }
+    
+    if(temp == 6){
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step4").className = "activated";
+        document.getElementById("step5").className = "activated";
+        document.getElementById("step6").className = "activated";
+        document.getElementById("step-bar").style.width = "40%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step6.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step7.png')";
+    }
+    
+    if(temp == 7){
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step4").className = "activated";
+        document.getElementById("step5").className = "activated";
+        document.getElementById("step6").className = "activated";
+        document.getElementById("step7").className = "activated";
+        document.getElementById("step-bar").style.width = "46.66666666666667%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step7.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step8.png')";
+    }
 
 	if(temp == 8){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step7").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step8").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step9").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step10").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step11").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step12").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-	}
-
-	if(temp == 9){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step7").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step8").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step9").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step10").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step11").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step12").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-	}
-
-	if(temp == 10){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step7").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step8").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step9").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step10").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step11").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-		document.getElementById("step12").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-	}
-
-	if(temp == 11){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step7").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step8").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step9").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step10").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step11").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step12").innerHTML = "<font color='red' size='3'><i class='fa fa-times-circle fa-fw'></i></font>";
-	}
-
-	if(temp == 12){
-		document.getElementById("step1").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step2").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step3").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step4").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step5").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step6").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step7").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step8").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step9").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step10").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step11").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-		document.getElementById("step12").innerHTML = "<font color='green' size='3'><i class='fa fa-check-circle fa-fw'></i></font>";
-	}
-
-	
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step4").className = "activated";
+        document.getElementById("step5").className = "activated";
+        document.getElementById("step6").className = "activated";
+        document.getElementById("step7").className = "activated";
+        document.getElementById("step8").className = "activated";
+        document.getElementById("step-bar").style.width = "53.33333333333334%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step8.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step9.png')";
+    }
+    
+    if(temp == 9){
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step4").className = "activated";
+        document.getElementById("step5").className = "activated";
+        document.getElementById("step6").className = "activated";
+        document.getElementById("step7").className = "activated";
+        document.getElementById("step8").className = "activated";
+        document.getElementById("step9").className = "activated";
+        document.getElementById("step-bar").style.width = "60.00000000000001%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step9.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step10.png')";
+    }
+    
+    if(temp == 10){
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step4").className = "activated";
+        document.getElementById("step5").className = "activated";
+        document.getElementById("step6").className = "activated";
+        document.getElementById("step7").className = "activated";
+        document.getElementById("step8").className = "activated";
+        document.getElementById("step9").className = "activated";
+        document.getElementById("step10").className = "activated";
+        document.getElementById("step-bar").style.width = "66.66666666666668%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step10.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step11.png')";
+    }
+    
+    if(temp == 11){
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step4").className = "activated";
+        document.getElementById("step5").className = "activated";
+        document.getElementById("step6").className = "activated";
+        document.getElementById("step7").className = "activated";
+        document.getElementById("step8").className = "activated";
+        document.getElementById("step9").className = "activated";
+        document.getElementById("step10").className = "activated";
+        document.getElementById("step11").className = "activated";
+        document.getElementById("step-bar").style.width = "73.33333333333335%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step11.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step12.png')";
+    }
+    
+    if(temp == 12){
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step4").className = "activated";
+        document.getElementById("step5").className = "activated";
+        document.getElementById("step6").className = "activated";
+        document.getElementById("step7").className = "activated";
+        document.getElementById("step8").className = "activated";
+        document.getElementById("step9").className = "activated";
+        document.getElementById("step10").className = "activated";
+        document.getElementById("step11").className = "activated";
+        document.getElementById("step12").className = "activated";
+        document.getElementById("step-bar").style.width = "80.00000000000002%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step12.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step13.png')";
+    }
+    
+    if(temp == 13){
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step4").className = "activated";
+        document.getElementById("step5").className = "activated";
+        document.getElementById("step6").className = "activated";
+        document.getElementById("step7").className = "activated";
+        document.getElementById("step8").className = "activated";
+        document.getElementById("step9").className = "activated";
+        document.getElementById("step10").className = "activated";
+        document.getElementById("step11").className = "activated";
+        document.getElementById("step12").className = "activated";
+        document.getElementById("step13").className = "activated";
+        document.getElementById("step-bar").style.width = "86.66666666666669%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step13.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step14.png')";
+    }
+    
+    if(temp == 14){
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step4").className = "activated";
+        document.getElementById("step5").className = "activated";
+        document.getElementById("step6").className = "activated";
+        document.getElementById("step7").className = "activated";
+        document.getElementById("step8").className = "activated";
+        document.getElementById("step9").className = "activated";
+        document.getElementById("step10").className = "activated";
+        document.getElementById("step11").className = "activated";
+        document.getElementById("step12").className = "activated";
+        document.getElementById("step13").className = "activated";
+        document.getElementById("step14").className = "activated";
+        document.getElementById("step-bar").style.width = "93.33333333333336%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step14.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step15.png')";
+    }
+    
+    if(temp == 15){
+        document.getElementById("step1").className = "activated";
+        document.getElementById("step2").className = "activated";
+        document.getElementById("step3").className = "activated";
+        document.getElementById("step4").className = "activated";
+        document.getElementById("step5").className = "activated";
+        document.getElementById("step6").className = "activated";
+        document.getElementById("step7").className = "activated";
+        document.getElementById("step8").className = "activated";
+        document.getElementById("step9").className = "activated";
+        document.getElementById("step10").className = "activated";
+        document.getElementById("step11").className = "activated";
+        document.getElementById("step12").className = "activated";
+        document.getElementById("step13").className = "activated";
+        document.getElementById("step14").className = "activated";
+        document.getElementById("step15").className = "activated";
+        document.getElementById("step-bar").style.width = "100%";
+        document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step15.png')";
+        document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step15.png')";
+    }
+    
 
 </script>
 </body>
