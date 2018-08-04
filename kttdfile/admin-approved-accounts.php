@@ -241,7 +241,7 @@ function w3_close() {
 
 function search(){
         xmlhttp= new XMLHttpRequest();
-        xmlhttp.open("GET","searchBar2.php?nm="+ document.getElementById("searchName").value,false);
+        xmlhttp.open("GET","searchBar3.php?nm="+ document.getElementById("searchName").value,false);
         xmlhttp.send(null);
         document.getElementById("result").innerHTML=xmlhttp.responseText;
         document.getElementById("result").style.visibility='visible';

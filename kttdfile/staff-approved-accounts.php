@@ -96,7 +96,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
      <form action="staff-approved-accounts.php" method="post">
-        <button name="btnLogout"><i class='fa fa-sign-out-alt'></i></button>
+        <button class="btnLogout" name="btnLogout">&nbsp;&nbsp;Logout <i class='fa fa-sign-out-alt'>&nbsp;&nbsp;</i></button>
       </form>
     </div>
   </div>
@@ -125,11 +125,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
       <header class="w3-container" style="padding-top:22px">
-    <p>Dashboard><b>Approved Accounts</b></p>
 
   </header>
     
-<div id="div-id-name">
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
@@ -137,8 +135,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <input class="search-bar" type="text" name="searchNAme" id="searchName" placeholder="Search Username" onKeyUp="search();" autocomplete="off" style="height:30px; width:200px">
       </div>    
           
-          
-        <div id="div-id-name">
+        
         <div class="table100 ver2 m-b-110">
                     <div class="table100-head">
             <table>
@@ -151,6 +148,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             </table>
           </div>
           <div class="table100-body js-pscroll">
+            <div id="div-id-name">
             <div id="result">
             
 
@@ -180,7 +178,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                                 echo "<td class='cell100 column4-aaa'>".$pending['email']."</td>";
                                                 echo "<td class='cell100 column5-aaa'>".$pending['contact']."</td>";
                                                 echo "<td class='cell100 column6-aaa'>".$pending['account_type']."</td>";
-                                                echo "<td class='cell100 column7-aaa'>"."<center><a href='admin-update-account.php?update1={$pending['account_id']}'><submit><font color='green' size='5'><i class='fa fa-edit'></i></font></submit></a>"." &nbsp "."<center>"."</td>";
+                                                echo "<td class='cell100 column7-aaa'>"."<center><a href='staff-update-account.php?update={$pending['account_id']}'><submit><font color='green' size='5'><i class='fa fa-edit'></i></font></submit></a>"." &nbsp "."<center>"."</td>";
                                                 echo "</tr>";
                            
                                             }

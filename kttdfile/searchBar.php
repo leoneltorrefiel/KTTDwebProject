@@ -17,7 +17,7 @@ echo "<table>";
      echo "<td class='cell100 column3-aat'><b>Tech Owner</b></td>";
      echo "<td class='cell100 column4-aat'><b>Filing Type</b></td>";
      echo "<td class='cell100 column5-aat'><b>Filing Date</b></td>";
-     echo "<td class='cell100 column6-aat'><b>Step Staus</b></td>";
+     echo "<td class='cell100 column6-aat'><b>Step Status</b></td>";
      echo "</tr>";
 
 	while($row=mysqli_fetch_assoc($result)){

@@ -106,7 +106,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
       <form action="staff-update-pTech.php" method="post">
-        <button name="btnLogout"><i class='fa fa-sign-out-alt'></i></button>
+        <button class="btnLogout" name="btnLogout">&nbsp;&nbsp;Logout <i class='fa fa-sign-out-alt'>&nbsp;&nbsp;</i></button>
       </form>
     </div>
   </div>
@@ -135,7 +135,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <p>Dashboard>Approved Technologies><b><?php echo $_SESSION['patentName']; ?> Status</b></p>
+    <p>Tecnology: <b><font color="green"><?php echo $_SESSION['patentName']; ?></font> Status</b></p>
   </header>
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">

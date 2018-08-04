@@ -23,7 +23,7 @@
         header('location: staff-my-technologies.php');
     }
 
-    $getPic = "SELECT * from account where username='$tmp' ";
+    $getPic = "SELECT * from account where username='$var' ";
     $exe = mysqli_query($db,$getPic);
 
     $put = mysqli_fetch_assoc($exe);
@@ -106,7 +106,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
       <form action="client-pTech-status.php" method="post">
-        <button name="btnLogout"><i class='fa fa-sign-out-alt'></i></button>
+        <button class="btnLogout" name="btnLogout">&nbsp;&nbsp;Logout <i class='fa fa-sign-out-alt'>&nbsp;&nbsp;</i></button>
       </form>
     </div>
   </div>

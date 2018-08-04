@@ -94,7 +94,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
       <form action="staff-approved-technologies.php" method="post">
-        <button name="btnLogout"><i class='fa fa-sign-out-alt'></i></button>
+        <button class="btnLogout" name="btnLogout">&nbsp;&nbsp;Logout <i class='fa fa-sign-out-alt'>&nbsp;&nbsp;</i></button>
       </form>
     </div>
   </div>
@@ -123,18 +123,16 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <p>Dashboard><b>Approved Technologies</b></p>
 
   </header>
 
-<div id="div-id-name">
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
           <div class="search-bar-container"><i class="fa fa-search fa-fw"></i>
       <input class="search-bar" type="text" name="searchNAme" id="searchName" placeholder="Search Technology" onKeyUp="search();" autocomplete="off" style="height:30px; width:200px">
       </div> 
-          <div id="div-id-name">
+
         <div class="table100 ver2 m-b-110">
                     <div class="table100-head">
             <table>
@@ -182,9 +180,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                             </div>
                         </div>
           </div>
-        </div>
       </div>
-      <div style="margin-top: -100px">
+    <div style="margin-top: -100px">
     <span>Totals Copyright:  <strong><?php echo "  $countCR"; ?></strong></span>
     <span class="span2">Totoal Patent:  <strong><?php echo "  $countP"; ?></strong></span>
     <span class="span3">Total Technologies:  <strong><?php echo "  $count"; ?></strong></span>

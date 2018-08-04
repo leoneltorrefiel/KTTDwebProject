@@ -31,7 +31,7 @@
 		echo "<td class='cell100 column4-aaa'>"; echo $row['email']; echo "</td>";
 		echo "<td class='cell100 column5-aaa'>"; echo $row['contact']; echo "</td>";
 		echo "<td class='cell100 column6-aaa'>"; echo $row['account_type']; echo "</td>";
-		echo "<td class='cell100 column7-aaa'>"; echo "<a href='staff-update-account.php?update={$row['account_id']}'><submit><font color='green' size='5'><i class='fa fa-edit'></i></font></submit></a>"."</td>";
+		echo "<td class='cell100 column7-aaa'>"; echo "<a href='admin-update-account.php?update1={$row['account_id']}'><submit><font color='green' size='5'><i class='fa fa-edit'></i></font></submit></a>"."</td>";
 		echo "</tr>";
 	}
 	echo "</table>";

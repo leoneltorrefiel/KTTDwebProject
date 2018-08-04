@@ -116,7 +116,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
       <header class="w3-container" style="padding-top:22px">
-    <p>Dashboard><b>Approved Request</b></p>
 
   </header>
     

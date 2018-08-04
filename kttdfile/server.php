@@ -179,7 +179,7 @@
 
 			$message = "Successfully Registered.";
 			echo "<script type='text/javascript'>alert('$message');</script>";
-			header('location: main.php?error=2');
+			header('location: main.php');
 		}
 	}
 

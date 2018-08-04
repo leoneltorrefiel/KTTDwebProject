@@ -4,6 +4,7 @@
     if(!empty($_SESSION['username'])){
         header('location: client-my-technologies.php');
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -329,14 +330,8 @@ info@company.com
 									<div class="modal-content">
 										<div class="modal-header">
 											<h4 class="modal-title" id="myLargeModalLabel">Sign Up</h4> 
-                                            <?php
-
-                                            if(isset($_GET['error']) == 2){
-                                                echo "<font color='red'><p>Account Registered Waiting for Aprroval!</p></font>";
-                                            }
-
-                                            ?>
-											<form action="register.php" method="post" enctype="multipart/form-data" class="lg-frm" style="padding:25px">
+                                        
+											<form action="main.php" method="post" enctype="multipart/form-data" class="lg-frm" style="padding:25px">
                                                 <h3>Login detials</h3>
                                                 <br>
                                                     <label>Username</label>
