@@ -627,13 +627,13 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 
 .hoverDescription {
     position: relative;
-    top: -70px;
+    top: -33px;
 }
 
 .hoverDescription2 {
     position: relative;
     top: -34px;
-    left: -30px;
+    left: 0px;
 }
 
 

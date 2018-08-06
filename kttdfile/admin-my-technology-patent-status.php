@@ -147,7 +147,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 <div class="step-current">Step 1</div>
                                 <div class="hoverDescription">
                                     <div class="popup2">
-                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="fa-fw"></i></font>Details</button>
                                         <span class="popuptext" id="myPopup"><b>Clients/ ITSO Team</b>
                                             <p align="justify">*Sign-in</p>
                                             <p align="justify">*Initial negotiations</p>
@@ -163,7 +163,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 <div class="step-current">Step 2</div>
                                 <div class="hoverDescription">
                                     <div class="popup2">
-                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="fa-fw"></i></font>Details</button>
                                         <span class="popuptext" id="myPopup"><b>Clients/ Manager/<br>Technical Staff</b>
                                             <p align="left">*Provide Non-Disclosure Agree-ment</p>
                                             <p align="justify">*Application process</p>
@@ -181,7 +181,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 <div class="step-current">Step 3</div>
                                 <div class="hoverDescription">
                                     <div class="popup2">
-                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="fa-fw"></i></font>Details</button>
                                         <span class="popuptext" id="myPopup"><b>ITSO Team</b>
                                             <p align="justify">*Analyze information</p>
                                             <p align="justify">*(disclosure, drawings)</p>
@@ -200,7 +200,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 <div class="step-current">Step 4</div>
                                 <div class="hoverDescription">
                                     <div class="popup2">
-                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="fa-fw"></i></font>Details</button>
                                         <span class="popuptext" id="myPopup"><b>Technical Expert/<br>Technical Staff</b>
                                             <p align="justify">*Conduct Patent</p>
                                             <p align="justify">*Search (Use Databases,</p>
@@ -216,7 +216,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 <div class="step-current">Step 5</div>
                                 <div class="hoverDescription">
                                     <div class="popup2">
-                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="fa-fw"></i></font>Details</button>
                                         <span class="popuptext" id="myPopup"><b>Clients/ Manager/<br>Technical Staff</b>
                                             <p align="justify">*Meet staff and clients</p>
                                             <p align="justify">*Present search reports</p>
@@ -235,7 +235,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 <div class="step-current">Step 6</div>
                                 <div class="hoverDescription">
                                     <div class="popup2">
-                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="fa-fw"></i></font>Details</button>
                                         <span class="popuptext" id="myPopup"><b>Manager/ Technical Staff</b>
                                             <p align="justify">*Draft Paper A</p>
                                             <p align="justify">*Assignment & Designation</p>
@@ -255,7 +255,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 <div class="step-current">Step 7</div>
                                 <div class="hoverDescription">
                                     <div class="popup2">
-                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="fa-fw"></i></font>Details</button>
                                         <span class="popuptext" id="myPopup"><b>Manager/ Technical Staff</b>
                                             <p align="justify">*Proof read</p>
                                             <p align="justify">*Re-check of entries accounted in Step 6 (embodiment, drawings, numerical referencing, technical terms, consistency of terms and reference number, specifications)</p>
@@ -270,7 +270,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 <div class="step-current">Step 8</div>
                                 <div class="hoverDescription">
                                     <div class="popup2">
-                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="fa-fw"></i></font>Details</button>
                                         <span class="popuptext" id="myPopup"><b>Clients/ Manager/<br>Technical Staff</b>
                                             <p align="justify">*Preparatory pack of Paper B</p>
                                             <p align="justify">*Counter check for conformity of previous corrections</p>
@@ -289,7 +289,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 <div class="step-current">Step 9</div>
                                 <div class="hoverDescription">
                                     <div class="popup2">
-                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="fa-fw"></i></font>Details</button>
                                         <span class="popuptext" id="myPopup"><b>Clients/ Manager/<br>Technical Staff</b>
                                             <p align="justify">*Evaluation Continuous Quality Improvement Needs to be corrected/ improved - devise plan/ alternatives) Follow up clients Issuance of Quatation Slip for Copyright File
                                             </p>
@@ -304,7 +304,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 <div class="step-current">Step 10</div>
                                 <div class="hoverDescription">
                                     <div class="popup2">
-                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="fa-fw"></i></font>Details</button>
                                         <span class="popuptext" id="myPopup"><b>USeP/ IPOPHIL</b>
                                             <p align="justify">*Filing</p>
                                             <p></p>
@@ -319,7 +319,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 <div class="step-current">Step 11</div>
                                 <div class="hoverDescription">
                                     <div class="popup2">
-                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="fa-fw"></i></font>Details</button>
                                         <span class="popuptext" id="myPopup"><b>USeP/ IPOPHIL</b>
                                             <p align="justify">*Formality Examination Report (FER)</p>
                                             <b text-align="center">!</b>
@@ -335,7 +335,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 <div class="step-current">Step 12</div>
                                 <div class="hoverDescription">
                                     <div class="popup3">
-                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="fa-fw"></i></font>Details</button>
                                         <span class="popuptext" id="myPopup"><b>USeP/ IPOPHIL</b>
                                             <p align="justify">*Formality Examination Report (FER)</p>
                                             <p></p>
@@ -350,7 +350,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 <div class="step-current">Step 13</div>
                                 <div class="hoverDescription">
                                     <div class="popup3">
-                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="fa-fw"></i></font>Details</button>
                                         <span class="popuptext" id="myPopup"><b>USeP/ IPOPHIL</b>
                                             <p align="justify">*Substantive Examination Report (SER)</p>
                                         </span>
@@ -364,7 +364,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 <div class="step-current">Step 14</div>
                                 <div class="hoverDescription">
                                     <div class="popup3">
-                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="fa-fw"></i></font>Details</button>
                                         <span class="popuptext" id="myPopup"><b>USeP/ IPOPHIL</b>
                                             <p align="justify">*Certificate of Registration (CER)</p>
                                         </span>
@@ -378,7 +378,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 <div class="step-current">End</div>
                                 <div class="hoverDescription">
                                     <div class="popup3">
-                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="fa-fw"></i></font>Details</button>
                                         <span class="popuptext" id="myPopup"><b>Congratulations</b>
                                             <p align="justify">You have successfully completed the steps</p>
                                         </span>

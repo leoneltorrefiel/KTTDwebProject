@@ -143,7 +143,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
          <center>
             <form action="" method="post">
                 <div class="popup">
-                <button id="b1" class="btnCheck2" name="patentStepBackward2"><font color="#FF4D00" size="10"><i class="far fa-minus-square fa-fw"></i></font></button>
+                <button id="b1" class="btnCheck2" name="patentStepBackward2"><font color="#FF4D00" size="10"><i class="fa-fw"></i></font></button>
                 <span class="popuptext" id="myPopup">decrease step by 1</span>
                 </div>
                 <div class="popup">
