@@ -46,6 +46,7 @@
     $reqContact = $result3['contact'];
     $reqReason = mysqli_real_escape_string($db,$_POST['reqReason']);
     $reqDate = mysqli_real_escape_string($db,$_POST['reqDate']);
+    $reqTime = mysqli_real_escape_string($db,$_POST['reqTime']);
 
     $checkReq = "SELECT reqDate from peding_request where reqDate='$reqDate' and username='$var' ";
     $check = mysqli_query($db,$checkReq);
@@ -54,7 +55,7 @@
       echo "<script>alert('You Already Requested that Date');</script>";
     }
     else{
-      $insert = "INSERT into peding_request(username,firstname,lastname,email,contact,reqDate,reason) value('$reqUsername','$reqName','$reqLastname','$reqEmail','$reqContact','$reqDate','$reqReason')";
+      $insert = "INSERT into peding_request(username,firstname,lastname,email,contact,reqDate,reason,reqTime) value('$reqUsername','$reqName','$reqLastname','$reqEmail','$reqContact','$reqDate','$reqReason','$reqTime')";
     $exe = mysqli_query($db,$insert);
        echo "<script>alert('Request Submitted!');</script>";
     }
@@ -161,6 +162,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                 <tr class="row100 head">
                   <th class="cell100 column1"><h3>Request Schedule</h3>
                                     </th>
+                  <th class="cell100 column1"><span>Office Hours:  8:00 AM - 12:00 nn and 1:00 PM - 5:00 PM</span></th>
                 </tr>
               </thead>
             </table>
@@ -174,10 +176,22 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                     <td><input type="date" name="reqDate" required></td>
                                     <td></td>
                 </tr>
+
+                <tr class="row100 body">
+                                    <td class="cell100 column3-annt"></td>
+                  <td class="cell100 column1-aant">Time</td>
+                  <td>
+                    <input type="time" name="reqTime">
+                  </td>
+                                    <td></td>
+                </tr>
+
                 <tr class="row100 body">
                                     <td class="cell100 column3-annt"></td>
                   <td class="cell100 column1-aant">Reason</td>
-                  <td><textarea class="textArea" name="reqReason" rows="10" cols="70" required></textarea></td>
+                  <td><textarea class="textArea" name="reqReason" rows="10" cols="70" required></textarea><br>
+                      <font color="green">Not more than 100 words!</font>
+                  </td>
                                     <td></td>
                 </tr>
               </tbody>

@@ -138,7 +138,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                     <td class="cell100 column2-apt"><b>Reason</b></td>
                                     <td class="cell100 column3-apt"><b>Email</b></td>
                                     <td class="cell100 column4-apt"><b>Contact</b></td>
-                                    <td class="cell100 column5-apt"><b>Request Date</b></td>
+                                    <td class="cell100 column5-apt"><b>Requested Date</b></td>
+                                    <td class="cell100 column5-apt"><b>Requested Time</b></td>
                                     <td class="cell100 column6-apt"><b>Action</b></td>
                                 </tr>
                                 
@@ -149,8 +150,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                             
                                             echo "<td class='cell100 column2-apt'>".$pending['reason']."</td>";
                                             echo "<td class='cell100 column3-apt'>".$pending['email']."</td>";
-                                            echo "<td class='cell100 column3-apt'>".$pending['contact']."</td>";
-                                            echo "<td class='cell100 column4-apt'>".$pending['reqDate']."</td>";
+                                            echo "<td class='cell100 column4-apt'>".$pending['contact']."</td>";
+                                            echo "<td class='cell100 column5-apt'>".$pending['reqDate']."</td>";
+                                            echo "<td class='cell100 column5-apt'>".$pending['reqTime']."</td>";
                                             echo "<td class='cell100 column6-apt'>"."<submit><a href='approveReq.php?approve={$pending['id']}'><font color='green' size='5'><i class='fa fa-thumbs-up'></i></font></a></submit>"." &nbsp "."<submit><a href='declineReq.php?decline={$pending['id']}'><font color='red' size='5'><i class='fa fa-trash'></i></font></a></submit>"."</td></tr>";
                                         }
                                     ?>

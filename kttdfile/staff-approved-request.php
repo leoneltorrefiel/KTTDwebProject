@@ -157,6 +157,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                             echo "<td class='cell100 column4-aaa'><b>Email</b></td>";
                                             echo "<td class='cell100 column5-aaa'><b>Contact</b></td>";
                                             echo "<td class='cell100 column6-aaa'><b>Date Requested</b></td>";
+                                            echo "<td class='cell100 column6-aaa'><b>Time Requested</b></td>";
                                             echo "<td class='cell100 column7-aaa'><b>Status</b></td>";
                                             echo "</tr>";
                             
@@ -168,6 +169,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                                 echo "<td class='cell100 column4-aaa'>".$pending['email']."</td>";
                                                 echo "<td class='cell100 column5-aaa'>".$pending['contact']."</td>";
                                                 echo "<td class='cell100 column6-aaa'>".$pending['reqdate']."</td>";
+                                                echo "<td class='cell100 column6-aaa'>".$pending['reqTime']."</td>";
                                                 echo "<td class='cell100 column7-aaa'>"."<font color='green' size='5>'<i class='fas fa-check fa-fw'></i></font>"." &nbsp ".""."</td>";
                                                 echo "</tr>";
                            
