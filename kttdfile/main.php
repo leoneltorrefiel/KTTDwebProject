@@ -163,7 +163,7 @@ info@company.com
 </div>
             <div class="navbar-collapse collapse">
             
-            <div data-smooth-scroll data-animation-time="550" class=" bd-horizontalmenu-1 clearfix">
+            <div class=" bd-horizontalmenu-1 clearfix">
                 <div class="bd-container-inner">
                     
                     <ul class=" bd-menu-1 nav nav-pills navbar-left">
