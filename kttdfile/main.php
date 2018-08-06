@@ -184,7 +184,7 @@ info@company.com
                         
                         
                             
-                            <li class="smooth-menu bd-menuitem-1
+                            <li data-smooth-scroll data-animation-time="250" class="smooth-menu bd-menuitem-1
                                         
                                         bd-toplevel-item
                                         
@@ -201,7 +201,7 @@ info@company.com
                             
                             </li>
                             
-                            <li class="smooth-menu bd-menuitem-1
+                            <li data-smooth-scroll data-animation-time="250" class="smooth-menu bd-menuitem-1
                                         
                                         bd-toplevel-item
                                         
@@ -210,7 +210,7 @@ info@company.com
 
                                 
                             
-                            <a  href="#about" >About</a>
+                            <a data-smooth-scroll data-animation-time="250"  href="#about" >About</a>
 
                                 
                                     
@@ -218,7 +218,7 @@ info@company.com
                             
                             </li>
                             
-                            <li class="smooth-menu bd-menuitem-1
+                            <li data-smooth-scroll data-animation-time="250" class="smooth-menu bd-menuitem-1
                                         
                                         bd-toplevel-item
                                         
