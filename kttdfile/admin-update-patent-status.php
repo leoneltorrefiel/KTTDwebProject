@@ -68,19 +68,20 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 .currentStep {
     position: relative;
-    top: 300px;
-    left: 300px;
-    width: 300px;
-    height: 300px;
-    background-size: 300px 300px; 
+    float: left;
+    margin-left: 8%;
+    width: 450px;
+    height: 350px;
+    background-size: 450px 350px; 
 }
 
 .nextStep {
     position: relative;
-    left: 800px;
-    width: 300px;
-    height: 300px;
-    background-size: 300px 300px;
+    float: right;
+    margin-right: 8%;
+    width: 450px;
+    height: 350px;
+    background-size: 450px 350px;
 }
 
 </style>
@@ -120,8 +121,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fas fa-truck fa-fw"></i> Approved Technologies</a>    
     <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-user-clock fa-fw"></i> Pending Accounts</a>
     <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Approved Accounts</a>
-    <a href="./admin-pending-request.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Pending Request</a>
-    <a href="./approved-request.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Approved Request</a>     
+    <a href="./admin-pending-request.php" class="w3-bar-item w3-button w3-padding"><i class="far fa-clock fa-fw"></i> Pending Request Schedules</a>
+    <a href="./approved-request.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Approved Request Schedule</a>     
   </div>
 </nav>
 
@@ -134,7 +135,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <p>Dashboard>Approved Technologies><b><?php echo $_SESSION['patentName']; ?> Status</b></p>
+    <h5>Technology Name: <b><?php echo $_SESSION['patentName']; ?></b></h5>
+    <p>Description <b><?php echo $_SESSION['patentName']; ?></b></p>
   </header>
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">

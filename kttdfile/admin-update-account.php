@@ -58,6 +58,7 @@
 <title>Admin's Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="./assets-admin/css/w4.css">
 <link rel="stylesheet" href="./assets-admin/css/font-railway.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/all.css">
@@ -74,6 +75,17 @@
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/svg-with-js.min.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.min.css">
+    
+<!-- TableUI -->
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="tableUI/css/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/vendor/perfect-scrollbar/perfect-scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/css/util.css">
+	<link rel="stylesheet" type="text/css" href="tableUI/css/main.css">
+<!--===============================================================================================-->
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -93,8 +105,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
-      <form action="admin-update-account.php" method="post">
-        <button name="btnLogout"><i class='fa fa-sign-out-alt'></i></button>
+      <form action="admin-my-information.php" method="post">
+        <button class="btnLogout" name="btnLogout">&nbsp;&nbsp;Logout <i class='fa fa-sign-out-alt'>&nbsp;&nbsp;</i></button>
       </form>
     </div>
   </div>
@@ -104,16 +116,17 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="./admin-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
-    <a href="./admin-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card fa-fw"></i>  My Information</a>
+    <a href="./admin-my-technologies.php" class="w3-bar-item w3-button w3-padding "><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
+    <a href="./admin-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card"></i>  My Information</a>
     <a href="./admin-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
+    <br>
     <a href="./admin-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
-    <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list-ol fa-fw"></i> Pending Accounts</a>
-    <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list-ul fa-fw"></i>  Pending Technologies</a>
-    <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-user-circle fa-fw"></i> Approved Accounts</a>    
-    <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-seedling fa-fw"></i> Approved Technologies</a> 
-    <a href="./admin-pending-request.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Pending Request</a>
-    <a href="./approved-request.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Approved Request</a>    
+    <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck-loading fa-fw"></i>  Pending Technologies</a>
+    <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck fa-fw"></i> Approved Technologies</a>    
+    <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-user-clock fa-fw"></i> Pending Accounts</a>
+    <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding  w3-blue"><i class="fa fa-user-alt fa-fw"></i> Approved Accounts</a> 
+    <a href="./admin-pending-request.php" class="w3-bar-item w3-button w3-padding"><i class="far fa-clock fa-fw"></i> Pending Request Schedules</a>
+    <a href="./approved-request.php" class="w3-bar-item w3-button w3-padding"><i class="far fa-calendar fa-fw"></i> Approved Request Schedules</a>    
   </div>
 </nav>
 
@@ -126,75 +139,94 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> Update Account   </b></h5>
+    <p>Dashboard>Approved Accounts><b>Update Account </b></p>
+
   </header>
 
-  <div class="w3-row-padding w3-margin-bottom">
-    
-  </div>
 
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-      	<form action="admin-update-account.php" method="post">
-        <table class="w3-table w3-striped w3-white">
-        	
-          <tr>
-            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
-            <td>Username: </td>
-            <td><i><input type="text" name="" value="<?php echo $result['username'];?>" disabled></i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
-            <td>Password: </td>
-            <td><i><input type="text" name="new_password" value="<?php echo $result[2];?>" required></i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-            <td>Email: </td>
-            <td><i><input type="text" name="" value="<?php echo $result['email'];?>" disabled></i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
-            <td>Firstname: </td>
-            <td><i><input type="text" name="new_firstname" value="<?php echo $result[5];?>" required></i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
-            <td>Lastname: </td>
-            <td><i><input type="text" name="new_lastname" value="<?php echo $result[6];?>" required></i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
-            <td>Address: </td>
-            <td><i><input type="text" name="new_address" value="<?php echo $result[7];?>" required></i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
-            <td>Contact: </td>
-            <td><i><input type="text" name="new_contact" value="<?php echo $result[8];?>" required></i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
-            <td>Profession: </td>
-            <td><i><input type="text" name="new_profession" value="<?php echo $result[9];?>" required></i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
-            <td>Account type: </td>
-            <td><?php echo $result[10];?> </td>
-            <td></td>
-          </tr>
-          <tr>
-          	<td>	
-          	</td>
-          	<td>
-			<input class=btn type="submit" value="Update" id="insert">
-          	</td>
-          </tr>
-      
-        </table>
-        </form>
+          <div class="table100 ver2 m-b-110">
+               <form action="admin-update-account.php" method="post">
+                    <div class="table100-head">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1"><h3>My Information</h3>
+                                    </th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="table100-body js-pscroll">
+						<table>
+							<tbody>
+                                <tr class="row100 body">
+                                    
+                                    <td class="cell100 column1-ami"></td>
+									<td class="cell100 column2-ami">Account Type</td>
+									<td class="cell100 column3-ami"><b>&nbsp;&nbsp;&nbsp;<?php echo $result[10];?></b></td>
+                                    <td class="cell100 column4-ami"></td>
+								</tr>
+								<tr class="row100 body">
+                                    <td class="cell100 column1-ami"></td>
+									<td class="cell100 column2-ami">Username</td>
+									<td class="cell100 column3-ami"><b>&nbsp;&nbsp;&nbsp;<?php echo $result['username'];?></b></td>
+                                    <td class="cell100 column4-ami"></td>
+								</tr>
+
+								<tr class="row100 body">
+                                    <td class="cell100 column1-ami"></td>
+									<td class="cell100 column2-ami">Password</td>
+									<td class="cell100 column3-ami"><b><input class="pwdBox" type="text" name="new_password" value="<?php echo $result[2];?>" required></b></td>
+                                    <td class="cell100 column4-ami"></td>
+								</tr>
+
+								<tr class="row100 body">
+                                    <td class="cell100 column1-ami"></td>
+									<td class="cell100 column2-ami">Firstname</td>
+									<td class="cell100 column3-ami"><b><input class="pwdBox" type="text" name="new_firstname" value="<?php echo $result[5];?>" required></b></td>
+                                    <td class="cell100 column4-ami"></td>
+								</tr>
+                                
+                                <tr class="row100 body">
+                                    <td class="cell100 column1-ami"></td>
+									<td class="cell100 column2-ami">Lastname</td>
+									<td class="cell100 column3-ami"><b><input class="pwdBox" type="text" name="new_lastname" value="<?php echo $result[6];?>" required></b></td>
+                                    <td class="cell100 column4-ami"></td>
+								</tr>
+
+								<tr class="row100 body">
+                                    <td class="cell100 column1-ami"></td>
+									<td class="cell100 column2-ami">Profession</td>
+									<td class="cell100 column3-ami"><b><input class="pwdBox" type="text" name="new_profession" value="<?php echo $result[9];?>" required></b></td>
+                                    <td class="cell100 column4-ami"></td>
+								</tr>
+
+								<tr class="row100 body">
+                                    <td class="cell100 column1-ami"></td>
+									<td class="cell100 column2-ami">E-mail</td>
+									<td class="cell100 column3-amiami"><b>&nbsp;&nbsp;&nbsp;<?php echo $result['email'];?></b></td>
+                                    <td class="cell100 column4-ami"></td>
+								</tr>
+
+								<tr class="row100 body">
+                                    <td class="cell100 column1-ami"></td>
+									<td class="cell100 column2-ami">Contact</td>
+									<td class="cell100 column3-ami"><b><input class="pwdBox" type="text" name="new_contact" value="<?php echo $result[8];?>" required></b></td>
+                                    <td class="cell100 column4-ami"></td>
+								</tr>
+							</tbody>
+                            </table>
+                            <tr class="row100 body">
+                                <td>
+                                    <button style="width:100%; height:42px" class="btnChange" name="insert">Update</button>
+                                </td>
+                            </tr>
+                        </form
+					</div>
+				</div>
       </div>
     </div>
   </div>

@@ -425,51 +425,51 @@ KTTD interfaces the programs, projects and activities of these Offices.
 		<div class=" bd-columnwrapper-14 
  col-md-4
  col-sm-6">
-    <div class="bd-layoutcolumn-14 bd-background-width  bd-column" ><div class="bd-vertical-align-wrapper"><img class="bd-imagelink-2 bd-imagescaling bd-imagescaling-3 bd-own-margins bd-imagestyles   "  src="./assets-home/images/f3258a9569b34bd83249f4a0ca9572e9_1457721366_47.Explore.png">
+    <div class="bd-layoutcolumn-14 bd-background-width  bd-column" ><div class="bd-vertical-align-wrapper"><img class="bd-imagelink-2 bd-imagescaling bd-imagescaling-3 bd-own-margins bd-imagestyles   "  src="./image/itso.png">
 	
 		<h4 class=" bd-textblock-13 bd-content-element">
     <a href="#" draggable="false">
-    Strategies</a>
+    ITSO</a>
 </h4>
 	
 		<div class=" bd-spacer-2 clearfix"></div>
 	
 		<p class=" bd-textblock-15 bd-content-element">
-    The formation of visions of the company, statement of corporate objectives, weighing of the potential, the formation of conditions
+    The Innovation and Technology Support Office (ITSO) is tasked to process internal and external technologies the necessary intellectual property (IP) protection... 
 </p></div></div>
 </div>
 	
 		<div class=" bd-columnwrapper-16 
  col-md-4
  col-sm-6">
-    <div class="bd-layoutcolumn-16 bd-column" ><div class="bd-vertical-align-wrapper"><img class="bd-imagelink-7 bd-imagescaling bd-imagescaling-6 bd-own-margins bd-imagestyles   "  src="./assets-home/images/8035ad83ddf811e849ee9ad1e8f2402f_1457722286_megaphone.png">
+    <div class="bd-layoutcolumn-16 bd-column" ><div class="bd-vertical-align-wrapper"><img class="bd-imagelink-7 bd-imagescaling bd-imagescaling-6 bd-own-margins bd-imagestyles   "  src="./image/biu.png">
 	
 		<h4 class=" bd-textblock-17 bd-content-element">
     <a href="#">
-    Solutions</a>
+    BIU</a>
 </h4>
 	
 		<div class=" bd-spacer-5 clearfix"></div>
 	
 		<p class=" bd-textblock-19 bd-content-element">
-    We present you the various topics of business consultations, from which you can choose the one that interests you. We provide consulting services&nbsp;
+    The Business Incubation Unit (BIU), on the other hand, is designed to develop technologies into readily marketable products...
 </p></div></div>
 </div>
 	
 		<div class=" bd-columnwrapper-18 
  col-md-4
  col-sm-6">
-    <div class="bd-layoutcolumn-18 bd-column" ><div class="bd-vertical-align-wrapper"><img class="bd-imagelink-9 bd-imagescaling bd-imagescaling-8 bd-own-margins bd-imagestyles   "  src="./assets-home/images/75a0494fcbe9144e30cbded041fe83a2_1457717915_41.Trophy.png">
+    <div class="bd-layoutcolumn-18 bd-column" ><div class="bd-vertical-align-wrapper"><img class="bd-imagelink-9 bd-imagescaling bd-imagescaling-8 bd-own-margins bd-imagestyles   "  src="./image/ttu.png">
 	
 		<h4 class=" bd-textblock-21 bd-content-element">
     <a href="#">
-    Results</a>
+    TTU</a>
 </h4>
 	
 		<div class=" bd-spacer-7 clearfix"></div>
 	
 		<p class=" bd-textblock-25 bd-content-element">
-    Our best experts are co-working for the best result. The synergistic effect of our decisions is achieved through a well-established pattern of interaction
+    Technology Transfer Unit (TTU) is purposely established to commercialize IP-protected and incubated technologies...
 </p></div></div>
 </div>
             </div>
@@ -498,21 +498,21 @@ KTTD interfaces the programs, projects and activities of these Offices.
 		<div class=" bd-spacer-19 clearfix"></div>
 	
 		<h3 class=" bd-textblock-46 bd-content-element">
-    We believe in Quality over Quantity. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.
+    The technology transfer officers will help you protect, incubate & commercialize your ideas. Always, disclose your discoveries before sharing the details to others.
 </h3></div></div>
 </div>
                 </section>
 		<div class=" bd-columnwrapper-36 
  col-md-3
  col-sm-6">
-    <div class="bd-layoutcolumn-36 bd-column" ><div class="bd-vertical-align-wrapper"><img class="bd-imagelink-17 bd-own-margins bd-imagestyles-12   "  src="image/pacoy2.png">
+    <div class="bd-layoutcolumn-36 bd-column" ><div class="bd-vertical-align-wrapper"><img class="bd-imagelink-17 bd-own-margins bd-imagestyles-12   "  src="image/simpao,filmann.jpg">
 	
 		<h2 class=" bd-textblock-48 bd-content-element">
-    Markus Lang
+    Engr. Filmann<br>Simpao
 </h2>
 	
 		<h3 class=" bd-textblock-50 bd-content-element">
-    Art Director
+
 </h3>
 	
 		<div class="bd-separator-2  bd-separator-center bd-separator-content-center clearfix" >
@@ -524,47 +524,25 @@ KTTD interfaces the programs, projects and activities of these Offices.
 </div>
 	
 		<p class=" bd-textblock-52 bd-content-element">
-    Lorem ipsum dolor sit amet<br>Aenean imperdiet vestibulum<br>Morbi eleifend augue sed<br>
+                KTTD Director/<br>Deputy Director, ITSO
 </p>
 	
 		<div class=" bd-socialicons-2">
-    
-        <a target="_blank" data-social-url data-path-to-root="." class=" bd-socialicon-19 bd-socialicon"
-   href="//www.facebook.com/sharer.php?u=">
-    <span class="bd-icon"></span><span></span>
-</a>
-    
-        <a target="_blank" data-social-url data-path-to-root="." class=" bd-socialicon-20 bd-socialicon"
-   href="//twitter.com/share?url=&amp;text=">
-    <span class="bd-icon"></span><span></span>
-</a>
-    
-        <a target="_blank" data-social-url data-path-to-root="." class=" bd-socialicon-21 bd-socialicon"
-   href="//plus.google.com/share?url=">
-    <span class="bd-icon"></span><span></span>
-</a>
-    
-    
-    
-    
-    
-    
-    
-    
+        
 </div></div></div>
 </div>
 	
 		<div class=" bd-columnwrapper-38 
  col-md-3
  col-sm-6">
-    <div class="bd-layoutcolumn-38 bd-column" ><div class="bd-vertical-align-wrapper"><img class="bd-imagelink-22 bd-own-margins bd-imagestyles-13   "  src="image/pacoy2.png">
+    <div class="bd-layoutcolumn-38 bd-column" ><div class="bd-vertical-align-wrapper"><img class="bd-imagelink-22 bd-own-margins bd-imagestyles-13   "  src="image/rogers,jamal.jpg">
 	
 		<h2 class=" bd-textblock-54 bd-content-element">
-    Paul Adams
+    Engr. Jamal<br>Rogers
 </h2>
 	
 		<h3 class=" bd-textblock-56 bd-content-element">
-    Developer
+
 </h3>
 	
 		<div class="bd-separator-6  bd-separator-center bd-separator-content-center clearfix" >
@@ -576,47 +554,23 @@ KTTD interfaces the programs, projects and activities of these Offices.
 </div>
 	
 		<p class=" bd-textblock-58 bd-content-element">
-    Lorem ipsum dolor sit amet<br>Aenean imperdiet vestibulum<br>Morbi eleifend augue sed<br>
+                Deputy Director, BIU
 </p>
 	
-		<div class=" bd-socialicons-5">
-    
-        <a target="_blank" data-social-url data-path-to-root="." class=" bd-socialicon-56 bd-socialicon"
-   href="//www.facebook.com/sharer.php?u=">
-    <span class="bd-icon"></span><span></span>
-</a>
-    
-        <a target="_blank" data-social-url data-path-to-root="." class=" bd-socialicon-57 bd-socialicon"
-   href="//twitter.com/share?url=&amp;text=">
-    <span class="bd-icon"></span><span></span>
-</a>
-    
-        <a target="_blank" data-social-url data-path-to-root="." class=" bd-socialicon-58 bd-socialicon"
-   href="//plus.google.com/share?url=">
-    <span class="bd-icon"></span><span></span>
-</a>
-    
-    
-    
-    
-    
-    
-    
-    
-</div></div></div>
+		</div></div>
 </div>
 	
 		<div class=" bd-columnwrapper-44 
  col-md-3
  col-sm-6">
-    <div class="bd-layoutcolumn-44 bd-column" ><div class="bd-vertical-align-wrapper"><img class="bd-imagelink-26 bd-own-margins bd-imagestyles-14   "  src="image/pacoy2.png">
+    <div class="bd-layoutcolumn-44 bd-column" ><div class="bd-vertical-align-wrapper"><img class="bd-imagelink-26 bd-own-margins bd-imagestyles-14   "  src="image/campos,karl.jpg">
 	
 		<h2 class=" bd-textblock-60 bd-content-element">
-    Lana Stevens
+    Mr. Karl<br>Campos
 </h2>
 	
 		<h3 class=" bd-textblock-62 bd-content-element">
-    Manager
+
 </h3>
 	
 		<div class="bd-separator-8  bd-separator-center bd-separator-content-center clearfix" >
@@ -628,47 +582,22 @@ KTTD interfaces the programs, projects and activities of these Offices.
 </div>
 	
 		<p class=" bd-textblock-64 bd-content-element">
-    Lorem ipsum dolor sit amet<br>Aenean imperdiet vestibulum<br>Morbi eleifend augue sed<br>
+                Deputy Director, TTU
 </p>
-	
-		<div class=" bd-socialicons-7">
-    
-        <a target="_blank" data-social-url data-path-to-root="." class=" bd-socialicon-78 bd-socialicon"
-   href="//www.facebook.com/sharer.php?u=">
-    <span class="bd-icon"></span><span></span>
-</a>
-    
-        <a target="_blank" data-social-url data-path-to-root="." class=" bd-socialicon-79 bd-socialicon"
-   href="//twitter.com/share?url=&amp;text=">
-    <span class="bd-icon"></span><span></span>
-</a>
-    
-        <a target="_blank" data-social-url data-path-to-root="." class=" bd-socialicon-80 bd-socialicon"
-   href="//plus.google.com/share?url=">
-    <span class="bd-icon"></span><span></span>
-</a>
-    
-    
-    
-    
-    
-    
-    
-    
-</div></div></div>
+	</div></div>
 </div>
 	
 		<div class=" bd-columnwrapper-46 
  col-md-3
  col-sm-6">
-    <div class="bd-layoutcolumn-46 bd-column" ><div class="bd-vertical-align-wrapper"><img class="bd-imagelink-30 bd-own-margins bd-imagestyles-17   "  src="image/pacoy2.png">
+    <div class="bd-layoutcolumn-46 bd-column" ><div class="bd-vertical-align-wrapper"><img class="bd-imagelink-30 bd-own-margins bd-imagestyles-17   "  src="./assets-home/images/contact.jpg">
 	
 		<h2 class=" bd-textblock-66 bd-content-element">
-    Johnnie King
+    <br>
+    Conatct Us:
 </h2>
 	
 		<h3 class=" bd-textblock-68 bd-content-element">
-    Interface Designer
 </h3>
 	
 		<div class="bd-separator-10  bd-separator-center bd-separator-content-center clearfix" >
@@ -680,34 +609,10 @@ KTTD interfaces the programs, projects and activities of these Offices.
 </div>
 	
 		<p class=" bd-textblock-70 bd-content-element">
-    Lorem ipsum dolor sit amet<br>Aenean imperdiet vestibulum<br>Morbi eleifend augue sed<br>
+    +639123456789
 </p>
 	
-		<div class=" bd-socialicons-9">
-    
-        <a target="_blank" data-social-url data-path-to-root="." class=" bd-socialicon-100 bd-socialicon"
-   href="//www.facebook.com/sharer.php?u=">
-    <span class="bd-icon"></span><span></span>
-</a>
-    
-        <a target="_blank" data-social-url data-path-to-root="." class=" bd-socialicon-101 bd-socialicon"
-   href="//twitter.com/share?url=&amp;text=">
-    <span class="bd-icon"></span><span></span>
-</a>
-    
-        <a target="_blank" data-social-url data-path-to-root="." class=" bd-socialicon-102 bd-socialicon"
-   href="//plus.google.com/share?url=">
-    <span class="bd-icon"></span><span></span>
-</a>
-    
-    
-    
-    
-    
-    
-    
-    
-</div></div></div>
+		</div></div>
 </div>
             </div>
         </div>

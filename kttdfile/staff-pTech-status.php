@@ -74,19 +74,20 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 .currentStep {
     position: relative;
-    top: 300px;
-    left: 300px;
-    width: 300px;
-    height: 300px;
-    background-size: 300px 300px; 
+    float: left;
+    margin-left: 8%;
+    width: 450px;
+    height: 350px;
+    background-size: 450px 350px; 
 }
 
 .nextStep {
     position: relative;
-    left: 800px;
-    width: 300px;
-    height: 300px;
-    background-size: 300px 300px;
+    float: right;
+    margin-right: 8%;
+    width: 450px;
+    height: 350px;
+    background-size: 450px 350px;
 }
 
 </style>
@@ -148,90 +149,245 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 1</div>
+                                <div class="hoverDescription">
+                                    <div class="popup2">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>Clients/ ITSO Team</b>
+                                            <p align="justify">*Sign-in</p>
+                                            <p align="justify">*Initial negotiations</p>
+                                            <p align="justify">*Discussion</p>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li style="width: 6.666666666666667%" id="step2">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 2</div>
+                                <div class="hoverDescription">
+                                    <div class="popup2">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>Clients/ Manager/<br>Technical Staff</b>
+                                            <p align="left">*Provide Non-Disclosure Agree-ment</p>
+                                            <p align="justify">*Application process</p>
+                                            <p align="justify">*Conduct Office Feedback Form</p>
+                                            <p align="justify">*Create folder</p>
+                                            <p align="justify">*Issuance of Quotation for Patent Search and/or Patent Draft, if necessary</p>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li style="width: 6.666666666666667%" id="step3">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 3</div>
+                                <div class="hoverDescription">
+                                    <div class="popup2">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>ITSO Team</b>
+                                            <p align="justify">*Analyze information</p>
+                                            <p align="justify">*(disclosure, drawings)</p>
+                                            <p align="justify">*Conceptualized the innovation/ invention</p>
+                                            <p align="justify">*Unity of invention</p>
+                                            <p align="justify">*Task assignment</p>
+                                            <p align="justify">*Triage (fill-up triage form)</p>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li style="width: 6.666666666666667%" id="step4">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 4</div>
+                                <div class="hoverDescription">
+                                    <div class="popup2">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>Technical Expert/<br>Technical Staff</b>
+                                            <p align="justify">*Conduct Patent</p>
+                                            <p align="justify">*Search (Use Databases,</p>
+                                            <p align="justify">*IPC Classification, Update Status, Fill-in Log Wrapper)</p>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li style="width: 6.666666666666667%" id="step5">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 5</div>
+                                <div class="hoverDescription">
+                                    <div class="popup2">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>Clients/ Manager/<br>Technical Staff</b>
+                                            <p align="justify">*Meet staff and clients</p>
+                                            <p align="justify">*Present search reports</p>
+                                            <p align="justify">*Prior arts presentation</p>
+                                            <p align="justify">*Tabulation</p>
+                                            <p align="justify">*Meet with client/s for deliberation and presentation and</p>
+                                            <p align="justify">*Issuance of Quotation Slip for Patent Draft</p>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li style="width: 6.666666666666667%" id="step6">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 6</div>
+                                <div class="hoverDescription">
+                                    <div class="popup2">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>Manager/ Technical Staff</b>
+                                            <p align="justify">*Draft Paper A</p>
+                                            <p align="justify">*Assignment & Designation</p>
+                                            <p align="justify">*Embodiment</p>
+                                            <p align="justify">*Prior arts (drafting of claim, novelty of claims)</p>
+                                            <p align="justify">*Initial proof read (numerical refencing, technical terms)</p>
+                                            <p align="justify">*Conduct dry run (Basis for Paper B)</p>
+                                            <p></p>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li style="width: 6.666666666666667%" id="step7">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 7</div>
+                                <div class="hoverDescription">
+                                    <div class="popup2">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>Manager/ Technical Staff</b>
+                                            <p align="justify">*Proof read</p>
+                                            <p align="justify">*Re-check of entries accounted in Step 6 (embodiment, drawings, numerical referencing, technical terms, consistency of terms and reference number, specifications)</p>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li style="width: 6.666666666666667%" id="step8">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 8</div>
+                                <div class="hoverDescription">
+                                    <div class="popup2">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>Clients/ Manager/<br>Technical Staff</b>
+                                            <p align="justify">*Preparatory pack of Paper B</p>
+                                            <p align="justify">*Counter check for conformity of previous corrections</p>
+                                            <p align="justify">*Drawings</p>
+                                            <p align="justify">*Signatories in request for patent grant in the Philippines</p>
+                                            <p align="justify">*Pre-final turnover (let owner/ inventor counter check) (let him/her sign legal basis that invention was covered, may be done through email)</p>
+                                            <p></p>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li style="width: 6.666666666666667%" id="step9">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 9</div>
+                                <div class="hoverDescription">
+                                    <div class="popup2">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>Clients/ Manager/<br>Technical Staff</b>
+                                            <p align="justify">*Evaluation Continuous Quality Improvement Needs to be corrected/ improved - devise plan/ alternatives) Follow up clients Issuance of Quatation Slip for Copyright File
+                                            </p>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li style="width: 6.666666666666667%" id="step10">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 10</div>
+                                <div class="hoverDescription">
+                                    <div class="popup2">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>USeP/ IPOPHIL</b>
+                                            <p align="justify">*Filing</p>
+                                            <p></p>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li style="width: 6.666666666666667%" id="step11">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 11</div>
+                                <div class="hoverDescription">
+                                    <div class="popup2">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>USeP/ IPOPHIL</b>
+                                            <p align="justify">*Formality Examination Report (FER)</p>
+                                            <b text-align="center">!</b>
+                                            <p align-text="1">*Request Early Publication (REP)</p>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li style="width: 6.666666666666667%" id="step12">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 12</div>
+                                <div class="hoverDescription">
+                                    <div class="popup3">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>USeP/ IPOPHIL</b>
+                                            <p align="justify">*Formality Examination Report (FER)</p>
+                                            <p></p>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li style="width: 6.666666666666667%" id="step13">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 13</div>
+                                <div class="hoverDescription">
+                                    <div class="popup3">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>USeP/ IPOPHIL</b>
+                                            <p align="justify">*Substantive Examination Report (SER)</p>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li style="width: 6.666666666666667%" id="step14">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 14</div>
+                                <div class="hoverDescription">
+                                    <div class="popup3">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>USeP/ IPOPHIL</b>
+                                            <p align="justify">*Certificate of Registration (CER)</p>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li style="width: 6.666666666666667%" id="step15">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">End</div>
+                                <div class="hoverDescription">
+                                    <div class="popup3">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>Congratulations</b>
+                                            <p align="justify">You have successfully completed the steps</p>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         
@@ -240,7 +396,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                     </ul>
                     <div class="step-bar" id="step-bar"></div>
                 </div>
-        </section>
+        </section>  
           
     
   </div>

@@ -70,19 +70,20 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 .currentStep {
     position: relative;
-    top: 300px;
-    left: 300px;
-    width: 300px;
-    height: 300px;
-    background-size: 300px 300px; 
+    float: left;
+    margin-left: 8%;
+    width: 450px;
+    height: 350px;
+    background-size: 450px 350px; 
 }
 
 .nextStep {
     position: relative;
-    left: 800px;
-    width: 300px;
-    height: 300px;
-    background-size: 300px 300px;
+    float: right;
+    margin-right: 8%;
+    width: 450px;
+    height: 350px;
+    background-size: 450px 350px;
 }
 
 </style>
@@ -122,8 +123,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck fa-fw"></i> Approved Technologies</a>    
     <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-user-clock fa-fw"></i> Pending Accounts</a>
     <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Approved Accounts</a>
-    <a href="./admin-pending-request.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Pending Request</a>
-    <a href="./approved-request.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Approved Request</a>    
+    <a href="./admin-pending-request.php" class="w3-bar-item w3-button w3-padding"><i class="far fa-clock fa-fw"></i> Pending Request Schedules</a>
+    <a href="./approved-request.php" class="w3-bar-item w3-button w3-padding"><i class="far fa-calendar fa-fw"></i> Approved Request Schedules</a>    
   </div>
 </nav>
 
@@ -136,7 +137,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <p>Dashboard>My Technologies><b><?php echo $_SESSION['copyName']; ?> Status</b></p>
+    <h5>Technology Name: <b><?php echo $_SESSION['copyName']; ?></b></h5>
+    <p>Description <b><?php echo $_SESSION['copyName']; ?></b></p>
   </header>
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
@@ -148,32 +150,33 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 1</div>
-                                <div class="step-description">
-                                    <details>
-                                        <summary>Description</summary>
-                                        <b><p>Client/ ITSO Team</p></b>
-                                        <p align="left">*Sign-in</p>
-                                        <p align="left">*Initial negotiations</p>
-                                        <p align="left">*Discussion</p>
-                                    </details>
+                                <div class="hoverDescription2">
+                                    <div class="popup4">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>Clients/ ITSO Team</b>
+                                            <p align="justify">*Sign-in</p>
+                                            <p align="justify">*Initial negotiations</p>
+                                            <p align="justify">*Discussion</p>
+                                        </span>
+                                    </div>
                                 </div>
- 
                             </div>
                         </li>
                         <li style="width: 14.28571428571429%" id="step2">
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 2</div>
-                                <div class="step-description">
-                                    <details>
-                                        <summary>Description</summary>
-                                        <b><p>Client/ Manager/ Technical Staff</p></b>
-                                        <p align="left">*Provide Non-Disclosure Agreement</p>
-                                        <p align="left">*Application Process</p>
-                                        <p align="left">*Conduct Office Feedback Form</p>
-                                        <p align="left">*Create folder</p>
-                                        <p align="left">*Issuance of Quotaion for Patent Search and/or Patent Draft, if necessary</p>
-                                    </details>
+                                <div class="hoverDescription2">
+                                    <div class="popup4">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>Client/ Manager/ Technical Staff</b>
+                                            <p align="justify">*Provide Non-Disclosure Agree-ment</p>
+                                            <p align="justify">*Application Process</p>
+                                            <p align="justify">*Conduct Office Feedback Form</p>
+                                            <p align="justify">*Create folder</p>
+                                            <p align="justify">*Issuance of Quotaion for Patent Search and/or Patent Draft, if necessary</p>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -181,17 +184,18 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 3</div>
-                                <div class="step-description">
-                                    <details>
-                                        <summary>Description</summary>
-                                        <b><p>ITSO Team</p></b>
-                                        <p align="left">*Analyze Information</p>
-                                        <p align="left">*(disclosure, drawings)</p>
-                                        <p align="left">*Conceptualized the innovation/ invention</p>
-                                        <p align="left">*Unity of invention</p>
-                                        <p align="left">*Task assignment</p>
-                                        <p align="left">*Triage (fill-up triage form)</p>
-                                    </details>
+                                <div class="hoverDescription2">
+                                    <div class="popup4">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>ITSO Team</b>
+                                            <p align="justify">*Analyze information</p>
+                                            <p align="justify">*(disclosure, drawings)</p>
+                                            <p align="justify">*Conceptualized the innovation/ invention</p>
+                                            <p align="justify">*Unity of invention</p>
+                                            <p align="justify">*Task assignment</p>
+                                            <p align="justify">*Triage (fill-up triage form)</p>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -199,14 +203,15 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 4</div>
-                                <div class="step-description">
-                                    <details>
-                                        <summary>Description</summary>
-                                        <b><p>Technical Expert/ Technical Staff</p></b>
-                                        <p align="left">*Conduct Patent</p>
-                                        <p align="left">*Search (Use Databaeses,</p>
-                                        <p align="left">*IPC Classification, Update Status, Fill-in Log Wrapper)</p>
-                                    </details>
+                                <div class="hoverDescription2">
+                                    <div class="popup4">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>Technical Expert/<br>Technical Staff</b>
+                                            <p align="justify">*Conduct Patent</p>
+                                            <p align="justify">*Search (Use Databases,</p>
+                                            <p align="justify">*IPC Classification, Update Status, Fill-in Log Wrapper)</p>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -214,17 +219,18 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 5</div>
-                                <div class="step-description">
-                                    <details>
-                                        <summary>Description</summary>
-                                        <b><p>Client/ Manager/ Technical Staff</p></b>
-                                        <p align="left">*Meet staff and clients</p>
-                                        <p align="left">*Present search reports</p>
-                                        <p align="left">*Prior arts presentation</p>
-                                        <p align="left">*Tabulation</p>
-                                        <p align="left">*Meet with client/s for deliberation and presentation of data</p>
-                                        <p align="left">*Issuance of Quotation Slip for Patent Draft</p>
-                                    </details>
+                                <div class="hoverDescription2">
+                                    <div class="popup4">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>Clients/ Manager/<br>Technical Staff</b>
+                                            <p align="justify">*Meet staff and clients</p>
+                                            <p align="justify">*Present search reports</p>
+                                            <p align="justify">*Prior arts presentation</p>
+                                            <p align="justify">*Tabulation</p>
+                                            <p align="justify">*Meet with client/s for deliberation and presentation of data</p>
+                                            <p align="justify">*Issuance of Quotation Slip for Patent Draft</p>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -232,18 +238,19 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">Step 6</div>
-                                <div class="step-description">
-                                    <details>
-                                        <summary>Description</summary>
-                                        <b><p>Manager/ Technical Staff</p></b>
-                                        <p align="left">*Draft Paper A</p>
-                                        <p align="left">*Assignment & Designation</p>
-                                        <p align="left">*Emnodiment</p>
-                                        <p align="left">*Prior arts (drafting of claims, novelty of claims)</p>
-                                        <p align="left">*Initial proof read (numerical referencing, technical terms)</p>
-                                        <p align="left">*Conduct dry run</p>
-                                        <p align="left">*(Basis for Paper B)</p>
-                                    </details>
+                                <div class="hoverDescription2">
+                                    <div class="popup5">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>Manager/ Technical Staff</b>
+                                            <p align="justify">*Draft Paper A</p>
+                                            <p align="justify">*Assignment & Designation</p>
+                                            <p align="justify">*Embodiment</p>
+                                            <p align="justify">*Prior arts (drafting of claim, novelty of claims)</p>
+                                            <p align="justify">*Initial proof read (numerical refencing, technical terms)</p>
+                                            <p align="justify">*Conduct dry run (Basis for Paper B)</p>
+                                            <p></p>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -251,12 +258,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                             <div class="step">
                                 <div class="step-image"><span></span></div>
                                 <div class="step-current">End</div>
-                                <div class="step-description">
-                                    <details>
-                                        <summary>Description</summary>
-                                        <b><p>Congratulations!
-                                            <br>All steps are done</p></b>
-                                    </details>
+                                <div class="hoverDescription2">
+                                    <div class="popup5">
+                                        <button id="b1" disabled><font color="transparent" size="10"><i class="far fa-minus-square fa-fw"></i></font>Details</button>
+                                        <span class="popuptext" id="myPopup"><b>Congratulations</b>
+                                            <p align="justify">You have successfully completed the steps</p>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </li>
