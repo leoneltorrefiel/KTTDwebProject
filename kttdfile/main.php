@@ -627,13 +627,11 @@ KTTD interfaces the programs, projects and activities of these Offices.
         <section class=" bd-section-2 bd-tagstyles" id="section2" data-section-title="">
     <div class="bd-container-inner bd-margins clearfix">
         <p class=" bd-textblock-1 bd-content-element">
-    © 2016 Themler.com
+    © 2018 KTTD-OJT
 </p>
 	
 		<div class=" bd-pagefooter-1">
     <div class="bd-container-inner">
-        
-            <a href='http://www.themler.io/html-templates' target="_blank">HTML Template</a> created with <a href='http://themler.io' target="_blank">Themler</a>.
     </div>
 </div>
     </div>

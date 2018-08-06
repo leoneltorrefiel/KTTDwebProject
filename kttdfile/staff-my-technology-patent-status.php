@@ -5,6 +5,7 @@
 	if(empty($_SESSION['username'])){
 		header('location: main.php');
 	}
+	
 	if($_SESSION['username'] == 'admin'){
 		header('location: admin-my-technologies.php');
 	}
@@ -19,11 +20,11 @@
 
     $checkType = mysqli_fetch_assoc($res);
 
-    if($checkType['account_type'] == 'Staff'){
-        header('location: staff-my-technologies.php');
+    if($checkType['account_type'] == 'Client'){
+        header('location: client-my-technologies.php');
     }
 
-    $getPic = "SELECT * from account where username='$var' ";
+     $getPic = "SELECT * from account where username='$var' ";
     $exe = mysqli_query($db,$getPic);
 
     $put = mysqli_fetch_assoc($exe);
@@ -33,7 +34,7 @@
 
 <!DOCTYPE html>
 <html>
-<title>Client's Page</title>
+<title>Staff's Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/style.css">
@@ -67,7 +68,7 @@
 	<link rel="stylesheet" type="text/css" href="tableUI/css/util.css">
 	<link rel="stylesheet" type="text/css" href="tableUI/css/main.css">
 <!--===============================================================================================-->
-
+    
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
@@ -102,11 +103,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-      <?php echo "<img  height='50' width='50' src='".$put['file_path']."' class='w3-circle w3-margin-right' style='width:46px'>"; ?>
+      <img src="./assets-admin/images/avatar.png" class="w3-circle w3-margin-right" style="width:46px">
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
-      <form action="client-pTech-status.php" method="post">
+      <form action="staff-my-technology-patent-status.php" method="post">
         <button class="btnLogout" name="btnLogout">&nbsp;&nbsp;Logout <i class='fa fa-sign-out-alt'>&nbsp;&nbsp;</i></button>
       </form>
     </div>
@@ -117,12 +118,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="./client-my-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
-    <a href="./client-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card fa-fw"></i>  My Information</a>
-    <a href="./client-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
-    <a href="./client-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
-    <a href="./client-request-date.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  My Request Schedule</a>
-    <a href="./add-request-schedule.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Request Schedule</a>      
+    <a href="./staff-my-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
+    <a href="./staff-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card fa-fw"></i>  My Information</a>
+    <a href="./staff-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
+    <br>
+    <a href="./staff-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
+    <a href="./staff-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck fa-fw"></i> Approved Technologies</a> 
+    <a href="./staff-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Approved Accounts</a>
+    <a href="./staff-approved-request.php" class="w3-bar-item w3-button w3-padding"><i class="far fa-calendar fa-fw"></i>  Approved Request Schedules</a>   
   </div>
 </nav>
 
@@ -135,7 +138,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <p>Dashboard>My Technologies><b><?php echo $_SESSION['patentName']; ?> Status</b></p>
+   <p>Technology: <b><font color="green"><?php echo $_SESSION['copyName']; ?></font> Status</b></p>
   </header>
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
@@ -398,7 +401,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
           
     
   </div>
-  <div class="currentStep" id="currentStep">
+    <div class="currentStep" id="currentStep">
     </div>  
     <div class="nextStep" id="nextStep">
     </div>  
@@ -409,7 +412,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </div>
 
 
+
+
 <script>
+
     function printLayer(el){
     var printPage = document.body.innerHTML;
     var printContent = document.getElementById(el).innerHTML;
@@ -417,6 +423,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     window.print();
     document.body.innerHTML = printPage;
   }
+  
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 
@@ -448,33 +455,33 @@ var temp = <?php echo $var1; ?>
         document.getElementById("step-bar").style.width = "0%";
         document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step0.png')";
         document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step1.png')";
-    }
+	}
 
-    if(temp == 1){
+	if(temp == 1){
         document.getElementById("step1").className = "activated";
         document.getElementById("step-bar").style.width = "6.666666666666667%";
         document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step1.png')";
         document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step2.png')";
-    }
+	}
 
-    if(temp == 2){
+	if(temp == 2){
         document.getElementById("step1").className = "activated";
-        document.getElementById("step2").className = "activated";
+		document.getElementById("step2").className = "activated";
         document.getElementById("step-bar").style.width = "13.33333333333333%";
         document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step2.png')";
         document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step3.png')";
-    }
+	}
 
-    if(temp == 3){
-        document.getElementById("step1").className = "activated";
+	if(temp == 3){
+		document.getElementById("step1").className = "activated";
         document.getElementById("step2").className = "activated";
         document.getElementById("step3").className = "activated";
         document.getElementById("step-bar").style.width = "20%";
         document.getElementById("currentStep").style.backgroundImage = "url('patent-steps/currentstep/patent-step3.png')";
         document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step4.png')";
-    }
+	}
 
-    if(temp == 4){
+	if(temp == 4){
         document.getElementById("step1").className = "activated";
         document.getElementById("step2").className = "activated";
         document.getElementById("step3").className = "activated";
@@ -520,7 +527,7 @@ var temp = <?php echo $var1; ?>
         document.getElementById("nextStep").style.backgroundImage = "url('patent-steps/nextstep/patent-step8.png')";
     }
 
-    if(temp == 8){
+	if(temp == 8){
         document.getElementById("step1").className = "activated";
         document.getElementById("step2").className = "activated";
         document.getElementById("step3").className = "activated";

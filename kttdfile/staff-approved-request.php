@@ -97,13 +97,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     <a href="./staff-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
-    <a href="./staff-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card"></i>  My Information</a>
+    <a href="./staff-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card fa-fw"></i>  My Information</a>
     <a href="./staff-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
     <br>
     <a href="./staff-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
+    <a href="./staff-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck fa-fw"></i> Approved Technologies</a> 
     <a href="./staff-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Approved Accounts</a>
-    <a href="./staff-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck fa-fw"></i> Approved Technologies</a>     
-    <a href="./staff-approved-request.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-user-alt fa-fw"></i> Approved Request</a>    
+    <a href="./staff-approved-request.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="far fa-calendar fa-fw"></i>  Approved Request Schedules</a>   
   </div>
 </nav>
 
@@ -134,7 +134,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             <table>
               <thead>
                 <tr class="row100 head">
-                  <th class="cell100 column1">   <h3>Approved Request</h3>
+                  <th class="cell100 column1">   <h3>Approved Schedules</h3>
                                     </th>
                 </tr>
               </thead>

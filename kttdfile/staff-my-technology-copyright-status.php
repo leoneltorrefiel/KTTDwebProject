@@ -21,11 +21,11 @@
 
     $checkType = mysqli_fetch_assoc($res);
 
-    if($checkType['account_type'] == 'Staff'){
-        header('location: staff-my-technologies.php');
+    if($checkType['account_type'] == 'Client'){
+        header('location: client-my-technologies.php');
     }
 
-    $getPic = "SELECT * from account where username='$var' ";
+     $getPic = "SELECT * from account where username='$var' ";
     $exe = mysqli_query($db,$getPic);
 
     $put = mysqli_fetch_assoc($exe);
@@ -36,7 +36,7 @@
 
 <!DOCTYPE html>
 <html>
-<title>Client's Page</title>
+<title>Staff's Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/style.css">
@@ -70,7 +70,7 @@
 	<link rel="stylesheet" type="text/css" href="tableUI/css/util.css">
 	<link rel="stylesheet" type="text/css" href="tableUI/css/main.css">
 <!--===============================================================================================-->
-
+    
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
@@ -109,7 +109,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
-      <form action="client-crTech-status.php" method="post">
+      <form action="staff-my-technology-copyright-status.php" method="post">
         <button class="btnLogout" name="btnLogout">&nbsp;&nbsp;Logout <i class='fa fa-sign-out-alt'>&nbsp;&nbsp;</i></button>
       </form>
     </div>
@@ -120,13 +120,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="./client-my-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
-    <a href="./client-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card fa-fw"></i>  My Information</a>
-    <a href="./client-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
-    <a href="./client-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
-    <a href="./client-request-date.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  My Request Schedule</a>
-    <a href="./add-request-schedule.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Request Schedule</a>  
-   
+    <a href="./staff-my-technologies.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
+    <a href="./staff-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card fa-fw"></i>  My Information</a>
+    <a href="./staff-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
+    <br>
+    <a href="./staff-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
+    <a href="./staff-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck fa-fw"></i> Approved Technologies</a> 
+    <a href="./staff-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Approved Accounts</a>
+    <a href="./staff-approved-request.php" class="w3-bar-item w3-button w3-padding"><i class="far fa-calendar fa-fw"></i>  Approved Request Schedules</a>   
   </div>
 </nav>
 
@@ -139,8 +140,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5>Technology Name: <b><?php echo $_SESSION['copyName']; ?></b></h5>
-    <p>Description <b><?php echo $_SESSION['copyName']; ?></b></p>
+    <p>Technology: <b><font color="green"><?php echo $_SESSION['copyName']; ?></font> Status</b></p>
   </header>
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
@@ -274,10 +274,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                     <div class="step-bar" id="step-bar"></div>
                 </div>
         </section>
-          
-    
   </div>
-  <div class="currentStep" id="currentStep">
+ <div class="currentStep" id="currentStep">
     </div>  
     <div class="nextStep" id="nextStep">
     </div> 
@@ -288,14 +286,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </div>
 </div>
 
+
 <script>
-    function printLayer(el){
-    var printPage = document.body.innerHTML;
-    var printContent = document.getElementById(el).innerHTML;
-    document.body.innerHTML = printContent;
-    window.print();
-    document.body.innerHTML = printPage;
-  }
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 
@@ -318,6 +310,14 @@ function w3_close() {
     mySidebar.style.display = "none";
     overlayBg.style.display = "none";
 }
+
+function printLayer(el){
+    var printPage = document.body.innerHTML;
+    var printContent = document.getElementById(el).innerHTML;
+    document.body.innerHTML = printContent;
+    window.print();
+    document.body.innerHTML = printPage;
+  }
 
 var temp = <?php echo $var1; ?>
 	
@@ -402,3 +402,4 @@ var temp = <?php echo $var1; ?>
 </script>
 </body>
 </html>
+

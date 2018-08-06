@@ -5,69 +5,31 @@
   if(empty($_SESSION['username'])){
     header('location: main.php');
   }
-  if($_SESSION['username'] == 'admin'){
-    header('location: admin-my-technologies.php');
-  }
 
-  else{
     $var = $_SESSION['username'];
+
+    $sql = "SELECT account_type from account where username='$var' ";
+    $res = mysqli_query($db,$sql);
+
+    $checkType = mysqli_fetch_assoc($res);
+
+    if($checkType['account_type'] == 'Client'){
+        header('location: client-my-technologies.php');
+    }
+
+
+  $sql1 = "SELECT * FROM approvedreq order by reqdate ASC";
+  $view1 = mysqli_query($db,$sql1);
+  $count = mysqli_num_rows($view1);
+
+ 
+
   
-    $checkType = "SELECT account_type from account where username='$var'";
-    $res = mysqli_query($db,$checkType);
-
-    $res1 = mysqli_fetch_assoc($res);
-
-    if($res1['account_type'] == 'Staff'){
-      header('location: staff-my-technologies.php');
-    }
-  }
-
-
-  $sql1 = "SELECT * from account where username='$var' ";
-  $res2 = mysqli_query($db,$sql1);
-
-  $result = mysqli_fetch_assoc($res2);
-
-  $getPic = "SELECT * from account where username='$var' ";
-    $exe = mysqli_query($db,$getPic);
-
-    $put = mysqli_fetch_assoc($exe);
-
-  if(isset($_POST['reqSubmit'])){
-
-    $sql3 = "SELECT * from account where username='$var' ";
-    $res3 = mysqli_query($db,$sql3);
-    $result3 = mysqli_fetch_assoc($res3);
-
-    $reqUsername = $result3['username'];
-    $reqName = $result3['firstname'];
-    $reqLastname = $result3['lastname'];
-    $reqEmail = $result3['email'];
-    $reqContact = $result3['contact'];
-    $reqReason = mysqli_real_escape_string($db,$_POST['reqReason']);
-    $reqDate = mysqli_real_escape_string($db,$_POST['reqDate']);
-
-    $checkReq = "SELECT reqDate from peding_request where reqDate='$reqDate' and username='$var' ";
-    $check = mysqli_query($db,$checkReq);
-
-    if(mysqli_num_rows($check) > 0 ){
-      echo "<script>alert('You Already Requested that Date');</script>";
-    }
-    else{
-      $insert = "INSERT into peding_request(username,firstname,lastname,email,contact,reqDate,reason) value('$reqUsername','$reqName','$reqLastname','$reqEmail','$reqContact','$reqDate','$reqReason')";
-    $exe = mysqli_query($db,$insert);
-       echo "<script>alert('Request Submitted!');</script>";
-    }
-
-
-
-  }
-
 ?>
 
 <!DOCTYPE html>
 <html>
-<title>Client's Page</title>
+<title>Admin's Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/style.css">
@@ -113,11 +75,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-      <?php echo "<img  height='50' width='50' src='".$put['file_path']."' class='w3-circle w3-margin-right' style='width:46px'>"; ?>
+      <img src="./assets-admin/images/avatar.png" class="w3-circle w3-margin-right" style="width:46px">
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><?php echo $var; ?></strong></span><br>
-      <form action="client-add-new-technology.php" method="post">
+      <form action="admin-my-information.php" method="post">
         <button class="btnLogout" name="btnLogout">&nbsp;&nbsp;Logout <i class='fa fa-sign-out-alt'>&nbsp;&nbsp;</i></button>
       </form>
     </div>
@@ -126,14 +88,19 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-container">
     <h5>Dashboard</h5>
   </div>
- <div class="w3-bar-block">
+  <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="./client-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
-    <a href="./client-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card fa-fw"></i>  My Information</a>
-    <a href="./client-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
-    <a href="./client-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
-    <a href="./client-request-date.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  My Request Schedule</a>
-    <a href="./add-request-schedule.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-plus-circle fa-fw"></i>  Request Schedule</a>  
+    <a href="./admin-my-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lightbulb fa-fw"></i>  My Technologies</a>
+    <a href="./admin-my-information.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card"></i>  My Information</a>
+    <a href="./admin-change-password.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-key fa-fw"></i> Change Password</a>
+    <br>
+    <a href="./admin-add-new-technology.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-circle fa-fw"></i>  Add New Technology</a>
+    <a href="./admin-pending-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck-loading fa-fw"></i>  Pending Technologies</a>
+    <a href="./admin-approved-technologies.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-truck fa-fw"></i> Approved Technologies</a>    
+    <a href="./admin-pending-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fas fa-user-clock fa-fw"></i> Pending Accounts</a>
+    <a href="./admin-approved-accounts.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-alt fa-fw"></i> Approved Accounts</a> 
+    <a href="./admin-pending-request.php" class="w3-bar-item w3-button w3-padding"><i class="far fa-clock fa-fw"></i> Pending Request</a>
+    <a href="./admin-approved-request.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="far fa-calendar fa-fw"></i> Approved Request Schedules</a>    
   </div>
 </nav>
 
@@ -146,58 +113,88 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <p>Dashboard><b>Add Resquest Schedule</b></p>
-  </header>
+    <p>Dashboard><b>Approved Request Schedules</b></p>
 
-  <form action="add-request-schedule.php" method="post">
+  </header>
+    
+<div id="div-id-name">
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
+    <div class="search-bar-container"><i class="fa fa-search fa-fw"></i>
+      <input class="search-bar" type="text" name="searchNAme" id="searchName" placeholder="Search Date" onKeyUp="search();" autocomplete="off" style="height:30px; width:200px">
+      </div>    
+          
+          
+        <div id="div-id-name">
         <div class="table100 ver2 m-b-110">
                     <div class="table100-head">
             <table>
               <thead>
                 <tr class="row100 head">
-                  <th class="cell100 column1"><h3>Request Schedule</h3>
+                  <th class="cell100 column1">   <h3>Approved Request Schedules</h3>
                                     </th>
                 </tr>
               </thead>
             </table>
           </div>
           <div class="table100-body js-pscroll">
-            <table>
-              <tbody>
-                                <tr class="row100 body">
-                                    <td class="cell100 column3-annt"></td>
-                  <td class="cell100 column1-aant">Input Date: </td>
-                                    <td><input type="date" name="reqDate" required></td>
-                                    <td></td>
-                </tr>
-                <tr class="row100 body">
-                                    <td class="cell100 column3-annt"></td>
-                  <td class="cell100 column1-aant">Reason</td>
-                  <td><textarea class="textArea" name="reqReason" rows="10" cols="70" required></textarea></td>
-                                    <td></td>
-                </tr>
+            <div id="result">
+            
+
+                                    <?php
+                                        if(empty($nm)){
+                                            $sql1 = "SELECT * FROM approvedreq order by reqDate ASC";
+                                            $view1 = mysqli_query($db,$sql1);
+
+                                            echo "<table>";
+                                            echo "<tbody>";
+                                            echo "<tr class='row100 body'>";
+                                            echo "<td class='cell100 column2-aaa'><b>Name</b></td>";
+                                            echo "<td class='cell100 column3-aaa'><b>Reason</b></td>";
+                                            echo "<td class='cell100 column4-aaa'><b>Email</b></td>";
+                                            echo "<td class='cell100 column5-aaa'><b>Contact</b></td>";
+                                            echo "<td class='cell100 column6-aaa'><b>Date Requested</b></td>";
+                                            echo "<td class='cell100 column7-aaa'><b>Status</b></td>";
+                                            echo "</tr>";
+                            
+
+                                            while($pending=mysqli_fetch_assoc($view1)) {
+                                                echo "<td class='cell100 column2-aaa'>".$pending['firstname']." ";
+                                                echo "".$pending['lastname']."</td>";
+                                                echo "<td class='cell100 column3-aaa'>".$pending['reason']."</td>";
+                                                echo "<td class='cell100 column4-aaa'>".$pending['email']."</td>";
+                                                echo "<td class='cell100 column5-aaa'>".$pending['contact']."</td>";
+                                                echo "<td class='cell100 column6-aaa'>".$pending['reqdate']."</td>";
+                                                echo "<td class='cell100 column7-aaa'>"."<font color='green' size='5>'<i class='fas fa-check fa-fw'></i></font>"." &nbsp ".""."</td>";
+                                                echo "</tr>";
+                           
+                                            }
+                                        }
+                                    ?>
+                
+                                </tr>
               </tbody>
             </table>
-                        <tr class="row100 body">
-                            <td>
-                                <button style="width:100%; height:42px" class="btnChange" name="reqSubmit">Submit</button>
-                            </td>
-                            <td class="cell100 column3-aant"></td>
-            </tr>  
-             
+                        </div>
           </div>
         </div>
-      </div>
+    </div>
+    <div style="margin-top: -100px">
+    <span>Totals Request:  <strong><?php echo "  $count"; ?></strong></span>
+    </div>
+    
   </div>
+  </div>
+<div>
+  <hr>
+  
+
+  <!-- End page content -->
 </div>
-</form>
-</div>
-<hr>
 
 <script>
+
   function printLayer(el){
     var printPage = document.body.innerHTML;
     var printContent = document.getElementById(el).innerHTML;
@@ -227,6 +224,17 @@ function w3_close() {
     mySidebar.style.display = "none";
     overlayBg.style.display = "none";
 }
+
+
+function search(){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.open("GET","searchDate.php?nm="+ document.getElementById("searchName").value,false);
+        xmlhttp.send(null);
+        document.getElementById("result").innerHTML=xmlhttp.responseText;
+        document.getElementById("result").style.visibility='visible';
+    }
+
+
 </script>
 </body>
 </html>
