@@ -26,8 +26,8 @@
 
 		$result = mysqli_fetch_array($row);
 	}
-	if(isset($_POST['new_password'])){
-		$id = mysqli_real_escape_string($db,$_POST['id']);
+	if(isset($_POST['insert'])){
+	//	$id = mysqli_real_escape_string($db,$_POST['id']);
 		$new_password = mysqli_real_escape_string($db,$_POST['new_password']);
 		$new_firstname = mysqli_real_escape_string($db,$_POST['new_firstname']);
 		$new_lastname = mysqli_real_escape_string($db,$_POST['new_lastname']);
@@ -36,15 +36,12 @@
 		$new_profession = mysqli_real_escape_string($db,$_POST['new_profession']);
 		$new_account_type = mysqli_real_escape_string($db,$_POST['new_account_type']);
 
-	
-
-
 		
-			$exe = "UPDATE account set password='$new_password', firstname='$new_firstname', lastname='$new_lastname', address='$new_address', contact='$new_contact', profession='$new_profession', account_type='$new_account_type' where account_id ='$id'";
+			$exe = "UPDATE account set password='$new_password', firstname='$new_firstname', lastname='$new_lastname', address='$new_address', contact='$new_contact', profession='$new_profession' where account_id='$id'";
 		//	$exe = "UPDATE account set product_name='$newproductName',price='$newproductPrice' where id='$id'";
 			$res = mysqli_query($db,$exe);
 			echo "<script> alert('Update Successfully'); </script> ";
-			echo "<meta http-equiv='refresh' content='0;url=staff-approved-accounts.php'>";
+			echo "<meta http-equiv='refresh' content='0;url=admin-approved-accounts.php'>";
 	// 		header('location: viewAccounts.php');
 		
 		
@@ -147,8 +144,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
+         <form method="post">
           <div class="table100 ver2 m-b-110">
-               <form action="admin-update-account.php" method="post">
+              
                     <div class="table100-head">
 						<table>
 							<thead>
@@ -179,30 +177,36 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 								<tr class="row100 body">
                                     <td class="cell100 column1-ami"></td>
 									<td class="cell100 column2-ami">Password</td>
-									<td class="cell100 column3-ami"><b><input class="pwdBox" type="text" name="new_password" value="<?php echo $result[2];?>" required></b></td>
+									<td class="cell100 column3-ami"><b><input class="pwdBox" type="text" name="new_password" value="<?php echo $result[2];?>"></b></td>
                                     <td class="cell100 column4-ami"></td>
 								</tr>
 
 								<tr class="row100 body">
                                     <td class="cell100 column1-ami"></td>
 									<td class="cell100 column2-ami">Firstname</td>
-									<td class="cell100 column3-ami"><b><input class="pwdBox" type="text" name="new_firstname" value="<?php echo $result[5];?>" required></b></td>
+									<td class="cell100 column3-ami"><b><input class="pwdBox" type="text" name="new_firstname" value="<?php echo $result[5];?>"></b></td>
                                     <td class="cell100 column4-ami"></td>
 								</tr>
                                 
                                 <tr class="row100 body">
                                     <td class="cell100 column1-ami"></td>
 									<td class="cell100 column2-ami">Lastname</td>
-									<td class="cell100 column3-ami"><b><input class="pwdBox" type="text" name="new_lastname" value="<?php echo $result[6];?>" required></b></td>
+									<td class="cell100 column3-ami"><b><input class="pwdBox" type="text" name="new_lastname" value="<?php echo $result[6];?>"></b></td>
                                     <td class="cell100 column4-ami"></td>
 								</tr>
 
 								<tr class="row100 body">
                                     <td class="cell100 column1-ami"></td>
 									<td class="cell100 column2-ami">Profession</td>
-									<td class="cell100 column3-ami"><b><input class="pwdBox" type="text" name="new_profession" value="<?php echo $result[9];?>" required></b></td>
+									<td class="cell100 column3-ami"><b><input class="pwdBox" type="text" name="new_profession" value="<?php echo $result[9];?>"></b></td>
                                     <td class="cell100 column4-ami"></td>
 								</tr>
+
+                <tr class="row100 body">
+                                    <td class="cell100 column1-ami"></td>
+                  <td class="cell100 column2-ami">Address</td>
+                  <td class="cell100 column3-ami"><b><input class="pwdBox" type="text" name="new_address" value="<?php echo $result[7];?>"></b></t                                    <td class="cell100 column4-ami"></td>
+                </tr>
 
 								<tr class="row100 body">
                                     <td class="cell100 column1-ami"></td>
@@ -224,7 +228,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                     <button style="width:100%; height:42px" class="btnChange" name="insert">Update</button>
                                 </td>
                             </tr>
-                        </form
+                        </form>
 					</div>
 				</div>
       </div>
