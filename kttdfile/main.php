@@ -25,6 +25,21 @@
 <link rel="stylesheet" href="./assets-home/css/layout.ie.css?1.0.675">
 <script src="./assets-home/js/layout.ie.js?1.0.675"></script>
 <![endif]-->
+<link rel="stylesheet" href="./assets-admin/css/font-railway.css">
+<link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/all.css">
+<link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/all.min.css">
+<link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/brands.css">
+<link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/brands.min.css">
+<link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/fontawesome.css">
+<link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/fontawesome.css">
+<link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/regular.css">
+<link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/regular.min.css">
+<link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/solid.css">
+<link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/solid.min.css">
+<link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/svg-with-js.css">
+<link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/svg-with-js.min.css">
+<link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.css">
+<link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.min.css">
 <link class="" href='//fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic&subset=latin' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="./assets-home/js/layout.core.js"></script>
 <script src="./assets-home/js/CloudZoom.js?1.0.675"></script>
@@ -91,35 +106,15 @@
     </div>
 </section>
 	
-		<section class=" bd-section-11 bd-page-width bd-tagstyles " id="section7" data-section-title="Logo With Contacts">
-    <div class="bd-container-inner bd-margins clearfix">
-        <div class=" bd-layoutbox-20 bd-page-width  bd-no-margins clearfix">
-    <div class="bd-container-inner">
-        <div class=" bd-layoutbox-26 bd-no-margins clearfix">
-    <div class="bd-container-inner">
-        <span class="bd-iconlink-5 bd-own-margins bd-icon-57 bd-icon "></span>
-	
-		<p class=" bd-textblock-74 bd-no-margins bd-content-element">
-    (082) 227-8192 <br>Local 285<br><a href="#" draggable="false">
-kttd@usep.edu.ph
-</a>
-</p>
-    </div>
-</div>
-	
-		<div class=" bd-layoutbox-24 bd-no-margins clearfix">
-    <div class="bd-container-inner">
-        <span class="bd-iconlink-2 bd-own-margins bd-icon-53 bd-icon "></span>
-	
-		<p class=" bd-textblock-72 bd-no-margins bd-content-element">
-    2nd fl, RDE Bldg, 263 Iñigo St, Obrero, Davao City<br>
-</p>
-    </div>
-</div>
-    </div>
-</div>
-    </div>
-</section>
+		<section class="topIcons">
+            <div class="topIconsCenter">
+                <i class="fas fa-phone fa-flip-horizontal"></i>&nbsp;&nbsp;(082) 227-8192 Local 285
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <i class="fas fa-envelope"></i>&nbsp;&nbsp;kttd@usep.edu.ph
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;2nd fl, RDE Bldg, 263 Iñigo St, Obrero, Davao City
+            </div>
+        </section>
 	
 		<div data-affix
      data-offset=""

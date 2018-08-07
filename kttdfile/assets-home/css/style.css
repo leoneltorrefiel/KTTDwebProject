@@ -12554,7 +12554,8 @@ li > .bd-menu-2-popup.show {
 #marker-end-L3N0eWxlLmNzcw.L2NvbnRyb2xzL2JkLWxheW91dGJveDI0 {}
 #marker-start-L3N0eWxlLmNzcw.L2NvbnRyb2xzL2JkLWxheW91dGJveDI2 {}
 .bd-layoutbox-26 {
-  width: 250px;
+  background-color: pink;
+  width: 100%;
   margin-top: 20px;
   display: inline-block;
   -webkit-transform: translateX(60px) translateY(-8px);
@@ -16868,3 +16869,12 @@ a.bd-button-2[href]:focus,
 #marker-end-L3N0eWxlLmNzcw.L2NvbnRyb2xzL3R5cGVTZWxlY3Rvcg {}
 #marker-start-L3N0eWxlLmNzcw.L3Byb3RvdHlwZXMvQWRkaXRpb25hbENzcw {}
 #marker-end-L3N0eWxlLmNzcw.L3Byb3RvdHlwZXMvQWRkaXRpb25hbENzcw {}
+
+.topIcons {
+    height: 30px;
+}
+
+.topIconsCenter {
+    padding-top: 5px;
+    padding-left: 5.45%;
+}
