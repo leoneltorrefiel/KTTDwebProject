@@ -26,7 +26,7 @@
 ?>  
 
 <!DOCTYPE html>
-<html>
+<html class="fadeIn">
 <title>Admin's Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,6 +47,7 @@
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/svg-with-js.min.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.min.css">
+<link rel="stylesheet" href="./assets-admin/css/zoom.css">
     
 <!-- TableUI -->
 <!--===============================================================================================-->  
@@ -64,7 +65,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <body class="w3-light-grey">
 
 <!-- Top container -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:4"><b class="navCenter">KNOWLEDGE & TECHNOLOGY TRANSFER DIVISION</b>
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4"><span class="navCenter">KNOWLEDGE & TECHNOLOGY TRANSFER DIVISION</span>
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
   <span class="w3-bar-item w3-right"><a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="white" size="3"><i class="fa fa-print fa-fw"></i></font></a></span>
 </div>
@@ -134,26 +135,26 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             <table>
               <tbody>
                                 <tr class="row100 body">
-                                    <td class="cell100 column1-apt"><b>Name</b></td>
-                                    <td class="cell100 column2-apt"><b>Reason</b></td>
-                                    <td class="cell100 column3-apt"><b>Email</b></td>
-                                    <td class="cell100 column4-apt"><b>Contact</b></td>
-                                    <td class="cell100 column5-apt"><b>Date</b></td>
-                                    <td class="cell100 column5-apt"><b>Time</b></td>
-                                    <td class="cell100 column6-apt"><b>Action</b></td>
+                                    <td class="cell100 column1-aprs"><b>Name</b></td>
+                                    <td class="cell100 column2-aprs"><b>Reason</b></td>
+                                    <td class="cell100 column3-aprs"><b>Email</b></td>
+                                    <td class="cell100 column4-aprs"><b>Contact</b></td>
+                                    <td class="cell100 column5-aprs"><b>Date</b></td>
+                                    <td class="cell100 column6-aprs"><b>Time</b></td>
+                                    <td class="cell100 column7-aprs"><b>Action</b></td>
                                 </tr>
                                 
                                     <?php
                                         while($pending=mysqli_fetch_assoc($view1)) {
                                           echo "<tr>"; 
-                                            echo "<td class='cell100 column1-apt'>".$pending['firstname']." ".$pending['lastname']."</td>";
+                                            echo "<td class='cell100 column1-aprs'>".$pending['firstname']." ".$pending['lastname']."</td>";
                                             
-                                            echo "<td class='cell100 column2-apt'>".$pending['reason']."</td>";
-                                            echo "<td class='cell100 column3-apt'>".$pending['email']."</td>";
-                                            echo "<td class='cell100 column4-apt'>".$pending['contact']."</td>";
-                                            echo "<td class='cell100 column5-apt'>".$pending['reqDate']."</td>";
-                                            echo "<td class='cell100 column5-apt'>".$pending['reqTime']."</td>";
-                                            echo "<td class='cell100 column6-apt'>"."<submit><a href='approveReq.php?approve={$pending['id']}'><font color='green' size='5'><i class='fa fa-thumbs-up'></i></font></a></submit>"." &nbsp "."<submit><a href='declineReq.php?decline={$pending['id']}'><font color='red' size='5'><i class='fa fa-trash'></i></font></a></submit>"."</td></tr>";
+                                            echo "<td class='cell100 column2-aprs'>".$pending['reason']."</td>";
+                                            echo "<td class='cell100 column3-aprs'>".$pending['email']."</td>";
+                                            echo "<td class='cell100 column4-aprs'>".$pending['contact']."</td>";
+                                            echo "<td class='cell100 column5-aprs'>".$pending['reqDate']."</td>";
+                                            echo "<td class='cell100 column6-aprs'>".$pending['reqTime']."</td>";
+                                            echo "<td class='cell100 column7-aprs'>"."<submit><a href='approveReq.php?approve={$pending['id']}'><font color='green' size='5'><i class='fa fa-thumbs-up'></i></font></a></submit>"." &nbsp "."<submit><a href='declineReq.php?decline={$pending['id']}'><font color='red' size='5'><i class='fa fa-trash'></i></font></a></submit>"."</td></tr>";
                                         }
                                     ?>
                                

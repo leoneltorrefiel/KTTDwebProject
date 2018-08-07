@@ -51,7 +51,7 @@
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.min.css">
 <link rel="stylesheet" href="./assets-admin/css/step-progress.min.css">
-<link rel="stylesheet" href="./assets-admin/css/styles.css">
+<link rel="stylesheet" href="./assets-admin/css/styles.css"> <link rel="stylesheet" href="./assets-admin/css/zoom.css">
 <link rel="stylesheet" href="./assets-admin/css/zoom.css">
     
     <!-- TableUI -->
@@ -90,7 +90,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <body class="w3-light-grey">
 
 <!-- Top container -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:4"><b class="navCenter">KNOWLEDGE & TECHNOLOGY TRANSFER DIVISION</b>
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4"><span class="navCenter">KNOWLEDGE & TECHNOLOGY TRANSFER DIVISION</span>
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
   <span class="w3-bar-item w3-right"><a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="white" size="3"><i class="fa fa-print fa-fw"></i></font></a></span>
 </div>
@@ -138,7 +138,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5>Technology Name: <b><?php echo $_SESSION['copyName']; ?></b></h5>
-    <p>Description <b><?php echo $_SESSION['copyName']; ?></b></p>
   </header>
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">

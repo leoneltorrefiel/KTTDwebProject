@@ -28,7 +28,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html class="fadeIn">
 <title>Admin's Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,6 +49,7 @@
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/svg-with-js.min.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.css">
 <link rel="stylesheet" href="./assets-admin/css/fontawesome-free-5.1.1-web/css/v4-shims.min.css">
+<link rel="stylesheet" href="./assets-admin/css/zoom.css">
     
 <!-- TableUI -->
 <!--===============================================================================================-->  
@@ -66,7 +67,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <body class="w3-light-grey">
 
 <!-- Top container -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:4"><b class="navCenter">KNOWLEDGE & TECHNOLOGY TRANSFER DIVISION</b>
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4"><span class="navCenter">KNOWLEDGE & TECHNOLOGY TRANSFER DIVISION</span>
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
   <span class="w3-bar-item w3-right"><a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="white" size="3"><i class="fa fa-print fa-fw"></i></font></a></span>
 </div>
@@ -150,25 +151,25 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                             echo "<table>";
                                             echo "<tbody>";
                                             echo "<tr class='row100 body'>";
-                                            echo "<td class='cell100 column2-aaa'><b>Name</b></td>";
-                                            echo "<td class='cell100 column3-aaa'><b>Reason</b></td>";
-                                            echo "<td class='cell100 column4-aaa'><b>Email</b></td>";
-                                            echo "<td class='cell100 column5-aaa'><b>Contact</b></td>";
-                                            echo "<td class='cell100 column6-aaa'><b>Date</b></td>";
-                                            echo "<td class='cell100 column6-aaa'><b>Time</b></td>";
-                                            echo "<td class='cell100 column7-aaa'><b>Status</b></td>";
+                                            echo "<td class='cell100 column1-aars'><b>Name</b></td>";
+                                            echo "<td class='cell100 column2-aars'><b>Reason</b></td>";
+                                            echo "<td class='cell100 column3-aars'><b>Email</b></td>";
+                                            echo "<td class='cell100 column4-aars'><b>Contact</b></td>";
+                                            echo "<td class='cell100 column5-aars'><b>Date</b></td>";
+                                            echo "<td class='cell100 column6-aars'><b>Time</b></td>";
+                                            echo "<td class='cell100 column7-aars'><b>Status</b></td>";
                                             echo "</tr>";
                             
 
                                             while($pending=mysqli_fetch_assoc($view1)) {
-                                                echo "<td class='cell100 column2-aaa'>".$pending['firstname']." ";
+                                                echo "<td class='cell100 column1-aars'>".$pending['firstname']." ";
                                                 echo "".$pending['lastname']."</td>";
-                                                echo "<td class='cell100 column3-aaa'>".$pending['reason']."</td>";
-                                                echo "<td class='cell100 column4-aaa'>".$pending['email']."</td>";
-                                                echo "<td class='cell100 column5-aaa'>".$pending['contact']."</td>";
-                                                echo "<td class='cell100 column6-aaa'>".$pending['reqdate']."</td>";
-                                                echo "<td class='cell100 column6-aaa'>".$pending['reqTime']."</td>";
-                                                echo "<td class='cell100 column7-aaa'>"."<font color='green' size='5>'<i class='fas fa-check fa-fw'></i></font>"." &nbsp ".""."</td>";
+                                                echo "<td class='cell100 column2-aars'>".$pending['reason']."</td>";
+                                                echo "<td class='cell100 column3-aars'>".$pending['email']."</td>";
+                                                echo "<td class='cell100 column4-aars'>".$pending['contact']."</td>";
+                                                echo "<td class='cell100 column5-aars'>".$pending['reqdate']."</td>";
+                                                echo "<td class='cell100 column6-aars'>".$pending['reqTime']."</td>";
+                                                echo "<td class='cell100 column7-aars'>"."<font color='green' size='5>'<i class='fas fa-check fa-fw'></i></font>"." &nbsp ".""."</td>";
                                                 echo "</tr>";
                            
                                             }

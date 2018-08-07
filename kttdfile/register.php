@@ -6,7 +6,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html class="fadeIn">
 <head>
 	<title>Register Account</title>
 </head>

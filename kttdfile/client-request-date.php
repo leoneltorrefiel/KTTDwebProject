@@ -37,7 +37,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html class="fadeIn">
 <title>Client Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +75,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <body class="w3-light-grey">
 
 <!-- Top container -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:4"><b class="navCenter">KNOWLEDGE & TECHNOLOGY TRANSFER DIVISION</b>
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4"><span class="navCenter">KNOWLEDGE & TECHNOLOGY TRANSFER DIVISION</span>
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
   <span class="w3-bar-item w3-right"><a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="white" size="3"><i class="fa fa-print fa-fw"></i></font></a></span>
 </div>
@@ -144,26 +144,26 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             <table>
               <tbody>
                 <tr class="row100 body">
-                  <td class="cell100 column1-aaa"><b>Date</b></td>
-                  <td class="cell100 column2-aaa"><b>Time</b></td>
-                  <td class="cell100 column3-aaa"><b>Reason</b></td>
-                  <td class="cell100 column4-aaa"><b>Status</b></td>
+                  <td class="cell100 column1-amrs"><b>Date</b></td>
+                  <td class="cell100 column2-amrs"><b>Time</b></td>
+                  <td class="cell100 column3-amrs"><b>Reason</b></td>
+                  <td class="cell100 column4-amrs"><b>Status</b></td>
                 </tr>
                                 <tr>
                                     <?php
                             while($pending1=mysqli_fetch_assoc($res1)){
-                            echo "<td class='cell100 column1-aaa'>".$pending1['reqdate']."</td>";
-                            echo "<td class='cell100 column2-aaa'>".$pending1['reqTime']."</td>";
-                            echo "<td class='cell100 column3-aaa'>".$pending1['reason']."</td>";
-                            echo "<td class='cell100 column4-aaa'>"."<font color='#8ec735'><i class='fa fa-check fa-fw'></i></font>"."</td>";
+                            echo "<td class='cell100 column1-amrs'>".$pending1['reqdate']."</td>";
+                            echo "<td class='cell100 column2-amrs'>".$pending1['reqTime']."</td>";
+                            echo "<td class='cell100 column3-amrs'>".$pending1['reason']."</td>";
+                            echo "<td class='cell100 column4-amrs'>"."<font color='#8ec735'><i class='fa fa-check fa-fw'></i></font>"."</td>";
                             echo "<tr>"; 
                             }
 
                             while($pending=mysqli_fetch_assoc($res_1)){
-                            echo "<td class='cell100 column1-aaa'>".$pending['reqDate']."</td>";
-                            echo "<td class='cell100 column2-aaa'>".$pending['reqTime']."</td>";
-                            echo "<td class='cell100 column3-aaa'>".$pending['reason']."</td>";
-                            echo "<td class='cell100 column4-aaa'>"."Waiting..."."</td>";
+                            echo "<td class='cell100 column1-amrs'>".$pending['reqDate']."</td>";
+                            echo "<td class='cell100 column2-amrs'>".$pending['reqTime']."</td>";
+                            echo "<td class='cell100 column3-amrs'>".$pending['reason']."</td>";
+                            echo "<td class='cell100 column4-amrs'>"."Waiting..."."</td>";
                             echo "<tr>"; 
                             echo "</tr>";
                             }
