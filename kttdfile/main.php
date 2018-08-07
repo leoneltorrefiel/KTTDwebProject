@@ -100,8 +100,8 @@
         <span class="bd-iconlink-5 bd-own-margins bd-icon-57 bd-icon "></span>
 	
 		<p class=" bd-textblock-74 bd-no-margins bd-content-element">
-    9123 456 789<br><a href="#" draggable="false">
-info@company.com
+    (082) 227-8192 <br>Local 285<br><a href="#" draggable="false">
+kttd@usep.edu.ph
 </a>
 </p>
     </div>
@@ -112,7 +112,7 @@ info@company.com
         <span class="bd-iconlink-2 bd-own-margins bd-icon-53 bd-icon "></span>
 	
 		<p class=" bd-textblock-72 bd-no-margins bd-content-element">
-    263 Iñigo St, Obrero, Davao City, 8000<br>
+    2nd fl, RDE Bldg, 263 Iñigo St, Obrero, Davao City<br>
 </p>
     </div>
 </div>
@@ -524,7 +524,7 @@ KTTD interfaces the programs, projects and activities of these Offices.
 </div>
 	
 		<p class=" bd-textblock-52 bd-content-element">
-                KTTD Director/<br>Deputy Director, ITSO
+                KTTD Director/<br>ITSO Manager
 </p>
 	
 		<div class=" bd-socialicons-2">
@@ -594,7 +594,7 @@ KTTD interfaces the programs, projects and activities of these Offices.
 	
 		<h2 class=" bd-textblock-66 bd-content-element">
     <br>
-    Conatct Us:
+    Contact us:
 </h2>
 	
 		<h3 class=" bd-textblock-68 bd-content-element">
@@ -609,7 +609,7 @@ KTTD interfaces the programs, projects and activities of these Offices.
 </div>
 	
 		<p class=" bd-textblock-70 bd-content-element">
-    +639123456789
+    (082) 227-8192 <br> Local 285
 </p>
 	
 		</div></div>

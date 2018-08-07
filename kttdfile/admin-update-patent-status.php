@@ -88,7 +88,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <body class="w3-light-grey">
 
 <!-- Top container -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4"><b class="navCenter">KNOWLEDGE & TECHNOLOGY TRANSFER DIVISION</b>
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
   <span class="w3-bar-item w3-right"><a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="white" size="3"><i class="fa fa-print fa-fw"></i></font></a></span>
 </div>
@@ -136,7 +136,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5>Technology Name: <b><?php echo $_SESSION['patentName']; ?></b></h5>
-    <p>Description <b><?php echo $_SESSION['patentName']; ?></b></p>
   </header>
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
@@ -144,7 +143,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
          <center>
             <form action="" method="post">
                 <div class="popup">
-                <button id="b1" class="btnCheck2" name="patentStepBackward"><font color="#FF4D00" size="10"><i class="fa-fw"></i></font></button>
+                <button id="b1" class="btnCheck2" name="patentStepBackward"><font color="#FF4D00" size="10"><i class="far fa-minus-square fa-fw"></i></font></button>
                 <span class="popuptext" id="myPopup">decrease step by 1</span>
                 </div>
                 <div class="popup">

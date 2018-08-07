@@ -76,7 +76,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <body class="w3-light-grey">
 
 <!-- Top container -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4"><b class="navCenter">KNOWLEDGE & TECHNOLOGY TRANSFER DIVISION</b>
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
   <span class="w3-bar-item w3-right"><a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="white" size="3"><i class="fa fa-print fa-fw"></i></font></a></span>
 </div>
@@ -155,7 +155,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                             while($pending1=mysqli_fetch_assoc($res1)){
                             echo "<td class='cell100 column1-amt'>".$pending1['tech_name']."</td>";
                             echo "<td class='cell100 column2'>".$pending1['file_type']."</td>";
-                            echo "<td class='cell100 column3'>"."Aprroved"."</td>";
+                            echo "<td class='cell100 column3'>"."Approved"."</td>";
                             echo "<td class='cell100 column3'><center>"."<a href='view-my-tech.php?check={$pending1['tech_id']}'><font color='#8ec735'><i class='fa fa-eye fa-fw'></i></font></a>"."</center></td>";
                             echo "<tr>"; 
                             }

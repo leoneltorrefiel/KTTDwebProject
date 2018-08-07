@@ -66,7 +66,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <body class="w3-light-grey">
 
 <!-- Top container -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4"><b class="navCenter">KNOWLEDGE & TECHNOLOGY TRANSFER DIVISION</b>
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
   <span class="w3-bar-item w3-right"><a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="white" size="3"><i class="fa fa-print fa-fw"></i></font></a></span>
 </div>
@@ -153,7 +153,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                             echo "<td class='cell100 column3-aaa'><b>Reason</b></td>";
                                             echo "<td class='cell100 column4-aaa'><b>Email</b></td>";
                                             echo "<td class='cell100 column5-aaa'><b>Contact</b></td>";
-                                            echo "<td class='cell100 column6-aaa'><b>Date Requested</b></td>";
+                                            echo "<td class='cell100 column6-aaa'><b>Date</b></td>";
                                             echo "<td class='cell100 column7-aaa'><b>Status</b></td>";
                                             echo "</tr>";
                             

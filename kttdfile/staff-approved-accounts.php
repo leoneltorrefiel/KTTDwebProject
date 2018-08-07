@@ -82,7 +82,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <body class="w3-light-grey">
 
 <!-- Top container -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4"><b class="navCenter">KNOWLEDGE & TECHNOLOGY TRANSFER DIVISION</b>
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
   <span class="w3-bar-item w3-right"><a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="white" size="3"><i class="fa fa-print fa-fw"></i></font></a></span>
 </div>
@@ -155,7 +155,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
                                     <?php
                                         if(empty($nm)){
-                                            $sql1 = "SELECT * FROM account order by dateApproved ASC";
+                                            $sql1 = "SELECT * FROM account WHERE account_type = 'Client' order by dateApproved ASC";
                                             $view1 = mysqli_query($db,$sql1);
 
                                             echo "<table>";
@@ -167,7 +167,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                             echo "<td class='cell100 column4-aaa'><b>Email</b></td>";
                                             echo "<td class='cell100 column5-aaa'><b>Contact</b></td>";
                                             echo "<td class='cell100 column6-aaa'><b>Type</b></td>";
-                                            echo "<td class='cell100 column7-aaa'><b>Action</b></td>";
+                                            /*echo "<td class='cell100 column7-aaa'><b>Action</b></td>";*/
                                             echo "</tr>";
                             
 
@@ -179,7 +179,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                                 echo "<td class='cell100 column4-aaa'>".$pending['email']."</td>";
                                                 echo "<td class='cell100 column5-aaa'>".$pending['contact']."</td>";
                                                 echo "<td class='cell100 column6-aaa'>".$pending['account_type']."</td>";
-                                                echo "<td class='cell100 column7-aaa'>"."<center><a href='staff-update-account.php?update={$pending['account_id']}'><submit><font color='green' size='5'><i class='fa fa-edit'></i></font></submit></a>"." &nbsp "."<center>"."</td>";
+                                                /*echo "<td class='cell100 column7-aaa'>"."<center><a href='staff-update-account.php?update={$pending['account_id']}'><submit><font color='green' size='5'><i class='fa fa-edit'></i></font></submit></a>"." &nbsp "."<center>"."</td>";*/
                                                 echo "</tr>";
                            
                                             }

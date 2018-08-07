@@ -75,7 +75,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <body class="w3-light-grey">
 
 <!-- Top container -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4"><b class="navCenter">KNOWLEDGE & TECHNOLOGY TRANSFER DIVISION</b>
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
   <span class="w3-bar-item w3-right"><a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="white" size="3"><i class="fa fa-print fa-fw"></i></font></a></span>
 </div>
@@ -144,8 +144,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             <table>
               <tbody>
                 <tr class="row100 body">
-                  <td class="cell100 column1-aaa"><b>Requested Date</b></td>
-                  <td class="cell100 column2-aaa"><b>Requested Time</b></td>
+                  <td class="cell100 column1-aaa"><b>Date</b></td>
+                  <td class="cell100 column2-aaa"><b>Time</b></td>
                   <td class="cell100 column3-aaa"><b>Reason</b></td>
                   <td class="cell100 column4-aaa"><b>Status</b></td>
                 </tr>

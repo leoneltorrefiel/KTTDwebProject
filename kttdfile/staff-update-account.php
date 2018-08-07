@@ -51,7 +51,7 @@
 			$exe = "UPDATE account set password='$new_password', firstname='$new_firstname', lastname='$new_lastname', address='$new_address', contact='$new_contact', profession='$new_profession' where account_id ='$id'";
 		//	$exe = "UPDATE account set product_name='$newproductName',price='$newproductPrice' where id='$id'";
 			$res = mysqli_query($db,$exe);
-			echo "<script> alert('Update Successfully'); </script> ";
+			echo "<script> alert('Successfully Updated'); </script> ";
 			echo "<meta http-equiv='refresh' content='0;url=staff-approved-accounts.php'>";
 	// 		header('location: viewAccounts.php');
 		
@@ -102,7 +102,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <body class="w3-light-grey">
 
 <!-- Top container -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4"><b class="navCenter">KNOWLEDGE & TECHNOLOGY TRANSFER DIVISION</b>
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
   <span class="w3-bar-item w3-right"><a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="white" size="3"><i class="fa fa-print fa-fw"></i></font></a></span>
 </div>

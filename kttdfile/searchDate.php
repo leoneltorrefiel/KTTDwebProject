@@ -16,8 +16,8 @@ echo "<table>";
      echo "<td class='cell100 column3-aat'><b>Reason</b></td>";
      echo "<td class='cell100 column4-aat'><b>Email</b></td>";
      echo "<td class='cell100 column5-aat'><b>Contact</b></td>";
-     echo "<td class='cell100 column6-aat'><b>Date Requested</b></td>";
-     echo "<td class='cell100 column6-aat'><b>Time Requested</b></td>";
+     echo "<td class='cell100 column6-aat'><b>Date</b></td>";
+     echo "<td class='cell100 column6-aat'><b>Time</b></td>";
      echo "<td class='cell100 column7-aat'><b>Status</b></td>";
      echo "</tr>";
 

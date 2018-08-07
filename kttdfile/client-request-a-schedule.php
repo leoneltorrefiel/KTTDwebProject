@@ -105,7 +105,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <body class="w3-light-grey">
 
 <!-- Top container -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4"><b class="navCenter">KNOWLEDGE & TECHNOLOGY TRANSFER DIVISION</b>
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
   <span class="w3-bar-item w3-right"><a href="#" class="floatRight" onclick="printLayer('div-id-name')"><font color="white" size="3"><i class="fa fa-print fa-fw"></i></font></a></span>
 </div>
@@ -162,7 +162,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                 <tr class="row100 head">
                   <th class="cell100 column1"><h3>Request Schedule</h3>
                                     </th>
-                  <th class="cell100 column1"><span>Office Hours:  8:00 AM - 12:00 nn and 1:00 PM - 5:00 PM</span></th>
+                  <th class="cell100 column1"><span><h5>Office Hours:  8:00 AM - 12:00 nn and 1:00 PM - 5:00 PM</h5></span></th>
                 </tr>
               </thead>
             </table>
@@ -181,7 +181,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                     <td class="cell100 column3-annt"></td>
                   <td class="cell100 column1-aant">Time</td>
                   <td>
-                    <input type="time" name="reqTime">
+                    <input type="time" name="reqTime" required>
                   </td>
                                     <td></td>
                 </tr>
@@ -190,7 +190,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                     <td class="cell100 column3-annt"></td>
                   <td class="cell100 column1-aant">Reason</td>
                   <td><textarea class="textArea" name="reqReason" rows="10" cols="70" required></textarea><br>
-                      <font color="green">Not more than 100 words!</font>
+                      <font color="green">Not more than 100 letters</font>
                   </td>
                                     <td></td>
                 </tr>
