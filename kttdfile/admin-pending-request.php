@@ -23,6 +23,8 @@
 
   $count = mysqli_num_rows($view1);
 
+  $tableNum = 1;
+
 ?>  
 
 <!DOCTYPE html>
@@ -135,6 +137,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             <table>
               <tbody>
                                 <tr class="row100 body">
+                                    <td></td>
                                     <td class="cell100 column1-aprs"><b>Name</b></td>
                                     <td class="cell100 column2-aprs"><b>Reason</b></td>
                                     <td class="cell100 column3-aprs"><b>Email</b></td>
@@ -146,7 +149,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 
                                     <?php
                                         while($pending=mysqli_fetch_assoc($view1)) {
-                                          echo "<tr>"; 
+                                          echo "<tr>";
+                                           echo "<td>".$tableNum."</td>"; 
                                             echo "<td class='cell100 column1-aprs'>".$pending['firstname']." ".$pending['lastname']."</td>";
                                             
                                             echo "<td class='cell100 column2-aprs'>".$pending['reason']."</td>";
@@ -155,6 +159,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                             echo "<td class='cell100 column5-aprs'>".$pending['reqDate']."</td>";
                                             echo "<td class='cell100 column6-aprs'>".$pending['reqTime']."</td>";
                                             echo "<td class='cell100 column7-aprs'>"."<submit><a href='approveReq.php?approve={$pending['id']}'><font color='green' size='5'><i class='fa fa-thumbs-up'></i></font></a></submit>"." &nbsp "."<submit><a href='declineReq.php?decline={$pending['id']}'><font color='red' size='5'><i class='fa fa-trash'></i></font></a></submit>"."</td></tr>";
+
+                                            $tableNum++;
                                         }
                                     ?>
                                

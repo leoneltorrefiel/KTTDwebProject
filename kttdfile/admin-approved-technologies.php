@@ -29,6 +29,8 @@
     $view3 = mysqli_query($db,$sql3);
     $countP = mysqli_num_rows($view3);
 
+    $tableNum = 1;
+
 ?>
 
 <!DOCTYPE html>
@@ -147,9 +149,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 						<table>
 							<tbody>
                                 <tr class="row100 body">
-									<td class="cell100 column1-aat"><b>Technology Name</b></td>
+                                    <td><b></td>
+									                  <td class="cell100 column1-aat"><b>Technology Name</b></td>
                                     <td class="cell100 column2-aat"><b>Attached File</b></td>
-									<td class="cell100 column3-aat"><b>Tech Owner</b></td>
+									                  <td class="cell100 column3-aat"><b>Tech Owner</b></td>
                                     <td class="cell100 column4-aat"><b>Filing Type</b></td>
                                     <td class="cell100 column5-aat"><b>Filing Date</b></td>
                                     <td class="cell100 column6-aat"><b>Step Status</b></td>
@@ -161,6 +164,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                             $result = mysqli_query($db,$sql);
 
                                             while($row=mysqli_fetch_assoc($result)) {
+                                                echo "<td>"; echo $tableNum; echo "</td>";
                                                 echo "<td class='cell100 column1-aat'>"."<a href='checkFiling.php?check={$row['tech_id']}'><font color='green'> </i> "; echo $row['tech_name']; echo "</font></a>"."</td>";
                                                 echo "<td class='cell100 column2-aat'>"."<a href='download.php?dl={$row['tech_id']}'>"; echo $row['tech_filename']; echo "</a>"."</td>";
                                                 echo "<td class='cell100 column3-aat'>"; echo $row['tech_owner']; echo "</td>";
@@ -168,6 +172,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                                 echo "<td class='cell100 column5-aat'>"."<a{$row['tech_id']}'>"; echo $row['date_request']; echo "</a>"."</td>";
                                                 echo "<td class='cell100 column6-aat'>"; echo $row['status']; echo "</td>";
                                                 echo "</tr>";
+
+                                                $tableNum++;
                                             }
                                         }
                                     ?>

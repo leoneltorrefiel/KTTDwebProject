@@ -22,7 +22,8 @@
   $view1 = mysqli_query($db,$sql1);
   $count = mysqli_num_rows($view1);
 
- 
+  
+  $tableNum = 1;
 
   
 ?>
@@ -151,6 +152,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                             echo "<table>";
                                             echo "<tbody>";
                                             echo "<tr class='row100 body'>";
+                                            echo "<td><b></b></td>";
                                             echo "<td class='cell100 column1-aars'><b>Name</b></td>";
                                             echo "<td class='cell100 column2-aars'><b>Reason</b></td>";
                                             echo "<td class='cell100 column3-aars'><b>Email</b></td>";
@@ -162,6 +164,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                             
 
                                             while($pending=mysqli_fetch_assoc($view1)) {
+                                                echo "<td>".$tableNum."</td>";
                                                 echo "<td class='cell100 column1-aars'>".$pending['firstname']." ";
                                                 echo "".$pending['lastname']."</td>";
                                                 echo "<td class='cell100 column2-aars'>".$pending['reason']."</td>";

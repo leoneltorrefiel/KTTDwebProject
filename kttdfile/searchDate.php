@@ -4,6 +4,7 @@
 
 	$nm = $_GET['nm'];
 
+    $tableNum = 1;
 
 	$sql = "SELECT * from approvedreq where reqdate like('%$nm%') ";
 	$result = mysqli_query($db,$sql);
@@ -12,6 +13,7 @@ echo "<table>";
 	 echo "<table>";
      echo "<tbody>";
      echo "<tr class='row100 body'>";
+     echo "<td><b></b></td>";
      echo "<td class='cell100 column2-aat'><b>Name</b></td>";
      echo "<td class='cell100 column3-aat'><b>Reason</b></td>";
      echo "<td class='cell100 column4-aat'><b>Email</b></td>";
@@ -22,6 +24,7 @@ echo "<table>";
      echo "</tr>";
 
 	while($row=mysqli_fetch_assoc($result)){
+        echo "<td>"; echo $tableNum; echo "</td>";
         echo "<td class='cell100 column2-aaa'>".$row['firstname']." ".$row['lastname'];
         echo "<td class='cell100 column3-aat'>"; echo $row['reason']; echo "</td>";
         echo "<td class='cell100 column4-aat'>"; echo $row['email']; echo "</td>";
@@ -30,6 +33,8 @@ echo "<table>";
         echo "<td class='cell100 column6-aat'>"; echo $row['reqTime']; echo "</td>";
         echo "<td class='cell100 column7-aaa'>"."<font color='green' size='5>'<i class='fas fa-check fa-fw'></i></font>"." &nbsp ".""."</td>";
         echo "</tr>";
+        
+        $tableNum++;
 	} 
 
 	echo "</table>";

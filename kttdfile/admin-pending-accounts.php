@@ -12,6 +12,8 @@
   $view1 = mysqli_query($db,$sql1);
 
   $count = mysqli_num_rows($view1);
+
+  $tableNum = 1;
 ?>
 
 <!DOCTYPE html>
@@ -123,6 +125,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 						<table>
 							<tbody>
                                 <tr class="row100 body">
+                                  <td></td>
 									<td class="cell100 column1-apa"></td>
 									<td class="cell100 column2-apa"><b>Fullame</b></td>
                                     <td class="cell100 column3-apa"><b>Username</b></td>
@@ -134,7 +137,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                 
                                     <?php
                                         while($pending=mysqli_fetch_assoc($view1)){
-                                            echo "<tr> <td class='cell100 column1-apa'>"."<center><img  height='50' width='50' src='".$pending['file_path']."'></center>"."</td>";
+                                            echo "<tr><td>".$tableNum."</td>";
+                                            echo "<td class='cell100 column1-apa'>"."<center><img  height='50' width='50' src='".$pending['file_path']."'></center>"."</td>";
                                             echo "<td class='cell100 column2-apa'>".$pending['firstname']." ";
                                             echo "".$pending['lastname']."</td>";
                                             echo "<td class='cell100 column3-apa'>".$pending['username']."</td>";
@@ -142,7 +146,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                             echo "<td class='cell100 column5-apa'>".$pending['contact']."</td>";
                                             echo "<td class='cell100 column6-apa'>".$pending['account_type']."</td>";
                                             echo "<td class='cell100 column7-apa'>"."<submit><a href='approve.php?approve={$pending['pending_account_id']}'><font color='green' size='5'><i class='fa fa-thumbs-up'></i></font></a></submit>"." &nbsp "."<submit><a href='decline.php?decline={$pending['pending_account_id']}'><font color='red' size='5'><i class='fa fa-trash'></i></font></a></submit>"."</td></tr>";
-                    
+
+                                            $tableNum++;
+                      
                                         }
                                     ?>
                                 
