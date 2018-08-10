@@ -161,6 +161,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 						</table>
 					</div>
 				</div>
+        <div style="margin-top: -100px">
+        <span>Totals Request:  <strong><?php echo "  $count"; ?></strong></span>
+        </div>
       </div>
     </div>
   </div>
