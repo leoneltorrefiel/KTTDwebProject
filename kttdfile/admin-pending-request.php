@@ -114,67 +114,83 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-      
-    <p>Dashboard><b>Pending Request Schedules</b></p>
-  </header>
+    <p>Dashboard><b>Approved Request Schedules</b></p>
 
+  </header>
+    
 <div id="div-id-name">
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
+    <div class="search-bar-container"><i class="fa fa-search fa-fw"></i>
+      <input class="search-bar" type="text" name="searchNAme" id="searchName" placeholder="Search Date" onKeyUp="search();" autocomplete="off" style="height:30px; width:200px">
+      </div>    
+          
+          
+        <div id="div-id-name">
         <div class="table100 ver2 m-b-110">
                     <div class="table100-head">
             <table>
               <thead>
                 <tr class="row100 head">
-                  <th class="cell100 column1"><h3>Pending Request Schedules</h3>
+                  <th class="cell100 column1">   <h3>Approved Request Schedules</h3>
                                     </th>
                 </tr>
               </thead>
             </table>
           </div>
           <div class="table100-body js-pscroll">
-            <table>
-              <tbody>
-                                <tr class="row100 body">
-                                    <td></td>
-                                    <td class="cell100 column1-aprs"><b>Name</b></td>
-                                    <td class="cell100 column2-aprs"><b>Reason</b></td>
-                                    <td class="cell100 column3-aprs"><b>Email</b></td>
-                                    <td class="cell100 column4-aprs"><b>Contact</b></td>
-                                    <td class="cell100 column5-aprs"><b>Date</b></td>
-                                    <td class="cell100 column6-aprs"><b>Time</b></td>
-                                    <td class="cell100 column7-aprs"><b>Action</b></td>
-                                </tr>
-                                
-                                    <?php
-                                        while($pending=mysqli_fetch_assoc($view1)) {
-                                          echo "<tr>";
-                                           echo "<td>".$tableNum."</td>"; 
-                                            echo "<td class='cell100 column1-aprs'>".$pending['firstname']." ".$pending['lastname']."</td>";
-                                            
-                                            echo "<td class='cell100 column2-aprs'>".$pending['reason']."</td>";
-                                            echo "<td class='cell100 column3-aprs'>".$pending['email']."</td>";
-                                            echo "<td class='cell100 column4-aprs'>".$pending['contact']."</td>";
-                                            echo "<td class='cell100 column5-aprs'>".$pending['reqDate']."</td>";
-                                            echo "<td class='cell100 column6-aprs'>".$pending['reqTime']."</td>";
-                                            echo "<td class='cell100 column7-aprs'>"."<submit><a href='approveReq.php?approve={$pending['id']}'><font color='green' size='5'><i class='fa fa-thumbs-up'></i></font></a></submit>"." &nbsp "."<submit><a href='declineReq.php?decline={$pending['id']}'><font color='red' size='5'><i class='fa fa-trash'></i></font></a></submit>"."</td></tr>";
+            <div id="result">
+            
 
-                                            $tableNum++;
+                                    <?php
+                                        if(empty($nm)){
+                                            $sql1 = "SELECT * FROM peding_request order by reqDate ASC";
+                                            $view1 = mysqli_query($db,$sql1);
+
+                                            echo "<table>";
+                                            echo "<tbody>";
+                                            echo "<tr class='row100 body'>";
+                                            echo "<td><b></b></td>";
+                                            echo "<td class='cell100 column6-aars'><b>Name</b></td>";
+                                            echo "<td class='cell100 column1-aars'><b>Reason</b></td>";
+                                            echo "<td class='cell100 column3-aars'><b>Email</b></td>";
+                                            echo "<td class='cell100 column4-aars'><b>Contact</b></td>";
+                                            echo "<td class='cell100 column5-aars'><b>Date</b></td>";
+                                            echo "<td class='cell100 column6-aars'><b>Time</b></td>";
+                                            echo "<td class='cell100 column7-aars'><b>Status</b></td>";
+                                            echo "</tr>";
+                            
+
+                                            while($pending=mysqli_fetch_assoc($view1)) {
+                                                echo "<td>".$tableNum."</td>";
+                                                echo "<td class='cell100 column6-aars'>".$pending['firstname']." ";
+                                                echo "".$pending['lastname']."</td>";
+                                                echo "<td class='cell100 column1-aars'>".$pending['reason']."</td>";
+                                                echo "<td class='cell100 column3-aars'>".$pending['email']."</td>";
+                                                echo "<td class='cell100 column4-aars'>".$pending['contact']."</td>";
+                                                echo "<td class='cell100 column5-aars'>".$pending['reqDate']."</td>";
+                                                echo "<td class='cell100 column6-aars'>".$pending['reqTime']."</td>";
+                                                echo "<td class='cell100 column6-aprs'>"."<submit><a href='approveReq.php?approve={$pending['id']}'><font color='green' size='5'><i class='fa fa-thumbs-up'></i></font></a></submit>"." &nbsp "."<submit><a href='declineReq.php?decline={$pending['id']}'><font color='red' size='5'><i class='fa fa-trash'></i></font></a></submit>"."</td></tr>";
+                           
+                                            }
                                         }
                                     ?>
-                               
+                
+                                </tr>
               </tbody>
             </table>
+                        </div>
           </div>
         </div>
-        <div style="margin-top: -100px">
-        <span>Totals Request:  <strong><?php echo "  $count"; ?></strong></span>
-        </div>
-      </div>
     </div>
+    <div style="margin-top: -100px">
+    <span>Totals Request:  <strong><?php echo "  $count"; ?></strong></span>
+    </div>
+    
   </div>
-</div>
+  </div>
+<div>
   <hr>
   
 
@@ -215,7 +231,7 @@ function w3_close() {
 
 function search(){
         xmlhttp= new XMLHttpRequest();
-        xmlhttp.open("GET","searchDate.php?nm="+ document.getElementById("searchName").value,false);
+        xmlhttp.open("GET","searchDate2.php?nm="+ document.getElementById("searchName").value,false);
         xmlhttp.send(null);
         document.getElementById("result").innerHTML=xmlhttp.responseText;
         document.getElementById("result").style.visibility='visible';

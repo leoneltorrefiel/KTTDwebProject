@@ -137,12 +137,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 						<table>
 							<tbody>
                                 <tr class="row100 body">
-                                  <td><b>&nbsp&nbsp&nbsp</b></td>
-									<td class="cell100 column1-apt"><b>Technology Name</b></td>
-                                    <td class="cell100 column2-apt"><b>Attached File</b></td>
-									<td class="cell100 column3-apt"><b>Tech Owner</b></td>
-                                    <td class="cell100 column4-apt"><b>Filing Type</b></td>
-                                    <td class="cell100 column5-apt"><b>Filing Date</b></td>
+                                    <td><b>&nbsp&nbsp&nbsp</b></td>
+									                  <td class="cell100 column6-apt"><b>Technology Name</b></td>
+                                    <td class="cell100 column6-apt"><b>Inventor</b></td>
+                                    <td class="cell100 column2-apt"><b>Description</b></td>
+                                    <td class="cell100 column3-apt"><b>Attached File</b></td>
+									                  <td class="cell100 column4-apt"><b>Tech Owner</b></td>
+                                    <td class="cell100 column5-apt"><b>Filing Type</b></td>
+                                    <td class="cell100 column6-apt"><b>Filing Date</b></td>
                                     <td class="cell100 column6-apt"><b>Action</b></td>
 								</tr>
                              
@@ -150,12 +152,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                         while($pending=mysqli_fetch_assoc($view1)) { 
                                             echo "<tr>";
                                              echo "<td>".$tableNum."</td>";
-                                            echo "<td class='cell100 column1-apt'>".$pending['pending_tech_name']."</td>";
-                                            
+                                            echo "<td class='cell100 column6-apt'>".$pending['pending_tech_name']."</td>";
+                                            echo "<td class='cell100 column6-apt'>".$pending['inventor']."</td>";
                                             echo "<td class='cell100 column2-apt'>".$pending['pending_tech_description']."</td>";
-                                            echo "<td class='cell100 column3-apt'>".$pending['pending_tech_owner']."</td>";
-                                            echo "<td class='cell100 column4-apt'>".$pending['pen_file_type']."</td>";
-                                            echo "<td class='cell100 column5-apt'>"."<a href='download.php?download={$pending['pending_tech_id']}'>".$pending['p_tech_filename']."</a>"."</td>";
+                                            echo "<td class='cell100 column3-apt'>"."<a href='download.php?download={$pending['pending_tech_id']}'>".$pending['p_tech_filename']."</a>"."</td>";
+                                            echo "<td class='cell100 column4-apt'>".$pending['pending_tech_owner']."</td>";
+                                            echo "<td class='cell100 column5-apt'>".$pending['pen_file_type']."</td>";
+                                            echo "<td class='cell100 column6-apt'>".$pending['datetime']."</td>";
+                                            
                                             echo "<td class='cell100 column6-apt'>"."<submit><a href='approve2.php?approve={$pending['pending_tech_id']}'><font color='green' size='5'><i class='fa fa-thumbs-up'></i></font></a></submit>"." &nbsp "."<submit><a href='decline2.php?decline={$pending['pending_tech_id']}'><font color='red' size='5'><i class='fa fa-trash'></i></font></a></submit>"."</td>";
                                             echo "</tr>";
 

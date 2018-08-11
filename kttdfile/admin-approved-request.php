@@ -153,7 +153,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                             echo "<tbody>";
                                             echo "<tr class='row100 body'>";
                                             echo "<td><b></b></td>";
-                                            echo "<td class='cell100 column1-aars'><b>Name</b></td>";
+                                            echo "<td class='cell100 column6-aars'><b>Name</b></td>";
                                             echo "<td class='cell100 column2-aars'><b>Reason</b></td>";
                                             echo "<td class='cell100 column3-aars'><b>Email</b></td>";
                                             echo "<td class='cell100 column4-aars'><b>Contact</b></td>";
@@ -165,7 +165,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
                                             while($pending=mysqli_fetch_assoc($view1)) {
                                                 echo "<td>".$tableNum."</td>";
-                                                echo "<td class='cell100 column1-aars'>".$pending['firstname']." ";
+                                                echo "<td class='cell100 column6-aars'>".$pending['firstname']." ";
                                                 echo "".$pending['lastname']."</td>";
                                                 echo "<td class='cell100 column2-aars'>".$pending['reason']."</td>";
                                                 echo "<td class='cell100 column3-aars'>".$pending['email']."</td>";

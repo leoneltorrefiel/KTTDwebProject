@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2018 at 10:27 PM
+-- Generation Time: Aug 11, 2018 at 09:58 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -101,6 +101,13 @@ CREATE TABLE `peding_request` (
   `reqTime` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `peding_request`
+--
+
+INSERT INTO `peding_request` (`id`, `username`, `firstname`, `lastname`, `email`, `contact`, `reqDate`, `reason`, `reqTime`) VALUES
+(1, 'fish', 'waaaa', 'waaaa', 'asdasdasd@gamil.com', '09321456987', '2018-08-30', 'Apply for Copyright', '15:59');
+
 -- --------------------------------------------------------
 
 --
@@ -141,6 +148,7 @@ INSERT INTO `pending_account` (`pending_account_id`, `username`, `password`, `fi
 CREATE TABLE `pending_tech` (
   `pending_tech_id` int(11) NOT NULL,
   `pending_tech_name` varchar(255) NOT NULL,
+  `inventor` varchar(255) NOT NULL,
   `pending_tech_description` varchar(1000) NOT NULL,
   `pending_tech_owner` varchar(255) NOT NULL,
   `pending_tech_username` varchar(255) NOT NULL,
@@ -156,9 +164,9 @@ CREATE TABLE `pending_tech` (
 -- Dumping data for table `pending_tech`
 --
 
-INSERT INTO `pending_tech` (`pending_tech_id`, `pending_tech_name`, `pending_tech_description`, `pending_tech_owner`, `pending_tech_username`, `pending_tech_acct`, `pen_file_type`, `p_tech_filename`, `p_tech_filetype`, `p_tech_filepath`, `datetime`) VALUES
-(33, 'loooooooo', 'vjnvnb', 'aa ssss', 'admin', 'Staff', 'Copyright', 'P3_EWC.pdf', 'application/pdf', 'files/P3_EWC.pdf', '2018-07-09 16:41:07'),
-(41, 'ssdddsd', 'asdadsad', 'aa ssss', 'admin', 'Staff', 'Copyright', 'KTTD-HOME-revised.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'files/KTTD-HOME-revised.docx', '2018-07-25 04:17:15');
+INSERT INTO `pending_tech` (`pending_tech_id`, `pending_tech_name`, `inventor`, `pending_tech_description`, `pending_tech_owner`, `pending_tech_username`, `pending_tech_acct`, `pen_file_type`, `p_tech_filename`, `p_tech_filetype`, `p_tech_filepath`, `datetime`) VALUES
+(33, 'loooooooo', '', 'vjnvnb', 'aa ssss', 'admin', 'Staff', 'Copyright', 'P3_EWC.pdf', 'application/pdf', 'files/P3_EWC.pdf', '2018-07-09 16:41:07'),
+(41, 'ssdddsd', '', 'asdadsad', 'aa ssss', 'admin', 'Staff', 'Copyright', 'KTTD-HOME-revised.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'files/KTTD-HOME-revised.docx', '2018-07-25 04:17:15');
 
 -- --------------------------------------------------------
 
@@ -169,6 +177,7 @@ INSERT INTO `pending_tech` (`pending_tech_id`, `pending_tech_name`, `pending_tec
 CREATE TABLE `technologies` (
   `tech_id` int(11) NOT NULL,
   `tech_name` varchar(255) NOT NULL,
+  `inventor` varchar(255) NOT NULL,
   `tech_description` varchar(1000) NOT NULL,
   `tech_owner` varchar(255) NOT NULL,
   `tech_username` varchar(255) NOT NULL,
@@ -186,14 +195,14 @@ CREATE TABLE `technologies` (
 -- Dumping data for table `technologies`
 --
 
-INSERT INTO `technologies` (`tech_id`, `tech_name`, `tech_description`, `tech_owner`, `tech_username`, `tech_acct`, `tech_filename`, `tech_filetype`, `tech_filepath`, `status`, `file_type`, `date_approved`, `date_request`) VALUES
-(9, 'asdasdasdas', 'torrfiel', 'aa ssss', 'admin', 'Staff', 'P2.pdf', 'application/pdf', 'files/P2.pdf', 1, 'Patent', '2018-07-09 15:30:55', '2018-07-09 15:05:28'),
-(10, 'LLLLLLL', 'asdasdsad', 'aa ssss', 'admin', 'Staff', 'EWC Scanned receipt.pdf', 'application/pdf', 'files/EWC Scanned receipt.pdf', 1, 'Copyright', '2018-07-09 15:43:52', '2018-07-09 15:43:45'),
-(11, 'asdsa', 'dsadsadas', 'aa ssss', 'admin', 'Staff', 'P2_EWC.pdf', 'application/pdf', 'files/P2_EWC.pdf', 0, 'Copyright', '2018-07-09 16:41:17', '2018-07-09 15:05:11'),
-(12, 'aaaaa336699', 'asdad', 'aa ssss', 'admin', 'Staff', 'P2_EWC.pdf', 'application/pdf', 'files/P2_EWC.pdf', 2, 'Patent', '2018-07-09 16:41:24', '2018-07-09 15:55:14'),
-(13, 'eerr', 'asdadad', 'asdsad 12weqsadasd', 'waaa1', 'Client', 'KTTD-HOME-revised.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'files/KTTD-HOME-revised.docx', 0, 'Copyright', '2018-07-24 14:16:31', '2018-07-24 14:16:17'),
-(14, 'sppooo', 'asdadasdsad', 'aa ssss', 'admin', 'Staff', 'KTTD-ORG.-STRUCTURE (2).pdf', 'application/pdf', 'files/KTTD-ORG.-STRUCTURE (2).pdf', 0, 'Copyright', '2018-07-25 12:54:05', '2018-07-24 14:54:48'),
-(15, 'iiuuu', 'asdadsad', 'waaaa waaaa', 'waaaa123', 'Staff', 'KTTD-ORG.-STRUCTURE (2).pdf', 'application/pdf', 'files/KTTD-ORG.-STRUCTURE (2).pdf', 4, 'Copyright', '2018-07-25 12:57:15', '2018-07-25 12:56:55');
+INSERT INTO `technologies` (`tech_id`, `tech_name`, `inventor`, `tech_description`, `tech_owner`, `tech_username`, `tech_acct`, `tech_filename`, `tech_filetype`, `tech_filepath`, `status`, `file_type`, `date_approved`, `date_request`) VALUES
+(9, 'asdasdasdas', '', 'torrfiel', 'aa ssss', 'admin', 'Staff', 'P2.pdf', 'application/pdf', 'files/P2.pdf', 1, 'Patent', '2018-07-09 15:30:55', '2018-07-09 15:05:28'),
+(10, 'LLLLLLL', '', 'asdasdsad', 'aa ssss', 'admin', 'Staff', 'EWC Scanned receipt.pdf', 'application/pdf', 'files/EWC Scanned receipt.pdf', 1, 'Copyright', '2018-07-09 15:43:52', '2018-07-09 15:43:45'),
+(11, 'asdsa', '', 'dsadsadas', 'aa ssss', 'admin', 'Staff', 'P2_EWC.pdf', 'application/pdf', 'files/P2_EWC.pdf', 0, 'Copyright', '2018-07-09 16:41:17', '2018-07-09 15:05:11'),
+(12, 'aaaaa336699', '', 'asdad', 'aa ssss', 'admin', 'Staff', 'P2_EWC.pdf', 'application/pdf', 'files/P2_EWC.pdf', 2, 'Patent', '2018-07-09 16:41:24', '2018-07-09 15:55:14'),
+(13, 'eerr', '', 'asdadad', 'asdsad 12weqsadasd', 'waaa1', 'Client', 'KTTD-HOME-revised.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'files/KTTD-HOME-revised.docx', 0, 'Copyright', '2018-07-24 14:16:31', '2018-07-24 14:16:17'),
+(14, 'sppooo', '', 'asdadasdsad', 'aa ssss', 'admin', 'Staff', 'KTTD-ORG.-STRUCTURE (2).pdf', 'application/pdf', 'files/KTTD-ORG.-STRUCTURE (2).pdf', 0, 'Copyright', '2018-07-25 12:54:05', '2018-07-24 14:54:48'),
+(15, 'iiuuu', '', 'asdadsad', 'waaaa waaaa', 'waaaa123', 'Staff', 'KTTD-ORG.-STRUCTURE (2).pdf', 'application/pdf', 'files/KTTD-ORG.-STRUCTURE (2).pdf', 4, 'Copyright', '2018-07-25 12:57:15', '2018-07-25 12:56:55');
 
 --
 -- Indexes for dumped tables
@@ -255,7 +264,7 @@ ALTER TABLE `approvedreq`
 -- AUTO_INCREMENT for table `peding_request`
 --
 ALTER TABLE `peding_request`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pending_account`

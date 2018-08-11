@@ -70,6 +70,7 @@
 		move_uploaded_file($filetmp, $filepath);
 
 		$tech_name = mysqli_real_escape_string($db,$_POST['tech_name']);
+		$invetor = mysqli_real_escape_string($db,$_POST['inventor']);
 		$tech_description = mysqli_real_escape_string($db,$_POST['tech_description']);
 
 		$s_username = $_SESSION['username'];
@@ -94,7 +95,7 @@
 		$resCheck2 = mysqli_query($db,$sqlCheckName2);
 
 		
-			$insert = "INSERT into 	pending_tech (pending_tech_name,pending_tech_description,pending_tech_owner,pending_tech_username,pending_tech_acct,pen_file_type,p_tech_filename,p_tech_filetype,p_tech_filepath,datetime) values ('$tech_name','$tech_description','$name','$s_username','$type','$f_file','$filename','$filetype','$filepath',NOW() ) ";
+			$insert = "INSERT into 	pending_tech (pending_tech_name,inventor,pending_tech_description,pending_tech_owner,pending_tech_username,pending_tech_acct,pen_file_type,p_tech_filename,p_tech_filetype,p_tech_filepath,datetime) values ('$tech_name','$inventor','$tech_description','$name','$s_username','$type','$f_file','$filename','$filetype','$filepath',NOW() ) ";
 			mysqli_query($db,$insert);
 
 			echo "<script>alert('Technologies Sent. Waiting for Approval.');</script>";

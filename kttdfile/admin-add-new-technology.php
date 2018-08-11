@@ -142,6 +142,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                     <td><textarea rows="1" cols="70" style="resize: none;" class="textArea" name="tech_name" required></textarea></td>
                                     <td></td>
                 </tr>
+
+                   <tr class="row100 body">
+                                    <td class="cell100 column3-annt"></td>
+                  <td class="cell100 column1-aant">Inventor Name</td>
+                                    <td><textarea rows="1" cols="70" style="resize: none;" class="textArea" name="inventor" required></textarea></td>
+                                    <td></td>
+                </tr>
+
                 <tr class="row100 body">
                                     <td class="cell100 column3-annt"></td>
                   <td class="cell100 column1-aant">Description</td>

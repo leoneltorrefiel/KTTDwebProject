@@ -150,22 +150,24 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 							<tbody>
                                 <tr class="row100 body">
                                     <td><b></td>
-									                  <td class="cell100 column1-aat"><b>Technology Name</b></td>
+									                  <td class="cell100 column6-aat"><b>Technology Name</b></td>
+                                    <td class="cell100 column6-aat"><b>Inventor</b></td>
                                     <td class="cell100 column2-aat"><b>Attached File</b></td>
 									                  <td class="cell100 column3-aat"><b>Tech Owner</b></td>
                                     <td class="cell100 column4-aat"><b>Filing Type</b></td>
-                                    <td class="cell100 column5-aat"><b>Filing Date</b></td>
+                                    <td class="cell100 column5-aat"><b>Date Filed</b></td>
                                     <td class="cell100 column6-aat"><b>Step Status</b></td>
 								</tr>
                                 <tr>
                                     <?php
                                         if(empty($nm)) {
-                                            $sql = "SELECT * from technologies order by date_approved DESC";
+                                            $sql = "SELECT * from technologies order by date_approved ASC";
                                             $result = mysqli_query($db,$sql);
 
                                             while($row=mysqli_fetch_assoc($result)) {
                                                 echo "<td>"; echo $tableNum; echo "</td>";
-                                                echo "<td class='cell100 column1-aat'>"."<a href='checkFiling.php?check={$row['tech_id']}'><font color='green'> </i> "; echo $row['tech_name']; echo "</font></a>"."</td>";
+                                                echo "<td class='cell100 column6-aat'>"."<a href='checkFiling.php?check={$row['tech_id']}'><font color='green'> </i> "; echo $row['tech_name']; echo "</font></a>"."</td>";
+                                                echo "<td class='cell100 column6-aat'>"; echo $row['inventor']; echo "</td>";
                                                 echo "<td class='cell100 column2-aat'>"."<a href='download.php?dl={$row['tech_id']}'>"; echo $row['tech_filename']; echo "</a>"."</td>";
                                                 echo "<td class='cell100 column3-aat'>"; echo $row['tech_owner']; echo "</td>";
                                                 echo "<td class='cell100 column4-aat'>"; echo $row['file_type']; echo "</td>";
