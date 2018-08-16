@@ -30,12 +30,14 @@
     $exe = mysqli_query($db,$getPic);
 
     $put = mysqli_fetch_assoc($exe);
+
+    $tableNum = 1;
   
 ?>
 
 <!DOCTYPE html>
 <html class="fadeIn">
-<title>Admin's Page</title>
+<title>Staff's Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/style.css">
@@ -144,7 +146,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             <div id="result">
             
 
-                                    <?php
+                                   <?php
                                         if(empty($nm)){
                                             $sql1 = "SELECT * FROM approvedreq order by reqDate ASC";
                                             $view1 = mysqli_query($db,$sql1);
@@ -152,25 +154,27 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                             echo "<table>";
                                             echo "<tbody>";
                                             echo "<tr class='row100 body'>";
-                                            echo "<td class='cell100 column1-aars'><b>Name</b></td>";
+                                            echo "<td><b></b></td>";
+                                            echo "<td class='cell100 column6-aars'><b>Name</b></td>";
                                             echo "<td class='cell100 column2-aars'><b>Reason</b></td>";
                                             echo "<td class='cell100 column3-aars'><b>Email</b></td>";
                                             echo "<td class='cell100 column4-aars'><b>Contact</b></td>";
                                             echo "<td class='cell100 column5-aars'><b>Date</b></td>";
                                             echo "<td class='cell100 column6-aars'><b>Time</b></td>";
-                                            /*echo "<td class='cell100 column7-aaa'><b>Status</b></td>";*/
+                                            echo "<td class='cell100 column7-aars'><b>Status</b></td>";
                                             echo "</tr>";
                             
 
                                             while($pending=mysqli_fetch_assoc($view1)) {
-                                                echo "<td class='cell100 column2-aaa'>".$pending['firstname']." ";
+                                                echo "<td>".$tableNum."</td>";
+                                                echo "<td class='cell100 column6-aars'>".$pending['firstname']." ";
                                                 echo "".$pending['lastname']."</td>";
-                                                echo "<td class='cell100 column3-aaa'>".$pending['reason']."</td>";
-                                                echo "<td class='cell100 column4-aaa'>".$pending['email']."</td>";
-                                                echo "<td class='cell100 column5-aaa'>".$pending['contact']."</td>";
-                                                echo "<td class='cell100 column6-aaa'>".$pending['reqdate']."</td>";
-                                                echo "<td class='cell100 column6-aaa'>".$pending['reqTime']."</td>";
-                                                /*echo "<td class='cell100 column7-aaa'>"."<font color='green' size='5>'<i class='fas fa-check fa-fw'></i></font>"." &nbsp ".""."</td>";*/
+                                                echo "<td class='cell100 column2-aars'>".$pending['reason']."</td>";
+                                                echo "<td class='cell100 column3-aars'>".$pending['email']."</td>";
+                                                echo "<td class='cell100 column4-aars'>".$pending['contact']."</td>";
+                                                echo "<td class='cell100 column5-aars'>".$pending['reqdate']."</td>";
+                                                echo "<td class='cell100 column6-aars'>".$pending['reqTime']."</td>";
+                                                echo "<td class='cell100 column7-aars'>"."<font color='green' size='5>'<i class='fas fa-check fa-fw'></i></font>"." &nbsp ".""."</td>";
                                                 echo "</tr>";
                            
                                             }

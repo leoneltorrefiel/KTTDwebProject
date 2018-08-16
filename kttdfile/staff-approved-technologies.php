@@ -38,6 +38,8 @@
 
     $put = mysqli_fetch_assoc($exe);
 
+    $tableNum = 1;
+
 ?>
 
 
@@ -127,13 +129,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <p>Dashboard><b>Approved Technologies</b></p>
   </header>
 
+  <div id="div-id-name">
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
           <div class="search-bar-container"><i class="fa fa-search fa-fw"></i>
       <input class="search-bar" type="text" name="searchNAme" id="searchName" placeholder="Search Technology" onKeyUp="search();" autocomplete="off" style="height:30px; width:200px">
       </div> 
-
+          <div id="div-id-name">
         <div class="table100 ver2 m-b-110">
                     <div class="table100-head">
             <table>
@@ -151,27 +154,33 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             <table>
               <tbody>
                                 <tr class="row100 body">
-                  <td class="cell100 column1-aat"><b>Technology Name</b></td>
+                                    <td><b></td>
+                                    <td class="cell100 column6-aat"><b>Technology Name</b></td>
+                                    <td class="cell100 column6-aat"><b>Inventor</b></td>
                                     <td class="cell100 column2-aat"><b>Attached File</b></td>
-                  <td class="cell100 column3-aat"><b>Tech Owner</b></td>
+                                    <td class="cell100 column3-aat"><b>Tech Owner</b></td>
                                     <td class="cell100 column4-aat"><b>Filing Type</b></td>
-                                    <td class="cell100 column5-aat"><b>Filing Date</b></td>
+                                    <td class="cell100 column5-aat"><b>Date Filed</b></td>
                                     <td class="cell100 column6-aat"><b>Step Status</b></td>
                 </tr>
                                 <tr>
                                     <?php
                                         if(empty($nm)) {
-                                            $sql = "SELECT * from technologies order by date_approved DESC";
+                                            $sql = "SELECT * from technologies order by date_approved ASC";
                                             $result = mysqli_query($db,$sql);
 
                                             while($row=mysqli_fetch_assoc($result)) {
-                                                echo "<td class='cell100 column1-aat'>"."<a href='checkFiling2.php?check={$row['tech_id']}'><font color='green'> </i> "; echo $row['tech_name']; echo "</font></a>"."</td>";
+                                                echo "<td>"; echo $tableNum; echo "</td>";
+                                                echo "<td class='cell100 column6-aat'>"."<a href='checkFiling2.php?check={$row['tech_id']}'><font color='green'> </i> "; echo $row['tech_name']; echo "</font></a>"."</td>";
+                                                echo "<td class='cell100 column6-aat'>"; echo $row['inventor']; echo "</td>";
                                                 echo "<td class='cell100 column2-aat'>"."<a href='download.php?dl={$row['tech_id']}'>"; echo $row['tech_filename']; echo "</a>"."</td>";
                                                 echo "<td class='cell100 column3-aat'>"; echo $row['tech_owner']; echo "</td>";
                                                 echo "<td class='cell100 column4-aat'>"; echo $row['file_type']; echo "</td>";
                                                 echo "<td class='cell100 column5-aat'>"."<a{$row['tech_id']}'>"; echo $row['date_request']; echo "</a>"."</td>";
                                                 echo "<td class='cell100 column6-aat'>"; echo $row['status']; echo "</td>";
                                                 echo "</tr>";
+
+                                                $tableNum++;
                                             }
                                         }
                                     ?>

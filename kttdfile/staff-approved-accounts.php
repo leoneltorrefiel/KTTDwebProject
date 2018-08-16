@@ -40,6 +40,9 @@
     $put = mysqli_fetch_assoc($exe);
 
 
+     $tableNum = 1;
+
+
 ?>
 
 
@@ -161,8 +164,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                             echo "<table>";
                                             echo "<tbody>";
                                             echo "<tr class='row100 body'>";
+                                            echo "<td><b></b></td>";
                                             echo "<td class='cell100 column1-aaa'><b></b></td>";
-                                            echo "<td class='cell100 column2-aaa'><b>Fullname</b></td>";
+                                            echo "<td class='cell100 column2-aaa'><b>Full Name</b></td>";
                                             echo "<td class='cell100 column3-aaa'><b>Username</b></td>";
                                             echo "<td class='cell100 column4-aaa'><b>Email</b></td>";
                                             echo "<td class='cell100 column5-aaa'><b>Contact</b></td>";
@@ -172,6 +176,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                             
 
                                             while($pending=mysqli_fetch_assoc($view1)) {
+                                              echo "<td>".$tableNum."</td>";
                                                 echo "<td class='cell100 column1-aaa'>"."<center><img  height='50' width='50' src='".$pending['file_path']."'></center>"."</td>";
                                                 echo "<td class='cell100 column2-aaa'>".$pending['firstname']." ";
                                                 echo "".$pending['lastname']."</td>";
@@ -181,8 +186,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                                 echo "<td class='cell100 column6-aaa'>".$pending['account_type']."</td>";
                                                 /*echo "<td class='cell100 column7-aaa'>"."<center><a href='staff-update-account.php?update={$pending['account_id']}'><submit><font color='green' size='5'><i class='fa fa-edit'></i></font></submit></a>"." &nbsp "."<center>"."</td>";*/
                                                 echo "</tr>";
-                           
-                                            }
+                                                 $tableNum++;
+                                            } 
                                         }
                                     ?>
                 
@@ -194,9 +199,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         </div>
     </div>
     <div style="margin-top: -100px">
-    <span>Totals Staff Accounts:  <strong><?php echo "  $countStaff"; ?></strong></span>
     <span class="span2">Totoal Client Accounts:  <strong><?php echo "  $countClient"; ?></strong></span>
-    <span class="span3">Total Accounts:  <strong><?php echo "  $count"; ?></strong></span>
   </div>
     
   </div>

@@ -1,4 +1,4 @@
-<?php
+  <?php
 
   include('server.php');
 
@@ -139,26 +139,29 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 						<table>
 							<tbody>
                                 <tr class="row100 body">
-									<td class="cell100 column1-amt"><b>Technology Name</b></td>
-                                    <td class="cell100 column2"><b>Filling Type</b></td>
-									<td class="cell100 column3"><b>Tech Status</b></td>
-                                    <td class="cell100 column3"><center><b>Filing Status</b></center></td>
+									                  <td class="cell100 column6-aat"><b>Technology Name</b></td>
+                                    <td class="cell100 column2-aat"><b>Inventor</b></td>
+                                    <td class="cell100 column3-aat"><b>Filling Type</b></td>
+									                  <td class="cell100 column4-aat"><b>Tech Status</b></td>
+                                    <td class="cell100 column6-aat"><center><b>Filing Status</b></center></td>
 								</tr>
                                 <tr>
                                     <?php
                             while($pending1=mysqli_fetch_assoc($res1)){
-                            echo "<td class='cell100 column1-amt'>".$pending1['tech_name']."</td>";
-                            echo "<td class='cell100 column2'>".$pending1['file_type']."</td>";
-                            echo "<td class='cell100 column3'>"."Approved"."</td>";
-                            echo "<td class='cell100 column3'><center>"."<a href='view-admin-tech.php?check={$pending1['tech_id']}'><font color='#8ec735'><i class='fa fa-eye fa-fw'></i></font></a>"."</center></td>";
+                            echo "<td class='cell100 column6-aat'>".$pending1['tech_name']."</td>";
+                            echo "<td class='cell100 column2-aat'>".$pending1['inventor']."</td>";
+                            echo "<td class='cell100 column3-aat'>".$pending1['file_type']."</td>";
+                            echo "<td class='cell100 column4-aat'>"."Approved"."</td>";
+                            echo "<td class='cell100 column6-aat'><center>"."<a href='view-admin-tech.php?check={$pending1['tech_id']}'><font color='#8ec735'><i class='fa fa-eye fa-fw'></i></font></a>"."</center></td>";
                             echo "<tr>"; 
                             }
 
                             while($pending=mysqli_fetch_assoc($res_1)){
-                            echo "<td class='cell100 column1-amt'>".$pending['pending_tech_name']."</td>";
-                            echo "<td class='cell100 column2'>".$pending['pen_file_type']."</td>";
-                            echo "<td class='cell100 column3'>"."Waiting..."."</td>";
-                            echo "<td class='cell100 column3'><center>"."<font color='#4e4d50' size=''><i class='far fa-eye-slash fa-fw'></i></font>"."</center></td>";
+                            echo "<td class='cell100 column6-aat'>".$pending['pending_tech_name']."</td>";
+                            echo "<td class='cell100 column2-aat'>".$pending['inventor']."</td>";
+                            echo "<td class='cell100 column3-aat'>".$pending['pen_file_type']."</td>";
+                            echo "<td class='cell100 column4-aat'>"."Waiting..."."</td>";
+                            echo "<td class='cell100 column6-aat'><center>"."<font color='#4e4d50' size=''><i class='far fa-eye-slash fa-fw'></i></font>"."</center></td>";
                             echo "<tr>"; 
                             echo "</tr>";
                             }

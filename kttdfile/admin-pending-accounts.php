@@ -110,6 +110,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
+        <div class="search-bar-container"><i class="fa fa-search fa-fw"></i>
+      <input class="search-bar" type="text" name="searchNAme" id="searchName" placeholder="Search Username" onKeyUp="search();" autocomplete="off" style="height:30px; width:200px">
+      </div>
+
+        <div id="div-id-name">
 				<div class="table100 ver2 m-b-110">
                     <div class="table100-head">
 						<table>
@@ -122,21 +127,29 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 						</table>
 					</div>
 					<div class="table100-body js-pscroll">
-						<table>
-							<tbody>
-                                <tr class="row100 body">
-                                  <td></td>
-									<td class="cell100 column1-apa"></td>
-									<td class="cell100 column2-apa"><b>Fullame</b></td>
-                                    <td class="cell100 column3-apa"><b>Username</b></td>
-                                    <td class="cell100 column4-apa"><b>Email</b></td>
-                                    <td class="cell100 column5-apa"><b>Contact</b></td>
-                                    <td class="cell100 column6-apa"><b>Type</b></td>
-                                    <td class="cell100 column7-apa"><b>Action</b></td>
-								</tr> 
+            <div id="result">
                                 
                                     <?php
-                                        while($pending=mysqli_fetch_assoc($view1)){
+
+                                      if(empty($nm)){
+
+                                        $sql1 = "SELECT * FROM pending_account order by datetime ASC";
+                                            $view1 = mysqli_query($db,$sql1);
+
+                                            echo "<table>";
+                                            echo "<tbody>";
+                                            echo "<tr class='row100 body'>";
+                                            echo "<td><b></b></td>";
+                                            echo "<td class='cell100 column1-apa'><b></b></td>";
+                                            echo "<td class='cell100 column2-apa'><b>Full Name</b></td>";
+                                            echo "<td class='cell100 column3-apa'><b>Username</b></td>";
+                                            echo "<td class='cell100 column4-apa'><b>Email</b></td>";
+                                            echo "<td class='cell100 column5-apa'><b>Contact</b></td>";
+                                            echo "<td class='cell100 column6-apa'><b>Type</b></td>";
+                                            echo "<td class='cell100 column7-apa'><b>Action</b></td>";
+                                            echo "</tr>";
+
+                                            while($pending=mysqli_fetch_assoc($view1)){
                                             echo "<tr><td>".$tableNum."</td>";
                                             echo "<td class='cell100 column1-apa'>"."<center><img  height='50' width='50' src='".$pending['file_path']."'></center>"."</td>";
                                             echo "<td class='cell100 column2-apa'>".$pending['firstname']." ";
@@ -150,10 +163,15 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                             $tableNum++;
                       
                                         }
+
+                                      }
+                                        
                                     ?>
                                 
 							</tbody>
 						</table>
+          </div>
+          </div>
 					</div>
 				</div>
         <div style="margin-top: -100px">
@@ -203,7 +221,7 @@ function w3_close() {
 
 function search(){
         xmlhttp= new XMLHttpRequest();
-        xmlhttp.open("GET","searchBar4.php?nm="+ document.getElementById("searchName").value,false);
+        xmlhttp.open("GET","searchBar5.php?nm="+ document.getElementById("searchName").value,false);
         xmlhttp.send(null);
         document.getElementById("result").innerHTML=xmlhttp.responseText;
         document.getElementById("result").style.visibility='visible';

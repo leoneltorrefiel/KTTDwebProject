@@ -20,8 +20,15 @@
 
   $sql1 = "SELECT * FROM pending_tech order by datetime ASC";
   $view1 = mysqli_query($db,$sql1);
-
   $count = mysqli_num_rows($view1);
+
+   $sql2 = "SELECT * from pending_tech where pen_file_type='Copyright' ";
+    $view2 = mysqli_query($db,$sql2);
+    $countCR = mysqli_num_rows($view2);
+
+    $sql3 = "SELECT * from pending_tech where pen_file_type='Patent' ";
+    $view3 = mysqli_query($db,$sql3);
+    $countP = mysqli_num_rows($view3);
 
   $tableNum = 1;
 
@@ -122,6 +129,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
+         <div class="search-bar-container"><i class="fa fa-search fa-fw"></i>
+      <input class="search-bar" type="text" name="searchNAme" id="searchName" placeholder="Search Technology" onKeyUp="search();" autocomplete="off" style="height:30px; width:200px">
+      </div> 
+      <div id="div-id-name">
 				<div class="table100 ver2 m-b-110">
                     <div class="table100-head">
 						<table>
@@ -134,47 +145,58 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 						</table>
 					</div>
 					<div class="table100-body js-pscroll">
+            <div id="div-id-name">
+          <div id="result">
 						<table>
 							<tbody>
                                 <tr class="row100 body">
                                     <td><b>&nbsp&nbsp&nbsp</b></td>
-									                  <td class="cell100 column6-apt"><b>Technology Name</b></td>
-                                    <td class="cell100 column6-apt"><b>Inventor</b></td>
-                                    <td class="cell100 column2-apt"><b>Description</b></td>
-                                    <td class="cell100 column3-apt"><b>Attached File</b></td>
-									                  <td class="cell100 column4-apt"><b>Tech Owner</b></td>
-                                    <td class="cell100 column5-apt"><b>Filing Type</b></td>
-                                    <td class="cell100 column6-apt"><b>Filing Date</b></td>
-                                    <td class="cell100 column6-apt"><b>Action</b></td>
+									                  <td class="cell100 column6-aat"><b>Technology Name</b></td>
+                                    <td class="cell100 column6-aat"><b>Inventor</b></td>
+                                    <td class="cell100 column2-aat"><b>Description</b></td>
+                                    <td class="cell100 column3-aat"><b>Attached File</b></td>
+                                    <td class="cell100 column4-aat"><b>Filing Type</b></td>
+                                    <td class="cell100 column5-aat"><b>Date Filed</b></td>
+                                    <td class="cell100 column6-aat"><b>Action</b></td>
 								</tr>
                              
                                     <?php
-                                        while($pending=mysqli_fetch_assoc($view1)) { 
+                                        if(empty($nm)){
+                                           $sql = "SELECT * from pending_tech order by datetime ASC";
+                                            $result = mysqli_query($db,$sql);
+
+                                            while($pending=mysqli_fetch_assoc($result)) { 
                                             echo "<tr>";
                                              echo "<td>".$tableNum."</td>";
-                                            echo "<td class='cell100 column6-apt'>".$pending['pending_tech_name']."</td>";
-                                            echo "<td class='cell100 column6-apt'>".$pending['inventor']."</td>";
-                                            echo "<td class='cell100 column2-apt'>".$pending['pending_tech_description']."</td>";
-                                            echo "<td class='cell100 column3-apt'>"."<a href='download.php?download={$pending['pending_tech_id']}'>".$pending['p_tech_filename']."</a>"."</td>";
-                                            echo "<td class='cell100 column4-apt'>".$pending['pending_tech_owner']."</td>";
-                                            echo "<td class='cell100 column5-apt'>".$pending['pen_file_type']."</td>";
-                                            echo "<td class='cell100 column6-apt'>".$pending['datetime']."</td>";
+                                            echo "<td class='cell100 column6-aat'>".$pending['pending_tech_name']."</td>";
+                                            echo "<td class='cell100 column6-aat'>".$pending['inventor']."</td>";
+                                            echo "<td class='cell100 column2-aat'>".$pending['pending_tech_description']."</td>";
+                                            echo "<td class='cell100 column3-aat'>"."<a href='download.php?download={$pending['pending_tech_id']}'>".$pending['p_tech_filename']."</a>"."</td>";
+                                            echo "<td class='cell100 column4-aat'>".$pending['pen_file_type']."</td>";
+                                            echo "<td class='cell100 column5-aat'>".$pending['datetime']."</td>";
                                             
-                                            echo "<td class='cell100 column6-apt'>"."<submit><a href='approve2.php?approve={$pending['pending_tech_id']}'><font color='green' size='5'><i class='fa fa-thumbs-up'></i></font></a></submit>"." &nbsp "."<submit><a href='decline2.php?decline={$pending['pending_tech_id']}'><font color='red' size='5'><i class='fa fa-trash'></i></font></a></submit>"."</td>";
+                                            echo "<td class='cell100 column6-aat'>"."<submit><a href='approve2.php?approve={$pending['pending_tech_id']}'><font color='green' size='5'><i class='fa fa-thumbs-up'></i></font></a></submit>"." &nbsp "."<submit><a href='decline2.php?decline={$pending['pending_tech_id']}'><font color='red' size='5'><i class='fa fa-trash'></i></font></a></submit>"."</td>";
                                             echo "</tr>";
 
                                             $tableNum++;
 
+                                          }
                                         }
+
+                                        
                                     ?>
-                                
+                                </tr>
 							</tbody>
 						</table>
+          </div>
 					</div>
 				</div>
-        <div style="margin-top: -100px">
-        <span>Totals Request:  <strong><?php echo "  $count"; ?></strong></span>
-        </div>
+      </div>
+    </div>
+         <div style="margin-top: -100px">
+          <span>Totals Copyright:  <strong><?php echo "  $countCR"; ?></strong></span>
+          <span class="span2">Totoal Patent:  <strong><?php echo "  $countP"; ?></strong></span>
+          <span class="span3">Total Technologies:  <strong><?php echo "  $count"; ?></strong></span>
       </div>
     </div>
   </div>
@@ -216,6 +238,15 @@ function w3_close() {
     mySidebar.style.display = "none";
     overlayBg.style.display = "none";
 }
+
+function search(){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.open("GET","searchBar4.php?nm="+ document.getElementById("searchName").value,false);
+        xmlhttp.send(null);
+        document.getElementById("result").innerHTML=xmlhttp.responseText;
+        document.getElementById("result").style.visibility='visible';
+    }
+
 </script>
 </body>
 </html>
