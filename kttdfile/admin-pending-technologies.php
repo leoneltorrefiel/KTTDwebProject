@@ -32,6 +32,7 @@
 
   $tableNum = 1;
 
+
 ?>
 
 <!DOCTYPE html>
@@ -129,6 +130,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
+        <form method="post" action="admin-pending-technologies.php">
+        <select name="dpSearch" id="dpSearch">
+            <option value="All">All</option>
+            <option value="Copyright">Copyright</option>
+            <option value="Patent">Patent</option>
+          </select>&nbsp&nbsp<span><button name="filter">Filter Data</button></span>
+        </form>
          <div class="search-bar-container"><i class="fa fa-search fa-fw"></i>
       <input class="search-bar" type="text" name="searchNAme" id="searchName" placeholder="Search Technology" onKeyUp="search();" autocomplete="off" style="height:30px; width:200px">
       </div> 
@@ -147,6 +155,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 					<div class="table100-body js-pscroll">
             <div id="div-id-name">
           <div id="result">
+            <div id="drop">
 						<table>
 							<tbody>
                                 <tr class="row100 body">
@@ -161,8 +170,23 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 								</tr>
                              
                                     <?php
-                                        if(empty($nm)){
-                                           $sql = "SELECT * from pending_tech order by datetime ASC";
+                                        $sql = "SELECT * from pending_tech order by datetime ASC";
+                                            
+                                          if(isset($_POST['filter'])){
+
+                                              $filterData = $_POST['dpSearch'];
+
+                                                if($filterData == 'All'){
+                                                  $sql = "SELECT * from pending_tech order by datetime ASC";
+                                                }
+                                                if($filterData == 'Copyright'){
+                                                  $sql = "SELECT * from pending_tech where pen_file_type = 'Copyright' order by datetime ASC";
+                                                }
+                                                if($filterData == 'Patent'){
+                                                  $sql = "SELECT * from pending_tech where pen_file_type = 'Patent' order by datetime ASC";
+                                                }
+                                             }
+                                            
                                             $result = mysqli_query($db,$sql);
 
                                             while($pending=mysqli_fetch_assoc($result)) { 
@@ -181,7 +205,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                             $tableNum++;
 
                                           }
-                                        }
+                                        
+
+
 
                                         
                                     ?>
@@ -189,6 +215,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 							</tbody>
 						</table>
           </div>
+        </div>
 					</div>
 				</div>
       </div>
@@ -245,6 +272,14 @@ function search(){
         xmlhttp.send(null);
         document.getElementById("result").innerHTML=xmlhttp.responseText;
         document.getElementById("result").style.visibility='visible';
+    }
+
+function dropSearch(){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.open("GET","dropdown1.php?dp="+ document.getElementById("dpSearch").value,false);
+        xmlhttp.send(null);
+        document.getElementById("drop").innerHTML=xmlhttp.responseText;
+        document.getElementById("drop").style.visibility='visible';
     }
 
 </script>

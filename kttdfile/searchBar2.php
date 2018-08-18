@@ -15,7 +15,7 @@
      echo "<tbody>";
      echo "<tr class='row100 body'>";
      echo "<td><b></b></td>";
-     echo "<td class='cell100 column1-aaa'><b></b></td>";
+     echo "<td class='cell100 column6-aaa'><b></b></td>";
      echo "<td class='cell100 column2-aaa'><b>Fullname</b></td>";
      echo "<td class='cell100 column3-aaa'><b>Username</b></td>";
      echo "<td class='cell100 column4-aaa'><b>Email</b></td>";
@@ -26,7 +26,7 @@
 	while($row=mysqli_fetch_assoc($result)){
 		echo "<tr>";
 		echo "<td>"; echo $tableNum; echo "</td>";
-		echo "<td class='cell100 column1-aaa'>"."<center><img  height='50' width='50' src='"; echo $row['file_path']; echo "'>"."</center>"."</td>";
+		echo "<td class='cell100 column6-aaa'>"."<center><img  height='50' width='50' src='"; echo $row['file_path']; echo "'>"."</center>"."</td>";
 		echo "<td class='cell100 column2-aaa'>"; echo $row['firstname']; echo " ";
         echo ""; echo $row['lastname']; echo "</td>";
         echo "<td class='cell100 column3-aaa'>"; echo $row['username']; echo "</td>";

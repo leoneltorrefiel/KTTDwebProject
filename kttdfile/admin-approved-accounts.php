@@ -132,6 +132,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
+        <form method="post" action="admin-approved-accounts.php">
+        <select name="dpSearch" id="dpSearch">
+            <option value="All">All</option>
+            <option value="Staff">Staff</option>
+            <option value="Client">Client</option>
+          </select>&nbsp&nbsp<span><button name="filter">Filter Data</button></span>
+        </form>
     <div class="search-bar-container"><i class="fa fa-search fa-fw"></i>
       <input class="search-bar" type="text" name="searchNAme" id="searchName" placeholder="Search Username" onKeyUp="search();" autocomplete="off" style="height:30px; width:200px">
       </div>    
@@ -156,6 +163,22 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                     <?php
                                         if(empty($nm)){
                                             $sql1 = "SELECT * FROM account order by dateApproved ASC";
+
+                                             if(isset($_POST['filter'])){
+
+                                              $filterData = $_POST['dpSearch'];
+
+                                                if($filterData == 'All'){
+                                                  $sql1 = "SELECT * from account order by dateApproved ASC";
+                                                }
+                                                if($filterData == 'Staff'){
+                                                  $sql1 = "SELECT * from account where account_type = 'Staff' order by dateApproved ASC";
+                                                }
+                                                if($filterData == 'Client'){
+                                                  $sql1 = "SELECT * from account where account_type = 'Client' order by dateApproved ASC";
+                                                }
+                                             }
+
                                             $view1 = mysqli_query($db,$sql1);
 
                                             echo "<table>";

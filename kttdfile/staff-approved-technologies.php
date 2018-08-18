@@ -133,6 +133,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
+        <form method="post" action="staff-approved-technologies.php">
+        <select name="dpSearch" id="dpSearch">
+            <option value="All">All</option>
+            <option value="Copyright">Copyright</option>
+            <option value="Patent">Patent</option>
+          </select>&nbsp&nbsp<span><button name="filter">Filter Data</button></span>
+        </form>
           <div class="search-bar-container"><i class="fa fa-search fa-fw"></i>
       <input class="search-bar" type="text" name="searchNAme" id="searchName" placeholder="Search Technology" onKeyUp="search();" autocomplete="off" style="height:30px; width:200px">
       </div> 
@@ -167,6 +174,22 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                     <?php
                                         if(empty($nm)) {
                                             $sql = "SELECT * from technologies order by date_approved ASC";
+
+                                            if(isset($_POST['filter'])){
+
+                                              $filterData = $_POST['dpSearch'];
+
+                                                if($filterData == 'All'){
+                                                  $sql = "SELECT * from technologies order by date_approved ASC";
+                                                }
+                                                if($filterData == 'Copyright'){
+                                                  $sql = "SELECT * from technologies where file_type = 'Copyright' order by date_approved ASC";
+                                                }
+                                                if($filterData == 'Patent'){
+                                                  $sql = "SELECT * from technologies where file_type = 'Patent' order by date_approved ASC";
+                                                }
+                                             }
+
                                             $result = mysqli_query($db,$sql);
 
                                             while($row=mysqli_fetch_assoc($result)) {
